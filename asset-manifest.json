@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.js": "/slim-mom-calculate-daily-calorie-frontend/static/js/main.3fe4e8b8.js",
-    "Main_page.js": "/slim-mom-calculate-daily-calorie-frontend/static/js/Main_page.af995726.chunk.js",
-    "Public__Route.js": "/slim-mom-calculate-daily-calorie-frontend/static/js/Public__Route.ac5991bb.chunk.js",
-    "Private__Route.js": "/slim-mom-calculate-daily-calorie-frontend/static/js/Private__Route.47a30e3e.chunk.js",
-    "index.html": "/slim-mom-calculate-daily-calorie-frontend/index.html",
-    "main.3fe4e8b8.js.map": "/slim-mom-calculate-daily-calorie-frontend/static/js/main.3fe4e8b8.js.map",
-    "Main_page.af995726.chunk.js.map": "/slim-mom-calculate-daily-calorie-frontend/static/js/Main_page.af995726.chunk.js.map",
-    "Public__Route.ac5991bb.chunk.js.map": "/slim-mom-calculate-daily-calorie-frontend/static/js/Public__Route.ac5991bb.chunk.js.map",
-    "Private__Route.47a30e3e.chunk.js.map": "/slim-mom-calculate-daily-calorie-frontend/static/js/Private__Route.47a30e3e.chunk.js.map"
+    "main.js": "/static/js/main.820e7bf7.js",
+    "Main_page.js": "/static/js/Main_page.af995726.chunk.js",
+    "Public__Route.js": "/static/js/Public__Route.ac5991bb.chunk.js",
+    "Private__Route.js": "/static/js/Private__Route.47a30e3e.chunk.js",
+    "index.html": "/index.html",
+    "main.820e7bf7.js.map": "/static/js/main.820e7bf7.js.map",
+    "Main_page.af995726.chunk.js.map": "/static/js/Main_page.af995726.chunk.js.map",
+    "Public__Route.ac5991bb.chunk.js.map": "/static/js/Public__Route.ac5991bb.chunk.js.map",
+    "Private__Route.47a30e3e.chunk.js.map": "/static/js/Private__Route.47a30e3e.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.3fe4e8b8.js"
+    "static/js/main.820e7bf7.js"
   ]
 }
