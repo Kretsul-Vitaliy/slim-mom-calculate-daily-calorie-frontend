@@ -8,7 +8,7 @@ import App from './App';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter basename="/slim-mom-calculate-daily-calorie-frontend">
+    <BrowserRouter basename="/">
       <Provider store={store}>
         <PersistGate
           loading={<h2>PLEASE WAIT LOADING ....</h2>}
