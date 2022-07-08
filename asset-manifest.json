@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.js": "/slim-mom-calculate-daily-calorie-frontend/static/js/main.cd153a85.js",
+    "Main_page.js": "/slim-mom-calculate-daily-calorie-frontend/static/js/Main_page.af995726.chunk.js",
+    "Public__Route.js": "/slim-mom-calculate-daily-calorie-frontend/static/js/Public__Route.ac5991bb.chunk.js",
+    "Private__Route.js": "/slim-mom-calculate-daily-calorie-frontend/static/js/Private__Route.47a30e3e.chunk.js",
+    "index.html": "/slim-mom-calculate-daily-calorie-frontend/index.html",
+    "main.cd153a85.js.map": "/slim-mom-calculate-daily-calorie-frontend/static/js/main.cd153a85.js.map",
+    "Main_page.af995726.chunk.js.map": "/slim-mom-calculate-daily-calorie-frontend/static/js/Main_page.af995726.chunk.js.map",
+    "Public__Route.ac5991bb.chunk.js.map": "/slim-mom-calculate-daily-calorie-frontend/static/js/Public__Route.ac5991bb.chunk.js.map",
+    "Private__Route.47a30e3e.chunk.js.map": "/slim-mom-calculate-daily-calorie-frontend/static/js/Private__Route.47a30e3e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.cd153a85.js"
+  ]
+}

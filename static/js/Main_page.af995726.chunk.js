@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkslim_mom_calculate_daily_calorie_frontend=self.webpackChunkslim_mom_calculate_daily_calorie_frontend||[]).push([[963],{2979:function(e,n,l){l.r(n),l.d(n,{default:function(){return s}});var c=l(3484),i=l(2467),r=l(5089),a=l(3329),s=function(){return(0,a.jsx)(a.Fragment,{children:(0,a.jsxs)("div",{children:[(0,a.jsx)("h3",{children:"MainPage"}),(0,a.jsxs)(c.Z,{children:[(0,a.jsx)(i.Z,{}),(0,a.jsx)(r.Z,{})]})]})})}}}]);
+//# sourceMappingURL=Main_page.af995726.chunk.js.map
