@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import "../../helpers/variables.css";
+import styled from 'styled-components';
+import '../../helpers/variables.css';
 
 export const SignInHeader = styled.h1`
   font-family: GothamPro-Bold;
@@ -9,4 +9,8 @@ export const SignInHeader = styled.h1`
   text-align: center;
   text-transform: uppercase;
   color: var(--extra-color);
+
+  @media screen and (min-width: 768px) {
+    text-align: start;
+  }
 `;
