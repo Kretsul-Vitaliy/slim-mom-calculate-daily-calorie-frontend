@@ -1,4 +1,4 @@
-import { ContainerWrapper } from "./StyledContainer";
+import { ContainerWrapper } from "./Container.styled";
 
 const Container = ({ children }) => (
   <ContainerWrapper>{children}</ContainerWrapper>

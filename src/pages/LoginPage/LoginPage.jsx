@@ -1,7 +1,7 @@
-import Container from "../../components/Container";
-import Header from "../../components/Header";
-import LoginForm from "../../components/LoginForm";
-import { SignInHeader } from "./StyledLoginPage";
+import Container from '../../components/Container';
+import Header from '../../components/Header';
+import LoginForm from '../../components/LoginForm';
+import { SignInHeader } from './LoginPage.styled';
 
 const LoginPage = () => {
   return (
