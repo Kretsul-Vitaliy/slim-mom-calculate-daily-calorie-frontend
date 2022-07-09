@@ -2,7 +2,6 @@ import Container from '../../components/Container';
 import Header from '../../components/Header';
 import DailyCaloriesForm from '../../components/DailyCaloriesForm';
 import LanguageSelector from '../../components/LanguageSelector'
-import Navigation from '../../components/Navigation'
 
 const MainPage = () => {
 
@@ -10,7 +9,6 @@ const MainPage = () => {
     <>
       <div>
         <h3>MainPage</h3>
-        <Navigation />
         <LanguageSelector />
         <Container>
           <Header />
