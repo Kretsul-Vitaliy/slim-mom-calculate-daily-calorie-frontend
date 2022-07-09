@@ -1,7 +1,7 @@
-import Container from "../../components/Container";
-import Header from "../../components/Header";
-import DailyCaloriesForm from "../../components/DailyCaloriesForm";
-import DiaryDateСalendar from "../../components/DiaryDateСalendar";
+import Container from '../../components/Container';
+import Header from '../../components/Header';
+import DailyCaloriesForm from '../../components/DailyCaloriesForm';
+import LanguageSelector from '../../components/LanguageSelector'
 import { useTranslation } from "react-i18next";
 
 const MainPage = () => {
@@ -19,6 +19,8 @@ const MainPage = () => {
         <button onClick={() => changeLanguage("ru")}>ru</button>
         <button onClick={() => changeLanguage("uk")}>uk</button>
         <button onClick={() => changeLanguage("en")}>en</button>
+
+        <LanguageSelector />
         <Container>
           <Header />
           <DailyCaloriesForm />
