@@ -1,12 +1,12 @@
-import { useFormik } from "formik";
-import Button from "../Button";
-import { Labels, Input, Form, ButtonsWrapper } from "./StyledLoginForm";
+import { useFormik } from 'formik';
+import Button from '../Button';
+import { Labels, Input, Form, ButtonsWrapper } from './LoginForm.styled';
 
 export default function LoginForm() {
   const formik = useFormik({
     initialValues: {
-      email: "",
-      password: "",
+      email: '',
+      password: '',
     },
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
