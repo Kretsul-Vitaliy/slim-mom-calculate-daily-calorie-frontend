@@ -1,14 +1,23 @@
 import { useState } from 'react'
+import { useSelector } from 'react-redux';
+
+import { getIsAuthenticated } from '../../redux/auth/authSelector';
+
 import Container from '../Container'
 import desctop from "../../images/logo/logo-desctop.svg";
 import tablet from "../../images/logo/logo-tablet.svg";
 import mobile from "../../images/logo/logo-mobile.svg";
-import { HeaderEl, HeaderContainer, Picture, Divider, NavList, Menu } from "./Header.styled";
+import { HeaderEl, HeaderContainer, Picture, Divider, NavList, Menu, BurgerButton } from "./Header.styled";
 import Navigation, { UnloggedNavItems } from "../Navigation"
 import LanguageSelector from '../LanguageSelector';
+import { GiHamburgerMenu } from "react-icons/gi";
+import { GrClose } from "react-icons/gr";
 
 const Header = () => {
-  const [isOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
+
+  const isLogged = useSelector(getIsAuthenticated);
+
 
   return (
     <HeaderEl>
@@ -40,10 +49,18 @@ const Header = () => {
 
           <Menu>            
             <Navigation isOpen={isOpen} />
-
-            <NavList>
-              <UnloggedNavItems />
-            </NavList>
+            
+            {!isLogged
+              ?  <BurgerButton onClick={() => setIsOpen(!isOpen)}>
+                    {isOpen
+                      ? <GrClose />
+                      : <GiHamburgerMenu  />
+                    }
+                  </BurgerButton>
+              :  <NavList>
+                    <UnloggedNavItems />
+                  </NavList>
+            }
             
             <LanguageSelector />
           </Menu>
