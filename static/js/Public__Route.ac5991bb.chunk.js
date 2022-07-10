@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkslim_mom_calculate_daily_calorie_frontend=self.webpackChunkslim_mom_calculate_daily_calorie_frontend||[]).push([[253],{215:function(e,r,t){t.r(r),t.d(r,{default:function(){return u}});var n=t(9434),i=t(6871),c=function(e){return e.auth.isLogged},o=t(3329);function u(e){var r=e.children,t=e.restricted,u=void 0!==t&&t,a=e.redirectTo,l=void 0===a?"/":a;return(0,n.v9)(c)&&u?(0,o.jsx)(i.Fg,{to:l}):r}}}]);
-//# sourceMappingURL=Public__Route.ac5991bb.chunk.js.map
