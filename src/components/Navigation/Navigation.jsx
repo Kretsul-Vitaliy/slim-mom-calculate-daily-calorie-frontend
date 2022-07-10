@@ -1,23 +1,32 @@
-import { useTranslation } from 'react-i18next'
+import { useSelector } from 'react-redux';
 
-import { List, Item, StyledNavLink } from './Navigation.styled'
+import { getIsAuthenticated } from '../../redux/auth/authSelector';
+
+import { NavWrapper, List } from './Navigation.styled'
+
+import LoggedNavItems from './LoggedNavItems'
+import UnloggedNavItems from './UnloggedNavItems'
 
 
-const Navigation = () => {
-  const { t } = useTranslation()
+const Navigation = ({isOpen}) => {
+
+  const isLogged = useSelector(getIsAuthenticated);
 
   return (
-    <nav>
+    <NavWrapper className={isOpen ? "menu-open" : ""}>
       <List>
-        <Item>
-          <StyledNavLink to="/diary">{t?.('nav.diary')}</StyledNavLink>
-        </Item>
-        <Item>
-          <StyledNavLink to="/calculator">{t?.('nav.calculator')}</StyledNavLink>
-        </Item>
+        {isLogged
+              ?
+              <LoggedNavItems />
+              :
+              <UnloggedNavItems />
+          }
       </List>
-    </nav>
+    </NavWrapper>
   );
 };
+
+
+
 
 export default Navigation;

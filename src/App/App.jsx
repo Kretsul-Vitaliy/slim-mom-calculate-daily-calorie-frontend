@@ -11,6 +11,8 @@ import DiaryPage from "../pages/DiaryPage";
 import CalculatorPage from "../pages/CalculatorPage";
 import GlobalStyle from "../theme/GlobalStyle.styled";
 
+import Header from '../components/Header'
+
 const MainPage = lazy(() =>
   import("../pages/MainPage" /* webpackChunkName: "Main_page" */)
 );
@@ -36,6 +38,7 @@ const App = () => {
     <>
       <GlobalStyle />
       <Suspense fallback={<h2>Loading</h2>}>
+        <Header />
         <Routes>
           <Route
             path="/"

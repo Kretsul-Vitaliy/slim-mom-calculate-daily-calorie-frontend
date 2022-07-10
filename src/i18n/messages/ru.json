@@ -1,6 +1,8 @@
 {
     "nav": {
         "diary": "Дневник",
-        "calculator": "Калькулятор"
+        "calculator": "Калькулятор",
+        "login": "Войти",
+        "registration": "Зарегистрироваться"
     }
 }
