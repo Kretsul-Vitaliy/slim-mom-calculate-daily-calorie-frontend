@@ -1,12 +1,40 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
+const NavWrapper = styled.nav`
+    display: flex;
+    align-items: flex-end;
+
+    @media screen and (max-width: 1279px) {
+        opacity: 0;
+        pointer-events: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: var(--calories-diary-color);
+        padding-top: 100px;
+        z-index: 2;
+        &.menu-open {
+            opacity: 1;
+            pointer-events: all;
+        }
+    }
+`
+
 const List = styled.ul`
     display: flex;
     flex-direction: column;
 
     @media screen and (min-width: 1280px) {
         flex-direction: row;
+    }
+    @media screen and (max-width: 1279px) {
+        margin: 0 auto;
+        align-self: flex-start;
+        text-align: center;
     }
 `
 
@@ -54,4 +82,4 @@ const StyledNavLink = styled(NavLink)`
     }
 `;
 
-export { List, Item, StyledNavLink }
+export { NavWrapper, List, Item, StyledNavLink }

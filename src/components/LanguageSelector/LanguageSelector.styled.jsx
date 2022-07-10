@@ -9,6 +9,15 @@ const SwitcherWrapper = styled.div`
 
 	position: relative;
 	z-index: 3;
+    
+    align-self: center;
+    @media screen and (min-width: 1280px) {
+        align-self: flex-end;
+        transform: translate(50%, -20%);   
+    }
+    @media screen and (max-width: 767px) {
+        transform: translate(0, -5%);
+    }
 `
 const SwitcherList = styled.div`
     display: flex;

@@ -1,6 +1,8 @@
 {
     "nav": {
         "diary": "Diary",
-        "calculator": "Calculator"
+        "calculator": "Calculator",
+        "login": "Sign in",
+        "registration": "Registration"
     }
 }
