@@ -1,12 +1,13 @@
 import Container from '../../components/Container';
 import Header from '../../components/Header';
 import DailyCaloriesForm from '../../components/DailyCaloriesForm';
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'react-i18next';
+import AuthorizeGoogle from '../../components/AuthorizeGoogle/AuthorizeGoogle';
 
 const MainPage = () => {
-  const {t, i18n} = useTranslation()
-  
-  const changeLanguage = (lang) => {
+  const { t, i18n } = useTranslation();
+
+  const changeLanguage = lang => {
     i18n.changeLanguage(lang);
   };
 
@@ -21,6 +22,7 @@ const MainPage = () => {
         <Container>
           <Header />
           <DailyCaloriesForm />
+          <AuthorizeGoogle />
         </Container>
       </div>
     </>
