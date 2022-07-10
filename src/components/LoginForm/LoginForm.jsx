@@ -1,6 +1,13 @@
 import { useFormik } from 'formik';
+
 import Button from '../Button';
-import { Labels, Input, Form, ButtonsWrapper } from './LoginForm.styled';
+import {
+  Labels,
+  Input,
+  Form,
+  ButtonsWrapper,
+  StyledNavLink,
+} from './LoginForm.styled';
 
 export default function LoginForm() {
   const formik = useFormik({
@@ -8,10 +15,14 @@ export default function LoginForm() {
       email: '',
       password: '',
     },
-    onSubmit: (values) => {
+
+    onSubmit: values => {
       alert(JSON.stringify(values, null, 2));
     },
   });
+
+  const { email, password } = formik.values;
+
   return (
     <Form onSubmit={formik.handleSubmit}>
       <Labels htmlFor="email">Email *</Labels>
@@ -20,7 +31,8 @@ export default function LoginForm() {
         name="email"
         type="email"
         onChange={formik.handleChange}
-        value={formik.values.email}
+        value={email}
+        required
       />
 
       <Labels htmlFor="password">Password *</Labels>
@@ -29,14 +41,15 @@ export default function LoginForm() {
         name="password"
         type="password"
         onChange={formik.handleChange}
-        value={formik.values.password}
+        value={password}
+        required
       />
       <ButtonsWrapper>
-        <Button type="submit" active size="short">
+        <Button type="submit" disabled={!email || !password} size="short">
           Log in
         </Button>
         <Button type="button" size="short">
-          Register
+          <StyledNavLink to="/signup">Register</StyledNavLink>
         </Button>
       </ButtonsWrapper>
     </Form>

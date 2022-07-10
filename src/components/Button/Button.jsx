@@ -1,19 +1,12 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { ButtonStyled } from "./Button.styled";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { ButtonStyled } from './Button.styled';
 
-export default function Button({
-  children,
-  disabled,
-  active = false,
-  onClick,
-  ...attrs
-}) {
+export default function Button({ children, disabled, onClick, ...attrs }) {
   return (
     <ButtonStyled
       {...attrs}
-      active={active ? active : null}
-      disabled={disabled}
+      disabled={disabled ? disabled : null}
       onClick={onClick}
     >
       {children}
@@ -29,7 +22,7 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-  children: "Default button",
+  children: 'Default button',
   onClick: () => {},
   disabled: false,
   active: false,
