@@ -1,21 +1,19 @@
-import "react-datepicker/dist/react-datepicker.css";
-import { useState } from "react";
+import 'react-datepicker/dist/react-datepicker.css';
 import {
   Calendar,
   ImagesCalendar,
   CalendsrContainer,
-} from "./DiaryDateCalendar.styled";
-import calendarImg from "../../images/calendar/calendar.svg";
+} from './DiaryDateCalendar.styled';
+import calendarImg from '../../images/calendar/calendar.svg';
 
-const DiaryDateСalendar = () => {
-  const [startDate, setStartDate] = useState(new Date());
-  // console.log(startDate.toLocaleDateString());
+const DiaryDateСalendar = ({ dateCalendar, setDateCalendar }) => {
+  // console.log(dateCalendar.toLocaleDateString());
   return (
     <CalendsrContainer>
       <Calendar
         dateFormat="dd.MM.yyyy"
-        selected={startDate}
-        onChange={(date) => setStartDate(date)}
+        selected={dateCalendar}
+        onChange={date => setDateCalendar(date)}
       ></Calendar>
       <ImagesCalendar src={calendarImg} alt="icon" />
     </CalendsrContainer>
