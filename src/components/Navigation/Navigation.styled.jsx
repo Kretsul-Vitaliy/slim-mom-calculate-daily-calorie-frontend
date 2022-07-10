@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 const NavWrapper = styled.nav`
     display: flex;
     align-items: flex-end;
+    transition: all 0.3s ease;
 
     @media screen and (max-width: 1279px) {
         opacity: 0;

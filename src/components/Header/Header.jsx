@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux';
-import { Link } from "react-router-dom";
+import { useLocation, Link } from 'react-router-dom';
 
 import { getIsAuthenticated } from '../../redux/auth/authSelector';
 
@@ -19,6 +19,11 @@ const Header = () => {
 
   const isLogged = useSelector(getIsAuthenticated);
 
+  const location = useLocation();
+  
+  useEffect(() => {
+    setIsOpen(false)
+  }, [location]);
 
   return (
     <HeaderEl>
