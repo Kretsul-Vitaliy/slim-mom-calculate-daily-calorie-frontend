@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useSelector } from 'react-redux';
+import { Link } from "react-router-dom";
 
 import { getIsAuthenticated } from '../../redux/auth/authSelector';
 
@@ -23,7 +24,7 @@ const Header = () => {
     <HeaderEl>
       <Container>
       <HeaderContainer>
-          <div>
+          <Link to="/diary">
             <Picture>
               <source
                 media="(max-width: 767px)"
@@ -43,7 +44,7 @@ const Header = () => {
               />
               <img src={mobile} alt="Логотип" />
             </Picture>
-          </div>
+          </Link>
 
           <Divider />
 
