@@ -9,7 +9,7 @@ const AuthorizeGoogle = () => {
   return (
     <>
       <div>
-        <NavlinkInfoStyled to="/auth/google" exact="true">
+        <NavlinkInfoStyled to="/" exact="true">
           <GoogleBtn>
             <GoogleIcon src={logo} alt="google" />
             Google
