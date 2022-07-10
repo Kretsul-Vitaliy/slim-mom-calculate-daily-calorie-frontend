@@ -50,3 +50,6 @@ export const getDataProducts = async (query) => {
   const { data } = await axios.get(`products?search=${query}`);
   return data;
 };
+
+
+// https://slimcalculatebackend.herokuapp.com/api/v1/products/20.07.2022

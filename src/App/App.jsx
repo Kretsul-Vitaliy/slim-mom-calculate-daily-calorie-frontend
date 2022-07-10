@@ -1,27 +1,27 @@
-import { Suspense, useEffect, lazy } from "react";
-import { useDispatch } from "react-redux";
-import { Route, Navigate, Routes } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
+import { Suspense, useEffect, lazy } from 'react';
+import { useDispatch } from 'react-redux';
+import { Route, Navigate, Routes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 
-import { getUserInfoCurrent } from "../redux/user/userOperation";
+import { getUserInfoCurrent } from '../redux/user/userOperation';
 
-import LoginPage from "../pages/LoginPage";
-import RegistrationPage from "../pages/RegistrationPage";
-import DiaryPage from "../pages/DiaryPage";
-import CalculatorPage from "../pages/CalculatorPage";
-import GlobalStyle from "../theme/GlobalStyle.styled";
+import LoginPage from '../pages/LoginPage';
+import RegistrationPage from '../pages/RegistrationPage';
+import DiaryPage from '../pages/DiaryPage';
+import CalculatorPage from '../pages/CalculatorPage';
+import GlobalStyle from '../theme/GlobalStyle.styled';
 
 const MainPage = lazy(() =>
-  import("../pages/MainPage" /* webpackChunkName: "Main_page" */)
+  import('../pages/MainPage' /* webpackChunkName: "Main_page" */)
 );
 const PublicRoute = lazy(() =>
   import(
-    "../components/PublicRoute/PublicRoute" /* webpackChunkName: "Public__Route" */
+    '../components/PublicRoute/PublicRoute' /* webpackChunkName: "Public__Route" */
   )
 );
 const PrivateRoute = lazy(() =>
   import(
-    "../components/PrivateRoute/PrivateRoute" /* webpackChunkName: "Private__Route" */
+    '../components/PrivateRoute/PrivateRoute' /* webpackChunkName: "Private__Route" */
   )
 );
 
