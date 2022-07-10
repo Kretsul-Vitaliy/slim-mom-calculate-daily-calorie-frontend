@@ -1,20 +1,16 @@
-import {
-  NavlinkInfoStyled,
-  GoogleBtn,
-  GoogleIcon,
-} from './AuthorizeGoogle.styled';
+import { GoogleBtn, GoogleIcon } from './AuthorizeGoogle.styled';
 import logo from '../../images/svg/google.svg';
 
 const AuthorizeGoogle = () => {
   return (
     <>
       <div>
-        <NavlinkInfoStyled to="auth/google" exact="true">
+        <a href="https://slimcalculatebackend.herokuapp.com/api/v1/auth/google">
           <GoogleBtn>
             <GoogleIcon src={logo} alt="google" />
             Google
           </GoogleBtn>
-        </NavlinkInfoStyled>
+        </a>
       </div>
     </>
   );
