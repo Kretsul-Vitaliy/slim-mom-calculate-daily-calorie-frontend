@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/static/css/main.fe3f2d80.css",
-    "main.js": "/static/js/main.908dc369.js",
-    "Main_page.js": "/static/js/Main_page.1fe7369b.chunk.js",
+    "main.js": "/static/js/main.c71f5d95.js",
+    "Main_page.js": "/static/js/Main_page.3f7666b5.chunk.js",
     "Public__Route.js": "/static/js/Public__Route.ac5991bb.chunk.js",
     "Private__Route.js": "/static/js/Private__Route.47a30e3e.chunk.js",
     "static/media/Verdana.woff": "/static/media/Verdana.48368d57cdc69cb65189.woff",
@@ -13,16 +13,17 @@
     "static/media/GothamPro-Bold.woff": "/static/media/GothamPro-Bold.e8ddda7220a05cf00f1c.woff",
     "static/media/GothamPro.woff": "/static/media/GothamPro.9e3de47599b8a119a2b3.woff",
     "static/media/GothamPro-Light.woff": "/static/media/GothamPro-Light.1c262bae1f403fe781a2.woff",
+    "static/media/google.svg": "/static/media/google.cf3c7e5ea68a2c42829c694a69313578.svg",
     "index.html": "/index.html",
     "static/media/getFetch.cjs": "/static/media/getFetch.c780682470504fffbd04.cjs",
     "main.fe3f2d80.css.map": "/static/css/main.fe3f2d80.css.map",
-    "main.908dc369.js.map": "/static/js/main.908dc369.js.map",
-    "Main_page.1fe7369b.chunk.js.map": "/static/js/Main_page.1fe7369b.chunk.js.map",
+    "main.c71f5d95.js.map": "/static/js/main.c71f5d95.js.map",
+    "Main_page.3f7666b5.chunk.js.map": "/static/js/Main_page.3f7666b5.chunk.js.map",
     "Public__Route.ac5991bb.chunk.js.map": "/static/js/Public__Route.ac5991bb.chunk.js.map",
     "Private__Route.47a30e3e.chunk.js.map": "/static/js/Private__Route.47a30e3e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.fe3f2d80.css",
-    "static/js/main.908dc369.js"
+    "static/js/main.c71f5d95.js"
   ]
 }
