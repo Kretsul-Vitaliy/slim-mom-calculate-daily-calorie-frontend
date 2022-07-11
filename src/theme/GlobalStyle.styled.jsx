@@ -1,4 +1,9 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
+
+import bgDesktop1x from '../images/background/background-desktop.jpg';
+import bgDesktop2x from '../images/background/background-desktop@2x.jpg';
+import bgTablet1x from '../images/background/background-tablet.jpg';
+import bgTablet2x from '../images/background/background-tablet@2x.jpg';
 
 const GlobalStyle = createGlobalStyle`
 * {
@@ -18,6 +23,28 @@ const GlobalStyle = createGlobalStyle`
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+// Backgraund image
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: top center;
+    background-attachment: fixed;
+       @media screen and (min-width: 768px) {
+    background-image: url(${bgTablet1x});
+   }
+  @media (min-device-pixel-ratio: 2) and (min-width: 768px),
+    (min-resolution: 192dpi) and (min-width: 768px),
+    (min-resolution: 2dppx) and (min-width: 768px) {
+    background-image: url(${bgTablet2x});
+  }
+  @media screen and (min-width: 1280px) {
+    background-image: url(${bgDesktop1x});
+  }
+  @media (min-device-pixel-ratio: 2) and (min-width: 1280px),
+    (min-resolution: 192dpi) and (min-width: 1280px),
+    (min-resolution: 2dppx) and (min-width: 1280px) {
+    background-image: url(${bgDesktop2x});
+  }
   }
   img {
     display: block;
