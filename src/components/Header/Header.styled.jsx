@@ -99,5 +99,19 @@ const Menu = styled.div`
     display: flex;
 `
 
+const BurgerButton = styled.button`
+  border: none;
+  background: transparent;
+  align-self: center;
 
-export { HeaderEl, HeaderContainer, Picture, Link, Divider, NavList, Menu }
+  cursor: pointer;
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    transform: translate(0, 10%);
+  }
+  @media screen and (min-width: 1280px) {
+    display: none;
+  }
+`
+
+
+export { HeaderEl, HeaderContainer, Picture, Link, Divider, NavList, Menu, BurgerButton }
