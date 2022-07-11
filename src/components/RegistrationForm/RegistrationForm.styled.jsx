@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
-import styled from "styled-components";
-import Button from "../Button";
+import { NavLink } from 'react-router-dom';
+import styled from 'styled-components';
+import Button from '../Button';
 const ContainerRegistration = styled.div`
   padding: 40px 0 100px 0;
   margin-left: auto;
@@ -17,7 +17,7 @@ const ContainerRegistration = styled.div`
 const TitleRegistration = styled.h2`
   color: var(--extra-color);
   text-transform: uppercase;
-  font-family: GothamPro;
+  font-family: GothamPro-Bold;
   font-style: normal;
   font-size: 14px;
   font-weight: 700;
@@ -29,9 +29,6 @@ const TitleRegistration = styled.h2`
     line-height: 0.9;
     text-align: start;
   }
-`;
-const FormRegistration = styled.form`
-  /* display: block; */
 `;
 const FormRegistrationList = styled.ul`
   margin: 60px 0;
@@ -48,7 +45,7 @@ const FormRegistrationLabel = styled.label`
   display: flex;
   width: auto;
   height: 16px;
-  font-family: Verdana;
+  font-family: Verdana-Bold;
   font-style: normal;
   font-weight: 700;
   font-size: 14px;
@@ -69,10 +66,30 @@ const FormRegistrationInput = styled.input`
   }
 `;
 
-const RegistrationEnterLink = styled(Link)`
+const RegistrationEnterLink = styled(NavLink)`
+  font-family: Verdana-Bold;
   display: flex;
+  justify-content: center;
+  align-items: center;
   text-decoration: none;
-  color: var(--color-white);
+  color: var(--extra-color);
+  width: 182px;
+  height: 44px;
+  border-radius: 30px;
+  border: 1px solid var(--extra-color);
+  padding: 12px 50px;
+  font-family: Verdana-Bold;
+  margin-bottom: 20px;
+  &:hover,
+  :focus {
+    background: var(--extra-color);
+    color: var(--color-white);
+    box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+  }
+  @media screen and (min-width: 768px) {
+    margin-bottom: 0;
+    margin-right: 32px;
+  }
 `;
 const ButtonContainer = styled.div`
   @media screen and (min-width: 768px) {
@@ -80,33 +97,17 @@ const ButtonContainer = styled.div`
   }
 `;
 const RegistrationButton = styled(Button)`
-  font-family: Verdana;
+  font-family: Verdana-Bold;
   margin-left: auto;
   margin-right: auto;
-  &:not(:first-child) {
-    margin-top: 20px;
-  }
-  &:hover,
-  &:focus {
-    border: 2px solid var(--extra-color);
-    box-shadow: none;
-    color: var(--extra-color);
-    background: var(--color-white);
-  }
   @media screen and (min-width: 768px) {
-    flex-wrap: nowrap;
     margin-left: 0;
     margin-right: 0;
-    &:not(:first-child) {
-      margin-left: 32px;
-      margin-top: 0;
-    }
   }
 `;
 export {
   ContainerRegistration,
   TitleRegistration,
-  FormRegistration,
   FormRegistrationList,
   FormRegistrationListItem,
   FormRegistrationLabel,
