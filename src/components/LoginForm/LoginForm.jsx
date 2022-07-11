@@ -1,6 +1,5 @@
 import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
-import { toast } from 'react-toastify';
 import { login } from '../../redux/auth/authOperation';
 
 import Button from '../Button';
@@ -21,7 +20,7 @@ export default function LoginForm() {
       password: '',
     },
 
-    onSubmit: async ({ email, password }) => {
+    onSubmit: ({ email, password }) => {
       dispatch(login({ email, password }));
 
       formik.resetForm();
