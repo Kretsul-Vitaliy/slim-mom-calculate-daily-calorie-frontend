@@ -1,10 +1,11 @@
-import React from "react";
-import { useFormik } from "formik";
-import * as Yup from "yup";
+import React from 'react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 import {
   ContainerRegistration,
   TitleRegistration,
-  FormRegistration,
   FormRegistrationList,
   FormRegistrationListItem,
   FormRegistrationLabel,
@@ -12,44 +13,50 @@ import {
   RegistrationEnterLink,
   ButtonContainer,
   RegistrationButton,
-} from "./RegistrationForm.styled.jsx";
-import { useDispatch } from "react-redux";
-import { register } from "../../redux/auth/authOperation";
+} from './RegistrationForm.styled.jsx';
+import { useDispatch } from 'react-redux';
+import { register } from '../../redux/auth/authOperation';
 const RegistrationForm = () => {
+  const notify = () =>
+    toast('Please, check your email and confirm your account!');
+
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
-      name: "",
-      email: "",
-      password: "",
+      name: '',
+      email: '',
+      password: '',
     },
     validationSchema: Yup.object({
       name: Yup.string()
-        .min(2, "Too Short!")
-        .max(15, "Too Long!")
-        .required("Required"),
-      email: Yup.string().email("Invalid email").required("Required"),
+        .min(2, 'Too Short!')
+        .max(15, 'Too Long!')
+        .required('Required'),
+      email: Yup.string().email('Invalid email').required('Required'),
       password: Yup.string()
-        .min(6, "Too Short!")
-        .max(12, "Too Long!")
-        .required("Required"),
+        .min(6, 'Too Short!')
+        .max(12, 'Too Long!')
+        .required('Required'),
     }),
-    onSubmit: (values) => {
+    onSubmit: values => {
       const payload = {
         name: values.name,
         email: values.email,
         password: values.password,
       };
       dispatch(register(payload));
+      notify();
       formik.resetForm();
       console.log(values);
     },
   });
 
+  const { name, email, password } = formik.values;
+
   return (
     <ContainerRegistration>
       <TitleRegistration>Register</TitleRegistration>
-      <FormRegistration onSubmit={formik.handleSubmit}>
+      <form onSubmit={formik.handleSubmit}>
         <FormRegistrationList>
           <FormRegistrationListItem>
             <FormRegistrationLabel htmlFor="name">Name *</FormRegistrationLabel>
@@ -58,7 +65,8 @@ const RegistrationForm = () => {
               name="name"
               type="text"
               onChange={formik.handleChange}
-              value={formik.values.name}
+              value={name}
+              required
             />
             {formik.touched.name && formik.errors.name ? (
               <div>{formik.errors.name}</div>
@@ -74,7 +82,8 @@ const RegistrationForm = () => {
               type="email"
               onChange={formik.handleChange}
               password
-              value={formik.values.email}
+              value={email}
+              required
             />
             {formik.touched.email && formik.errors.email ? (
               <div>{formik.errors.email}</div>
@@ -89,7 +98,8 @@ const RegistrationForm = () => {
               name="password"
               type="password"
               onChange={formik.handleChange}
-              value={formik.values.password}
+              value={password}
+              required
             />
             {formik.touched.password && formik.errors.password ? (
               <div>{formik.errors.password}</div>
@@ -97,14 +107,16 @@ const RegistrationForm = () => {
           </FormRegistrationListItem>
         </FormRegistrationList>
         <ButtonContainer>
-          <RegistrationButton type="button" active size="short">
-            <RegistrationEnterLink to="/login"></RegistrationEnterLink>Login
-          </RegistrationButton>
-          <RegistrationButton type="submit" active size="short">
+          <RegistrationEnterLink to="/login">Log in</RegistrationEnterLink>
+          <RegistrationButton
+            type="submit"
+            disabled={!name || !email || !password}
+            size="short"
+          >
             Register
           </RegistrationButton>
         </ButtonContainer>
-      </FormRegistration>
+      </form>
     </ContainerRegistration>
   );
 };
