@@ -65,8 +65,15 @@ export const ButtonsWrapper = styled.div`
   }
 `;
 
+export const ButtonText = styled.span`
+  font-family: Verdana-Bold;
+  font-size: 14px;
+  line-height: 0.82;
+  letter-spacing: 0.04em;
+`;
 export const StyledNavLink = styled(NavLink)`
   color: var(--extra-color);
+  padding: 13px 51px;
 
   button:hover & {
     color: var(--color-white);

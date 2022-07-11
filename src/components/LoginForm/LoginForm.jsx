@@ -1,4 +1,7 @@
 import { useFormik } from 'formik';
+import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
+import { login } from '../../redux/auth/authOperation';
 
 import Button from '../Button';
 import {
@@ -7,17 +10,21 @@ import {
   Form,
   ButtonsWrapper,
   StyledNavLink,
+  ButtonText,
 } from './LoginForm.styled';
 
 export default function LoginForm() {
+  const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
       email: '',
       password: '',
     },
 
-    onSubmit: values => {
-      alert(JSON.stringify(values, null, 2));
+    onSubmit: async ({ email, password }) => {
+      dispatch(login({ email, password }));
+
+      formik.resetForm();
     },
   });
 
@@ -46,10 +53,12 @@ export default function LoginForm() {
       />
       <ButtonsWrapper>
         <Button type="submit" disabled={!email || !password} size="short">
-          Log in
+          <ButtonText>Log in</ButtonText>
         </Button>
         <Button type="button" size="short">
-          <StyledNavLink to="/signup">Register</StyledNavLink>
+          <StyledNavLink to="/signup">
+            <ButtonText>Register</ButtonText>
+          </StyledNavLink>
         </Button>
       </ButtonsWrapper>
     </Form>
