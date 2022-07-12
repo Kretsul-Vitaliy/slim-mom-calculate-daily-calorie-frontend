@@ -33,8 +33,12 @@ export const ButtonStyled = styled.button`
                 height: 44px;
             `;
       case 'long':
-        return `padding:13px 25px;
+        return `
+                display: block;
+                padding:13px 25px;
                 width:210px;
+                margin: auto;
+                
             `;
       case 'addBtn':
         return `padding:13px 46px;

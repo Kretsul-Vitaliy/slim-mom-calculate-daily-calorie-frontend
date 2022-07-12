@@ -1,6 +1,7 @@
 import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
 import { login } from '../../redux/auth/authOperation';
+import * as yup from 'yup';
 
 import Button from '../Button';
 import {
@@ -19,7 +20,10 @@ export default function LoginForm() {
       email: '',
       password: '',
     },
-
+    validationSchema: yup.object().shape({
+      email: yup.string().email().required(),
+      password: yup.string().min(6, 'Too Short!').required(),
+    }),
     onSubmit: ({ email, password }) => {
       dispatch(login({ email, password }));
 
