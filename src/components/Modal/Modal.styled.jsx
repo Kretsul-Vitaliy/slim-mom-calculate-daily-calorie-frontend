@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const ModalOverlay = styled.div`
   position: fixed;
@@ -7,12 +7,14 @@ const ModalOverlay = styled.div`
   z-index: 1040;
   width: 100vw;
   height: 100vh;
-  background: rgba(33, 33, 33, 0.12);
+  @media only screen and (min-width: 769px) {
+    background: rgba(33, 33, 33, 0.12);
+  }
 `;
 
 const ModalWrapper = styled.div`
-  position: fixed;
-  top: 0;
+  position: absolute;
+  top: 80px;
   left: 0;
   z-index: 1050;
   width: 100%;
@@ -23,13 +25,14 @@ const ModalWrapper = styled.div`
 `;
 
 const ModalContainer = styled.div`
+  font-family: Verdana-Bold;
   z-index: 100;
   background: white;
   position: relative;
   width: 100vw;
   height: 100vh;
   padding-top: 40px;
-  padding-bottom: 116px;
+  padding-bottom: 119px;
   padding-left: 20px;
   padding-right: 20px;
   @media only screen and (min-width: 769px) {
@@ -41,30 +44,29 @@ const ModalContainer = styled.div`
     height: 573px;
     padding-top: 64px;
     padding-bottom: 81px;
-    padding-left: 171px;
-    padding-right: 171px;
+    padding-left: 82px;
+    padding-right: 82px;
   }
 `;
 
 const ModalContent = styled.div`
-  color: black;
+  width: 280px;
+  margin: 0 auto;
+  @media only screen and (min-width: 769px) {
+    width: 509px;
+  }
 `;
-export { ModalContainer, ModalContent, ModalOverlay, ModalWrapper };
 
-// export const OverlayModal = styled.div`
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   width: 100vw;
-//   height: 100vh;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   background-color: rgba(0, 0, 0, 0.8);
-//   z-index: 1200;
-// `;
-// export const ModalBox = styled.div`
-//   max-width: calc(100vw - 48px);
-//   max-height: calc(100vh - 24px);
-//   overflow: auto;
-// `;
+const TurnBack = styled.div`
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  height: 40px;
+  width: 100%;
+  background: #eff1f3;
+  @media only screen and (min-width: 769px) {
+    display: none;
+  }
+`;
+
+export { ModalContainer, ModalContent, TurnBack, ModalOverlay, ModalWrapper };

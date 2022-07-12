@@ -1,4 +1,6 @@
 import { useFormik } from 'formik';
+import * as Yup from 'yup';
+import useModal from '../../hooks/useModal';
 import Button from '../Button';
 import axios from 'axios';
 import {
@@ -14,12 +16,32 @@ import {
   InputBox,
   Label,
 } from './DailyCaloriesForm.styled';
+import Modal from '../Modal/Modal';
+import { useState } from 'react';
+
 axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
 
-// "ФОРМУЛА ДЛЯ РОЗРАХУНКУ ДЕННОЇ НОРМИ КАЛОРІЙ ЖІНКАМ
-// 10 * вага + 6.25 * зріст - 5 * вік - 161 - 10 * (вага - бажана вага)"
-
 const DailyCaloriesForm = () => {
+  const { isShowing, toggle } = useModal();
+  const [calories, setCalories] = useState(0);
+  const [products, setProducts] = useState([]);
+  const [id, setId] = useState();
+
+  // const validationSchema = Yup.object().shape({
+  //   height: Yup.number()
+  //     .min(100, 'Value must be greater than or equal to 100!')
+  //     .required('Required'),
+  //   age: Yup.number()
+  //     .min(18, 'Value must be greater than or equal to 18!')
+  //     .required('Required'),
+  //   currentWeight: Yup.number()
+  //     .min(20, 'Value must be greater than or equal to 20!')
+  //     .required('Required'),
+  //   desiredWeight: Yup.number()
+  //     .min(20, 'Value must be greater than or equal to 20!')
+  //     .required('Required'),
+  // });
+
   const formik = useFormik({
     initialValues: {
       height: '',
@@ -29,27 +51,45 @@ const DailyCaloriesForm = () => {
       bloodType: 1,
     },
     onSubmit: values => {
-      alert(JSON.stringify(values, null, 2));
+      getCalories(values);
       formik.resetForm();
     },
+    // validationSchema,
   });
   const { height, age, currentWeight, desiredWeight, bloodType } =
     formik.values;
 
-  // const getDailyCaloriesNormal = () =>
-  //   10 * currentWeight +
-  //   6.25 * height -
-  //   5 * age -
-  //   161 -
-  //   10 * (currentWeight - desiredWeight);
-
-  // const getProducts = async () => {
-  //   const { data } = await axios.post(`dailycalories`);
-  //   return data;
-  // };
+  const getCalories = values => {
+    const data = JSON.stringify(values);
+    const headers = {
+      'Content-Type': 'application/json',
+    };
+    axios
+      .post('dailycalories/public', data, {
+        headers,
+      })
+      .then(res => {
+        console.log(res.data);
+        const { dailyCalories, categories, _id } = res.data.data;
+        setCalories(dailyCalories);
+        setProducts([...categories]);
+        setId(_id);
+        toggle();
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
 
   return (
     <Wrapper>
+      <Modal
+        isShowing={isShowing}
+        hide={toggle}
+        calories={calories}
+        products={products}
+        id={id}
+      />
       <Title>
         Calculate your daily calorie
         <br /> intake right now
@@ -112,7 +152,12 @@ const DailyCaloriesForm = () => {
             >
               <RadioLabel>
                 1
-                <RadioInput type="radio" name="bloodType" value="1" />
+                <RadioInput
+                  type="radio"
+                  name="bloodType"
+                  value="1"
+                  defaultChecked
+                />
               </RadioLabel>
               <RadioLabel>
                 2

@@ -1,20 +1,39 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { RiCloseFill } from "react-icons/ri";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { RiCloseFill } from 'react-icons/ri';
+import { IoMdReturnLeft } from 'react-icons/io';
+import Button from '../Button';
+import { Link } from 'react-router-dom';
 import {
   ModalOverlay,
   ModalWrapper,
   ModalContainer,
+  TurnBack,
   ModalContent,
-} from "./Modal.styled";
-import { Title, Text, Line, List, Item } from "./ModalContent.styled";
-import { ButtonClose } from "./ModalContent.styled";
-const Modal = ({ isShowing, hide, children }) => {
+} from './Modal.styled';
+import {
+  Title,
+  Text,
+  Line,
+  List,
+  TitleList,
+  Item,
+} from './ModalContent.styled';
+import { ButtonClose } from './ModalContent.styled';
+
+const modalRoot = document.querySelector('#modal');
+
+const Modal = ({ isShowing, hide, children, calories, products, id }) => {
   return isShowing
     ? ReactDOM.createPortal(
         <React.Fragment>
           <ModalOverlay />
           <ModalWrapper onClick={hide}>
+            <TurnBack>
+              <Link to="/">
+                <IoMdReturnLeft size={13} />
+              </Link>
+            </TurnBack>
             <ModalContainer>
               <ButtonClose
                 type="button"
@@ -26,25 +45,23 @@ const Modal = ({ isShowing, hide, children }) => {
               </ButtonClose>
               <ModalContent>
                 {/* {children} */}
-                <Title>
-                  Your recommended daily
-                  <br /> calorie intake is
-                </Title>
-                <Text>
-                  2800 cal
-                  {/* кількість каллорій (приходить з бека) */}
-                </Text>
+                <Title>Your recommended daily calorie intake is</Title>
+                <Text>{calories} cal</Text>
                 <Line />
+                <TitleList>Foods you should not eat</TitleList>
                 <List>
-                  Foods you should not eat
-                  <Item>список (приходить з бека)</Item>
+                  {products.map(product => (
+                    <Item>{product}</Item>
+                  ))}
                 </List>
+                <Button type="button" size="long">
+                  Start losing weight
+                </Button>
               </ModalContent>
-              <button>Start losing weight</button>
             </ModalContainer>
           </ModalWrapper>
         </React.Fragment>,
-        document.body
+        modalRoot
       )
     : null;
 };

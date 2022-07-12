@@ -1,21 +1,21 @@
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  min-width: 320px;
+  width: 320px;
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 32px;
   padding-bottom: 100px;
   margin: 0 auto;
   @media only screen and (min-width: 769px) {
-    min-width: 768 px;
+    width: 768px;
     padding-top: 100px;
     padding-left: 32px;
     padding-right: 32px;
     padding-bottom: 400px;
   }
   @media only screen and (min-width: 1280px) {
-    min-width: 1280px;
+    width: 1280px;
     padding-top: 91px;
     padding-left: 16px;
     padding-right: auto;
@@ -37,15 +37,20 @@ const Title = styled.h2`
 `;
 
 const Input = styled.input`
+  font-family: Verdana-Bolt;
   width: 100%;
   padding: 8px 0;
   font-size: 16px;
-  color: rgb(0, 0, 0);
+  color: var(--text-secondary-color);
   margin-bottom: 32px;
   border: none;
   border-bottom: 1px solid var(--header-divider-color);
   outline: none;
   background: transparent;
+  ::-webkit-outer-spin-button,
+  ::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
 
   @media only screen and (min-width: 769px) {
     margin-bottom: 40px;
@@ -61,7 +66,7 @@ const Label = styled.label`
   line-height: 1.2;
   letter-spacing: 0.04em;
   font-size: 14px;
-  ${Input}:focus ~& {
+  ${Input}:focus ~ &,${Input}:valid ~ & {
     top: -20px;
     left: 0;
     font-size: 14px;
@@ -74,9 +79,7 @@ const RadioTitle = styled.div`
   line-height: 1.2;
   font-family: Verdana-Bold;
   margin-bottom: 8px;
-
   letter-spacing: 0.04em;
-
   color: var(--text-secondary-color);
 `;
 
@@ -88,14 +91,27 @@ const RadioGroup = styled.div`
   font-size: 14px;
   line-height: 1.2;
   letter-spacing: 0.04em;
+  &:checked {
+    color: var(--extra-color);
+    background: var(--extra-color);
+  }
 `;
 
 const RadioLabel = styled.label`
   margin-right: 24px;
   color: var(--text-secondary-color);
+  &:checked {
+    color: var(--extra-color);
+    background: var(--extra-color);
+  }
 `;
 
-const RadioInput = styled.input``;
+const RadioInput = styled.input`
+  &:checked + ${RadioLabel} {
+    color: var(--extra-color);
+    background: var(--extra-color);
+  }
+`;
 
 const Container = styled.div`
   :focus {
