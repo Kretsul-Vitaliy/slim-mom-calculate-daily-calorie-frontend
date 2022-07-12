@@ -30,10 +30,16 @@ const PrivateRoute = lazy(() =>
 const App = () => {
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getUserInfoCurrent());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(getUserInfoCurrent());
+  // }, [dispatch]);
 
+  useEffect(() => {
+    const token = window.location.search.split('=')[1];
+    if (token) {
+      dispatch(getUserInfoCurrent(token));
+    }
+  }, [dispatch]);
   return (
     <>
       <GlobalStyle />
@@ -80,6 +86,15 @@ const App = () => {
               </PublicRoute>
             }
           />
+          <Route
+            path="google"
+            element={
+              <PublicRoute restricted redirectTo="/login">
+                <CalculatorPage />
+              </PublicRoute>
+            }
+          />
+          ;
           <Route path="*" element={<Navigate to="/login" />} />
         </Routes>
       </Suspense>
