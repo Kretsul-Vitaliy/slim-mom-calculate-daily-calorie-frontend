@@ -5,7 +5,7 @@ import {
   getUserInfoError,
 } from './userAction';
 
-export const getUserInfoCurrent = () => async (dispatch) => {
+export const getUserInfoCurrent = () => async dispatch => {
   dispatch(getUserInfoRequest());
 
   try {
