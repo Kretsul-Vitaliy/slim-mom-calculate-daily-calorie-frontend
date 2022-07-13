@@ -11,6 +11,15 @@ export const tokenKey = {
   },
 };
 
+export const resetToken = {
+  set(resetToken) {
+    axios.defaults.headers.common.Authorization = `Bearer ${resetToken}`;
+  },
+  unset() {
+    axios.defaults.headers.common.Authorization = '';
+  },
+};
+
 // Authorization
 
 export const signUpUser = async body => {
@@ -45,8 +54,15 @@ export const userInfoCurrent = async persistedToken => {
     const { data } = await axios.get('users/current');
     return data;
   } catch (error) {
+    tokenKey.unset();
     return error;
   }
+};
+
+export const updateUser = async user => {
+  const { data } = await axios.put('/users/update', user);
+
+  return data.result;
 };
 
 // Products

@@ -1,4 +1,4 @@
-import Header from '../../components/Header';
+// import Header from '../../components/Header';
 import DailyCaloriesForm from '../../components/DailyCaloriesForm';
 import RacionSideBar from '../../components/RacionSideBar';
 import { useDispatch } from 'react-redux';
@@ -13,9 +13,9 @@ const CalculatorPage = () => {
   }, [dispatch]);
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <div>
-        CalculatorPage
+        {/* CalculatorPage */}
         <div>
           <DailyCaloriesForm />
         </div>

@@ -9,19 +9,15 @@ import {
 
 const initialUserInfo = {
   userData: {
-    currentWeight: 0,
-    height: 0,
-    age: 0,
-    desiredWeight: 0,
-    bloodType: 0,
-    dailyRate: 0,
+    currentWeight: null,
+    height: null,
+    age: null,
+    desiredWeight: null,
+    bloodType: null,
+    dailyRate: null,
   },
   days: [],
   _id: '',
-  name: '',
-  email: '',
-  password: '',
-  token: '',
 };
 
 const userInfo = createReducer(initialUserInfo, {
