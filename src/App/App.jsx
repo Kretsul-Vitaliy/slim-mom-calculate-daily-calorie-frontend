@@ -67,10 +67,9 @@ const App = () => {
           <Route
             path="diary"
             element={
-              <DiaryPage />
-              // <PrivateRoute redirectTo="/login">
-              //   <DiaryPage />
-              // </PrivateRoute>
+              <PrivateRoute redirectTo="/login">
+                <DiaryPage />
+              </PrivateRoute>
             }
           />
           <Route
