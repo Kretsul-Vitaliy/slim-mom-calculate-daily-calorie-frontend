@@ -1,7 +1,37 @@
 import styled from 'styled-components';
 
+export const MainContainer = styled.div`
+  position: relative;
+`;
+
 export const InputContainer = styled.div`
   display: flex;
+`;
+export const HelpingForm = styled.div`
+  position: absolute;
+  width: 500px;
+  max-height: 250px;
+  padding: 10px;
+  border: 1px solid black;
+  overflow: hidden;
+  background-color: var(--header-divider-color);
+  z-index: 10;
+
+  li {
+    font-size: 12px;
+    width: 100%;
+    cursor: pointer;
+    transition: var(--transition);
+
+    &:hover {
+      background-color: grey;
+      border-radius: 5px;
+    }
+
+    &:active {
+      background-color: grey;
+    }
+  }
 `;
 
 export const ProductInput = styled.div`
