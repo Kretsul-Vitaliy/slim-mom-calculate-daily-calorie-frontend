@@ -11,7 +11,7 @@ import DiaryPage from '../pages/DiaryPage';
 import CalculatorPage from '../pages/CalculatorPage';
 import GlobalStyle from '../theme/GlobalStyle.styled';
 
-import Header from '../components/Header'
+import Header from '../components/Header';
 
 const MainPage = lazy(() =>
   import('../pages/MainPage' /* webpackChunkName: "Main_page" */)
@@ -67,9 +67,10 @@ const App = () => {
           <Route
             path="diary"
             element={
-              <PrivateRoute redirectTo="/login">
-                <DiaryPage />
-              </PrivateRoute>
+              <DiaryPage />
+              // <PrivateRoute redirectTo="/login">
+              //   <DiaryPage />
+              // </PrivateRoute>
             }
           />
           <Route

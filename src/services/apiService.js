@@ -13,13 +13,13 @@ export const tokenKey = {
 
 // Authorization
 
-export const signUpUser = async (body) => {
+export const signUpUser = async body => {
   const { data } = await axios.post('auth/signup', body);
   tokenKey.set(data.token);
   return data;
 };
 
-export const logInUser = async (body) => {
+export const logInUser = async body => {
   const { data } = await axios.post('auth/login', body);
   tokenKey.set(data.token);
   return data;
@@ -31,7 +31,7 @@ export const logOutUser = async () => {
   return data;
 };
 
-export const userInfoCurrent = async (persistedToken) => {
+export const userInfoCurrent = async persistedToken => {
   if (!persistedToken) {
     throw Error('user');
   }
@@ -46,10 +46,47 @@ export const userInfoCurrent = async (persistedToken) => {
 
 // Products
 
-export const getDataProducts = async (query) => {
-  const { data } = await axios.get(`products?search=${query}`);
-  return data;
+export const getDataProducts = async query => {
+  tokenKey.set();
+  try {
+    const { data } = await axios.get(`/products?search=${query}`);
+    return data;
+  } catch (error) {
+    return error;
+  }
 };
 
+export const getCalendarProducts = async date => {
+  tokenKey.set();
+  try {
+    const { data } = await axios.get(`/products/${date}`);
+    return data;
+  } catch (error) {
+    return error;
+  }
+};
 
-// https://slimcalculatebackend.herokuapp.com/api/v1/products/20.07.2022
+export const setCalendarProducts = async (name, weight, calories, date) => {
+  tokenKey.set();
+  try {
+    const { data } = await axios.post('/products', {
+      nameProduct: name,
+      weight: weight,
+      calories: calories,
+      date: date,
+    });
+    return data;
+  } catch (error) {
+    return error;
+  }
+};
+
+export const deleteCalendarProducts = async id => {
+  tokenKey.set();
+  try {
+    const { data } = await axios.delete(`/products/${id}`);
+    return data;
+  } catch (error) {
+    return error;
+  }
+};
