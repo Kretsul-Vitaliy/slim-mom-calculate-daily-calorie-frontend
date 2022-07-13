@@ -7,7 +7,7 @@ import {
   GramsInput,
   ProductsInput,
 } from './DiaryAddProductForm.styled';
-import plus from '../../images/calendar/plus.svg';
+// import plus from '../../images/calendar/plus.svg';
 
 const DiaryAddProductForm = ({ dateCalendar }) => {
   const validationsSchema = yup.object().shape({
@@ -86,7 +86,7 @@ const DiaryAddProductForm = ({ dateCalendar }) => {
               type="submit"
               size="addRoundBtn"
             >
-              <img src={plus} alt="" width="14" height="14" />
+              {/* <img src={plus} alt="" width="14" height="14" /> */}
             </Button>
           </InputContainer>
         )}

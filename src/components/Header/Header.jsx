@@ -1,34 +1,42 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation, Link } from 'react-router-dom';
 
 import { getIsAuthenticated } from '../../redux/auth/authSelector';
 
-import Container from '../Container'
-import desctop from "../../images/logo/logo-desctop.svg";
-import tablet from "../../images/logo/logo-tablet.svg";
-import mobile from "../../images/logo/logo-mobile.svg";
-import { HeaderEl, HeaderContainer, Picture, Divider, NavList, Menu, BurgerButton } from "./Header.styled";
-import Navigation, { UnloggedNavItems } from "../Navigation"
+import Container from '../Container';
+import desctop from '../../images/logo/logo-desctop.svg';
+import tablet from '../../images/logo/logo-tablet.svg';
+import mobile from '../../images/logo/logo-mobile.svg';
+import {
+  HeaderEl,
+  HeaderContainer,
+  Picture,
+  Divider,
+  NavList,
+  Menu,
+  BurgerButton,
+} from './Header.styled';
+import Navigation, { UnloggedNavItems } from '../Navigation';
 import LanguageSelector from '../LanguageSelector';
-import { GiHamburgerMenu } from "react-icons/gi";
-import { GrClose } from "react-icons/gr";
+import { GiHamburgerMenu } from 'react-icons/gi';
+import { GrClose } from 'react-icons/gr';
 
 const Header = () => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
   const isLogged = useSelector(getIsAuthenticated);
 
   const location = useLocation();
-  
+
   useEffect(() => {
-    setIsOpen(false)
+    setIsOpen(false);
   }, [location]);
 
   return (
     <HeaderEl>
       <Container>
-      <HeaderContainer>
+        <HeaderContainer>
           <Link to="/diary">
             <Picture>
               <source
@@ -53,24 +61,21 @@ const Header = () => {
 
           <Divider />
 
-          <Menu>            
+          <Menu>
             <Navigation isOpen={isOpen} />
-            
-            {!isLogged
-              ?  <BurgerButton onClick={() => setIsOpen(!isOpen)}>
-                    {isOpen
-                      ? <GrClose />
-                      : <GiHamburgerMenu  />
-                    }
-                  </BurgerButton>
-              :  <NavList>
-                    <UnloggedNavItems />
-                  </NavList>
-            }
-            
+
+            {!isLogged ? (
+              <BurgerButton onClick={() => setIsOpen(!isOpen)}>
+                {isOpen ? <GrClose /> : <GiHamburgerMenu />}
+              </BurgerButton>
+            ) : (
+              <NavList>
+                <UnloggedNavItems />
+              </NavList>
+            )}
+
             <LanguageSelector />
           </Menu>
-          
         </HeaderContainer>
       </Container>
     </HeaderEl>
