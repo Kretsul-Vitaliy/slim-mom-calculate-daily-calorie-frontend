@@ -8,8 +8,9 @@ import {
 import calendarImg from '../../images/calendar/calendar.svg';
 
 const DiaryDateСalendar = ({ dateCalendar, setDateCalendar }) => {
+  // eslint-disable-next-line no-unused-vars
   const [dateNow, setDateNow] = useState(new Date());
-  // console.log(dateCalendar.toLocaleDateString());
+
   return (
     <CalendsrContainer>
       <Calendar

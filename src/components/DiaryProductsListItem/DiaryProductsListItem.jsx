@@ -1,4 +1,4 @@
-import { Scrollbars } from 'react-custom-scrollbars';
+import { Scrollbars } from 'react-custom-scrollbars-2';
 import { ProductsList, CloserMessage } from './DiaryProductsListItem.styled';
 import { IoMdClose } from 'react-icons/io';
 

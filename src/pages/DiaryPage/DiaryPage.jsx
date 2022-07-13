@@ -6,7 +6,6 @@ import { useState } from 'react';
 
 const DiaryPage = () => {
   const [startDate, setStartDate] = useState(new Date());
-  const [nameProduct, setNameProduct] = useState(null);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [gramsOfProducts, setGramsOfProducts] = useState(null);
 

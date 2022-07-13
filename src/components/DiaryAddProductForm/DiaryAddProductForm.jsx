@@ -1,7 +1,7 @@
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import Button from '../Button';
-import { Scrollbars } from 'react-custom-scrollbars';
+import { Scrollbars } from 'react-custom-scrollbars-2';
 import { getDataProducts } from '../../services/apiService';
 import { useState, useEffect } from 'react';
 import {

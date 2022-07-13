@@ -23,7 +23,7 @@ const DiaryProductsList = ({
         console.log('Succes deleted');
       });
     }
-  }, [deletedProduct]);
+  }, [deletedProduct, productsItem]);
 
   useEffect(() => {
     console.log('Worked');
@@ -39,7 +39,7 @@ const DiaryProductsList = ({
         .then(value => setProductsItem([value.data._doc, ...productsItem]))
         .catch(error => console.log(error));
     }
-  }, [selectedProduct]);
+  }, [dateCalendar, gramsOfProducts, productsItem, selectedProduct]);
   return (
     <ProductsContainer>
       {productsItem && (
