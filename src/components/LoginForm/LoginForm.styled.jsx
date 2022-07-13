@@ -19,7 +19,7 @@ export const Form = styled.form`
 export const Labels = styled.label`
   font-family: Verdana-Bold;
   font-size: 14px;
-  line-height: 0.82;
+  line-height: 1.21;
   letter-spacing: 0.04em;
 
   color: var(--text-secondary-color);
@@ -68,7 +68,7 @@ export const ButtonsWrapper = styled.div`
 export const ButtonText = styled.span`
   font-family: Verdana-Bold;
   font-size: 14px;
-  line-height: 0.82;
+  line-height: 1.21;
   letter-spacing: 0.04em;
 `;
 export const StyledNavLink = styled(NavLink)`
