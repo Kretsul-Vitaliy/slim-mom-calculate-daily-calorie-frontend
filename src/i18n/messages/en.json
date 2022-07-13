@@ -4,5 +4,21 @@
         "calculator": "Calculator",
         "login": "Sign in",
         "registration": "Registration"
+    },
+    "DCF": {
+        "titleFir": "Calculate your daily calorie",
+        "titleSec": "intake right now",
+        "height": "Height",
+        "age": "Age",
+        "curWeight": "Current weight",
+        "desWeight": "Desired weight",
+        "bloodType": "Blood type",
+        "btn": "Start losing weight"
+    },
+    "auth": {
+        "password": "Password",
+        "name": "Name",
+        "invMail": "Invalid email",
+        "verifyMail": "Please, check your email and confirm your account!"
     }
 }
