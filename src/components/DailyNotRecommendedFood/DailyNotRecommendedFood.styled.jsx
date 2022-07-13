@@ -3,10 +3,13 @@ import '../../helpers/variables.css';
 
 export const Wrapper = styled.div`
   width: 280px;
+  height: 104px;
 
   margin: 0 auto;
 
   @media screen and (min-width: 768px) {
+    margin-left: 0;
+
     width: 288px;
     height: 166px;
   }
