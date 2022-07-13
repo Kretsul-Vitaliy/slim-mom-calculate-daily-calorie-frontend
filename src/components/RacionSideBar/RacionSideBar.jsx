@@ -12,7 +12,7 @@ import {
   List,
 } from './RacionSideBar.styled.jsx';
 
-const RacionSideBar = ({ date = `06/20/2020`, kcal = 600, diet = null }) => {
+const RacionSideBar = ({ date = `06/20/2020`, kcal = '000', diet = null }) => {
   return (
     <BoxBg>
       <Container>
@@ -44,9 +44,7 @@ const RacionSideBar = ({ date = `06/20/2020`, kcal = 600, diet = null }) => {
               {diet ? (
                 <NotRecomemendedData>{diet}</NotRecomemendedData>
               ) : (
-                <NotRecomemendedData
-                // style={{ backgroundImage: `url(${backGround})` }}
-                >
+                <NotRecomemendedData>
                   Your diet will be displayed here
                 </NotRecomemendedData>
               )}
