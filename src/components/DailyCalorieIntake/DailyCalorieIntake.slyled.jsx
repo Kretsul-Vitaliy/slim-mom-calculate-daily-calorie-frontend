@@ -10,6 +10,7 @@ export const Wrapper = styled.div`
   margin: 0 auto;
 
   @media screen and (min-width: 768px) {
+    display: inline-block;
     width: 288px;
     height: 166px;
 
