@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import backGround from '../../images/bg-pictures/tablet/sideBarLeaves768_1x.png';
+import backGroundTabl from '../../images/bg-pictures/tablet/sideBarLeaves768_1x.png';
 import '../../helpers/variables.css';
 
 export const BoxBg = styled.div`
@@ -14,6 +14,13 @@ export const BoxBg = styled.div`
 
     max-width: 1280px;
     height: 326px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    flex-direction: column;
+
+    width: 517px;
+    height: 850px;
   }
 `;
 
@@ -37,9 +44,15 @@ export const PositionConteiner = styled.div`
     background-position: bottom 0% right -10%;
     background-size: contain;
     background-repeat: no-repeat;
-    /* background-attachment: fixed; */
 
-    background-image: url(${backGround});
+    background-image: url(${backGroundTabl});
+  }
+
+  @media screen and (min-width: 1280px) {
+    flex-direction: column;
+
+    /* width: 517px; */
+    height: 850px;
   }
 `;
 
