@@ -12,6 +12,7 @@ import CalculatorPage from '../pages/CalculatorPage';
 import GlobalStyle from '../theme/GlobalStyle.styled';
 
 import Header from '../components/Header';
+import AuthorizeGoogle from '../components/AuthorizeGoogle/AuthorizeGoogle';
 
 const MainPage = lazy(() =>
   import('../pages/MainPage' /* webpackChunkName: "Main_page" */)
@@ -90,6 +91,7 @@ const App = () => {
           />
           <Route path="*" element={<Navigate to="/login" />} />
         </Routes>
+        {/* <AuthorizeGoogle /> */}
         <Outlet />
       </Suspense>
 
