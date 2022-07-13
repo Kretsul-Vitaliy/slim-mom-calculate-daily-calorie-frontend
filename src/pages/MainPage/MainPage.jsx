@@ -23,7 +23,6 @@ const MainPage = () => {
 
         <LanguageSelector />
         <Container>
-          <Header />
           <DailyCaloriesForm />
           <AuthorizeGoogle />
         </Container>
