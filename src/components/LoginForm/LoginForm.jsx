@@ -1,4 +1,7 @@
 import { useFormik } from 'formik';
+import { useDispatch } from 'react-redux';
+import { login } from '../../redux/auth/authOperation';
+import * as yup from 'yup';
 
 import Button from '../Button';
 import {
@@ -7,17 +10,24 @@ import {
   Form,
   ButtonsWrapper,
   StyledNavLink,
+  ButtonText,
 } from './LoginForm.styled';
 
 export default function LoginForm() {
+  const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
       email: '',
       password: '',
     },
+    validationSchema: yup.object().shape({
+      email: yup.string().email().required(),
+      password: yup.string().min(6, 'Too Short!').required(),
+    }),
+    onSubmit: ({ email, password }) => {
+      dispatch(login({ email, password }));
 
-    onSubmit: values => {
-      alert(JSON.stringify(values, null, 2));
+      formik.resetForm();
     },
   });
 
@@ -46,10 +56,12 @@ export default function LoginForm() {
       />
       <ButtonsWrapper>
         <Button type="submit" disabled={!email || !password} size="short">
-          Log in
+          <ButtonText>Log in</ButtonText>
         </Button>
         <Button type="button" size="short">
-          <StyledNavLink to="/signup">Register</StyledNavLink>
+          <StyledNavLink to="/signup">
+            <ButtonText>Register</ButtonText>
+          </StyledNavLink>
         </Button>
       </ButtonsWrapper>
     </Form>

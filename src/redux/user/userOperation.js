@@ -5,11 +5,11 @@ import {
   getUserInfoError,
 } from './userAction';
 
-export const getUserInfoCurrent = () => async (dispatch) => {
+export const getUserInfoCurrent = () => async dispatch => {
   dispatch(getUserInfoRequest());
 
   try {
-    const { data } = await await userInfoCurrent();
+    const { data } = await userInfoCurrent();
     dispatch(getUserInfoSuccess(data));
   } catch (error) {
     dispatch(getUserInfoError(error.message));

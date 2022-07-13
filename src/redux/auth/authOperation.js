@@ -10,10 +10,18 @@ import {
   logoutRequest,
   logoutSuccess,
   logoutError,
+  getCurrentUserRequest,
+  getCurrentUserSuccess,
+  getCurrentUserError,
 } from './authAction';
-import { logInUser, logOutUser, signUpUser } from '../../services/apiService';
+import {
+  logInUser,
+  logOutUser,
+  signUpUser,
+  userInfoCurrent,
+} from '../../services/apiService';
 
-export const register = (payload) => async (dispatch) => {
+export const register = payload => async dispatch => {
   dispatch(registerRequest());
   try {
     const response = await signUpUser(payload);
@@ -24,7 +32,7 @@ export const register = (payload) => async (dispatch) => {
   }
 };
 
-export const login = (payload) => async (dispatch) => {
+export const login = payload => async dispatch => {
   dispatch(loginRequest());
   try {
     const response = await logInUser(payload);
@@ -35,7 +43,7 @@ export const login = (payload) => async (dispatch) => {
   }
 };
 
-export const logOut = () => async (dispatch) => {
+export const logOut = () => async dispatch => {
   dispatch(logoutRequest());
   try {
     await logOutUser();
@@ -43,5 +51,23 @@ export const logOut = () => async (dispatch) => {
   } catch (error) {
     dispatch(logoutError(error.message));
     toast.error(error.message);
+  }
+};
+
+export const getCurrentUser = () => async (dispatch, getState) => {
+  const {
+    auth: { token: persistedToken },
+  } = getState();
+
+  if (!persistedToken) {
+    return;
+  }
+  dispatch(getCurrentUserRequest());
+
+  try {
+    const response = await userInfoCurrent(persistedToken);
+    dispatch(getCurrentUserSuccess(response.data));
+  } catch (error) {
+    dispatch(getCurrentUserError(error.message));
   }
 };

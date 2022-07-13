@@ -1,9 +1,9 @@
 import { Suspense, useEffect, lazy } from 'react';
 import { useDispatch } from 'react-redux';
-import { Route, Navigate, Routes } from 'react-router-dom';
+import { Route, Navigate, Routes, Outlet } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 
-import { getUserInfoCurrent } from '../redux/user/userOperation';
+import { getCurrentUser } from '../redux/auth/authOperation';
 
 import LoginPage from '../pages/LoginPage';
 import RegistrationPage from '../pages/RegistrationPage';
@@ -31,7 +31,7 @@ const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getUserInfoCurrent());
+    dispatch(getCurrentUser());
   }, [dispatch]);
 
   return (
@@ -80,8 +80,18 @@ const App = () => {
               </PublicRoute>
             }
           />
+          <Route
+            path="google"
+            element={
+              <PublicRoute restricted redirectTo="/login">
+                <CalculatorPage />
+              </PublicRoute>
+            }
+          />
+          ;
           <Route path="*" element={<Navigate to="/login" />} />
         </Routes>
+        <Outlet />
       </Suspense>
 
       <ToastContainer autoClose={2500} />

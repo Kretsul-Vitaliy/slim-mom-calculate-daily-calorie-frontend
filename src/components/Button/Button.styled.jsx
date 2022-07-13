@@ -28,21 +28,26 @@ export const ButtonStyled = styled.button`
   ${props => {
     switch (props.size) {
       case 'short':
-        return `padding:13px 51px;
+        return `
                 width: 182px;
                 height: 44px;
             `;
       case 'long':
-        return `padding:13px 25px;
+        return `
+                display: block;
+                padding:13px 25px;
                 width:210px;
+                margin: auto;
+                
             `;
       case 'addBtn':
         return `padding:13px 46px;
                 width:176px;
             `;
       case 'addRoundBtn':
-        return `padding:12.48px
-                width:48px;`;
+        return `padding:12.48px;
+                width:48px;
+                height:48px;`;
       default:
         return `
             padding:13px 51px;
@@ -51,6 +56,3 @@ export const ButtonStyled = styled.button`
     }
   }};
 `;
-
-// box-shadow: ${props =>
-//   props.active ? '0px 4px 10px rgba(252, 132, 45, 0.5)' : 'none'};

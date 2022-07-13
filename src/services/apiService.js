@@ -24,6 +24,11 @@ export const logInUser = async body => {
   tokenKey.set(data.token);
   return data;
 };
+export const refreshUser = async body => {
+  const { data } = await axios.post('auth/refresh', body);
+  tokenKey.set(data.token);
+  return data;
+};
 
 export const logOutUser = async () => {
   const { data } = await axios.post('auth/logout');

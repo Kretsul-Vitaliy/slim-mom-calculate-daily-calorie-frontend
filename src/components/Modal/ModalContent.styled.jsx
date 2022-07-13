@@ -1,12 +1,15 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const Title = styled.h2`
-  font-weight: 700;
+  font-family: Verdana-Bold;
   font-size: 18px;
   line-height: 1.4;
-  color: #212121;
+  color: var(--text-main-color);
   margin-top: 0;
   margin-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
   @media only screen and (min-width: 769px) {
     font-size: 26px;
     line-height: 1.2;
@@ -22,30 +25,36 @@ const Text = styled.p`
   letter-spacing: 0.04em;
   margin-top: 0;
   margin-bottom: 32px;
-  color: #264061;
+  color: var(--calories-diary-color);
   @media only screen and (min-width: 769px) {
     line-height: 1.2;
   }
 `;
-const List = styled.ol`
+const TitleList = styled.ol`
   font-weight: 700;
   font-size: 14px;
   line-height: 1.2;
   letter-spacing: 0.04em;
   margin-top: 20px;
-  margin-bottom: 40px;
-  color: #212121;
+  margin-bottom: 20px;
+  color: var(--text-main-color);
+  padding: 0;
   @media only screen and (min-width: 769px) {
     margin-top: 12px;
   }
+`;
+const List = styled.ol`
+  font-family: Verdana;
+  margin-bottom: 40px;
+  padding-left: 22px;
+  color: var(--text-secondary-color);
 `;
 const Line = styled.div`
   border: 1px solid #e0e0e0;
 `;
 const Item = styled.li`
-  font-weight: 400;
   margin-top: 20px;
-  color: #9b9faa;
+  color: var(--text-secondary-color);
 `;
 const ButtonClose = styled.button`
   display: none;
@@ -62,4 +71,4 @@ const ButtonClose = styled.button`
   }
 `;
 
-export { Title, Text, List, Item, Line, ButtonClose };
+export { Title, List, Text, TitleList, Item, Line, ButtonClose };
