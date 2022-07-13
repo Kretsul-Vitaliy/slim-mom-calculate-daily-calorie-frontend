@@ -20,5 +20,22 @@
         "name": "Name",
         "invMail": "Invalid email",
         "verifyMail": "Please, check your email and confirm your account!"
+    },
+    "modal": {
+        "title": "Your recommended daily calorie intake is",
+        "cal": "cal",
+        "noEat": "Foods you should not eat"
+    },
+    "DPF": {
+        "typeProduct": "Enter product name",
+        "productContain": "The name must consist only of letters",
+        "enterGram": "Enter the number of grams",
+        "isReq": "Is required",
+        "productPlaceholder": "Enter product name",
+        "grams": "Grams"
+    },
+    "DPI": {
+        "addProd": "Add our products",
+        "ccal": "ccal"
     }
 }
