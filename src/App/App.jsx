@@ -91,7 +91,7 @@ const App = () => {
           />
           <Route path="*" element={<Navigate to="/login" />} />
         </Routes>
-        {/* <AuthorizeGoogle /> */}
+        <AuthorizeGoogle />
         <Outlet />
       </Suspense>
 
