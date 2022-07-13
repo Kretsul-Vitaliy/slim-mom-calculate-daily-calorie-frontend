@@ -1,9 +1,9 @@
 import { Suspense, useEffect, lazy } from 'react';
 import { useDispatch } from 'react-redux';
-import { Route, Navigate, Routes } from 'react-router-dom';
+import { Route, Navigate, Routes, Outlet } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 
-import { getUserInfoCurrent } from '../redux/user/userOperation';
+import { getCurrentUser } from '../redux/auth/authOperation';
 
 import LoginPage from '../pages/LoginPage';
 import RegistrationPage from '../pages/RegistrationPage';
@@ -12,6 +12,7 @@ import CalculatorPage from '../pages/CalculatorPage';
 import GlobalStyle from '../theme/GlobalStyle.styled';
 
 import Header from '../components/Header';
+import AuthorizeGoogle from '../components/AuthorizeGoogle/AuthorizeGoogle';
 
 const MainPage = lazy(() =>
   import('../pages/MainPage' /* webpackChunkName: "Main_page" */)
@@ -30,16 +31,10 @@ const PrivateRoute = lazy(() =>
 const App = () => {
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(getUserInfoCurrent());
-  // }, [dispatch]);
-
   useEffect(() => {
-    const token = window.location.search.split('=')[1];
-    if (token) {
-      dispatch(getUserInfoCurrent(token));
-    }
+    dispatch(getCurrentUser());
   }, [dispatch]);
+
   return (
     <>
       <GlobalStyle />
@@ -49,7 +44,7 @@ const App = () => {
           <Route
             path="/"
             element={
-              <PublicRoute restricted redirectTo="/calculator">
+              <PublicRoute redirectTo="/calculator">
                 <MainPage />
               </PublicRoute>
             }
@@ -81,7 +76,7 @@ const App = () => {
           <Route
             path="calculator"
             element={
-              <PublicRoute restricted redirectTo="/login">
+              <PublicRoute redirectTo="/login">
                 <CalculatorPage />
               </PublicRoute>
             }
@@ -94,9 +89,10 @@ const App = () => {
               </PublicRoute>
             }
           />
-          ;
           <Route path="*" element={<Navigate to="/login" />} />
         </Routes>
+        <AuthorizeGoogle />
+        <Outlet />
       </Suspense>
 
       <ToastContainer autoClose={2500} />

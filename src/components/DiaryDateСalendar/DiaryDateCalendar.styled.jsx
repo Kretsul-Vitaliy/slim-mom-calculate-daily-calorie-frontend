@@ -1,15 +1,16 @@
-import styled from "styled-components";
-import DatePicker from "react-datepicker";
+import styled from 'styled-components';
+import DatePicker from 'react-datepicker';
 
 export const CalendsrContainer = styled.div`
   position: relative;
+  margin: 100px 0 40px 0;
 `;
 
 export const Calendar = styled(DatePicker)`
   border: none;
   width: 250px;
   outline: none;
-  font-family: "Verdana";
+  font-family: 'Verdana';
   font-style: normal;
   font-weight: 700;
   font-size: 34px;

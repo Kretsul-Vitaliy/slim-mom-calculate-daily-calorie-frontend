@@ -1,19 +1,31 @@
-import Header from '../../components/Header';
+import Container from '../../components/Container';
 import DiaryDateCakendar from '../../components/DiaryDateСalendar';
 import DiaryAddProductForm from '../../components/DiaryAddProductForm';
+import DiaryProductsList from '../../components/DiaryProductsList';
 import { useState } from 'react';
 
 const DiaryPage = () => {
   const [startDate, setStartDate] = useState(new Date());
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [gramsOfProducts, setGramsOfProducts] = useState(null);
 
   return (
     <>
-      <Header />
-      <DiaryDateCakendar
-        dateCalendar={startDate}
-        setDateCalendar={setStartDate}
-      />
-      <DiaryAddProductForm dateCalendar={startDate.toLocaleDateString()} />
+      <Container>
+        <DiaryDateCakendar
+          dateCalendar={startDate}
+          setDateCalendar={setStartDate}
+        />
+        <DiaryAddProductForm
+          setSelectedProduct={setSelectedProduct}
+          setGramsOfProducts={setGramsOfProducts}
+        />
+        <DiaryProductsList
+          dateCalendar={startDate.toLocaleDateString()}
+          selectedProduct={selectedProduct}
+          gramsOfProducts={gramsOfProducts}
+        />
+      </Container>
     </>
   );
 };
