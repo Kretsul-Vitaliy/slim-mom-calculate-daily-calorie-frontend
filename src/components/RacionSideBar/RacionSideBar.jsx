@@ -6,34 +6,43 @@ import {
   PositionConteiner,
   SummaryWrapper,
   NotRecommendedWrapper,
+  NotRecomemendedData,
   ListItemData,
+  ListItem,
+  List,
 } from './RacionSideBar.styled.jsx';
 
-const RacionSideBar = ({ date = `06/20/2020` }) => {
+const RacionSideBar = ({ date = `06/20/2020`, kcal = 600 }) => {
   return (
     <BoxBg>
       <Container>
         <PositionConteiner>
           <SummaryWrapper>
             <DateTitle>Summary for {date}</DateTitle>
-            <ul>
-              <li>
+            <List>
+              <ListItem>
                 <ListItemData>Left</ListItemData>
-              </li>
-              <li>
+                <ListItemData>{kcal} kcal</ListItemData>
+              </ListItem>
+              <ListItem>
                 <ListItemData>Consumed</ListItemData>
-              </li>
-              <li>
+                <ListItemData>{kcal} kcal</ListItemData>
+              </ListItem>
+              <ListItem>
                 <ListItemData>Daily rate</ListItemData>
-              </li>
-              <li>
+                <ListItemData>{kcal} kcal</ListItemData>
+              </ListItem>
+              <ListItem>
                 <ListItemData>n% of normal</ListItemData>
-              </li>
-            </ul>
+                <ListItemData>{kcal} kcal</ListItemData>
+              </ListItem>
+            </List>
           </SummaryWrapper>
           <NotRecommendedWrapper>
             <NotRecomemendedTitle>Food not recommended</NotRecomemendedTitle>
-            <p>Your diet will be displayed here</p>
+            <NotRecomemendedData>
+              Your diet will be displayed here
+            </NotRecomemendedData>
           </NotRecommendedWrapper>
         </PositionConteiner>
       </Container>

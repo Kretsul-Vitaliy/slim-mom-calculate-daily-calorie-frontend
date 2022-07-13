@@ -4,6 +4,9 @@ import '../../helpers/variables.css';
 /*  Position*/
 
 export const BoxBg = styled.div`
+  min-width: 320px;
+  min-height: 360px;
+
   @media screen and (max-width: 767px) {
     background-color: var(--page-secondary-color);
     max-width: 767px;
@@ -21,6 +24,13 @@ export const BoxBg = styled.div`
 
 export const PositionConteiner = styled.div`
   padding-top: 40px;
+  padding-bottom: 24px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  min-height: 360px;
 `;
 
 export const SummaryWrapper = styled.div`
@@ -32,9 +42,6 @@ export const SummaryWrapper = styled.div`
 
 export const NotRecommendedWrapper = styled.div`
   width: 280px;
-  height: 117px;
-  left: 20px;
-  top: 812px;
 `;
 
 /* Style of titles */
@@ -86,3 +93,17 @@ export const ListItemData = styled.p`
 
   color: var(--text-secondary-color);
 `;
+
+export const ListItem = styled.li`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  :not(:last-child) {
+    margin-bottom: 18px;
+  }
+`;
+
+export const List = styled.ul``;
+
+export const NotRecomemendedData = styled(ListItemData)``;
