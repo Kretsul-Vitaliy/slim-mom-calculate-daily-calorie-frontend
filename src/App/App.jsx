@@ -43,7 +43,7 @@ const App = () => {
           <Route
             path="/"
             element={
-              <PublicRoute restricted redirectTo="/calculator">
+              <PublicRoute redirectTo="/calculator">
                 <MainPage />
               </PublicRoute>
             }
@@ -75,7 +75,7 @@ const App = () => {
           <Route
             path="calculator"
             element={
-              <PublicRoute restricted redirectTo="/login">
+              <PublicRoute redirectTo="/login">
                 <CalculatorPage />
               </PublicRoute>
             }
@@ -88,7 +88,6 @@ const App = () => {
               </PublicRoute>
             }
           />
-          ;
           <Route path="*" element={<Navigate to="/login" />} />
         </Routes>
         <Outlet />
