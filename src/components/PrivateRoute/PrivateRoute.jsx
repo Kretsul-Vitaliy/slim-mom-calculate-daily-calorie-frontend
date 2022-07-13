@@ -1,9 +1,8 @@
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
-import { getIsUserAuthorizate } from '../../redux/auth/authSelector';
-
+import { getIsAuthenticated } from '../../redux/auth/authSelector';
 
 export default function PrivateRoute({ children, redirectTo = '/' }) {
-  const token = useSelector(getIsUserAuthorizate);
+  const token = useSelector(getIsAuthenticated);
   return token ? children : <Navigate to={redirectTo} />;
 }
