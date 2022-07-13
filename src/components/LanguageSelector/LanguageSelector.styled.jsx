@@ -65,7 +65,7 @@ const SwitcherList = styled.div`
         button {
             line-height: 1;
             margin: 4px 0;
-            display: block;
+            display: flex;
             opacity: 1;
             cursor: pointer;
 
@@ -96,8 +96,15 @@ const LangButton = styled.button`
     z-index: 5;
     cursor: pointer;
 
+    display: flex;
+    gap: 4px;
+
     &:hover {
         color: var(--extra-color);
+    }
+
+    span {
+        opacity: 0;
     }
     
     &.active {
@@ -108,6 +115,10 @@ const LangButton = styled.button`
             opacity: 1;
             transform: translateY(-70%) scaleY(1.1) rotate(45deg);
         }
+
+        span {
+            opacity: 1;
+    }
     }
     &:not(.active) {
         width: 0%;

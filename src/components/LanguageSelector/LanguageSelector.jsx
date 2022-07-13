@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useTranslation } from 'react-i18next'
 import { SwitcherWrapper, SwitcherList, LangButton } from './LanguageSelector.styled'
+import { MdLanguage } from "react-icons/md";
 
 const LanguageSelector = () => {
     const [isOpen, setIsOpen] = useState(false)
@@ -18,6 +19,9 @@ const LanguageSelector = () => {
                     (lang => 
                             <LangButton className={lang === i18n.language ? 'active' : ''} type='button' onClick={() => changeLanguage(lang)} key={lang}>
                                 {lang}
+                                <span>
+                                    <MdLanguage />
+                                </span>
                             </LangButton>
                 ))}
             </SwitcherList>
