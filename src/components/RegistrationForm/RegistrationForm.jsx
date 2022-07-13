@@ -6,6 +6,7 @@ import * as Yup from 'yup';
 import {
   ContainerRegistration,
   TitleRegistration,
+  FormRegistration,
   FormRegistrationList,
   FormRegistrationListItem,
   FormRegistrationLabel,
@@ -47,7 +48,6 @@ const RegistrationForm = () => {
       dispatch(register(payload));
       notify();
       formik.resetForm();
-      console.log(values);
     },
   });
 
@@ -56,7 +56,7 @@ const RegistrationForm = () => {
   return (
     <ContainerRegistration>
       <TitleRegistration>Register</TitleRegistration>
-      <form onSubmit={formik.handleSubmit}>
+      <FormRegistration onSubmit={formik.handleSubmit}>
         <FormRegistrationList>
           <FormRegistrationListItem>
             <FormRegistrationLabel htmlFor="name">Name *</FormRegistrationLabel>
@@ -116,7 +116,7 @@ const RegistrationForm = () => {
             Register
           </RegistrationButton>
         </ButtonContainer>
-      </form>
+      </FormRegistration>
     </ContainerRegistration>
   );
 };
