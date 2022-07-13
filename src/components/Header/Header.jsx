@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux';
 import { useLocation, Link } from 'react-router-dom';
 
-import { getIsAuthenticated } from '../../redux/auth/authSelector';
+import { getIsAuthenticated, getIsUserAuthorizate } from '../../redux/auth/authSelector';
 
 import Container from '../Container'
 import desctop from "../../images/logo/logo-desctop.svg";
@@ -18,6 +18,12 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
 
   const isLogged = useSelector(getIsAuthenticated);
+  const isLoggedToken = useSelector(getIsUserAuthorizate);
+  const state = useSelector(state => state)
+  console.log('====================================');
+  console.log(isLoggedToken);
+  console.log('====================================');
+  console.log(state);
 
   const location = useLocation();
   
