@@ -1,9 +1,9 @@
 import { Suspense, useEffect, lazy } from 'react';
 import { useDispatch } from 'react-redux';
-import { Route, Navigate, Routes } from 'react-router-dom';
+import { Route, Navigate, Routes, Outlet } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 
-import { getUserInfoCurrent } from '../redux/user/userOperation';
+import { getCurrentUser } from '../redux/auth/authOperation';
 
 import LoginPage from '../pages/LoginPage';
 import RegistrationPage from '../pages/RegistrationPage';
@@ -30,16 +30,10 @@ const PrivateRoute = lazy(() =>
 const App = () => {
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(getUserInfoCurrent());
-  // }, [dispatch]);
-
   useEffect(() => {
-    const token = window.location.search.split('=')[1];
-    if (token) {
-      dispatch(getUserInfoCurrent(token));
-    }
+    dispatch(getCurrentUser());
   }, [dispatch]);
+
   return (
     <>
       <GlobalStyle />
@@ -97,6 +91,7 @@ const App = () => {
           ;
           <Route path="*" element={<Navigate to="/login" />} />
         </Routes>
+        <Outlet />
       </Suspense>
 
       <ToastContainer autoClose={2500} />
