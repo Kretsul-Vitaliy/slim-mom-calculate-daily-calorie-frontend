@@ -59,10 +59,12 @@ export const logOut = () => async dispatch => {
 };
 
 export const getCurrentUser = () => async (dispatch, getState) => {
-  const {
-    auth: { token: persistedToken },
-  } = getState();
-
+  // const {
+  //   auth: { token: persistedToken },
+  // } = getState();
+  const state = getState();
+  const persistedToken = state.auth.token;
+  console.log('persistedToken', persistedToken);
   if (!persistedToken) {
     return;
   }
