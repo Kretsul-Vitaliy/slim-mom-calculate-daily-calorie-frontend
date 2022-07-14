@@ -11,7 +11,6 @@ import {
   ProductsInput,
   HelpingForm,
 } from './DiaryAddProductForm.styled';
-import plus from '../../images/calendar/plus.svg';
 
 const DiaryAddProductForm = ({ setSelectedProduct, setGramsOfProducts }) => {
   const [possibleProducts, setPossibleProducts] = useState(null);
@@ -50,9 +49,7 @@ const DiaryAddProductForm = ({ setSelectedProduct, setGramsOfProducts }) => {
   useEffect(() => {
     if (formik.values.product) {
       getDataProducts(formik.values.product)
-        .then(values => {
-          setPossibleProducts(values.data.products);
-        })
+        .then(values => setPossibleProducts(values.data.products))
         .catch(error => console.log(error));
     }
   }, [formik.values.product]);
@@ -125,7 +122,7 @@ const DiaryAddProductForm = ({ setSelectedProduct, setGramsOfProducts }) => {
             type="submit"
             size="addRoundBtn"
           >
-            <img src={plus} alt="" width="14" height="14" />
+            +
           </Button>
         </InputContainer>
       </form>
@@ -138,7 +135,11 @@ const DiaryAddProductForm = ({ setSelectedProduct, setGramsOfProducts }) => {
                   <li
                     id="variants"
                     style={{
-                      backgroundColor: values.id === savedProduct?.id && 'grey',
+                      backgroundColor:
+                        values.id === savedProduct?.id &&
+                        'var(--header-divider-color)',
+                      color:
+                        values.id === savedProduct?.id && 'var(--extra-color)',
                     }}
                     onClick={() => searchAndSendProduct(values.id)}
                     key={values.id}

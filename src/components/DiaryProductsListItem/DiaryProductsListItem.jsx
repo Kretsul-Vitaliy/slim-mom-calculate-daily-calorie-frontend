@@ -3,7 +3,7 @@ import { ProductsList, CloserMessage } from './DiaryProductsListItem.styled';
 import { IoMdClose } from 'react-icons/io';
 
 const DiaryProductsListItem = ({ productsItem, setDeletedProduct }) => {
-  console.log(productsItem);
+  // console.log(productsItem);
   return (
     <ProductsList>
       <Scrollbars autoHeight>
