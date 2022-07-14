@@ -37,5 +37,24 @@
     "DPI": {
         "addProd": "Add our products",
         "ccal": "ccal"
-    }
+    },
+    "яйца": "eggs",
+    "зерновые": "cereal",
+    "мучные": "flour",
+    "молочные": "milky",
+    "мясо": "meat",
+    "ягоды": "berries",
+    "колбаса": "sausage",
+    "рыба": "fish",
+    "фрукты": "fruit",
+    "грибы": "mushrooms",
+    "масла и жиры": "oils and fats",
+    "орехи": "nuts",
+    "сухофрукты": "dried fruits",
+    "овощи и зелень": "vegetables and herbs",
+    "алкогольные напитки": "alcoholic drinks",
+    "семена": "seeds",
+    "безалкогольные напитки": "soft drinks",
+    "кунжут": "sesame",
+    "мак": "poppy"
 }
