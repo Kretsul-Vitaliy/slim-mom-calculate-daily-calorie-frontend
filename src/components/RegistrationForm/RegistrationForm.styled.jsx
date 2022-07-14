@@ -20,7 +20,7 @@ const ContainerRegistration = styled.div`
   }
 `;
 const TitleRegistration = styled.h1`
-  color: var(--extra-color);
+  color: ${props => props.theme.h1Color};
   text-transform: uppercase;
   font-family: Verdana-Bold;
   font-style: normal;
@@ -33,11 +33,6 @@ const TitleRegistration = styled.h1`
     font-family: GothamPro-Bold;
     line-height: 0.9;
   }
-`;
-const FormRegistration = styled.form`
-  /* display: flex; */
-  /* justify-content: center; */
-  /* margin-left: auto; */
 `;
 const FormRegistrationList = styled.ul`
   margin: 60px 0;
@@ -59,7 +54,7 @@ const FormRegistrationLabel = styled.label`
   font-size: 14px;
   line-height: 1.2;
   letter-spacing: 0.04em;
-  color: var(--text-secondary-color);
+  color: ${props => props.theme.labelColor};
 `;
 
 const FormRegistrationInput = styled.input`
@@ -81,11 +76,11 @@ const RegistrationEnterLink = styled(NavLink)`
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  color: var(--extra-color);
+  color: ${props => props.theme.linkColor};
   width: 182px;
   height: 44px;
   border-radius: 30px;
-  border: 1px solid var(--extra-color);
+  border: 1px solid ${props => props.theme.linkColor};
   padding: 12px 50px;
   font-family: Verdana-Bold;
   margin-bottom: 20px;
@@ -93,9 +88,9 @@ const RegistrationEnterLink = styled(NavLink)`
   margin-right: auto;
   &:hover,
   :focus {
-    background: var(--extra-color);
+    background: ${props => props.theme.linkColor};
     color: var(--color-white);
-    box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+    box-shadow: 0px 4px 10px ${props => props.theme.boxShadowColor};
   }
   @media screen and (min-width: 768px) {
     margin-bottom: 0;
@@ -121,7 +116,6 @@ const RegistrationButton = styled(Button)`
 export {
   ContainerRegistration,
   TitleRegistration,
-  FormRegistration,
   FormRegistrationList,
   FormRegistrationListItem,
   FormRegistrationLabel,
