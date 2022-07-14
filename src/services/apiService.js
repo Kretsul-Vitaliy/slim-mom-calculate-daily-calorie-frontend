@@ -106,7 +106,7 @@ export const setCalendarProducts = async (
       nameProduct: name,
       weight: weight,
       calories: calories,
-      date,
+      date: date,
     });
     return data;
   } catch (error) {
