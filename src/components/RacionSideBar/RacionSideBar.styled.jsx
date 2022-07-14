@@ -61,3 +61,15 @@ export const User = styled.div`
     display: none;
   }
 `;
+
+export const ListItem = styled.li`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  :not(:last-child) {
+    margin-bottom: 18px;
+  }
+`;
+
+export const List = styled.ul``;
