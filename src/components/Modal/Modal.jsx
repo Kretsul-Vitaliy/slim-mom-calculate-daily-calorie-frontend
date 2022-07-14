@@ -2,28 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { RiCloseFill } from 'react-icons/ri';
 import { IoMdReturnLeft } from 'react-icons/io';
-import Button from '../Button';
 import { Link } from 'react-router-dom';
 import {
   ModalOverlay,
   ModalWrapper,
   ModalContainer,
   TurnBack,
-  ModalContent,
+  ButtonClose,
 } from './Modal.styled';
-import {
-  Title,
-  Text,
-  Line,
-  List,
-  TitleList,
-  Item,
-} from './ModalContent.styled';
-import { ButtonClose } from './ModalContent.styled';
 
 const modalRoot = document.querySelector('#modal');
 
-const Modal = ({ isShowing, hide, children, calories, products, id }) => {
+const Modal = ({ isShowing, hide, children }) => {
   return isShowing
     ? ReactDOM.createPortal(
         <React.Fragment>
@@ -34,7 +24,11 @@ const Modal = ({ isShowing, hide, children, calories, products, id }) => {
                 <IoMdReturnLeft size={13} />
               </Link>
             </TurnBack>
-            <ModalContainer>
+            <ModalContainer
+              onClick={e => {
+                e.stopPropagation();
+              }}
+            >
               <ButtonClose
                 type="button"
                 data-dismiss="modal"
@@ -43,21 +37,7 @@ const Modal = ({ isShowing, hide, children, calories, products, id }) => {
               >
                 <RiCloseFill size={23} />
               </ButtonClose>
-              <ModalContent>
-                {/* {children} */}
-                <Title>Your recommended daily calorie intake is</Title>
-                <Text>{calories} cal</Text>
-                <Line />
-                <TitleList>Foods you should not eat</TitleList>
-                <List>
-                  {products.map(product => (
-                    <Item>{product}</Item>
-                  ))}
-                </List>
-                <Button type="button" size="long">
-                  Start losing weight
-                </Button>
-              </ModalContent>
+              {children}
             </ModalContainer>
           </ModalWrapper>
         </React.Fragment>,
