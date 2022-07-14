@@ -1,13 +1,13 @@
 import Container from '../Container';
 
-const RacionSideBar = () => {
+const RightSideBar = () => {
   return (
     <Container>
       <div>
-        <h2>RacionSideBar</h2>
+        <h2>RightSideBar</h2>
       </div>
     </Container>
   );
 };
 
-export default RacionSideBar;
+export default RightSideBar;
