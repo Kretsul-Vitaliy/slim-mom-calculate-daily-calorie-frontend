@@ -9,31 +9,39 @@ import {
   REGISTER,
 } from 'reduxjs-toolkit-persist';
 import storage from 'redux-persist/lib/storage';
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore, combineReducers } from '@reduxjs/toolkit';
+import { createLogger } from 'redux-logger';
+import autoMergeLevel1 from 'reduxjs-toolkit-persist/lib/stateReconciler/autoMergeLevel1';
 import authReducer from './auth/authReducer';
-import user from './user/userReducer';
-import dailyCalories from './dailyCalories/dailyCaloriesReducer';
+import userReducer from './user/userReducer';
+import dailyCaloriesReducer from './dailyCalories/dailyCaloriesReducer';
 
-const authConfig = {
+const authPersistConfig = {
   key: 'token',
   storage,
   whitelist: ['token'],
+  stateReconciler: autoMergeLevel1,
 };
+const persistedReducer = persistReducer(authPersistConfig, authReducer);
 
+const reducer = combineReducers({
+  auth: persistedReducer,
+  user: userReducer,
+  dailyCalories: dailyCaloriesReducer,
+});
+const logger = createLogger({
+  collapsed: logEntry => !logEntry.error,
+  timestamp: false,
+});
 const store = configureStore({
-  reducer: {
-    auth: persistReducer(authConfig, authReducer),
-    user,
-    dailyCalories,
-  },
-
+  reducer,
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {
         /* ignore persistance actions */
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }),
+    }).concat(logger),
 
   // devTools: process.env.NODE_ENV === 'development',
 });
