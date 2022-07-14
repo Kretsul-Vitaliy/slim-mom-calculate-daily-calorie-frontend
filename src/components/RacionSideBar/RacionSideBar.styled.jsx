@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import backGroundTabl from '../../images/bg-pictures/tablet/sideBarLeaves768_1x.png';
+import backGroundDes from '../../images/bg-pictures/desktop/deck-sidebar.png';
 import '../../helpers/variables.css';
+import Container from '../Container';
 
 export const BoxBg = styled.div`
   min-width: 320px;
@@ -17,10 +19,14 @@ export const BoxBg = styled.div`
   }
 
   @media screen and (min-width: 1280px) {
-    flex-direction: column;
-
     width: 517px;
     height: 850px;
+  }
+`;
+
+export const StyledConteiner = styled(Container)`
+  @media screen and (min-width: 1280px) {
+    display: none;
   }
 `;
 
@@ -35,13 +41,16 @@ export const PositionConteiner = styled.div`
   min-height: 360px;
 
   @media screen and (min-width: 768px) {
+    /* display: inline-flex; */
+    /* margin: 0 auto; */
+
     padding-top: 80px;
     padding-bottom: 80px;
 
     flex-direction: row;
     align-items: center;
 
-    background-position: bottom 0% right -10%;
+    background-position: bottom 0% right 5%;
     background-size: contain;
     background-repeat: no-repeat;
 
@@ -49,10 +58,24 @@ export const PositionConteiner = styled.div`
   }
 
   @media screen and (min-width: 1280px) {
-    flex-direction: column;
+    display: block;
+    /* flex-direction: column; */
 
-    /* width: 517px; */
+    /* margin-right: 0px; */
+
+    width: 517px;
     height: 850px;
+
+    background-image: url(${backGroundDes});
+    /* background-attachment: scroll; */
+    background-size: contain;
+    background-position: 50% 50%;
+    background-color: var(--page-secondary-color);
+
+    padding-top: 0px;
+    padding-bottom: 0px;
+
+    border: 1px solid transparent;
   }
 `;
 

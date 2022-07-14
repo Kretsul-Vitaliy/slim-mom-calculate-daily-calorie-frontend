@@ -13,6 +13,10 @@ export const Wrapper = styled.div`
     width: 288px;
     height: 166px;
   }
+
+  @media screen and (min-width: 1280px) {
+    margin: 0 auto;
+  }
 `;
 
 export const Title = styled.h2`

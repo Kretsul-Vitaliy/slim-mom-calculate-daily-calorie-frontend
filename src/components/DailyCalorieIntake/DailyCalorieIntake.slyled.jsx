@@ -4,8 +4,8 @@ import '../../helpers/variables.css';
 export const Wrapper = styled.div`
   width: 285px;
   height: 152px;
-  left: 20px;
-  top: 620px;
+  /* left: 20px;
+  top: 620px; */
 
   margin: 0 auto;
 
@@ -16,6 +16,13 @@ export const Wrapper = styled.div`
 
     margin: 0 0;
     margin-right: 80px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    display: block;
+    margin: 0 auto;
+    margin-top: 292px;
+    margin-bottom: 60px;
   }
 `;
 
