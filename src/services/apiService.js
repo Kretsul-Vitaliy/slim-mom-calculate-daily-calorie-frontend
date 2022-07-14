@@ -60,7 +60,7 @@ export const userInfoCurrent = async persistedToken => {
 };
 
 export const updateUser = async user => {
-  const { data } = await axios.put('/users/update', user);
+  const { data } = await axios.put('users/update', user);
 
   return data.result;
 };
@@ -68,46 +68,74 @@ export const updateUser = async user => {
 // Products
 
 export const getDataProducts = async query => {
-  tokenKey.set();
   try {
-    const { data } = await axios.get(`/products?search=${query}`);
+    const { data } = await axios.get(`products?search=${query}`);
     return data;
   } catch (error) {
     return error;
   }
 };
 
-export const getCalendarProducts = async date => {
-  tokenKey.set();
+export const getCalendarProducts = async (persistedToken, date) => {
+  if (!persistedToken) {
+    throw Error('user');
+  }
+  tokenKey.set(persistedToken);
   try {
-    const { data } = await axios.get(`/products/${date}`);
+    const { data } = await axios.get(`products/${date}`);
     return data;
   } catch (error) {
+    tokenKey.unset();
     return error;
   }
 };
 
-export const setCalendarProducts = async (name, weight, calories, date) => {
-  tokenKey.set();
+export const setCalendarProducts = async (
+  persistedToken,
+  name,
+  weight,
+  calories,
+  date
+) => {
+  if (!persistedToken) {
+    throw Error('user');
+  }
+  tokenKey.set(persistedToken);
   try {
-    const { data } = await axios.post('/products', {
+    const { data } = await axios.post('products', {
       nameProduct: name,
       weight: weight,
       calories: calories,
-      date: date,
+      date,
     });
     return data;
   } catch (error) {
+    tokenKey.unset();
     return error;
   }
 };
 
-export const deleteCalendarProducts = async id => {
-  tokenKey.set();
+export const deleteCalendarProducts = async (persistedToken, dayId) => {
+  if (!persistedToken) {
+    throw Error('user');
+  }
+  tokenKey.set(persistedToken);
   try {
-    const { data } = await axios.delete(`/products/${id}`);
+    const { data } = await axios.delete(`products/${dayId}`);
     return data;
   } catch (error) {
+    tokenKey.unset();
     return error;
   }
+};
+
+// daily guard
+export const dailyCaloriesGuard = async (values, userId) => {
+  const { data } = await axios.post(`dailycalories/${userId}`, values);
+  return data;
+};
+// daily public
+export const dailyCaloriesPublic = async values => {
+  const { data } = await axios.post('dailycalories/public', values);
+  return data;
 };
