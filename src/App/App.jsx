@@ -11,6 +11,10 @@ import DiaryPage from '../pages/DiaryPage';
 import CalculatorPage from '../pages/CalculatorPage';
 import GlobalStyle from '../theme/GlobalStyle.styled';
 
+import React, { useState } from 'react';
+import { ThemeProvider } from 'styled-components';
+import { darkTheme, lightTheme } from '../theme/theme';
+
 import Header from '../components/Header';
 import AuthorizeGoogle from '../components/AuthorizeGoogle/AuthorizeGoogle';
 
@@ -30,6 +34,10 @@ const PrivateRoute = lazy(() =>
 
 const App = () => {
   const dispatch = useDispatch();
+  const [theme, setTheme] = useState('light');
+  const switchTheme = () => {
+    theme === 'light' ? setTheme('dark') : setTheme('light');
+  };
 
   useEffect(() => {
     dispatch(getCurrentUser());
@@ -37,65 +45,68 @@ const App = () => {
 
   return (
     <>
-      <GlobalStyle />
-      <Suspense fallback={<h2>Loading</h2>}>
-        <Header />
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <PublicRoute redirectTo="/calculator">
-                <MainPage />
-              </PublicRoute>
-            }
-          ></Route>
-          <Route
-            path="login"
-            element={
-              <PublicRoute restricted redirectTo="/calculator">
-                <LoginPage />
-              </PublicRoute>
-            }
-          ></Route>
-          <Route
-            path="signup"
-            element={
-              <PublicRoute restricted redirectTo="/calculator">
-                <RegistrationPage />
-              </PublicRoute>
-            }
-          />
-          <Route
-            path="diary"
-            element={
-              <PrivateRoute redirectTo="/login">
-                <DiaryPage />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="calculator"
-            element={
-              <PublicRoute redirectTo="/login">
-                <CalculatorPage />
-              </PublicRoute>
-            }
-          />
-          <Route
-            path="google"
-            element={
-              <PublicRoute restricted redirectTo="/login">
-                <CalculatorPage />
-              </PublicRoute>
-            }
-          />
-          <Route path="*" element={<Navigate to="/login" />} />
-        </Routes>
-        <AuthorizeGoogle />
-        <Outlet />
-      </Suspense>
+      <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+        <GlobalStyle />
+        <button onClick={switchTheme}>Switch Theme</button>
+        <Suspense fallback={<h2>Loading</h2>}>
+          <Header />
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <PublicRoute redirectTo="/calculator">
+                  <MainPage />
+                </PublicRoute>
+              }
+            ></Route>
+            <Route
+              path="login"
+              element={
+                <PublicRoute restricted redirectTo="/calculator">
+                  <LoginPage />
+                </PublicRoute>
+              }
+            ></Route>
+            <Route
+              path="signup"
+              element={
+                <PublicRoute restricted redirectTo="/calculator">
+                  <RegistrationPage />
+                </PublicRoute>
+              }
+            />
+            <Route
+              path="diary"
+              element={
+                <PrivateRoute redirectTo="/login">
+                  <DiaryPage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="calculator"
+              element={
+                <PublicRoute redirectTo="/login">
+                  <CalculatorPage />
+                </PublicRoute>
+              }
+            />
+            <Route
+              path="google"
+              element={
+                <PublicRoute restricted redirectTo="/login">
+                  <CalculatorPage />
+                </PublicRoute>
+              }
+            />
+            <Route path="*" element={<Navigate to="/login" />} />
+          </Routes>
+          <AuthorizeGoogle />
+          <Outlet />
+        </Suspense>
 
-      <ToastContainer autoClose={2500} />
+        <ToastContainer autoClose={2500} />
+      </ThemeProvider>
     </>
   );
 };
