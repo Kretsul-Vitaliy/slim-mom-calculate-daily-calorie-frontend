@@ -2,13 +2,27 @@ import Container from '../../components/Container';
 import DiaryDateCakendar from '../../components/DiaryDateСalendar';
 import DiaryAddProductForm from '../../components/DiaryAddProductForm';
 import DiaryProductsList from '../../components/DiaryProductsList';
-import { useState } from 'react';
-
+import { useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { getCurrentUser } from '../../redux/auth/authOperation';
+// import {
+//   nameProduct,
+//   calories,
+//   date,
+//   dateId,
+//   getLoading,
+//   owner,
+//   weight,
+// } from '../../redux/products/ProductsSelector';
 const DiaryPage = () => {
   const [startDate, setStartDate] = useState(new Date());
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [gramsOfProducts, setGramsOfProducts] = useState(null);
 
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getCurrentUser());
+  }, [dispatch]);
   return (
     <>
       <Container>
