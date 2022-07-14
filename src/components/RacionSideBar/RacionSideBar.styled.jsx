@@ -6,21 +6,20 @@ import Container from '../Container';
 
 export const BoxBg = styled.div`
   min-width: 320px;
-  min-height: 360px;
+  height: 360px;
   background-color: var(--page-secondary-color);
 
   @media screen and (min-width: 768px) {
-    min-width: 768px;
     max-width: 1279px;
+    /* max-width: 1279px; */
     height: 326px;
 
     max-width: 1280px;
-    height: 326px;
   }
 
   @media screen and (min-width: 1280px) {
-    width: 517px;
-    height: 850px;
+    /* width: 517px;
+    height: 850px; */
   }
 `;
 
@@ -38,11 +37,13 @@ export const PositionConteiner = styled.div`
   flex-direction: column;
   justify-content: space-between;
 
-  min-height: 360px;
+  height: 360px;
 
   @media screen and (min-width: 768px) {
-    /* display: inline-flex; */
+    /* display: flex; */
     /* margin: 0 auto; */
+    justify-content: center;
+    height: 326px;
 
     padding-top: 80px;
     padding-bottom: 80px;

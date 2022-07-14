@@ -1,12 +1,7 @@
 // import Container from '../Container';
 import DailyCalorieIntake from '../DailyCalorieIntake/DailyCalorieIntake';
 import DailyNotRecommendedFood from '../DailyNotRecommendedFood/DailyNotRecommendedFood';
-import {
-  BoxBg,
-  PositionConteiner,
-  User,
-  StyledConteiner,
-} from './RacionSideBar.styled.jsx';
+import { BoxBg, PositionConteiner } from './RacionSideBar.styled.jsx';
 
 const RacionSideBar = ({ name = 'riko' }) => {
   return (
