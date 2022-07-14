@@ -20,10 +20,11 @@ import {
 
 // Операция получения информации по определённому дню
 export const getDay = () => async (dispatch, getState, date) => {
-  const {
-    auth: { token: persistedToken },
-  } = getState();
-
+  // const {
+  //   auth: { token: persistedToken },
+  // } = getState();
+  const state = getState();
+  const persistedToken = state.auth.token;
   if (!persistedToken) {
     return;
   }
@@ -38,10 +39,11 @@ export const getDay = () => async (dispatch, getState, date) => {
 
 export const addProduct =
   (name, weight, calories, date) => async (dispatch, getState) => {
-    const {
-      auth: { token: persistedToken },
-    } = getState();
-
+    // const {
+    //   auth: { token: persistedToken },
+    // } = getState();
+    const state = getState();
+    const persistedToken = state.auth.token;
     if (!persistedToken) {
       return;
     }
@@ -58,10 +60,11 @@ export const addProduct =
   };
 
 export const deleteProduct = dayId => async (dispatch, getState) => {
-  const {
-    auth: { token: persistedToken },
-  } = getState();
-
+  // const {
+  //   auth: { token: persistedToken },
+  // } = getState();
+  const state = getState();
+  const persistedToken = state.auth.token;
   if (!persistedToken) {
     return;
   }
