@@ -1,5 +1,13 @@
 import styled from 'styled-components';
 
+const ModalContent = styled.div`
+  width: 280px;
+  margin: 0 auto;
+  @media only screen and (min-width: 769px) {
+    width: 509px;
+  }
+`;
+
 const Title = styled.h2`
   font-family: Verdana-Bold;
   font-size: 18px;
@@ -56,19 +64,5 @@ const Item = styled.li`
   margin-top: 20px;
   color: var(--text-secondary-color);
 `;
-const ButtonClose = styled.button`
-  display: none;
-  padding: 0;
-  margin: 0;
-  border: 0;
-  background-color: white;
-  position: absolute;
-  top: 24px;
-  right: 24px;
 
-  @media only screen and (min-width: 769px) {
-    display: block;
-  }
-`;
-
-export { Title, List, Text, TitleList, Item, Line, ButtonClose };
+export { ModalContent, Title, List, Text, TitleList, Item, Line };

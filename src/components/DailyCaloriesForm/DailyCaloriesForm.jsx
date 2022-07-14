@@ -1,8 +1,8 @@
 import { useFormik } from 'formik';
-// import * as Yup from 'yup';
 import useModal from '../../hooks/useModal';
 import Button from '../Button';
 import axios from 'axios';
+import { validate } from './validate';
 import {
   Wrapper,
   Title,
@@ -15,9 +15,14 @@ import {
   Box,
   InputBox,
   Label,
+  Line,
+  ErrorsInput,
 } from './DailyCaloriesForm.styled';
 import Modal from '../Modal/Modal';
 import { useState } from 'react';
+import { getIsAuthenticated } from '../../redux/auth/authSelector';
+import { useSelector } from 'react-redux';
+import DailyCalorieIntake from '../DailyCalorieIntake/DailyCalorieIntake';
 
 axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
 
@@ -25,22 +30,10 @@ const DailyCaloriesForm = () => {
   const { isShowing, toggle } = useModal();
   const [calories, setCalories] = useState(0);
   const [products, setProducts] = useState([]);
-  const [id, setId] = useState();
 
-  // const validationSchema = Yup.object().shape({
-  //   height: Yup.number()
-  //     .min(100, 'Value must be greater than or equal to 100!')
-  //     .required('Required'),
-  //   age: Yup.number()
-  //     .min(18, 'Value must be greater than or equal to 18!')
-  //     .required('Required'),
-  //   currentWeight: Yup.number()
-  //     .min(20, 'Value must be greater than or equal to 20!')
-  //     .required('Required'),
-  //   desiredWeight: Yup.number()
-  //     .min(20, 'Value must be greater than or equal to 20!')
-  //     .required('Required'),
-  // });
+  const isAuthenticated = useSelector(getIsAuthenticated);
+  const token = useSelector(state => state.auth.token);
+  // const token = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyY2VkYWE0NzBmZWVkMjQ0ZTg1YjllOSIsImlhdCI6MTY1NzczNjA0NiwiZXhwIjoxNjU3NzM5NjQ2fQ.XABWk0NaK_Xi5AMg_YAJIp-42Pm7wB4gUmeKuunwYoE`;
 
   const formik = useFormik({
     initialValues: {
@@ -48,14 +41,21 @@ const DailyCaloriesForm = () => {
       age: '',
       currentWeight: '',
       desiredWeight: '',
-      bloodType: 1,
+      bloodType: '',
     },
+    validate: validate,
+
     onSubmit: values => {
-      getCalories(values);
+      console.log(values);
+      if (isAuthenticated) {
+        getCaloriesPrivate(values);
+      } else {
+        getCalories(values);
+      }
       formik.resetForm();
     },
-    // validationSchema,
   });
+
   const { height, age, currentWeight, desiredWeight, bloodType } =
     formik.values;
 
@@ -69,11 +69,31 @@ const DailyCaloriesForm = () => {
         headers,
       })
       .then(res => {
-        console.log(res.data);
-        const { dailyCalories, categories, _id } = res.data.data;
+        const { dailyCalories, categories } = res.data.data;
         setCalories(dailyCalories);
         setProducts([...categories]);
-        setId(_id);
+        toggle();
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+
+  const getCaloriesPrivate = values => {
+    const data = JSON.stringify(values);
+    const headers = {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    };
+
+    axios
+      .post('dailycalories', data, {
+        headers,
+      })
+      .then(res => {
+        const { calories, categories } = res.data.data._doc;
+        setCalories(calories);
+        setProducts([...categories]);
         toggle();
       })
       .catch(error => {
@@ -88,7 +108,9 @@ const DailyCaloriesForm = () => {
         hide={toggle}
         calories={calories}
         products={products}
-        id={id}
+        children={
+          <DailyCalorieIntake calories={calories} products={products} />
+        }
       />
       <Title>
         Calculate your daily calorie
@@ -98,6 +120,9 @@ const DailyCaloriesForm = () => {
         <Container>
           <Box>
             <InputBox>
+              {formik.errors.height && (
+                <ErrorsInput>{formik.errors.height}</ErrorsInput>
+              )}
               <Input
                 id="height"
                 name="height"
@@ -109,6 +134,9 @@ const DailyCaloriesForm = () => {
               <Label htmlFor="height">Height *</Label>
             </InputBox>
             <InputBox>
+              {formik.errors.age && (
+                <ErrorsInput>{formik.errors.age}</ErrorsInput>
+              )}
               <Input
                 id="age"
                 name="age"
@@ -120,6 +148,9 @@ const DailyCaloriesForm = () => {
               <Label htmlFor="age">Age *</Label>
             </InputBox>
             <InputBox>
+              {formik.errors.currentWeight && (
+                <ErrorsInput>{formik.errors.currentWeight}</ErrorsInput>
+              )}
               <Input
                 id="currentWeight"
                 name="currentWeight"
@@ -131,8 +162,12 @@ const DailyCaloriesForm = () => {
               <Label htmlFor="currentWeight">Current weight *</Label>
             </InputBox>
           </Box>
-          <div>
+          <Box>
             <InputBox>
+              {formik.errors.desiredWeight && (
+                <ErrorsInput>{formik.errors.desiredWeight}</ErrorsInput>
+              )}
+
               <Input
                 id="desiredWeight"
                 name="desiredWeight"
@@ -140,39 +175,55 @@ const DailyCaloriesForm = () => {
                 onChange={formik.handleChange}
                 value={desiredWeight}
                 required
-              />{' '}
+              />
               <Label htmlFor="desiredWeight">Desired weight *</Label>
             </InputBox>
             <RadioTitle id="bloodType">Blood type *</RadioTitle>
+            <Line />
             <RadioGroup
+              required
               role="group"
               aria-labelledby="bloodType"
               value={bloodType}
               onChange={formik.handleChange}
             >
-              <RadioLabel>
-                1
-                <RadioInput
-                  type="radio"
-                  name="bloodType"
-                  value="1"
-                  defaultChecked
-                />
-              </RadioLabel>
-              <RadioLabel>
-                2
-                <RadioInput type="radio" name="bloodType" value="2" />
-              </RadioLabel>
-              <RadioLabel>
-                3
-                <RadioInput type="radio" name="bloodType" value="3" />
-              </RadioLabel>
-              <RadioLabel>
-                4
-                <RadioInput type="radio" name="bloodType" value="4" />
-              </RadioLabel>
+              <RadioInput
+                type="radio"
+                name="bloodType"
+                value="1"
+                id="bloodType1"
+                defaultChecked
+              />
+              <RadioLabel htmlFor="bloodType1">1</RadioLabel>
+              <RadioInput
+                type="radio"
+                name="bloodType"
+                value="2"
+                id="bloodType2"
+                checked={bloodType.toString() === '2'}
+                onChange={formik.handleChange}
+              />
+              <RadioLabel htmlFor="bloodType2">2</RadioLabel>
+              <RadioInput
+                type="radio"
+                name="bloodType"
+                value="3"
+                id="bloodType3"
+                checked={bloodType.toString() === '3'}
+                onChange={formik.handleChange}
+              />
+              <RadioLabel htmlFor="bloodType3">3</RadioLabel>
+              <RadioInput
+                type="radio"
+                name="bloodType"
+                value="4"
+                id="bloodType4"
+                checked={bloodType.toString() === '4'}
+                onChange={formik.handleChange}
+              />
+              <RadioLabel htmlFor="bloodType4">4</RadioLabel>
             </RadioGroup>
-          </div>
+          </Box>
         </Container>
         <Button size="long" type="submit">
           Start losing weight

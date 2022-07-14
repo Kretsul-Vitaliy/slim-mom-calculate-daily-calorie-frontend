@@ -1,23 +1,24 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 const useModal = () => {
   const [isShowing, setIsShowing] = useState(false);
 
   useEffect(() => {
-    const handleKeyDown = (event) => {
-      if (event.code === "Escape") {
+    const handleKeyDown = event => {
+      if (event.code === 'Escape') {
         setIsShowing(false);
       }
     };
-    window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener('keydown', handleKeyDown);
     return () => {
-      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener('keydown', handleKeyDown);
     };
   }, []);
 
-  const handleBackdropClick = (event) => {
+  const handleBackdropClick = event => {
     if (event.currentTarget === event.target) {
       setIsShowing(false);
+      console.log(`handleBackdropClick`);
     }
   };
 
