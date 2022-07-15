@@ -57,7 +57,9 @@ const App = () => {
     <>
       <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
         <GlobalStyle />
-        <button onClick={switchTheme}>Switch Theme</button>
+        <AppButton onClick={switchTheme} type="submit">
+          Switch Theme
+        </AppButton>
         <Suspense fallback={<Loader />}>
           <Header />
           <Routes>
