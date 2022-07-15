@@ -3,7 +3,8 @@
         "diary": "Diary",
         "calculator": "Calculator",
         "login": "Sign in",
-        "registration": "Registration"
+        "registration": "Registration",
+        "exit": "Exit"
     },
     "DCF": {
         "titleFir": "Calculate your daily calorie",

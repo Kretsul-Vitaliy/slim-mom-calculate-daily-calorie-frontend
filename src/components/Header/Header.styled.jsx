@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 const HeaderEl = styled.header`
   position: relative;
   @media screen and (max-width: 1279px) {
@@ -22,25 +21,6 @@ const HeaderContainer = styled.div`
     
 
 `;
-const Picture = styled.picture`
-  img {
-      padding: 20px 0 16px 20px;
-      @media screen and (max-width: 767px) {
-        width: 47px;
-        height: 44px;
-        padding: 0;
-        transform: translate(0, 40%);
-      }
-      @media screen and (min-width: 768px) and (max-width: 1279px) {
-        width: 162px;
-      }
-      @media screen and (min-width: 1280px) {
-        width: 167px;
-        height: 66px;
-        padding: unset;
-      }
-    }
-`
 
 const Link = styled.a`
   @media screen and (min-width: 1280px) {
@@ -97,6 +77,12 @@ const NavList = styled.ul`
 `
 const Menu = styled.div`
     display: flex;
+
+    @media screen and (min-width: 1280px) {
+      flex-direction: row-reverse;
+      gap: 16px;
+      flex: 1;
+    }
 `
 
 const BurgerButton = styled.button`
@@ -113,5 +99,26 @@ const BurgerButton = styled.button`
   }
 `
 
+const UserInfoWrapper = styled.div`
+  align-self: center;
+  @media screen and (max-width: 767px) {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: rgba(239, 241, 243, 1);
+    width: 100%;
+    display: flex;
+    padding: 0 20px;
 
-export { HeaderEl, HeaderContainer, Picture, Link, Divider, NavList, Menu, BurgerButton }
+      div {
+        margin-left: auto;
+      }
+  }
+  @media screen and (min-width: 1280px) {
+    transform: translate(0%,50%);
+    margin-left: auto;
+  }
+`
+
+
+export { HeaderEl, HeaderContainer, Link, Divider, NavList, Menu, BurgerButton, UserInfoWrapper }

@@ -23,6 +23,9 @@ const NavWrapper = styled.nav`
             pointer-events: all;
         }
     }
+    @media screen and (min-width: 1280px) {
+        margin-right: auto;
+    }
 `
 
 const List = styled.ul`
