@@ -4,6 +4,7 @@ const darckboxShadowColor = '#49df49fa';
 
 export const darkTheme = {
   body: `${darckThemeBodyColor}`,
+  // body: '#fff',
   // Colors for registration and login forms
   titleColor: `${darckThemeTextColor}`,
   labelColor: `${darckThemeTextColor}`,
@@ -16,6 +17,7 @@ export const darkTheme = {
   boxShadowColor: `${darckboxShadowColor}`,
 
   // Colors for header
+  headerBackgroundColor: '#ffffff85',
   headerElborderBottomColor: 'var(--text-secondary-color)',
 
   // Colors for logo
@@ -23,8 +25,18 @@ export const darkTheme = {
   // fill="#ffffff"
 
   // Colors for navigations
-  NavLinkColor: `${darckThemeTextColor}`, //Only for desktop
-  NavLinkHoverColor: 'var(--color-white)', //Only for desktop
+  navLinkColor: `${darckThemeTextColor}`, //Only for desktop
+  navLinkHoverColor: 'var(--color-white)', //Only for desktop
+
+  // Colors for dailyCaloriForm
+  dailyCaloriFormTittleColor: `${darckThemeTextColor}`,
+  dailyCaloriFormInputColor: `${darckThemeTextColor}`,
+  dailyCaloriFormLabelColor: `${darckThemeTextColor}`,
+  dailyCaloriFormFocusHoverColor: 'var(--text-secondary-color)',
+  dailyCaloriFormRadioTitleColor: `${darckThemeTextColor}`,
+  dailyCaloriFormRadioInputColor: `${darckThemeTextColor}`,
+  dailyCaloriFormBackgroundAfterColor: `${darckThemeTextColor}`,
+  dailyCaloriFormChekedColor: 'var(--color-white)',
 };
 
 export const lightTheme = {
@@ -42,6 +54,7 @@ export const lightTheme = {
   boxShadowColor: 'var(--color-disabled)',
 
   // Colors for header
+  headerBackgroundColor: '#fff',
   headerElborderBottomColor: '#e0e0e0',
 
   //Colors for logo
@@ -49,6 +62,16 @@ export const lightTheme = {
   // fill: ${props => props.theme.logoFill};
 
   // Colors for navigations
-  NavLinkColor: 'var(--text-main-color)', //Only for desktop
-  NavLinkHoverColor: 'var(--extra-color)', //Only for desktop
+  navLinkColor: 'var(--text-main-color)', //Only for desktop
+  navLinkHoverColor: 'var(--extra-color)', //Only for desktop
+
+  // Colors for dailyCaloriForm
+  dailyCaloriFormTittleColor: '#212121',
+  dailyCaloriFormInputColor: 'var(--text-secondary-color)',
+  dailyCaloriFormLabelColor: 'var(--text-secondary-color)',
+  dailyCaloriFormFocusHoverColor: 'var(--extra-color)',
+  dailyCaloriFormRadioTitleColor: 'var(--text-secondary-color)',
+  dailyCaloriFormRadioInputColor: '#9b9faa',
+  dailyCaloriFormBackgroundAfterColor: 'var(--extra-color)',
+  dailyCaloriFormChekedColor: 'var(--extra-color)',
 };

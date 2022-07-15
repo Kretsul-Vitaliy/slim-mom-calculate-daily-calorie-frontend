@@ -68,11 +68,11 @@ const StyledNavLink = styled(NavLink)`
   &[aria-current] {
     color: var(--color-white);
     @media screen and (min-width: 1280px) {
-      color: var(--text-main-color);
+      color: ${props => props.theme.navLinkColor};
     }
   }
   &:hover {
-    color: var(--extra-color);
+    color: ${props => props.theme.navLinkHoverColor};
   }
 `;
 

@@ -2,8 +2,9 @@ import styled from 'styled-components';
 
 const HeaderEl = styled.header`
   position: relative;
+  background-color: ${props => props.theme.headerBackgroundColor};
   @media screen and (max-width: 1279px) {
-    border-bottom: 2px solid #e0e0e0;
+    border-bottom: 2px solid ${props => props.theme.headerElborderBottomColor};
   }
   @media screen and (min-width: 1280px) {
     padding-top: 80px;
