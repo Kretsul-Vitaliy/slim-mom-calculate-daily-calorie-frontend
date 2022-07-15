@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.4706947e.css",
-    "main.js": "/static/js/main.2991f8f4.js",
+    "main.js": "/static/js/main.76f50b4f.js",
     "Main_page.js": "/static/js/Main_page.60482bd5.chunk.js",
     "Public__Route.js": "/static/js/Public__Route.ef0f46ef.chunk.js",
     "Private__Route.js": "/static/js/Private__Route.a00099a1.chunk.js",
@@ -19,6 +19,7 @@
     "static/media/tabletBananas1x.png": "/static/media/tabletBananas1x.8603661ebdcbd738f252.png",
     "static/media/descktopLetters1x.png": "/static/media/descktopLetters1x.df1295014757bbc42e59.png",
     "static/media/tabletLetters1x.png": "/static/media/tabletLetters1x.dfee57925a0bfa779c9e.png",
+    "static/media/deck-sidebar.png": "/static/media/deck-sidebar.fdef973962745c3e2988.png",
     "static/media/logo-desctop.svg": "/static/media/logo-desctop.31a0a9d04d24ed39dcfc749d4f9a5709.svg",
     "static/media/logo-tablet.svg": "/static/media/logo-tablet.d89e61ccaaf893be6eff49b7fb69b821.svg",
     "static/media/logo-mobile.svg": "/static/media/logo-mobile.48a9a1543f0b6b819971ab2969bcdde9.svg",
@@ -28,19 +29,20 @@
     "static/media/GothamPro.woff": "/static/media/GothamPro.9e3de47599b8a119a2b3.woff",
     "static/media/GothamPro-Light.woff": "/static/media/GothamPro-Light.1c262bae1f403fe781a2.woff",
     "static/media/descktopWave1x.png": "/static/media/descktopWave1x.a02f6f3c1b71acf54197.png",
+    "static/media/sideBarLeaves768_1x.png": "/static/media/sideBarLeaves768_1x.d47e11c7ecbda7cf9aa0.png",
     "static/media/tabletWave1x.png": "/static/media/tabletWave1x.c2c5d6b212b5e2cbc585.png",
     "static/media/google.svg": "/static/media/google.cf3c7e5ea68a2c42829c694a69313578.svg",
     "index.html": "/index.html",
     "static/media/calendar.svg": "/static/media/calendar.9200047ae8484f890ceaec6183b5632e.svg",
     "static/media/getFetch.cjs": "/static/media/getFetch.c780682470504fffbd04.cjs",
     "main.4706947e.css.map": "/static/css/main.4706947e.css.map",
-    "main.2991f8f4.js.map": "/static/js/main.2991f8f4.js.map",
+    "main.76f50b4f.js.map": "/static/js/main.76f50b4f.js.map",
     "Main_page.60482bd5.chunk.js.map": "/static/js/Main_page.60482bd5.chunk.js.map",
     "Public__Route.ef0f46ef.chunk.js.map": "/static/js/Public__Route.ef0f46ef.chunk.js.map",
     "Private__Route.a00099a1.chunk.js.map": "/static/js/Private__Route.a00099a1.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4706947e.css",
-    "static/js/main.2991f8f4.js"
+    "static/js/main.76f50b4f.js"
   ]
 }
