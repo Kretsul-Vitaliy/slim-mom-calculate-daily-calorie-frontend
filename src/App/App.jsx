@@ -35,10 +35,6 @@ const PrivateRoute = lazy(() =>
 );
 
 const AppButton = styled.button`
-  /* display: block;
-  position: absolute; */
-  /* top: 20px;
-  left: 50%; */
   z-index: 2;
   position: absolute;
   margin-top: 20px;

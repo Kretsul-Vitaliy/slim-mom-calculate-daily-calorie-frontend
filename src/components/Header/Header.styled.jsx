@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const HeaderEl = styled.header`
   position: relative;
@@ -73,13 +73,13 @@ const NavList = styled.ul`
   }
 `;
 const Menu = styled.div`
-    display: flex;
+  display: flex;
 
-    @media screen and (min-width: 1280px) {
-      flex-direction: row-reverse;
-      gap: 16px;
-      flex: 1;
-    }
+  @media screen and (min-width: 1280px) {
+    flex-direction: row-reverse;
+    gap: 16px;
+    flex: 1;
+  }
 `;
 
 const BurgerButton = styled.button`
@@ -106,16 +106,23 @@ const UserInfoWrapper = styled.div`
     display: flex;
     padding: 0 20px;
 
-      div {
-        margin-left: auto;
-      }
+    div {
+      margin-left: auto;
+    }
   }
   @media screen and (min-width: 1280px) {
-    transform: translate(0%,50%);
+    transform: translate(0%, 50%);
     margin-left: auto;
   }
 `;
 
-
-export { HeaderEl, HeaderContainer, Link, Divider, NavList, Menu, BurgerButton, UserInfoWrapper }
-
+export {
+  HeaderEl,
+  HeaderContainer,
+  Link,
+  Divider,
+  NavList,
+  Menu,
+  BurgerButton,
+  UserInfoWrapper,
+};
