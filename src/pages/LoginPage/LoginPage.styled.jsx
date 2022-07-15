@@ -8,7 +8,7 @@ export const SignInHeader = styled.h1`
   letter-spacing: 0.04em;
   text-align: center;
   text-transform: uppercase;
-  color: var(--extra-color);
+  color: ${props => props.theme.h1Color};
 
   @media screen and (min-width: 768px) {
     text-align: start;

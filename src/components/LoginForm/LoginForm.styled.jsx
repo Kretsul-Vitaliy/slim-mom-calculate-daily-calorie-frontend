@@ -27,7 +27,7 @@ export const Labels = styled.label`
 
 export const Input = styled.input`
   border: none;
-  border-bottom: 1px solid ${props => props.theme.linkColor}
+  border-bottom: 1px solid var(--header-divider-color);
   height: 20px;
   outline: none;
   background: transparent;
