@@ -47,7 +47,6 @@ const RegistrationForm = () => {
       dispatch(register(payload));
       notify();
       formik.resetForm();
-      console.log(values);
     },
   });
 

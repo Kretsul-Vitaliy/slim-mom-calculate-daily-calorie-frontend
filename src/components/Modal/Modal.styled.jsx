@@ -49,14 +49,6 @@ const ModalContainer = styled.div`
   }
 `;
 
-const ModalContent = styled.div`
-  width: 280px;
-  margin: 0 auto;
-  @media only screen and (min-width: 769px) {
-    width: 509px;
-  }
-`;
-
 const TurnBack = styled.div`
   display: flex;
   align-items: center;
@@ -68,5 +60,19 @@ const TurnBack = styled.div`
     display: none;
   }
 `;
+const ButtonClose = styled.button`
+  display: none;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background-color: white;
+  position: absolute;
+  top: 24px;
+  right: 24px;
 
-export { ModalContainer, ModalContent, TurnBack, ModalOverlay, ModalWrapper };
+  @media only screen and (min-width: 769px) {
+    display: block;
+  }
+`;
+
+export { ModalContainer, TurnBack, ModalOverlay, ModalWrapper, ButtonClose };

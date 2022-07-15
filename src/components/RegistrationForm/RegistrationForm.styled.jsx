@@ -2,32 +2,36 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import Button from '../Button';
 const ContainerRegistration = styled.div`
+  max-width: 285px;
   padding: 40px 0 100px 0;
   margin-left: auto;
   margin-right: auto;
+  text-align: center;
   @media screen and (min-width: 768px) {
     padding: 160px 0 140px 0;
     min-width: 768px;
+    max-width: 1279px;
+    text-align: start;
   }
   @media screen and (min-width: 1280px) {
     padding: 160px 0 180px 0;
     min-width: 1280px;
+    max-width: 100%;
   }
 `;
-const TitleRegistration = styled.h2`
-  color: var(--extra-color);
+const TitleRegistration = styled.h1`
+  color: ${props => props.theme.h1Color};
   text-transform: uppercase;
-  font-family: GothamPro-Bold;
+  font-family: Verdana-Bold;
   font-style: normal;
   font-size: 14px;
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: 0.04em;
   margin-top: 0;
-  text-align: center;
   @media screen and (min-width: 768px) {
+    font-family: GothamPro-Bold;
     line-height: 0.9;
-    text-align: start;
   }
 `;
 const FormRegistrationList = styled.ul`
@@ -43,24 +47,24 @@ const FormRegistrationListItem = styled.li`
 `;
 const FormRegistrationLabel = styled.label`
   display: flex;
-  width: auto;
-  height: 16px;
+  height: 15px;
   font-family: Verdana-Bold;
   font-style: normal;
   font-weight: 700;
   font-size: 14px;
   line-height: 1.2;
   letter-spacing: 0.04em;
-  color: var(--text-secondary-color);
+  color: ${props => props.theme.labelColor};
 `;
 
 const FormRegistrationInput = styled.input`
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid var(--header-divider-color);
   border-top: none;
   border-left: none;
   border-right: none;
+  width: 285px;
+  display: flex;
   height: 20px;
-  width: 100%;
   @media screen and (min-width: 768px) {
     width: 240px;
   }
@@ -72,23 +76,26 @@ const RegistrationEnterLink = styled(NavLink)`
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  color: var(--extra-color);
+  color: ${props => props.theme.linkColor};
   width: 182px;
   height: 44px;
   border-radius: 30px;
-  border: 1px solid var(--extra-color);
+  border: 1px solid ${props => props.theme.linkColor};
   padding: 12px 50px;
   font-family: Verdana-Bold;
   margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
   &:hover,
   :focus {
-    background: var(--extra-color);
+    background: ${props => props.theme.linkColor};
     color: var(--color-white);
-    box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+    box-shadow: 0px 4px 10px ${props => props.theme.boxShadowColor};
   }
   @media screen and (min-width: 768px) {
     margin-bottom: 0;
     margin-right: 32px;
+    margin-left: 0;
   }
 `;
 const ButtonContainer = styled.div`
@@ -103,6 +110,7 @@ const RegistrationButton = styled(Button)`
   @media screen and (min-width: 768px) {
     margin-left: 0;
     margin-right: 0;
+    justify-content: start;
   }
 `;
 export {

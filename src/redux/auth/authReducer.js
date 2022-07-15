@@ -13,13 +13,19 @@ import {
   getCurrentUserRequest,
   getCurrentUserSuccess,
   getCurrentUserError,
+  updateUserRequest,
+  updateUserSuccess,
+  updateUserError,
 } from '../auth/authAction';
 
-const user = createReducer(null, {
-  [registerSuccess]: (_, { payload }) => payload,
+const initUserState = { name: null, email: null };
+
+const user = createReducer(initUserState, {
+  [registerSuccess]: (_, { payload }) => payload.user,
   [loginSuccess]: (_, { payload }) => payload,
-  [logoutSuccess]: () => null,
-  [getCurrentUserSuccess]: (_, { payload }) => payload,
+  [logoutSuccess]: () => initUserState,
+  [getCurrentUserSuccess]: (_, { payload }) => payload.user,
+  [updateUserSuccess]: (_, { payload }) => payload,
 });
 
 const token = createReducer(null, {
@@ -28,14 +34,18 @@ const token = createReducer(null, {
   [logoutSuccess]: () => null,
 });
 
+const setError = (_, { payload }) => payload;
+
 const error = createReducer(null, {
-  [registerError]: (_, { payload }) => payload,
-  [loginError]: (_, { payload }) => payload,
-  [logoutError]: (_, { payload }) => payload,
-  [getCurrentUserError]: (_, { payload }) => payload,
+  [registerError]: setError,
+  [loginError]: setError,
+  [logoutError]: setError,
+  [getCurrentUserError]: setError,
+  [updateUserError]: setError,
 
   [registerRequest]: () => false,
   [registerRequest]: () => false,
+  [updateUserRequest]: () => false,
 
   [loginRequest]: () => false,
   [loginSuccess]: () => false,
@@ -51,11 +61,10 @@ const isLogged = createReducer(false, {
   [registerSuccess]: () => true,
   [loginSuccess]: () => true,
   [getCurrentUserSuccess]: () => true,
+  [getCurrentUserRequest]: () => true,
   [logoutSuccess]: () => false,
-
   [registerError]: () => false,
   [loginError]: () => false,
-  [logoutError]: () => false,
   [getCurrentUserError]: () => false,
 });
 

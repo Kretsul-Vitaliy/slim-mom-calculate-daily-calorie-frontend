@@ -4,5 +4,57 @@
         "calculator": "Calculator",
         "login": "Sign in",
         "registration": "Registration"
-    }
+    },
+    "DCF": {
+        "titleFir": "Calculate your daily calorie",
+        "titleSec": "intake right now",
+        "height": "Height",
+        "age": "Age",
+        "curWeight": "Current weight",
+        "desWeight": "Desired weight",
+        "bloodType": "Blood type",
+        "btn": "Start losing weight"
+    },
+    "auth": {
+        "password": "Password",
+        "name": "Name",
+        "invMail": "Invalid email",
+        "verifyMail": "Please, check your email and confirm your account!"
+    },
+    "modal": {
+        "title": "Your recommended daily calorie intake is",
+        "cal": "cal",
+        "noEat": "Foods you should not eat"
+    },
+    "DPF": {
+        "typeProduct": "Enter product name",
+        "productContain": "The name must consist only of letters",
+        "enterGram": "Enter the number of grams",
+        "isReq": "Is required",
+        "productPlaceholder": "Enter product name",
+        "grams": "Grams"
+    },
+    "DPI": {
+        "addProd": "Add our products",
+        "ccal": "ccal"
+    },
+    "яйца": "eggs",
+    "зерновые": "cereal",
+    "мучные": "flour",
+    "молочные": "milky",
+    "мясо": "meat",
+    "ягоды": "berries",
+    "колбаса": "sausage",
+    "рыба": "fish",
+    "фрукты": "fruit",
+    "грибы": "mushrooms",
+    "масла и жиры": "oils and fats",
+    "орехи": "nuts",
+    "сухофрукты": "dried fruits",
+    "овощи и зелень": "vegetables and herbs",
+    "алкогольные напитки": "alcoholic drinks",
+    "семена": "seeds",
+    "безалкогольные напитки": "soft drinks",
+    "кунжут": "sesame",
+    "мак": "poppy"
 }

@@ -1,34 +1,32 @@
+import { Link } from 'react-router-dom';
 import {
-  Wrapper,
+  ModalContent,
   Title,
+  Text,
+  Line,
+  TitleList,
   List,
-  ListItem,
-  ListItemData,
-} from './DailyCalorieIntake.slyled.jsx';
-
-const DailyCalorieIntake = ({ date = `06/20/2020`, kcal = '000' }) => {
+  Item,
+} from './DailyCalorieIntake.styled';
+import Button from '../Button';
+const DailyCalorieIntake = ({ calories, products }) => {
   return (
-    <Wrapper>
-      <Title>Summary for {date}</Title>
+    <ModalContent>
+      <Title>Your recommended daily calorie intake is</Title>
+      <Text>{calories} cal</Text>
+      <Line />
+      <TitleList>Foods you should not eat</TitleList>
       <List>
-        <ListItem>
-          <ListItemData>Left</ListItemData>
-          <ListItemData>{kcal} kcal</ListItemData>
-        </ListItem>
-        <ListItem>
-          <ListItemData>Consumed</ListItemData>
-          <ListItemData>{kcal} kcal</ListItemData>
-        </ListItem>
-        <ListItem>
-          <ListItemData>Daily rate</ListItemData>
-          <ListItemData>{kcal} kcal</ListItemData>
-        </ListItem>
-        <ListItem>
-          <ListItemData>n% of normal</ListItemData>
-          <ListItemData>{kcal} kcal</ListItemData>
-        </ListItem>
+        {products.map(product => (
+          <Item>{product}</Item>
+        ))}
       </List>
-    </Wrapper>
+      <Link to="/signup">
+        <Button type="button" size="long">
+          Start losing weight
+        </Button>
+      </Link>
+    </ModalContent>
   );
 };
 
