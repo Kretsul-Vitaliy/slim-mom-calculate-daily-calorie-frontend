@@ -11,35 +11,51 @@ const DiaryProductsList = ({
   dateCalendar,
   selectedProduct,
   gramsOfProducts,
+  persistToken,
+  setSelectedProduct,
 }) => {
   const [productsItem, setProductsItem] = useState(null);
   const [deletedProduct, setDeletedProduct] = useState(null);
 
   useEffect(() => {
+    console.log(deletedProduct);
     if (deletedProduct) {
-      setProductsItem(productsItem.filter(obj => obj.id !== deletedProduct));
-      deleteCalendarProducts(deletedProduct).then(values => {
+      deleteCalendarProducts(persistToken, deletedProduct).then(values => {
         setDeletedProduct(null);
-        console.log('Succes deleted');
+        console.log(values);
       });
     }
-  }, [deletedProduct, productsItem]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [deletedProduct]);
 
   useEffect(() => {
     console.log('Worked');
-    getCalendarProducts(dateCalendar).then(values =>
+    getCalendarProducts(persistToken, dateCalendar).then(values =>
       setProductsItem(values.data)
     );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dateCalendar, deletedProduct]);
 
   useEffect(() => {
     if (selectedProduct) {
       const { title, calories } = selectedProduct;
-      setCalendarProducts(title.ua, gramsOfProducts, calories, dateCalendar)
-        .then(value => setProductsItem([value.data._doc, ...productsItem]))
+      setCalendarProducts(
+        title.ua,
+        gramsOfProducts,
+        calories,
+        dateCalendar,
+        persistToken
+      )
+        .then(value => {
+          setProductsItem([value.data._doc, ...productsItem]);
+          setSelectedProduct(null);
+        })
         .catch(error => console.log(error));
     }
-  }, [dateCalendar, gramsOfProducts, productsItem, selectedProduct]);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dateCalendar, productsItem, selectedProduct]);
+
   return (
     <ProductsContainer>
       {productsItem && (
