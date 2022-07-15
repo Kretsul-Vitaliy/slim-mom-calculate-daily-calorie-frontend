@@ -65,6 +65,7 @@ const RegistrationForm = () => {
               type="text"
               onChange={formik.handleChange}
               value={name}
+              autocomplete="off"
               required
             />
             {formik.touched.name && formik.errors.name ? (
@@ -82,6 +83,7 @@ const RegistrationForm = () => {
               onChange={formik.handleChange}
               password
               value={email}
+              autocomplete="off"
               required
             />
             {formik.touched.email && formik.errors.email ? (
@@ -98,6 +100,7 @@ const RegistrationForm = () => {
               type="password"
               onChange={formik.handleChange}
               value={password}
+              autocomplete="off"
               required
             />
             {formik.touched.password && formik.errors.password ? (
