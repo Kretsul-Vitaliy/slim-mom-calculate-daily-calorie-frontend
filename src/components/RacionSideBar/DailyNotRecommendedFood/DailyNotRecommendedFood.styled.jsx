@@ -1,28 +1,21 @@
 import styled from 'styled-components';
-import '../../helpers/variables.css';
+import '../../../helpers/variables.css';
 
 export const Wrapper = styled.div`
-  width: 285px;
-  height: 152px;
-  /* left: 20px;
-  top: 620px; */
+  width: 280px;
+  height: 104px;
 
   margin: 0 auto;
 
   @media screen and (min-width: 768px) {
-    display: inline-block;
+    margin-left: 0;
+
     width: 288px;
     height: 166px;
-
-    margin-left: auto;
-    margin-right: 80px;
   }
 
   @media screen and (min-width: 1280px) {
-    display: block;
     margin: 0 auto;
-    margin-top: 292px;
-    margin-bottom: 60px;
   }
 `;
 
@@ -31,32 +24,20 @@ export const Title = styled.h2`
   font-style: normal;
   font-weight: 700;
   font-size: 14px;
-  line-height: 17px;
+  line-height: 1.2;
   letter-spacing: 0.04em;
 
   color: var(--text-main-color);
 
-  width: 285px;
+  width: 280px;
   height: 20px;
   left: 20px;
-  top: 620px;
+  top: 812px;
 
   margin-bottom: 20px;
 `;
 
-export const List = styled.ul``;
-
-export const ListItem = styled.li`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  :not(:last-child) {
-    margin-bottom: 18px;
-  }
-`;
-
-export const ListItemData = styled.p`
+export const Text = styled.p`
   font-family: 'Verdana';
   font-style: normal;
   font-weight: 400;
