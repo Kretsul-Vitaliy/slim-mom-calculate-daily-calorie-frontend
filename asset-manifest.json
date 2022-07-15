@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/static/css/main.4706947e.css",
-    "main.js": "/static/js/main.69824b07.js",
+    "main.js": "/static/js/main.0d6aa671.js",
     "Main_page.js": "/static/js/Main_page.af652037.chunk.js",
-    "Public__Route.js": "/static/js/Public__Route.ef0f46ef.chunk.js",
-    "Private__Route.js": "/static/js/Private__Route.a00099a1.chunk.js",
+    "Public__Route.js": "/static/js/Public__Route.c5ed2907.chunk.js",
+    "Private__Route.js": "/static/js/Private__Route.181d5241.chunk.js",
     "static/media/descktopStrawberry2x.png": "/static/media/descktopStrawberry2x.2b83ae588a79c2b012fe.png",
     "static/media/tabletStrawberry2x.png": "/static/media/tabletStrawberry2x.ebf438cb8cc8c8867188.png",
     "static/media/descktopBananas2x.png": "/static/media/descktopBananas2x.3f10d9eab54182a49e61.png",
@@ -36,13 +36,13 @@
     "static/media/calendar.svg": "/static/media/calendar.9200047ae8484f890ceaec6183b5632e.svg",
     "static/media/getFetch.cjs": "/static/media/getFetch.c780682470504fffbd04.cjs",
     "main.4706947e.css.map": "/static/css/main.4706947e.css.map",
-    "main.69824b07.js.map": "/static/js/main.69824b07.js.map",
+    "main.0d6aa671.js.map": "/static/js/main.0d6aa671.js.map",
     "Main_page.af652037.chunk.js.map": "/static/js/Main_page.af652037.chunk.js.map",
-    "Public__Route.ef0f46ef.chunk.js.map": "/static/js/Public__Route.ef0f46ef.chunk.js.map",
-    "Private__Route.a00099a1.chunk.js.map": "/static/js/Private__Route.a00099a1.chunk.js.map"
+    "Public__Route.c5ed2907.chunk.js.map": "/static/js/Public__Route.c5ed2907.chunk.js.map",
+    "Private__Route.181d5241.chunk.js.map": "/static/js/Private__Route.181d5241.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4706947e.css",
-    "static/js/main.69824b07.js"
+    "static/js/main.0d6aa671.js"
   ]
 }
