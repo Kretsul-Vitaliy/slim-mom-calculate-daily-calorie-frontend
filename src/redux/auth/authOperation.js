@@ -64,7 +64,7 @@ export const getCurrentUser = () => async (dispatch, getState) => {
   // } = getState();
   const state = getState();
   const persistedToken = state.auth.token;
-  console.log('persistedToken', persistedToken);
+  // console.log('persistedToken', persistedToken);
   if (!persistedToken) {
     return;
   }

@@ -15,6 +15,7 @@ import autoMergeLevel1 from 'reduxjs-toolkit-persist/lib/stateReconciler/autoMer
 import authReducer from './auth/authReducer';
 import userReducer from './user/userReducer';
 import dailyCaloriesReducer from './dailyCalories/dailyCaloriesReducer';
+import ProductsReducer from './products/ProductsReducer';
 
 const authPersistConfig = {
   key: 'token',
@@ -28,6 +29,7 @@ const reducer = combineReducers({
   auth: persistedReducer,
   user: userReducer,
   dailyCalories: dailyCaloriesReducer,
+  dayProducts: ProductsReducer,
 });
 const logger = createLogger({
   collapsed: logEntry => !logEntry.error,

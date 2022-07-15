@@ -51,6 +51,10 @@ const DiaryAddProductForm = ({ setSelectedProduct, setGramsOfProducts }) => {
       getDataProducts(formik.values.product)
         .then(values => setPossibleProducts(values.data.products))
         .catch(error => console.log(error));
+      console.log(
+        '🚀 ~ file: DiaryAddProductForm.jsx ~ line 54 ~ useEffect ~ getDataProducts',
+        getDataProducts
+      );
     }
   }, [formik.values.product]);
 

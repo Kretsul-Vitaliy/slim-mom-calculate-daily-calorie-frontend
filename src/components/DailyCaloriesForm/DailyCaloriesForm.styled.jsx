@@ -6,7 +6,6 @@ const Wrapper = styled.div`
   padding-right: 20px;
   padding-top: 32px;
   padding-bottom: 100px;
-  margin: 0 auto;
   @media only screen and (min-width: 769px) {
     width: 768px;
     padding-top: 100px;
