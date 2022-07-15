@@ -2,28 +2,30 @@ import styled from 'styled-components';
 
 export const ButtonStyled = styled.button`
   background: ${props =>
-    props.disabled ? `var(--header-divider-color)` : `var(--color-white)`};
+    props.disabled ? `var(--header-divider-color)` : props.theme.btnBackgroundColor};
   color: ${props =>
-    props.disabled ? `var(--text-secondary-color)` : `var(--extra-color)`};
+    props.disabled ? `var(--text-secondary-color)` : props.theme.btnTextColor};
   border: ${props =>
-    props.disabled ? 'none' : '2px solid var(--extra-color)'};
+    props.disabled ? 'none' : `1px solid ${props.theme.btnBorderColor}`};
 
   border-radius: 30px;
 
   &[disabled] {
     cursor: not-allowed;
   }
+ 
+  &:not([disabled]) {
+      &:hover,
+      :focus {
+        background: ${props=>props.theme.btnFocusHoverBackgroundColor};
+        color: ${props=>props.theme.btnFocusHoverTextColor};
+        box-shadow: ${props=>props.theme.boxShadowColor};
+      }
+  }
 
-  &:not(button[disabled]) {
-    &:hover,
-    :focus {
-      background: var(--extra-color);
-      color: var(--color-white);
-      box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
-    }
 
     cursor: pointer;
-  }
+  
 
   ${props => {
     switch (props.size) {
@@ -31,6 +33,7 @@ export const ButtonStyled = styled.button`
         return `
                 width: 182px;
                 height: 44px;
+               
             `;
       case 'long':
         return `

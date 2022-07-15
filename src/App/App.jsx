@@ -5,6 +5,8 @@ import { ToastContainer } from 'react-toastify';
 
 import { getCurrentUser } from '../redux/auth/authOperation';
 
+import styled from 'styled-components';
+
 import LoginPage from '../pages/LoginPage';
 import RegistrationPage from '../pages/RegistrationPage';
 import DiaryPage from '../pages/DiaryPage';
@@ -32,6 +34,13 @@ const PrivateRoute = lazy(() =>
     '../components/PrivateRoute/PrivateRoute' /* webpackChunkName: "Private__Route" */
   )
 );
+
+const AppButton = styled.button`
+  z-index: 2;
+  position: absolute;
+  margin-top: 20px;
+  margin-left: 50%;
+`;
 
 const App = () => {
   const dispatch = useDispatch();
