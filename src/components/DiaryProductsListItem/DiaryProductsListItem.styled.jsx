@@ -1,6 +1,25 @@
 import styled from 'styled-components';
 
 export const ProductsList = styled.ul`
+  -webkit-mask-image: -webkit-linear-gradient(
+    radial-gradient(
+      linear-gradient,
+      rgba(42, 68, 255, 0) 0%,
+      rgba(255, 255, 255, 1) 40%
+    )
+  );
+  mask-image: rgb(42, 68, 255);
+  mask-image: linear-gradient(
+    0deg,
+    rgba(42, 68, 255, 0) 0%,
+    rgba(255, 255, 255, 1) 40%
+  );
+  height: 280px;
+
+  div {
+    max-height: 260px !important;
+  }
+
   li {
     display: flex;
     height: 45px;
@@ -37,6 +56,14 @@ export const ProductsList = styled.ul`
       border: none;
       background-color: inherit;
       cursor: pointer;
+
+      svg {
+        transition: var(--transition);
+      }
+
+      svg:hover {
+        transform: scale(1.3);
+      }
     }
   }
 `;

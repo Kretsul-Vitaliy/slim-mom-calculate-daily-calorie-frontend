@@ -26,7 +26,7 @@ const DiaryAddProductForm = ({ setSelectedProduct, setGramsOfProducts }) => {
     grams: yup
       .number()
       .max(1000)
-      .min(50)
+      .min(20)
       .typeError('Enter the number of grams')
       .required('Grams of product is required'),
   });
@@ -47,7 +47,7 @@ const DiaryAddProductForm = ({ setSelectedProduct, setGramsOfProducts }) => {
   });
 
   useEffect(() => {
-    if (formik.values.product) {
+    if (formik.values.product.length === 3) {
       getDataProducts(formik.values.product)
         .then(values => setPossibleProducts(values.data.products))
         .catch(error => console.log(error));

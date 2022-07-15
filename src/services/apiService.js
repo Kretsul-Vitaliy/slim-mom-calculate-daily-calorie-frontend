@@ -91,11 +91,11 @@ export const getCalendarProducts = async (persistedToken, date) => {
 };
 
 export const setCalendarProducts = async (
-  persistedToken,
   name,
   weight,
   calories,
-  date
+  date,
+  persistedToken
 ) => {
   if (!persistedToken) {
     throw Error('user');
