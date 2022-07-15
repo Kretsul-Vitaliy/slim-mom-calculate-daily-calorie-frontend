@@ -1,5 +1,4 @@
-import styled from "styled-components";
-
+import styled from 'styled-components';
 
 const HeaderEl = styled.header`
   position: relative;
@@ -9,38 +8,36 @@ const HeaderEl = styled.header`
   @media screen and (min-width: 1280px) {
     padding-top: 80px;
   }
-`
+`;
 
 const HeaderContainer = styled.div`
   display: flex;
   height: 80px;
   justify-content: space-between;
-  
+
   @media screen and (min-width: 1280px) {
     justify-content: flex-start;
   }
-    
-
 `;
 const Picture = styled.picture`
   img {
-      padding: 20px 0 16px 20px;
-      @media screen and (max-width: 767px) {
-        width: 47px;
-        height: 44px;
-        padding: 0;
-        transform: translate(0, 40%);
-      }
-      @media screen and (min-width: 768px) and (max-width: 1279px) {
-        width: 162px;
-      }
-      @media screen and (min-width: 1280px) {
-        width: 167px;
-        height: 66px;
-        padding: unset;
-      }
+    padding: 20px 0 16px 20px;
+    @media screen and (max-width: 767px) {
+      width: 47px;
+      height: 44px;
+      padding: 0;
+      transform: translate(0, 40%);
     }
-`
+    @media screen and (min-width: 768px) and (max-width: 1279px) {
+      width: 162px;
+    }
+    @media screen and (min-width: 1280px) {
+      width: 167px;
+      height: 66px;
+      padding: unset;
+    }
+  }
+`;
 
 const Link = styled.a`
   @media screen and (min-width: 1280px) {
@@ -62,15 +59,14 @@ const Divider = styled.div`
     align-self: flex-end;
     transform: translate(-50%, -20%);
   }
-`
+`;
 
 const NavList = styled.ul`
   display: flex;
   align-self: center;
   transform: translate(0, 10%);
-
   li {
-    &:not(:last-child){
+    &:not(:last-child) {
       margin-right: 16px;
     }
     a {
@@ -80,13 +76,12 @@ const NavList = styled.ul`
       line-height: 13px;
       letter-spacing: 0.04em;
       text-transform: uppercase;
-
       color: var(--text-secondary-color);
       @media screen and (max-width: 420px) {
         font-size: 10px;
       }
     }
-    
+
     .active {
       color: black;
     }
@@ -94,16 +89,15 @@ const NavList = styled.ul`
   @media screen and (min-width: 1280px) {
     display: none;
   }
-`
+`;
 const Menu = styled.div`
-    display: flex;
-`
+  display: flex;
+`;
 
 const BurgerButton = styled.button`
   border: none;
   background: transparent;
   align-self: center;
-
   cursor: pointer;
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     transform: translate(0, 10%);
@@ -111,7 +105,15 @@ const BurgerButton = styled.button`
   @media screen and (min-width: 1280px) {
     display: none;
   }
-`
+`;
 
-
-export { HeaderEl, HeaderContainer, Picture, Link, Divider, NavList, Menu, BurgerButton }
+export {
+  HeaderEl,
+  HeaderContainer,
+  Picture,
+  Link,
+  Divider,
+  NavList,
+  Menu,
+  BurgerButton,
+};
