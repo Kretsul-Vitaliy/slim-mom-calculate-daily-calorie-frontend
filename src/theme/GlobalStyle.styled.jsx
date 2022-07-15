@@ -49,7 +49,7 @@ const GlobalStyle = createGlobalStyle`
     (min-resolution: 192dpi) and (min-width: 768px),
     (min-resolution: 2dppx) and (min-width: 768px) {
     background-image: url(${bgTabletBananas2x}), url(${bgTabletLetters2x}), url(${bgTabletStrawberry2x}), url(${bgTabletWave2x});
-    background-position: bottom right, bottom 279px center, bottom 279px right, bottom right;
+    /* background-position: bottom right, bottom 279px center, bottom 279px right, bottom right; */
   }
   @media screen and (min-width: 1280px) {
     background-image: url(${bgDesktopBananas1x}), url(${bgDesktopLetters1x}), url(${bgDesktopStrawberry1x}), url(${bgDesktopWave1x});

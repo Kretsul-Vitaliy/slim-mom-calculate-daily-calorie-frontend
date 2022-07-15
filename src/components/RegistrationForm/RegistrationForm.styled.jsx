@@ -20,7 +20,7 @@ const ContainerRegistration = styled.div`
   }
 `;
 const TitleRegistration = styled.h1`
-  color: ${props => props.theme.h1Color};
+  color: ${props => props.theme.titleColor};
   text-transform: uppercase;
   font-family: Verdana-Bold;
   font-style: normal;
@@ -58,6 +58,7 @@ const FormRegistrationLabel = styled.label`
 `;
 
 const FormRegistrationInput = styled.input`
+  color: ${props => props.theme.inputTextColor};
   border-bottom: 1px solid var(--header-divider-color);
   border-top: none;
   border-left: none;
@@ -65,6 +66,12 @@ const FormRegistrationInput = styled.input`
   width: 285px;
   display: flex;
   height: 20px;
+  outline: none;
+  background: transparent;
+  ::-webkit-outer-spin-button,
+  ::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
   @media screen and (min-width: 768px) {
     width: 240px;
   }
@@ -76,11 +83,12 @@ const RegistrationEnterLink = styled(NavLink)`
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  color: ${props => props.theme.linkColor};
+  color: ${props => props.theme.btnTextColor};
   width: 182px;
   height: 44px;
   border-radius: 30px;
-  border: 1px solid ${props => props.theme.linkColor};
+  border: 1px solid ${props => props.theme.btnBorderColor};
+  background: ${props => props.theme.btnBackgroundColor};
   padding: 12px 50px;
   font-family: Verdana-Bold;
   margin-bottom: 20px;
@@ -88,8 +96,8 @@ const RegistrationEnterLink = styled(NavLink)`
   margin-right: auto;
   &:hover,
   :focus {
-    background: ${props => props.theme.linkColor};
-    color: var(--color-white);
+    background: ${props => props.theme.btnFocusHoverBackgroundColor};
+    color: ${props => props.theme.btnFocusHoverTextColor};
     box-shadow: 0px 4px 10px ${props => props.theme.boxShadowColor};
   }
   @media screen and (min-width: 768px) {
