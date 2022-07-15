@@ -4,7 +4,7 @@ const darckboxShadowColor = '#49df49fa';
 
 export const darkTheme = {
   body: `${darckThemeBodyColor}`,
-  // body: '#fff',
+
   // Colors for registration and login forms
   titleColor: `${darckThemeTextColor}`,
   labelColor: `${darckThemeTextColor}`,
@@ -19,10 +19,6 @@ export const darkTheme = {
   // Colors for header
   headerBackgroundColor: '#ffffff85',
   headerElborderBottomColor: 'var(--text-secondary-color)',
-
-  // Colors for logo
-  logoFill: 'var(--color-white)', // добавлять два спрайта, дневной и ночной пропсом
-  // fill="#ffffff"
 
   // Colors for navigations
   navLinkColor: `${darckThemeTextColor}`, //Only for desktop
@@ -41,6 +37,7 @@ export const darkTheme = {
 
 export const lightTheme = {
   body: '#fff',
+
   // Colors for registration and login forms
   titleColor: 'var(--extra-color)',
   labelColor: 'var(--text-secondary-color)',
@@ -54,12 +51,8 @@ export const lightTheme = {
   boxShadowColor: 'var(--color-disabled)',
 
   // Colors for header
-  headerBackgroundColor: '#fff',
+  headerBackgroundColor: 'rgb(0,0,0, 0)',
   headerElborderBottomColor: '#e0e0e0',
-
-  //Colors for logo
-  logoFill: '#212121', // добавлять два спрайта, дневной и ночной пропсом
-  // fill: ${props => props.theme.logoFill};
 
   // Colors for navigations
   navLinkColor: 'var(--text-main-color)', //Only for desktop
