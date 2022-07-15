@@ -22,13 +22,19 @@ export const Labels = styled.label`
   line-height: 1.21;
   letter-spacing: 0.04em;
 
-  color: var(--text-secondary-color);
+  color: ${props => props.theme.labelColor};
 `;
 
 export const Input = styled.input`
   border: none;
-  border-bottom: 1px solid var(--header-divider-color);
+  border-bottom: 1px solid ${props => props.theme.linkColor}
   height: 20px;
+  outline: none;
+  background: transparent;
+  ::-webkit-outer-spin-button,
+  ::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
   &#email {
     margin-bottom: 40px;
   }
@@ -72,7 +78,7 @@ export const ButtonText = styled.span`
   letter-spacing: 0.04em;
 `;
 export const StyledNavLink = styled(NavLink)`
-  color: var(--extra-color);
+  color: ${props => props.theme.linkColor};
   padding: 13px 51px;
 
   button:hover & {
