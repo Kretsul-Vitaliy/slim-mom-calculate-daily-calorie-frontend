@@ -21,7 +21,9 @@ const NavWrapper = styled.nav`
       opacity: 1;
       pointer-events: all;
     }
-  }
+    @media screen and (min-width: 1280px) {
+        margin-right: auto;
+    }
 `;
 
 const List = styled.ul`
