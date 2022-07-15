@@ -64,11 +64,11 @@ export default function LoginForm() {
         <Button type="submit" disabled={!email || !password} size="short">
           <ButtonText>Log in</ButtonText>
         </Button>
-        <Button type="button" size="short">
+       
           <StyledNavLink to="/signup">
-            <ButtonText>Register</ButtonText>
+            Register
           </StyledNavLink>
-        </Button>
+        
       </ButtonsWrapper>
     </Form>
   );

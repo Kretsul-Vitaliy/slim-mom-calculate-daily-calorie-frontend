@@ -23,7 +23,6 @@ export const ButtonStyled = styled.button`
       }
   }
 
-
     cursor: pointer;
   
 

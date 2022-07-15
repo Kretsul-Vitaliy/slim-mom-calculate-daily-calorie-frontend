@@ -3,6 +3,13 @@ import useModal from '../../hooks/useModal';
 import Button from '../Button';
 import axios from 'axios';
 import { validate } from './validate';
+import { useSelector, useDispatch } from 'react-redux';
+import {
+  dailyCalories,
+  dailyCaloriesAuth,
+} from '../../redux/dailyCalories/dailyCaloriesOperation';
+import { getDailyCaloriesPublic } from '../../redux/dailyCalories/dailyCaloriesSelector';
+import { getUserId } from '../../redux/user/userSelector';
 import {
   Wrapper,
   Title,
@@ -19,21 +26,28 @@ import {
   ErrorsInput,
 } from './DailyCaloriesForm.styled';
 import Modal from '../Modal/Modal';
-import { useState } from 'react';
 import { getIsAuthenticated } from '../../redux/auth/authSelector';
-import { useSelector } from 'react-redux';
 import DailyCalorieIntake from '../DailyCalorieIntake/DailyCalorieIntake';
 
 axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
 
 const DailyCaloriesForm = () => {
   const { isShowing, toggle } = useModal();
-  const [calories, setCalories] = useState(0);
-  const [products, setProducts] = useState([]);
+
+  const dispatch = useDispatch();
+  const userId = useSelector(getUserId);
+  const dailyNormCalories = useSelector(getDailyCaloriesPublic);
 
   const isAuthenticated = useSelector(getIsAuthenticated);
-  const token = useSelector(state => state.auth.token);
-  // const token = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyY2VkYWE0NzBmZWVkMjQ0ZTg1YjllOSIsImlhdCI6MTY1NzczNjA0NiwiZXhwIjoxNjU3NzM5NjQ2fQ.XABWk0NaK_Xi5AMg_YAJIp-42Pm7wB4gUmeKuunwYoE`;
+  const dailyNormCaloriesPrivate = useSelector(
+    state => state?.dailyCalories?.dailyCalories?._doc?.calories
+  );
+  const categories = useSelector(
+    state => state?.dailyCalories?.dailyCalories?.categories
+  );
+  const categoriesPrivate = useSelector(
+    state => state?.dailyCalories?.dailyCalories?._doc?.categories
+  );
 
   const formik = useFormik({
     initialValues: {
@@ -41,17 +55,17 @@ const DailyCaloriesForm = () => {
       age: '',
       currentWeight: '',
       desiredWeight: '',
-      bloodType: '',
+      bloodType: 1,
     },
     validate: validate,
 
     onSubmit: values => {
-      console.log(values);
-      if (isAuthenticated) {
-        getCaloriesPrivate(values);
+      if (isAuthenticated && userId) {
+        dispatch(dailyCaloriesAuth(values, userId));
       } else {
-        getCalories(values);
+        dispatch(dailyCalories(values));
       }
+      toggle();
       formik.resetForm();
     },
   });
@@ -59,57 +73,65 @@ const DailyCaloriesForm = () => {
   const { height, age, currentWeight, desiredWeight, bloodType } =
     formik.values;
 
-  const getCalories = values => {
-    const data = JSON.stringify(values);
-    const headers = {
-      'Content-Type': 'application/json',
-    };
-    axios
-      .post('dailycalories/public', data, {
-        headers,
-      })
-      .then(res => {
-        const { dailyCalories, categories } = res.data.data;
-        setCalories(dailyCalories);
-        setProducts([...categories]);
-        toggle();
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  };
+  // const getCalories = values => {
+  //   const data = JSON.stringify(values);
+  //   const headers = {
+  //     'Content-Type': 'application/json',
+  //   };
+  //   axios
+  //     .post('dailycalories/public', data, {
+  //       headers,
+  //     })
+  //     .then(res => {
+  //       const { dailyCalories, categories } = res.data.data;
+  //       setCalories(dailyCalories);
+  //       setProducts([...categories]);
+  //       toggle();
+  //     })
+  //     .catch(error => {
+  //       console.log(error);
+  //     });
+  // };
 
-  const getCaloriesPrivate = values => {
-    const data = JSON.stringify(values);
-    const headers = {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${token}`,
-    };
+  // const getCaloriesPrivate = values => {
+  //   const data = JSON.stringify(values);
+  //   const headers = {
+  //     'Content-Type': 'application/json',
+  //     Authorization: `Bearer ${token}`,
+  //   };
 
-    axios
-      .post('dailycalories', data, {
-        headers,
-      })
-      .then(res => {
-        const { calories, categories } = res.data.data._doc;
-        setCalories(calories);
-        setProducts([...categories]);
-        toggle();
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  };
+  //   axios
+  //     .post('dailycalories', data, {
+  //       headers,
+  //     })
+  //     .then(res => {
+  //       const { calories, categories } = res.data.data._doc;
+  //       setCalories(calories);
+  //       setProducts([...categories]);
+  //       toggle();
+  //     })
+  //     .catch(error => {
+  //       console.log(error);
+  //     });
+  // };
 
   return (
     <Wrapper>
       <Modal
         isShowing={isShowing}
         hide={toggle}
-        calories={calories}
-        products={products}
         children={
-          <DailyCalorieIntake calories={calories} products={products} />
+          isAuthenticated ? (
+            <DailyCalorieIntake
+              calories={dailyNormCaloriesPrivate}
+              products={categoriesPrivate}
+            />
+          ) : (
+            <DailyCalorieIntake
+              calories={dailyNormCalories}
+              products={categories}
+            />
+          )
         }
       />
       <Title>
@@ -193,6 +215,7 @@ const DailyCaloriesForm = () => {
                 value="1"
                 id="bloodType1"
                 defaultChecked
+                onChange={formik.handleChange}
               />
               <RadioLabel htmlFor="bloodType1">1</RadioLabel>
               <RadioInput
@@ -200,8 +223,6 @@ const DailyCaloriesForm = () => {
                 name="bloodType"
                 value="2"
                 id="bloodType2"
-                checked={bloodType.toString() === '2'}
-                onChange={formik.handleChange}
               />
               <RadioLabel htmlFor="bloodType2">2</RadioLabel>
               <RadioInput
@@ -209,8 +230,6 @@ const DailyCaloriesForm = () => {
                 name="bloodType"
                 value="3"
                 id="bloodType3"
-                checked={bloodType.toString() === '3'}
-                onChange={formik.handleChange}
               />
               <RadioLabel htmlFor="bloodType3">3</RadioLabel>
               <RadioInput
@@ -218,8 +237,6 @@ const DailyCaloriesForm = () => {
                 name="bloodType"
                 value="4"
                 id="bloodType4"
-                checked={bloodType.toString() === '4'}
-                onChange={formik.handleChange}
               />
               <RadioLabel htmlFor="bloodType4">4</RadioLabel>
             </RadioGroup>

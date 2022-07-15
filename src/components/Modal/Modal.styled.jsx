@@ -30,7 +30,6 @@ const ModalContainer = styled.div`
   background: white;
   position: relative;
   width: 100vw;
-  height: 100vh;
   padding-top: 40px;
   padding-bottom: 119px;
   padding-left: 20px;
@@ -41,7 +40,7 @@ const ModalContainer = styled.div`
     top: 50%;
     transform: translate(-50%, -50%);
     width: 672px;
-    height: 573px;
+    min-height: 573px;
     padding-top: 64px;
     padding-bottom: 81px;
     padding-left: 82px;

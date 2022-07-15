@@ -6,30 +6,42 @@ export const MainContainer = styled.div`
 
 export const InputContainer = styled.div`
   display: flex;
+  button {
+    font-size: 30px;
+    line-height: 22px;
+  }
 `;
 export const HelpingForm = styled.div`
   position: absolute;
   width: 500px;
   max-height: 250px;
   padding: 10px;
-  border: 1px solid black;
+  border: 1px solid var(--text-secondary-color);
+  border-radius: 15px;
   overflow: hidden;
-  background-color: var(--header-divider-color);
+  background-color: var(--page-secondary-color);
   z-index: 10;
 
   li {
-    font-size: 12px;
-    width: 100%;
+    width: 95%;
+    height: 30px;
+    padding: 4px;
     cursor: pointer;
     transition: var(--transition);
+    font-family: 'Verdana';
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 23px;
+    letter-spacing: 0.04em;
+    color: var(--text-secondary-color);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: pre;
 
     &:hover {
-      background-color: grey;
+      background-color: var(--header-divider-color);
+      color: var(--extra-color);
       border-radius: 5px;
-    }
-
-    &:active {
-      background-color: grey;
     }
   }
 `;

@@ -1,31 +1,70 @@
-// const darckThemeBodyColor = '#2f0b0b';
-// const darckThemeBodyColor = '#8b00ff';
-// const darckThemeBodyColor = 'grey';
-// const darckThemeBodyColor = 'rgb(0,0,0)';
-const darckThemeBodyColor = 'rgb(0,0,0, 0.8)';
-// const darckThemeColor = 'blue';
-const darckThemeColor = 'var(--extra-color)';
-// const darckThemeColor = '#8b00ff';
-// const darckThemeColor = 'grey';
-// const darckThemeColor = 'red';
-// const darckThemeColor = 'yellow';
-// const darckThemeColor = 'green';
-// const darckThemeColor = 'pink';
+const darckThemeBodyColor = 'rgb(0,0,0, 0.9)';
+const darckThemeTextColor = '#1ee41e';
+const darckboxShadowColor = '#49df49fa';
 
 export const darkTheme = {
   body: `${darckThemeBodyColor}`,
-  textColor: '#fff',
-  h1Color: `${darckThemeColor}`,
-  labelColor: 'var(--color-white)',
-  linkColor: `${darckThemeColor}`,
-  boxShadowColor: 'rgba(45, 93, 252, 0.5)',
+
+  // Colors for registration and login forms
+  titleColor: `${darckThemeTextColor}`,
+  labelColor: `${darckThemeTextColor}`,
+  inputTextColor: `${darckThemeTextColor}`,
+  btnTextColor: `${darckThemeTextColor}`,
+  btnBorderColor: `${darckThemeTextColor}`,
+  btnBackgroundColor: `${darckThemeBodyColor}`,
+  btnFocusHoverBackgroundColor: `${darckThemeBodyColor}`,
+  btnFocusHoverTextColor: `${darckThemeTextColor}`,
+  boxShadowColor: `${darckboxShadowColor}`,
+
+  // Colors for header
+  headerBackgroundColor: '#ffffff85',
+  headerElborderBottomColor: 'var(--text-secondary-color)',
+
+  // Colors for navigations
+  navLinkColor: `${darckThemeTextColor}`, //Only for desktop
+  navLinkHoverColor: 'var(--color-white)', //Only for desktop
+
+  // Colors for dailyCaloriForm
+  dailyCaloriFormTittleColor: `${darckThemeTextColor}`,
+  dailyCaloriFormInputColor: `${darckThemeTextColor}`,
+  dailyCaloriFormLabelColor: `${darckThemeTextColor}`,
+  dailyCaloriFormFocusHoverColor: 'var(--text-secondary-color)',
+  dailyCaloriFormRadioTitleColor: `${darckThemeTextColor}`,
+  dailyCaloriFormRadioInputColor: `${darckThemeTextColor}`,
+  dailyCaloriFormBackgroundAfterColor: `${darckThemeTextColor}`,
+  dailyCaloriFormChekedColor: 'var(--color-white)',
 };
 
 export const lightTheme = {
   body: '#fff',
-  textColor: '#010101',
-  h1Color: 'var(--extra-color)',
+
+  // Colors for registration and login forms
+  titleColor: 'var(--extra-color)',
   labelColor: 'var(--text-secondary-color)',
-  linkColor: 'var(--extra-color)',
+  inputTextColor: 'fieldtext',
+  linkTextColor: 'var(--extra-color)',
+  btnTextColor: 'var(--extra-color)',
+  btnBorderColor: 'var(--extra-color)',
+  btnBackgroundColor: 'var(--color-white)',
+  btnFocusHoverBackgroundColor: 'var(--extra-color)',
+  btnFocusHoverTextColor: 'var(--color-white)',
   boxShadowColor: 'var(--color-disabled)',
+
+  // Colors for header
+  headerBackgroundColor: 'rgb(0,0,0, 0)',
+  headerElborderBottomColor: '#e0e0e0',
+
+  // Colors for navigations
+  navLinkColor: 'var(--text-main-color)', //Only for desktop
+  navLinkHoverColor: 'var(--extra-color)', //Only for desktop
+
+  // Colors for dailyCaloriForm
+  dailyCaloriFormTittleColor: '#212121',
+  dailyCaloriFormInputColor: 'var(--text-secondary-color)',
+  dailyCaloriFormLabelColor: 'var(--text-secondary-color)',
+  dailyCaloriFormFocusHoverColor: 'var(--extra-color)',
+  dailyCaloriFormRadioTitleColor: 'var(--text-secondary-color)',
+  dailyCaloriFormRadioInputColor: '#9b9faa',
+  dailyCaloriFormBackgroundAfterColor: 'var(--extra-color)',
+  dailyCaloriFormChekedColor: 'var(--extra-color)',
 };

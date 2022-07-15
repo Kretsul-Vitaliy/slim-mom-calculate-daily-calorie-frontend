@@ -6,7 +6,6 @@ const Wrapper = styled.div`
   padding-right: 20px;
   padding-top: 32px;
   padding-bottom: 100px;
-  margin: 0 auto;
   @media only screen and (min-width: 769px) {
     width: 768px;
     padding-top: 100px;
@@ -27,7 +26,8 @@ const Title = styled.h2`
   font-family: Verdana-Bold;
   font-size: 18px;
   line-height: 1.4;
-  color: #212121;
+  color: ${props => props.theme.dailyCaloriFormTittleColor};
+
   margin-bottom: 32px;
   @media only screen and (min-width: 769px) {
     font-size: 34px;
@@ -42,7 +42,8 @@ const Input = styled.input`
   width: 100%;
   /* padding-bottom: 8px; */
   font-size: 16px;
-  color: var(--text-secondary-color);
+  color: ${props => props.theme.dailyCaloriFormInputColor};
+
   margin-bottom: 32px;
   border: none;
   border-bottom: 1px solid var(--header-divider-color);
@@ -62,7 +63,8 @@ const Label = styled.label`
   position: absolute;
   top: 0;
   left: 0;
-  color: var(--text-secondary-color);
+  color: ${props => props.theme.dailyCaloriFormLabelColor};
+
   font-family: Verdana-Bold;
   line-height: 1.2;
   letter-spacing: 0.04em;
@@ -72,7 +74,7 @@ const Label = styled.label`
     top: -20px;
     left: 0;
     font-size: 14px;
-    color: var(--extra-color);
+    color: ${props => props.theme.dailyCaloriFormFocusHoverColor};
   }
 `;
 const RadioTitle = styled.div`
@@ -82,7 +84,8 @@ const RadioTitle = styled.div`
   font-family: Verdana-Bold;
   margin-bottom: 5px;
   letter-spacing: 0.04em;
-  color: var(--text-secondary-color);
+  color: ${props => props.theme.dailyCaloriFormRadioTitleColor};
+
   @media only screen and (min-width: 769px) {
     /* margin-bottom: 23px; */
   }
@@ -139,7 +142,8 @@ const RadioInput = styled.input`
     line-height: 17px;
     letter-spacing: 0.04em;
 
-    color: #9b9faa;
+    color: ${props => props.theme.dailyCaloriFormRadioInputColor};
+
     &::before {
       content: '';
       position: absolute;
@@ -159,18 +163,17 @@ const RadioInput = styled.input`
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      background: #fc842d;
+      background: ${props => props.theme.dailyCaloriFormBackgroundAfterColor};
       opacity: 0;
       transition: 0.2s;
     }
   }
   :checked + ${RadioLabel} {
     font-weight: 700;
-    color: #fc842d;
-
+    color: ${props => props.theme.dailyCaloriFormChekedColor};
     ::after {
       opacity: 1;
-      background: #fc842d;
+      background: ${props => props.theme.dailyCaloriFormBackgroundAfterColor};
     }
   }
 `;
