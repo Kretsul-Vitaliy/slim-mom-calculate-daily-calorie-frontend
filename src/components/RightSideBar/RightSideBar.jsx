@@ -3,7 +3,7 @@ import DailyCalorieIntake from './DailyCalorieIntake';
 import DailyNotRecommendedFood from './DailyNotRecommendedFood';
 import { BoxBg, PositionConteiner } from './RacionSideBar.styled.jsx';
 
-const RacionSideBar = ({ name = 'riko' }) => {
+const RightSideBar = ({ name = 'riko' }) => {
   return (
     <BoxBg>
       <PositionConteiner>
@@ -14,4 +14,4 @@ const RacionSideBar = ({ name = 'riko' }) => {
   );
 };
 
-export default RacionSideBar;
+export default RightSideBar;

@@ -121,19 +121,6 @@ const DiaryAddProductForm = ({ setSelectedProduct, setGramsOfProducts }) => {
             )}
           </ProductInput>
 
-<<<<<<< HEAD
-            <Button
-              // disabled={!isValid && !dirty}
-              onClick={handleSubmit}
-              type="submit"
-              size="addRoundBtn"
-            >
-              {/* <img src={plus} alt="" width="14" height="14" /> */}
-            </Button>
-          </InputContainer>
-        )}
-      </Formik>
-=======
           <Button
             // disabled={!isValid && !dirty}
             type="submit"
@@ -169,7 +156,6 @@ const DiaryAddProductForm = ({ setSelectedProduct, setGramsOfProducts }) => {
           </ul>
         </HelpingForm>
       )}
->>>>>>> main
     </div>
   );
 };
