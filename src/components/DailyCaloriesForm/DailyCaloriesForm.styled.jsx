@@ -27,6 +27,7 @@ const Title = styled.h2`
   font-size: 18px;
   line-height: 1.4;
   color: #212121;
+
   margin-bottom: 32px;
   @media only screen and (min-width: 769px) {
     font-size: 34px;
@@ -42,6 +43,7 @@ const Input = styled.input`
   /* padding-bottom: 8px; */
   font-size: 16px;
   color: var(--text-secondary-color);
+
   margin-bottom: 32px;
   border: none;
   border-bottom: 1px solid var(--header-divider-color);
@@ -62,6 +64,7 @@ const Label = styled.label`
   top: 0;
   left: 0;
   color: var(--text-secondary-color);
+
   font-family: Verdana-Bold;
   line-height: 1.2;
   letter-spacing: 0.04em;
@@ -82,6 +85,7 @@ const RadioTitle = styled.div`
   margin-bottom: 5px;
   letter-spacing: 0.04em;
   color: var(--text-secondary-color);
+
   @media only screen and (min-width: 769px) {
     /* margin-bottom: 23px; */
   }
@@ -139,6 +143,7 @@ const RadioInput = styled.input`
     letter-spacing: 0.04em;
 
     color: #9b9faa;
+
     &::before {
       content: '';
       position: absolute;

@@ -22,7 +22,7 @@ const ContainerRegistration = styled.div`
 const TitleRegistration = styled.h1`
   color: ${props => props.theme.titleColor};
   text-transform: uppercase;
-  font-family: Verdana-Bold;
+  font-family: GothamPro-Bold;
   font-style: normal;
   font-size: 14px;
   font-weight: 700;
@@ -30,7 +30,6 @@ const TitleRegistration = styled.h1`
   letter-spacing: 0.04em;
   margin-top: 0;
   @media screen and (min-width: 768px) {
-    font-family: GothamPro-Bold;
     line-height: 0.9;
   }
 `;

@@ -5,6 +5,8 @@ import { ToastContainer } from 'react-toastify';
 
 import { getCurrentUser } from '../redux/auth/authOperation';
 
+import styled from 'styled-components';
+
 import LoginPage from '../pages/LoginPage';
 import RegistrationPage from '../pages/RegistrationPage';
 import DiaryPage from '../pages/DiaryPage';
@@ -32,6 +34,17 @@ const PrivateRoute = lazy(() =>
   )
 );
 
+const AppButton = styled.button`
+  /* display: block;
+  position: absolute; */
+  /* top: 20px;
+  left: 50%; */
+  z-index: 2;
+  position: absolute;
+  margin-top: 20px;
+  margin-left: 50%;
+`;
+
 const App = () => {
   const dispatch = useDispatch();
   const [theme, setTheme] = useState('light');
@@ -47,7 +60,9 @@ const App = () => {
     <>
       <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
         <GlobalStyle />
-        <button onClick={switchTheme}>Switch Theme</button>
+        <AppButton onClick={switchTheme} type="submit">
+          Switch Theme
+        </AppButton>
         <Suspense fallback={<h2>Loading</h2>}>
           <Header />
           <Routes>
