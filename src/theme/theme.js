@@ -33,6 +33,9 @@ export const darkTheme = {
   dailyCaloriFormRadioInputColor: `${darckThemeTextColor}`,
   dailyCaloriFormBackgroundAfterColor: `${darckThemeTextColor}`,
   dailyCaloriFormChekedColor: 'var(--color-white)',
+
+  // Colors for switcher button
+  btnSwitcherBackgroundColor: 'linear-gradient(90deg, #1ee41e, #191970)',
 };
 
 export const lightTheme = {
@@ -67,4 +70,7 @@ export const lightTheme = {
   dailyCaloriFormRadioInputColor: '#9b9faa',
   dailyCaloriFormBackgroundAfterColor: 'var(--extra-color)',
   dailyCaloriFormChekedColor: 'var(--extra-color)',
+
+  // Colors for switcher button
+  btnSwitcherBackgroundColor: 'linear-gradient(90deg, #e25c03, #ecf008)',
 };
