@@ -16,6 +16,12 @@ export const ProductsList = styled.ul`
   );
   height: 280px;
 
+  ${props => {
+    if (props.margin === 'empty') {
+      return 'height:auto;';
+    }
+  }};
+
   div {
     max-height: 260px !important;
   }
@@ -31,12 +37,27 @@ export const ProductsList = styled.ul`
       line-height: 22px;
       letter-spacing: 0.04em;
       color: var(--text-main-color);
+
+      @media screen and (max-width: 600px) {
+        font-size: 12px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: pre;
+        line-height: 42px;
+      }
     }
 
     p:nth-of-type(1) {
       width: 240px;
       margin-right: 48px;
       border-bottom: 1px solid var(--header-divider-color);
+
+      @media screen and (max-width: 500px) {
+        margin-right: auto;
+      }
+      @media screen and (max-width: 500px) {
+        width: 130px;
+      }
     }
     p:nth-of-type(2) {
       width: 108px;
@@ -44,6 +65,12 @@ export const ProductsList = styled.ul`
       border-bottom: 1px solid var(--header-divider-color);
       text-align: right;
       line-height: 42px;
+      @media screen and (max-width: 500px) {
+        margin-right: auto;
+      }
+      @media screen and (max-width: 500px) {
+        width: 49px;
+      }
     }
     p:nth-of-type(3) {
       width: 108px;
@@ -51,6 +78,12 @@ export const ProductsList = styled.ul`
       border-bottom: 1px solid var(--header-divider-color);
       text-align: right;
       line-height: 42px;
+      @media screen and (max-width: 500px) {
+        margin-right: auto;
+      }
+      @media screen and (max-width: 500px) {
+        width: 58px;
+      }
     }
     button {
       border: none;
@@ -59,10 +92,10 @@ export const ProductsList = styled.ul`
 
       svg {
         transition: var(--transition);
-      }
 
-      svg:hover {
-        transform: scale(1.3);
+        &:hover {
+          transform: scale(1.3);
+        }
       }
     }
   }

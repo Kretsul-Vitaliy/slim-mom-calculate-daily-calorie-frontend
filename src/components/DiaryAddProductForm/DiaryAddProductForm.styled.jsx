@@ -4,11 +4,25 @@ export const MainContainer = styled.div`
   position: relative;
 `;
 
+export const ModalSubmitButton = styled.div`
+  display: flex;
+  justify-content: center;
+  @media screen and (min-width: 660px) {
+    display: none;
+  }
+`;
+
 export const InputContainer = styled.div`
   display: flex;
+
+  @media screen and (max-width: 660px) {
+    display: block;
+  }
+
   button {
-    font-size: 30px;
-    line-height: 22px;
+    @media screen and (max-width: 660px) {
+      display: none;
+    }
   }
 `;
 export const HelpingForm = styled.div`
@@ -21,6 +35,15 @@ export const HelpingForm = styled.div`
   overflow: hidden;
   background-color: var(--page-secondary-color);
   z-index: 10;
+
+  @media screen and (max-width: 660px) {
+    top: 160px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  @media screen and (max-width: 500px) {
+    width: 100%;
+  }
 
   li {
     width: 95%;
@@ -56,12 +79,28 @@ export const ProductInput = styled.div`
   font-weight: 400;
   line-height: 1.5;
   color: #212529;
-  background-color: #fff;
+  background-color: inherit;
   background-clip: padding-box;
   border-radius: 0.25rem;
 
+  @media screen and (max-width: 660px) {
+    width: 80%;
+    margin: 0 auto;
+  }
+  @media screen and (max-width: 400px) {
+    width: 100%;
+  }
+
   &:nth-of-type(2) {
     width: 170px;
+
+    @media screen and (max-width: 660px) {
+      width: 80%;
+      margin-bottom: 60px;
+    }
+    @media screen and (max-width: 400px) {
+      width: 100%;
+    }
   }
 
   div {
@@ -98,6 +137,11 @@ export const ProductInput = styled.div`
     color: var(--text-secondary-color);
     padding-bottom: 20px;
 
+    @media screen and (max-width: 660px) {
+      padding-bottom: 0;
+      width: 100%;
+    }
+
     &:focus {
       outline: 0;
       border-bottom: 2px solid var(--extra-color);
@@ -113,4 +157,7 @@ export const ProductsInput = styled.input`
 export const GramsInput = styled.input`
   width: 107px;
   text-align: right;
+  @media screen and (max-width: 660px) {
+    text-align: left;
+  }
 `;
