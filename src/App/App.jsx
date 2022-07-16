@@ -5,6 +5,7 @@ import { ToastContainer } from 'react-toastify';
 
 import { getCurrentUser } from '../redux/auth/authOperation';
 
+import BackgroundContainer from '../components/BackgroundContainer/BackgroundContainer';
 import LoginPage from '../pages/LoginPage';
 import RegistrationPage from '../pages/RegistrationPage';
 import DiaryPage from '../pages/DiaryPage';

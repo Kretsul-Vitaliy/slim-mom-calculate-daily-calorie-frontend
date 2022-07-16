@@ -54,7 +54,7 @@ export const lightTheme = {
   boxShadowColor: 'var(--color-disabled)',
 
   // Colors for header
-  headerBackgroundColor: 'rgb(0,0,0, 0)',
+  headerBackgroundColor: 'rgb(0, 0, 0, 0)',
   headerElborderBottomColor: '#e0e0e0',
 
   // Colors for navigations
