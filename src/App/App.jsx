@@ -1,15 +1,12 @@
-import { Suspense, useEffect, lazy } from 'react';
+import { Suspense, useEffect, useState,lazy } from 'react';
 import { useDispatch } from 'react-redux';
 import { Route, Navigate, Routes, Outlet } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import { getCurrentUser } from '../redux/auth/authOperation';
-import LoginPage from '../pages/LoginPage';
-import RegistrationPage from '../pages/RegistrationPage';
-import DiaryPage from '../pages/DiaryPage';
-import CalculatorPage from '../pages/CalculatorPage';
-import GlobalStyle from '../theme/GlobalStyle.styled';
+import {LoginPage,RegistrationPage, DiaryPage, CalculatorPage} from '../pages';
 
-import React, { useState } from 'react';
+
+import GlobalStyle from '../theme/GlobalStyle.styled';
 import { ThemeProvider } from 'styled-components';
 import { darkTheme, lightTheme } from '../theme/theme';
 import {
@@ -18,9 +15,8 @@ import {
   SpanImgDark,
 } from '../theme/SwitcherButton.Styled';
 
-import Header from '../components/Header';
-import Loader from '../components/Loader';
-import AuthorizeGoogle from '../components/AuthorizeGoogle/AuthorizeGoogle';
+import {Header, Loader, AuthorizeGoogle} from '../components';
+
 
 const MainPage = lazy(() =>
   import('../pages/MainPage' /* webpackChunkName: "Main_page" */)
