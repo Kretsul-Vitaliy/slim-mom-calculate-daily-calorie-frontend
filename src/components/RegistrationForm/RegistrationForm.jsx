@@ -1,5 +1,6 @@
 import React from 'react';
 import { toast } from 'react-toastify';
+import { useTranslation } from 'react-i18next'
 import 'react-toastify/dist/ReactToastify.css';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
@@ -17,8 +18,10 @@ import {
 import { useDispatch } from 'react-redux';
 import { register } from '../../redux/auth/authOperation';
 const RegistrationForm = () => {
+  const { t } = useTranslation()
+
   const notify = () =>
-    toast('Please, check your email and confirm your account!');
+    toast(t?.("auth.verifyMail"));
 
   const dispatch = useDispatch();
   const formik = useFormik({
@@ -29,14 +32,14 @@ const RegistrationForm = () => {
     },
     validationSchema: Yup.object({
       name: Yup.string()
-        .min(2, 'Too Short!')
-        .max(15, 'Too Long!')
-        .required('Required'),
-      email: Yup.string().email('Invalid email').required('Required'),
+        .min(2, t?.("auth.verMin"))
+        .max(15, t?.("auth.verMax"))
+        .required(t?.('auth.verReq')),
+      email: Yup.string().email(t?.("auth.invMail")).required(t?.('auth.verReq')),
       password: Yup.string()
-        .min(6, 'Too Short!')
-        .max(12, 'Too Long!')
-        .required('Required'),
+        .min(6, t?.("auth.verMin"))
+        .max(12, t?.("auth.verMax"))
+        .required(t?.('auth.verReq')),
     }),
     onSubmit: values => {
       const payload = {
@@ -54,11 +57,11 @@ const RegistrationForm = () => {
 
   return (
     <ContainerRegistration>
-      <TitleRegistration>Register</TitleRegistration>
+      <TitleRegistration>{t?.('auth.register')}</TitleRegistration>
       <form onSubmit={formik.handleSubmit}>
         <FormRegistrationList>
           <FormRegistrationListItem>
-            <FormRegistrationLabel htmlFor="name">Name *</FormRegistrationLabel>
+            <FormRegistrationLabel htmlFor="name">{t?.('auth.name')} *</FormRegistrationLabel>
             <FormRegistrationInput
               id="name"
               name="name"
@@ -92,7 +95,7 @@ const RegistrationForm = () => {
           </FormRegistrationListItem>
           <FormRegistrationListItem>
             <FormRegistrationLabel htmlFor="password">
-              Password *
+            {t?.('auth.password')} *
             </FormRegistrationLabel>
             <FormRegistrationInput
               id="password"

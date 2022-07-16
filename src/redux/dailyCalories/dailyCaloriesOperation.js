@@ -23,11 +23,16 @@ export const dailyCalories = values => async dispatch => {
   }
 };
 
-export const dailyCaloriesAuth = (values, userId) => async dispatch => {
+export const dailyCaloriesAuth = values => async (dispatch, getState) => {
+  const state = getState();
+  const persistedToken = state.auth.token;
+  if (!persistedToken) {
+    return;
+  }
   dispatch(dailyCaloriesAuthRequest());
   try {
     values.bloodType = Number(values.bloodType);
-    const response = await dailyCaloriesGuard(values, userId);
+    const response = await dailyCaloriesGuard(values, persistedToken);
     dispatch(dailyCaloriesAuthSuccess(response.data));
     toast.success('update 👍');
   } catch (error) {

@@ -18,11 +18,11 @@ const DiaryProductsList = ({
   const [deletedProduct, setDeletedProduct] = useState(null);
 
   useEffect(() => {
-    console.log(deletedProduct);
+    console.log('Передається в юз ефект', deletedProduct);
     if (deletedProduct) {
       deleteCalendarProducts(persistToken, deletedProduct).then(values => {
-        setDeletedProduct(null);
         console.log(values);
+        setDeletedProduct(null);
       });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

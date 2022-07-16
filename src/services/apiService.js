@@ -116,6 +116,7 @@ export const setCalendarProducts = async (
 };
 
 export const deleteCalendarProducts = async (persistedToken, dayId) => {
+  console.log('Останній', dayId);
   if (!persistedToken) {
     throw Error('user');
   }
@@ -130,9 +131,17 @@ export const deleteCalendarProducts = async (persistedToken, dayId) => {
 };
 
 // daily guard
-export const dailyCaloriesGuard = async (values, userId) => {
-  const { data } = await axios.post(`dailycalories/${userId}`, values);
-  return data;
+export const dailyCaloriesGuard = async (values, persistedToken) => {
+  if (!persistedToken) {
+    throw Error('user');
+  }
+  tokenKey.set(persistedToken);
+  try {
+    const { data } = await axios.post('dailycalories', values);
+    return data;
+  } catch (error) {
+    tokenKey.unset();
+  }
 };
 // daily public
 export const dailyCaloriesPublic = async values => {

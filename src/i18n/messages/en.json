@@ -2,11 +2,11 @@
     "nav": {
         "diary": "Diary",
         "calculator": "Calculator",
-        "login": "Sign in",
+        "signIn": "Sign in",
         "registration": "Registration",
         "exit": "Exit"
     },
-    "DCF": {
+    "dcf": {
         "titleFir": "Calculate your daily calorie",
         "titleSec": "intake right now",
         "height": "Height",
@@ -17,17 +17,22 @@
         "btn": "Start losing weight"
     },
     "auth": {
+        "signInTitle": "Sign In",
+        "register": "Register",
         "password": "Password",
+        "login": "Login",
         "name": "Name",
         "invMail": "Invalid email",
-        "verifyMail": "Please, check your email and confirm your account!"
+        "verifyMail": "Please, check your email and confirm your account!",
+        "verMin": "Too Short!",
+        "verMax": "Too Long!",
+        "verReq": "Required"
     },
-    "modal": {
+    "dci": {
         "title": "Your recommended daily calorie intake is",
-        "cal": "cal",
         "noEat": "Foods you should not eat"
     },
-    "DPF": {
+    "dpf": {
         "typeProduct": "Enter product name",
         "productContain": "The name must consist only of letters",
         "enterGram": "Enter the number of grams",
@@ -35,9 +40,30 @@
         "productPlaceholder": "Enter product name",
         "grams": "Grams"
     },
-    "DPI": {
+    "dpi": {
         "addProd": "Add our products",
-        "ccal": "ccal"
+        "ccal": "kcal"
+    },
+    "dnrf": {
+        "title": "Food not recommended",
+        "displayedDiet": "Your diet will be displayed here"
+    },
+    "rightSideBar": {
+        "summary": "Summary for",
+        "left": "Left",
+        "consumed": "Consumed",
+        "dailyRate": "Daily rate",
+        "persent": "n% of normal"
+    },
+    "validate": {
+        "heigthMin": "Enter a value from 100",
+        "heigthMax": "Enter a value to 230",
+        "ageSmall": "Sorry, You are a minor",
+        "ageMiddle": "Sorry, You are not allowed to lose weight",
+        "ageHeight": "Enter correct age",
+        "weightMin": "Enter a value from 50",
+        "weightMax": "Enter a value to 500",
+        "weightVerySmall": "Enter a value from 30"
     },
     "яйца": "eggs",
     "зерновые": "cereal",

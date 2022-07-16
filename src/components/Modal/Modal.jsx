@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { RiCloseFill } from 'react-icons/ri';
 import { IoMdReturnLeft } from 'react-icons/io';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import {
   ModalOverlay,
   ModalWrapper,
@@ -20,9 +20,9 @@ const Modal = ({ isShowing, hide, children }) => {
           <ModalOverlay />
           <ModalWrapper onClick={hide}>
             <TurnBack>
-              <Link to="/">
+              <button onClick={hide}>
                 <IoMdReturnLeft size={13} />
-              </Link>
+              </button>
             </TurnBack>
             <ModalContainer
               onClick={e => {

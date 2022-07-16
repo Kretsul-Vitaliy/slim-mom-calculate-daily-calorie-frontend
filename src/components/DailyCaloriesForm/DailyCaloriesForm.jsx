@@ -1,15 +1,17 @@
 import { useFormik } from 'formik';
 import useModal from '../../hooks/useModal';
 import Button from '../Button';
-import axios from 'axios';
+import Loader from '../Loader';
 import { validate } from './validate';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   dailyCalories,
   dailyCaloriesAuth,
 } from '../../redux/dailyCalories/dailyCaloriesOperation';
-import { getDailyCaloriesPublic } from '../../redux/dailyCalories/dailyCaloriesSelector';
-import { getUserId } from '../../redux/user/userSelector';
+import {
+  getDailyCaloriesPublic,
+  getLoading,
+} from '../../redux/dailyCalories/dailyCaloriesSelector';
 import {
   Wrapper,
   Title,
@@ -28,14 +30,13 @@ import {
 import Modal from '../Modal/Modal';
 import { getIsAuthenticated } from '../../redux/auth/authSelector';
 import DailyCalorieIntake from '../DailyCalorieIntake/DailyCalorieIntake';
-
-axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
+import { useTranslation } from 'react-i18next';
 
 const DailyCaloriesForm = () => {
   const { isShowing, toggle } = useModal();
 
   const dispatch = useDispatch();
-  const userId = useSelector(getUserId);
+  const loading = useSelector(getLoading);
   const dailyNormCalories = useSelector(getDailyCaloriesPublic);
 
   const isAuthenticated = useSelector(getIsAuthenticated);
@@ -60,8 +61,9 @@ const DailyCaloriesForm = () => {
     validate: validate,
 
     onSubmit: values => {
-      if (isAuthenticated && userId) {
-        dispatch(dailyCaloriesAuth(values, userId));
+      console.log(isAuthenticated);
+      if (isAuthenticated) {
+        dispatch(dailyCaloriesAuth(values));
       } else {
         dispatch(dailyCalories(values));
       }
@@ -70,73 +72,37 @@ const DailyCaloriesForm = () => {
     },
   });
 
+  const { t } = useTranslation()
+
   const { height, age, currentWeight, desiredWeight, bloodType } =
     formik.values;
 
-  // const getCalories = values => {
-  //   const data = JSON.stringify(values);
-  //   const headers = {
-  //     'Content-Type': 'application/json',
-  //   };
-  //   axios
-  //     .post('dailycalories/public', data, {
-  //       headers,
-  //     })
-  //     .then(res => {
-  //       const { dailyCalories, categories } = res.data.data;
-  //       setCalories(dailyCalories);
-  //       setProducts([...categories]);
-  //       toggle();
-  //     })
-  //     .catch(error => {
-  //       console.log(error);
-  //     });
-  // };
-
-  // const getCaloriesPrivate = values => {
-  //   const data = JSON.stringify(values);
-  //   const headers = {
-  //     'Content-Type': 'application/json',
-  //     Authorization: `Bearer ${token}`,
-  //   };
-
-  //   axios
-  //     .post('dailycalories', data, {
-  //       headers,
-  //     })
-  //     .then(res => {
-  //       const { calories, categories } = res.data.data._doc;
-  //       setCalories(calories);
-  //       setProducts([...categories]);
-  //       toggle();
-  //     })
-  //     .catch(error => {
-  //       console.log(error);
-  //     });
-  // };
-
   return (
     <Wrapper>
-      <Modal
-        isShowing={isShowing}
-        hide={toggle}
-        children={
-          isAuthenticated ? (
-            <DailyCalorieIntake
-              calories={dailyNormCaloriesPrivate}
-              products={categoriesPrivate}
-            />
-          ) : (
-            <DailyCalorieIntake
-              calories={dailyNormCalories}
-              products={categories}
-            />
-          )
-        }
-      />
+      {loading ? (
+        <Loader />
+      ) : (
+        <Modal
+          isShowing={isShowing}
+          hide={toggle}
+          children={
+            isAuthenticated ? (
+              <DailyCalorieIntake
+                calories={dailyNormCaloriesPrivate}
+                products={categoriesPrivate}
+              />
+            ) : (
+              <DailyCalorieIntake
+                calories={dailyNormCalories}
+                products={categories}
+              />
+            )
+          }
+        />
+      )}
       <Title>
-        Calculate your daily calorie
-        <br /> intake right now
+        {t?.('dcf.titleFir')}
+        <br /> {t?.('dcf.titleSec')}
       </Title>
       <form onSubmit={formik.handleSubmit}>
         <Container>
@@ -153,7 +119,7 @@ const DailyCaloriesForm = () => {
                 value={height}
                 required
               />
-              <Label htmlFor="height">Height *</Label>
+              <Label htmlFor="height">{t?.('dcf.height')} *</Label>
             </InputBox>
             <InputBox>
               {formik.errors.age && (
@@ -167,7 +133,7 @@ const DailyCaloriesForm = () => {
                 value={age}
                 required
               />
-              <Label htmlFor="age">Age *</Label>
+              <Label htmlFor="age">{t?.('dcf.age')} *</Label>
             </InputBox>
             <InputBox>
               {formik.errors.currentWeight && (
@@ -181,7 +147,7 @@ const DailyCaloriesForm = () => {
                 value={currentWeight}
                 required
               />
-              <Label htmlFor="currentWeight">Current weight *</Label>
+              <Label htmlFor="currentWeight">{t?.('dcf.curWeight')} *</Label>
             </InputBox>
           </Box>
           <Box>
@@ -198,9 +164,9 @@ const DailyCaloriesForm = () => {
                 value={desiredWeight}
                 required
               />
-              <Label htmlFor="desiredWeight">Desired weight *</Label>
+              <Label htmlFor="desiredWeight">{t?.('dcf.desWeight')} *</Label>
             </InputBox>
-            <RadioTitle id="bloodType">Blood type *</RadioTitle>
+            <RadioTitle id="bloodType">{t?.('dcf.bloodType')} *</RadioTitle>
             <Line />
             <RadioGroup
               required
@@ -243,7 +209,7 @@ const DailyCaloriesForm = () => {
           </Box>
         </Container>
         <Button size="long" type="submit">
-          Start losing weight
+          {t?.('dcf.btn')}
         </Button>
       </form>
     </Wrapper>

@@ -2,10 +2,8 @@ import { Suspense, useEffect, lazy } from 'react';
 import { useDispatch } from 'react-redux';
 import { Route, Navigate, Routes, Outlet } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
-
 import { getCurrentUser } from '../redux/auth/authOperation';
 
-import BackgroundContainer from '../components/BackgroundContainer/BackgroundContainer';
 import LoginPage from '../pages/LoginPage';
 import RegistrationPage from '../pages/RegistrationPage';
 import DiaryPage from '../pages/DiaryPage';
@@ -54,14 +52,14 @@ const App = () => {
     <>
       <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
         <GlobalStyle />
-        <SwitcherButtonStyles onClick={switchTheme} type="submit">
-          {theme === 'light' ? (
-            <SpanImg></SpanImg>
-          ) : (
-            <SpanImgDark></SpanImgDark>
-          )}
-        </SwitcherButtonStyles>
         <Suspense fallback={<Loader />}>
+          <SwitcherButtonStyles onClick={switchTheme} type="submit">
+            {theme === 'light' ? (
+              <SpanImg></SpanImg>
+            ) : (
+              <SpanImgDark></SpanImgDark>
+            )}
+          </SwitcherButtonStyles>
           <Header />
           <Routes>
             <Route

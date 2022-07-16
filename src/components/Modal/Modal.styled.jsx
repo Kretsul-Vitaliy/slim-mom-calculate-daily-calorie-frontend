@@ -30,6 +30,7 @@ const ModalContainer = styled.div`
   background: white;
   position: relative;
   width: 100vw;
+  height: 100%;
   padding-top: 40px;
   padding-bottom: 119px;
   padding-left: 20px;
@@ -58,6 +59,10 @@ const TurnBack = styled.div`
   @media only screen and (min-width: 769px) {
     display: none;
   }
+
+  button {
+    border: none;
+  }
 `;
 const ButtonClose = styled.button`
   display: none;
@@ -68,6 +73,12 @@ const ButtonClose = styled.button`
   position: absolute;
   top: 24px;
   right: 24px;
+  cursor: pointer;
+  transition: var(--transition);
+
+  &:hover {
+    transform: scale(1.3);
+  }
 
   @media only screen and (min-width: 769px) {
     display: block;

@@ -20,7 +20,7 @@ import ProductsReducer from './products/ProductsReducer';
 const authPersistConfig = {
   key: 'token',
   storage,
-  whitelist: ['token'],
+  whitelist: ['token', 'isLoggedIn'],
   stateReconciler: autoMergeLevel1,
 };
 const persistedReducer = persistReducer(authPersistConfig, authReducer);
@@ -35,7 +35,7 @@ const logger = createLogger({
   collapsed: logEntry => !logEntry.error,
   timestamp: false,
 });
-const store = configureStore({
+export const store = configureStore({
   reducer,
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
@@ -48,5 +48,4 @@ const store = configureStore({
   // devTools: process.env.NODE_ENV === 'development',
 });
 
-export default store;
 export const persistor = persistStore(store);

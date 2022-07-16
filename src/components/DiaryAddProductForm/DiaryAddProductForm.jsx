@@ -10,9 +10,15 @@ import {
   GramsInput,
   ProductsInput,
   HelpingForm,
+  ModalSubmitButton,
 } from './DiaryAddProductForm.styled';
 
-const DiaryAddProductForm = ({ setSelectedProduct, setGramsOfProducts }) => {
+const DiaryAddProductForm = ({
+  setSelectedProduct,
+  setGramsOfProducts,
+  toggle,
+  isShowing,
+}) => {
   const [possibleProducts, setPossibleProducts] = useState(null);
   const [savedProduct, setSavedProduct] = useState(null);
 
@@ -20,8 +26,10 @@ const DiaryAddProductForm = ({ setSelectedProduct, setGramsOfProducts }) => {
     product: yup
       .string()
       .typeError('Введіть назву продукту')
-      .matches('^[а-яА-ЯєёЁіa-zA-Z]+$', 'The name must consist only of letters')
-      .max(15)
+      .matches(
+        '^[A-Za-zА-Яа-яЁёІіЇїЄє. ]+$',
+        'The name must consist only of letters'
+      )
       .required('Name of product is required'),
     grams: yup
       .number()
@@ -40,9 +48,9 @@ const DiaryAddProductForm = ({ setSelectedProduct, setGramsOfProducts }) => {
     onSubmit: (values, { resetForm }) => {
       setSelectedProduct(savedProduct);
       setGramsOfProducts(formik.values.grams);
-      setPossibleProducts(null);
       resetForm({ values: '' });
       setSavedProduct(null);
+      if (isShowing) toggle();
     },
   });
 
@@ -51,15 +59,13 @@ const DiaryAddProductForm = ({ setSelectedProduct, setGramsOfProducts }) => {
       getDataProducts(formik.values.product)
         .then(values => setPossibleProducts(values.data.products))
         .catch(error => console.log(error));
-      console.log(
-        '🚀 ~ file: DiaryAddProductForm.jsx ~ line 54 ~ useEffect ~ getDataProducts',
-        getDataProducts
-      );
     }
   }, [formik.values.product]);
 
   const searchAndSendProduct = id => {
     const product = possibleProducts.filter(product => product.id === id);
+    formik.values.product = product[0].title.ua;
+    console.log(formik.values.product);
     setSavedProduct(...product);
   };
 
@@ -129,6 +135,11 @@ const DiaryAddProductForm = ({ setSelectedProduct, setGramsOfProducts }) => {
             +
           </Button>
         </InputContainer>
+        <ModalSubmitButton>
+          <Button type="submit" size="addBtn">
+            Add
+          </Button>
+        </ModalSubmitButton>
       </form>
       {possibleProducts && possibleProducts.length !== 0 && (
         <HelpingForm>
@@ -145,7 +156,12 @@ const DiaryAddProductForm = ({ setSelectedProduct, setGramsOfProducts }) => {
                       color:
                         values.id === savedProduct?.id && 'var(--extra-color)',
                     }}
-                    onClick={() => searchAndSendProduct(values.id)}
+                    onClick={() => {
+                      searchAndSendProduct(values.id);
+                      setTimeout(() => {
+                        setPossibleProducts(null);
+                      }, 500);
+                    }}
                     key={values.id}
                   >
                     {values.title.ua} / {values.calories} ccal

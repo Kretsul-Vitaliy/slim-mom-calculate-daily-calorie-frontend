@@ -8,7 +8,7 @@ const UnloggedNavItems = () => {
     return (
       <>
         <Item>
-          <StyledNavLink to="/login">{t?.('nav.login')}</StyledNavLink>
+          <StyledNavLink to="/login">{t?.('nav.signIn')}</StyledNavLink>
         </Item>
         <Item>
           <StyledNavLink to="/signup">{t?.('nav.registration')}</StyledNavLink>
