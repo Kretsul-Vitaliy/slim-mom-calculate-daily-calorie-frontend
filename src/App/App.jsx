@@ -5,8 +5,6 @@ import { ToastContainer } from 'react-toastify';
 
 import { getCurrentUser } from '../redux/auth/authOperation';
 
-import styled from 'styled-components';
-
 import LoginPage from '../pages/LoginPage';
 import RegistrationPage from '../pages/RegistrationPage';
 import DiaryPage from '../pages/DiaryPage';
@@ -16,6 +14,11 @@ import GlobalStyle from '../theme/GlobalStyle.styled';
 import React, { useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { darkTheme, lightTheme } from '../theme/theme';
+import {
+  SwitcherButtonStyles,
+  SpanImg,
+  SpanImgDark,
+} from '../theme/SwitcherButton.Styled';
 
 import Header from '../components/Header';
 import Loader from '../components/Loader';
@@ -35,13 +38,6 @@ const PrivateRoute = lazy(() =>
   )
 );
 
-const AppButton = styled.button`
-  z-index: 2;
-  position: absolute;
-  margin-top: 20px;
-  margin-left: 50%;
-`;
-
 const App = () => {
   const dispatch = useDispatch();
   const [theme, setTheme] = useState('light');
@@ -57,9 +53,13 @@ const App = () => {
     <>
       <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
         <GlobalStyle />
-        <AppButton onClick={switchTheme} type="submit">
-          Switch Theme
-        </AppButton>
+        <SwitcherButtonStyles onClick={switchTheme} type="submit">
+          {theme === 'light' ? (
+            <SpanImg></SpanImg>
+          ) : (
+            <SpanImgDark></SpanImgDark>
+          )}
+        </SwitcherButtonStyles>
         <Suspense fallback={<Loader />}>
           <Header />
           <Routes>

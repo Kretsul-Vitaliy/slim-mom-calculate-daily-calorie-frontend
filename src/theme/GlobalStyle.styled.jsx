@@ -40,7 +40,8 @@ const GlobalStyle = createGlobalStyle`
 
 // Backgraund image
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment: scroll;
+    border: 1px solid transparent;
   @media screen and (min-width: 768px) {
     background-image: url(${bgTabletBananas1x}), url(${bgTabletLetters1x}), url(${bgTabletStrawberry1x}), url(${bgTabletWave1x});
     background-position: bottom right, bottom 279px center, bottom 279px right, bottom right;
