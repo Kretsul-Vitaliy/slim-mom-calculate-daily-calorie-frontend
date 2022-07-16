@@ -1,9 +1,11 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { UserInfoBlock, Divider, ExitButton, UserName } from './UserInfo.styled'
+import UserAvatar from '../UserAvatar'
 
 import { getUser } from '../../redux/auth/authSelector'
 import { logOut } from '../../redux/auth/authOperation'
+
 
 const UserInfo = () => {
   const dispatch = useDispatch();
@@ -20,6 +22,7 @@ const UserInfo = () => {
     <UserInfoBlock>
       {userInfo.name &&
        <>
+        <UserAvatar name={userInfo.name} />
         <UserName>{userInfo.name}</UserName>
         <Divider />
        </>

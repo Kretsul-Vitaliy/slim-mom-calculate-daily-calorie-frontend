@@ -8,6 +8,7 @@ const HeaderEl = styled.header`
   }
   @media screen and (min-width: 1280px) {
     padding-top: 80px;
+    z-index: 3;
   }
 `;
 
