@@ -5,6 +5,7 @@ import UserAvatar from '../UserAvatar'
 
 import { getUser } from '../../redux/auth/authSelector'
 import { logOut } from '../../redux/auth/authOperation'
+import { useNavigate } from 'react-router-dom';
 
 
 const UserInfo = () => {
@@ -13,9 +14,11 @@ const UserInfo = () => {
   const { t } = useTranslation()
 
   const userInfo = useSelector(getUser)
+  const navigate = useNavigate()
 
-  const onExitClick = () => {
-    dispatch(logOut())
+  const onExitClick = async () => {
+    await dispatch(logOut())
+    navigate('/login')
   }
 
   return (
