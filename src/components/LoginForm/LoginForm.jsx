@@ -1,7 +1,8 @@
 import { useFormik } from 'formik';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next'
 import { login } from '../../redux/auth/authOperation';
+
 import * as yup from 'yup';
 
 import Button from '../Button';
@@ -9,16 +10,15 @@ import Button from '../Button';
 import {
   Labels,
   Input,
+  InputBox,
   Form,
   ButtonsWrapper,
   StyledNavLink,
   ButtonText,
 } from './LoginForm.styled';
 
-export default function LoginForm() {
-  const isLoading = useSelector(state => state.auth.isLoading);
-  console.log(isLoading);
 
+export default function LoginForm() {
   const { t } = useTranslation()
 
   const dispatch = useDispatch();
@@ -40,8 +40,8 @@ export default function LoginForm() {
 
   const { email, password } = formik.values;
 
-  return (
-    <Form onSubmit={formik.handleSubmit}>
+  return (<Form onSubmit={formik.handleSubmit}>
+      <InputBox>
       <Labels htmlFor="email">Email *</Labels>
       <Input
         id="email"
@@ -52,7 +52,9 @@ export default function LoginForm() {
         autoComplete="off"
         required
       />
-
+      </InputBox>
+     
+    <InputBox>
       <Labels htmlFor="password">{t?.('auth.password')} *</Labels>
       <Input
         id="password"
@@ -63,6 +65,8 @@ export default function LoginForm() {
         autoComplete="off"
         required
       />
+    </InputBox>
+      
       <ButtonsWrapper>
         <Button type="submit" disabled={!email || !password} size="short">
           <ButtonText>Log in</ButtonText>
@@ -74,5 +78,7 @@ export default function LoginForm() {
         
       </ButtonsWrapper>
     </Form>
+ 
+   
   );
 }
