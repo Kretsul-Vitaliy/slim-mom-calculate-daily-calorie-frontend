@@ -53,6 +53,7 @@ const App = () => {
     <>
       <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
         <GlobalStyle />
+        <Suspense fallback={<Loader />}>
         <SwitcherButtonStyles onClick={switchTheme} type="submit">
           {theme === 'light' ? (
             <SpanImg></SpanImg>
@@ -60,7 +61,6 @@ const App = () => {
             <SpanImgDark></SpanImgDark>
           )}
         </SwitcherButtonStyles>
-        <Suspense fallback={<Loader />}>
           <Header />
           <Routes>
             <Route
