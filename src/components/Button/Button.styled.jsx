@@ -2,7 +2,9 @@ import styled from 'styled-components';
 
 export const ButtonStyled = styled.button`
   background: ${props =>
-    props.disabled ? `var(--header-divider-color)` : props.theme.btnBackgroundColor};
+    props.disabled
+      ? `var(--header-divider-color)`
+      : props.theme.btnBackgroundColor};
   color: ${props =>
     props.disabled ? `var(--text-secondary-color)` : props.theme.btnTextColor};
   border: ${props =>
@@ -17,14 +19,15 @@ export const ButtonStyled = styled.button`
   &:not([disabled]) {
     &:hover,
     :focus {
+
         background: ${props=>props.theme.btnFocusHoverBackgroundColor};
         color: ${props=>props.theme.btnFocusHoverTextColor};
         box-shadow: 0px 4px 10px ${props=>props.theme.boxShadowColor};
       }
     }
 
-    cursor: pointer;
-  
+
+  cursor: pointer;
 
   ${props => {
     switch (props.size) {

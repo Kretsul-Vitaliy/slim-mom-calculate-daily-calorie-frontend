@@ -3,8 +3,8 @@ import { useDispatch } from 'react-redux';
 import { Route, Navigate, Routes, Outlet } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import { getCurrentUser } from '../redux/auth/authOperation';
-import {LoginPage,RegistrationPage, DiaryPage, CalculatorPage} from '../pages';
 
+import {LoginPage,RegistrationPage, DiaryPage, CalculatorPage} from '../pages';
 
 import GlobalStyle from '../theme/GlobalStyle.styled';
 import { ThemeProvider } from 'styled-components';
@@ -48,13 +48,13 @@ const App = () => {
       <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
         <GlobalStyle />
         <Suspense fallback={<Loader />}>
-        <SwitcherButtonStyles onClick={switchTheme} type="submit">
-          {theme === 'light' ? (
-            <SpanImg></SpanImg>
-          ) : (
-            <SpanImgDark></SpanImgDark>
-          )}
-        </SwitcherButtonStyles>
+          <SwitcherButtonStyles onClick={switchTheme} type="submit">
+            {theme === 'light' ? (
+              <SpanImg></SpanImg>
+            ) : (
+              <SpanImgDark></SpanImgDark>
+            )}
+          </SwitcherButtonStyles>
           <Header />
           <Routes>
             <Route

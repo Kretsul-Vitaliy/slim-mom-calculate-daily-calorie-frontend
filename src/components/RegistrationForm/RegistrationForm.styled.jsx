@@ -93,8 +93,7 @@ const RegistrationEnterLink = styled(NavLink)`
   margin-bottom: 20px;
   margin-left: auto;
   margin-right: auto;
-  &:hover,
-  :focus {
+  &:hover {
     background: ${props => props.theme.btnFocusHoverBackgroundColor};
     color: ${props => props.theme.btnFocusHoverTextColor};
     box-shadow: 0px 4px 10px ${props => props.theme.boxShadowColor};
