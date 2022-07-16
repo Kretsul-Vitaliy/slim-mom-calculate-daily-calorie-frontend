@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 export const Form = styled.form`
+position: relative;
   display: flex;
   flex-direction: column;
   margin-top: 60px;
@@ -16,7 +17,15 @@ export const Form = styled.form`
     max-width: 396px;
   }
 `;
+export const InputBox = styled.div`
+  position: relative;
+`;
+
 export const Labels = styled.label`
+position: absolute;
+top: -10px;
+left: 0;
+
   font-family: Verdana-Bold;
   font-size: 14px;
   line-height: 1.21;
@@ -47,7 +56,16 @@ export const Input = styled.input`
   @media screen and (min-width: 768px) {
     max-width: 240px;
   }
+
+  &:focus + ${Labels}{
+    color: red;
+  }
 `;
+
+
+
+
+
 
 export const ButtonsWrapper = styled.div`
   display: flex;
