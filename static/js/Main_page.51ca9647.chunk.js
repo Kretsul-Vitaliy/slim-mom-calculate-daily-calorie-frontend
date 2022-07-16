@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkslim_mom_calculate_daily_calorie_frontend=self.webpackChunkslim_mom_calculate_daily_calorie_frontend||[]).push([[963],{2979:function(e,n,l){l.r(n),l.d(n,{default:function(){return a}});var c=l(4584),r=l(4527),i=l(3329),a=function(){return(0,i.jsx)(i.Fragment,{children:(0,i.jsx)("div",{children:(0,i.jsx)(c.Z,{children:(0,i.jsx)(r.Z,{})})})})}}}]);
+//# sourceMappingURL=Main_page.51ca9647.chunk.js.map
