@@ -4,6 +4,10 @@ import DatePicker from 'react-datepicker';
 export const CalendsrContainer = styled.div`
   position: relative;
   margin: 100px 0 40px 0;
+  @media screen and (max-width: 400px) {
+    width: 116px;
+    margin: 40px 0 32px 0;
+  }
 `;
 
 export const Calendar = styled(DatePicker)`
@@ -17,6 +21,12 @@ export const Calendar = styled(DatePicker)`
   line-height: 41px;
   color: #212121;
   cursor: pointer;
+  background-color: inherit;
+
+  @media screen and (max-width: 400px) {
+    width: 116px;
+    font-size: 18px;
+  }
 `;
 
 export const ImagesCalendar = styled.img`
@@ -25,4 +35,8 @@ export const ImagesCalendar = styled.img`
   left: 220px;
   z-index: 1;
   pointer-events: none;
+  @media screen and (max-width: 400px) {
+    top: 10px;
+    left: 125px;
+  }
 `;

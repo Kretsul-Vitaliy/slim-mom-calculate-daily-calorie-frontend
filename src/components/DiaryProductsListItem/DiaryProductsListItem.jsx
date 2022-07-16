@@ -3,22 +3,17 @@ import { ProductsList, CloserMessage } from './DiaryProductsListItem.styled';
 import { IoMdClose } from 'react-icons/io';
 
 const DiaryProductsListItem = ({ productsItem, setDeletedProduct }) => {
-  // console.log(productsItem);
   return (
-    <ProductsList>
+    <ProductsList margin={productsItem.length !== 0 ? '' : 'empty'}>
       <Scrollbars autoHeight>
         {productsItem.length !== 0 ? (
           productsItem.map(product => (
             <li key={product.id || product._id}>
               <p>{product.nameProduct}</p>
-              <p>{product.weight}</p>
+              <p>{product.weight} g</p>
               <p>{Math.round(product.calories * 0.01 * product.weight)} ccal</p>
               <button
-                onClick={() => {
-                  console.log(product.id || product._id);
-                  console.log(product);
-                  setDeletedProduct(product.id || product._id);
-                }}
+                onClick={() => setDeletedProduct(product.id || product._id)}
               >
                 <IoMdClose size={24} color={'#9B9FAA'} />
               </button>
