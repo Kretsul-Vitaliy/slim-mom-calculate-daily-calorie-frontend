@@ -30,6 +30,7 @@ import {
 import Modal from '../Modal/Modal';
 import { getIsAuthenticated } from '../../redux/auth/authSelector';
 import DailyCalorieIntake from '../DailyCalorieIntake/DailyCalorieIntake';
+import { useTranslation } from 'react-i18next';
 
 const DailyCaloriesForm = () => {
   const { isShowing, toggle } = useModal();
@@ -71,6 +72,8 @@ const DailyCaloriesForm = () => {
     },
   });
 
+  const { t } = useTranslation()
+
   const { height, age, currentWeight, desiredWeight, bloodType } =
     formik.values;
 
@@ -98,8 +101,8 @@ const DailyCaloriesForm = () => {
         />
       )}
       <Title>
-        Calculate your daily calorie
-        <br /> intake right now
+        {t?.('dcf.titleFir')}
+        <br /> {t?.('dcf.titleSec')}
       </Title>
       <form onSubmit={formik.handleSubmit}>
         <Container>
@@ -116,7 +119,7 @@ const DailyCaloriesForm = () => {
                 value={height}
                 required
               />
-              <Label htmlFor="height">Height *</Label>
+              <Label htmlFor="height">{t?.('dcf.height')} *</Label>
             </InputBox>
             <InputBox>
               {formik.errors.age && (
@@ -130,7 +133,7 @@ const DailyCaloriesForm = () => {
                 value={age}
                 required
               />
-              <Label htmlFor="age">Age *</Label>
+              <Label htmlFor="age">{t?.('dcf.age')} *</Label>
             </InputBox>
             <InputBox>
               {formik.errors.currentWeight && (
@@ -144,7 +147,7 @@ const DailyCaloriesForm = () => {
                 value={currentWeight}
                 required
               />
-              <Label htmlFor="currentWeight">Current weight *</Label>
+              <Label htmlFor="currentWeight">{t?.('dcf.curWeight')} *</Label>
             </InputBox>
           </Box>
           <Box>
@@ -161,9 +164,9 @@ const DailyCaloriesForm = () => {
                 value={desiredWeight}
                 required
               />
-              <Label htmlFor="desiredWeight">Desired weight *</Label>
+              <Label htmlFor="desiredWeight">{t?.('dcf.desWeight')} *</Label>
             </InputBox>
-            <RadioTitle id="bloodType">Blood type *</RadioTitle>
+            <RadioTitle id="bloodType">{t?.('dcf.bloodType')} *</RadioTitle>
             <Line />
             <RadioGroup
               required
@@ -206,7 +209,7 @@ const DailyCaloriesForm = () => {
           </Box>
         </Container>
         <Button size="long" type="submit">
-          Start losing weight
+          {t?.('dcf.btn')}
         </Button>
       </form>
     </Wrapper>

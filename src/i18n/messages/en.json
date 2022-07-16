@@ -55,6 +55,16 @@
         "dailyRate": "Daily rate",
         "persent": "n% of normal"
     },
+    "validate": {
+        "heigthMin": "Enter a value from 100",
+        "heigthMax": "Enter a value to 230",
+        "ageSmall": "Sorry, You are a minor",
+        "ageMiddle": "Sorry, You are not allowed to lose weight",
+        "ageHeight": "Enter correct age",
+        "weightMin": "Enter a value from 50",
+        "weightMax": "Enter a value to 500",
+        "weightVerySmall": "Enter a value from 30"
+    },
     "яйца": "eggs",
     "зерновые": "cereal",
     "мучные": "flour",

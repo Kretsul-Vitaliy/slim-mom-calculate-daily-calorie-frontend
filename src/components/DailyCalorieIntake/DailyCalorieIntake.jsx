@@ -12,32 +12,35 @@ import {
   Item,
 } from './DailyCalorieIntake.styled';
 import Button from '../Button';
+import { useTranslation } from 'react-i18next';
 const DailyCalorieIntake = ({ calories, products }) => {
   const isAuthenticated = useSelector(getIsAuthenticated);
 
+  const { t } = useTranslation()
+
   return (
     <ModalContent>
-      <Title>Your recommended daily calorie intake is</Title>
-      {calories ? <Text>{calories} cal</Text> : null}
+      <Title>{t?.('dci.title')}</Title>
+      {calories ? <Text>{calories} {t?.('dpi.ccal')}</Text> : null}
       <Line />
-      <TitleList>Foods you should not eat</TitleList>
+      <TitleList>{t?.('dci.noEat')}</TitleList>
       {products?.lenght !== 0 ? (
         <List>
           {products?.map(product => (
-            <Item key={nanoid()}>{product}</Item>
+            <Item key={nanoid()}>{t?.(product)}</Item>
           ))}
         </List>
       ) : null}
       {isAuthenticated ? (
         <Link to="/diary">
           <Button type="button" size="long">
-            Start losing weight
+            {t?.('dcf.btn')}
           </Button>
         </Link>
       ) : (
         <Link to="/signup">
           <Button type="button" size="long">
-            Start losing weight
+            {t?.('dcf.btn')}
           </Button>
         </Link>
       )}
