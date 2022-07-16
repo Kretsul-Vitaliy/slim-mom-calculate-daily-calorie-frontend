@@ -105,7 +105,7 @@ const UserInfoWrapper = styled.div`
     background: rgba(239, 241, 243, 1);
     width: 100%;
     display: flex;
-    padding: 0 20px;
+    padding: 4px 20px;
 
     div {
       margin-left: auto;
