@@ -21,6 +21,7 @@ import {
 } from '../theme/SwitcherButton.Styled';
 
 import Header from '../components/Header';
+import Loader from '../components/Loader';
 import AuthorizeGoogle from '../components/AuthorizeGoogle/AuthorizeGoogle';
 
 const MainPage = lazy(() =>
@@ -59,7 +60,7 @@ const App = () => {
             <SpanImgDark></SpanImgDark>
           )}
         </SwitcherButtonStyles>
-        <Suspense fallback={<h2>Loading</h2>}>
+        <Suspense fallback={<Loader />}>
           <Header />
           <Routes>
             <Route

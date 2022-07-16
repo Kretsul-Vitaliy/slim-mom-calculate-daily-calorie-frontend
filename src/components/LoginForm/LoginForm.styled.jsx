@@ -22,13 +22,20 @@ export const Labels = styled.label`
   line-height: 1.21;
   letter-spacing: 0.04em;
 
-  color: var(--text-secondary-color);
+  color: ${props => props.theme.labelColor};
 `;
 
 export const Input = styled.input`
   border: none;
   border-bottom: 1px solid var(--header-divider-color);
+  color: ${props=>props.theme.inputTextColor};
   height: 20px;
+  outline: none;
+  background: transparent;
+  ::-webkit-outer-spin-button,
+  ::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
   &#email {
     margin-bottom: 40px;
   }
@@ -72,14 +79,28 @@ export const ButtonText = styled.span`
   letter-spacing: 0.04em;
 `;
 export const StyledNavLink = styled(NavLink)`
-  color: var(--extra-color);
+  
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: ${props => props.theme.btnTextColor};
+  width: 182px;
+  height: 44px;
+  border-radius: 30px;
+  border: 1px solid ${props => props.theme.btnBorderColor};
+  background: ${props => props.theme.btnBackgroundColor};
   padding: 13px 51px;
 
-  button:hover & {
-    color: var(--color-white);
+  font-family: Verdana-Bold;
+  font-size: 14px;
+  line-height: 1.21;
+  letter-spacing: 0.04em;
+
+  &:hover,
+  :focus {
+    background: ${props => props.theme.btnFocusHoverBackgroundColor};
+    color: ${props => props.theme.btnFocusHoverTextColor};
+    box-shadow: 0px 4px 10px ${props => props.theme.boxShadowColor};
   }
 
-  button:focus & {
-    color: var(--color-white);
-  }
 `;

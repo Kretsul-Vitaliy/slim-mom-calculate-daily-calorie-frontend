@@ -1,9 +1,10 @@
 import { useFormik } from 'formik';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../../redux/auth/authOperation';
 import * as yup from 'yup';
 
 import Button from '../Button';
+
 import {
   Labels,
   Input,
@@ -14,6 +15,9 @@ import {
 } from './LoginForm.styled';
 
 export default function LoginForm() {
+  const isLoading = useSelector(state => state.auth.isLoading);
+  console.log(isLoading);
+
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
@@ -42,6 +46,7 @@ export default function LoginForm() {
         type="email"
         onChange={formik.handleChange}
         value={email}
+        autoComplete="off"
         required
       />
 
@@ -52,17 +57,18 @@ export default function LoginForm() {
         type="password"
         onChange={formik.handleChange}
         value={password}
+        autoComplete="off"
         required
       />
       <ButtonsWrapper>
         <Button type="submit" disabled={!email || !password} size="short">
           <ButtonText>Log in</ButtonText>
         </Button>
-        <Button type="button" size="short">
+       
           <StyledNavLink to="/signup">
-            <ButtonText>Register</ButtonText>
+            Register
           </StyledNavLink>
-        </Button>
+        
       </ButtonsWrapper>
     </Form>
   );

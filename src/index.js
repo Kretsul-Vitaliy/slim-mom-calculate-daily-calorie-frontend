@@ -6,16 +6,14 @@ import { Provider } from 'react-redux';
 import store, { persistor } from './redux/store';
 import './i18n';
 import App from './App';
+import Loader from './components/Loader';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter basename="/">
       <Provider store={store}>
-        <PersistGate
-          loading={<h2>PLEASE WAIT LOADING ....</h2>}
-          persistor={persistor}
-        >
+        <PersistGate loading={<Loader />} persistor={persistor}>
           <App />
         </PersistGate>
       </Provider>
