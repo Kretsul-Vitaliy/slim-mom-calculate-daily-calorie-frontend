@@ -2,13 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { RiCloseFill } from 'react-icons/ri';
 import { IoMdReturnLeft } from 'react-icons/io';
-// import { Link } from 'react-router-dom';
+import UserInfo from '../UserInfo/UserInfo';
 import {
   ModalOverlay,
   ModalWrapper,
   ModalContainer,
   TurnBack,
   ButtonClose,
+  UserInfoWrapper,
 } from './Modal.styled';
 
 const modalRoot = document.querySelector('#modal');
@@ -23,6 +24,9 @@ const Modal = ({ isShowing, hide, children }) => {
               <button onClick={hide}>
                 <IoMdReturnLeft size={13} />
               </button>
+              <UserInfoWrapper>
+                <UserInfo />
+              </UserInfoWrapper>
             </TurnBack>
             <ModalContainer
               onClick={e => {

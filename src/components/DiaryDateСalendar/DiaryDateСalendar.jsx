@@ -6,6 +6,7 @@ import {
   CalendsrContainer,
 } from './DiaryDateCalendar.styled';
 import calendarImg from '../../images/calendar/calendar.svg';
+import PropTypes from 'prop-types';
 
 const DiaryDateСalendar = ({ dateCalendar, setDateCalendar }) => {
   // eslint-disable-next-line no-unused-vars
@@ -25,3 +26,8 @@ const DiaryDateСalendar = ({ dateCalendar, setDateCalendar }) => {
 };
 
 export default DiaryDateСalendar;
+
+DiaryDateСalendar.protoTypes = {
+  dateCalendar: PropTypes.string.isRequired,
+  setDateCalendar: PropTypes.func.isRequired,
+};
