@@ -1,15 +1,17 @@
 import { useFormik } from 'formik';
 import useModal from '../../hooks/useModal';
 import Button from '../Button';
-import axios from 'axios';
+import Loader from '../Loader';
 import { validate } from './validate';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   dailyCalories,
   dailyCaloriesAuth,
 } from '../../redux/dailyCalories/dailyCaloriesOperation';
-import { getDailyCaloriesPublic } from '../../redux/dailyCalories/dailyCaloriesSelector';
-import { getUserId } from '../../redux/user/userSelector';
+import {
+  getDailyCaloriesPublic,
+  getLoading,
+} from '../../redux/dailyCalories/dailyCaloriesSelector';
 import {
   Wrapper,
   Title,
@@ -29,13 +31,11 @@ import Modal from '../Modal/Modal';
 import { getIsAuthenticated } from '../../redux/auth/authSelector';
 import DailyCalorieIntake from '../DailyCalorieIntake/DailyCalorieIntake';
 
-axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
-
 const DailyCaloriesForm = () => {
   const { isShowing, toggle } = useModal();
 
   const dispatch = useDispatch();
-  const userId = useSelector(getUserId);
+  const loading = useSelector(getLoading);
   const dailyNormCalories = useSelector(getDailyCaloriesPublic);
 
   const isAuthenticated = useSelector(getIsAuthenticated);
@@ -60,8 +60,9 @@ const DailyCaloriesForm = () => {
     validate: validate,
 
     onSubmit: values => {
-      if (isAuthenticated && userId) {
-        dispatch(dailyCaloriesAuth(values, userId));
+      console.log(isAuthenticated);
+      if (isAuthenticated) {
+        dispatch(dailyCaloriesAuth(values));
       } else {
         dispatch(dailyCalories(values));
       }
@@ -73,67 +74,29 @@ const DailyCaloriesForm = () => {
   const { height, age, currentWeight, desiredWeight, bloodType } =
     formik.values;
 
-  // const getCalories = values => {
-  //   const data = JSON.stringify(values);
-  //   const headers = {
-  //     'Content-Type': 'application/json',
-  //   };
-  //   axios
-  //     .post('dailycalories/public', data, {
-  //       headers,
-  //     })
-  //     .then(res => {
-  //       const { dailyCalories, categories } = res.data.data;
-  //       setCalories(dailyCalories);
-  //       setProducts([...categories]);
-  //       toggle();
-  //     })
-  //     .catch(error => {
-  //       console.log(error);
-  //     });
-  // };
-
-  // const getCaloriesPrivate = values => {
-  //   const data = JSON.stringify(values);
-  //   const headers = {
-  //     'Content-Type': 'application/json',
-  //     Authorization: `Bearer ${token}`,
-  //   };
-
-  //   axios
-  //     .post('dailycalories', data, {
-  //       headers,
-  //     })
-  //     .then(res => {
-  //       const { calories, categories } = res.data.data._doc;
-  //       setCalories(calories);
-  //       setProducts([...categories]);
-  //       toggle();
-  //     })
-  //     .catch(error => {
-  //       console.log(error);
-  //     });
-  // };
-
   return (
     <Wrapper>
-      <Modal
-        isShowing={isShowing}
-        hide={toggle}
-        children={
-          isAuthenticated ? (
-            <DailyCalorieIntake
-              calories={dailyNormCaloriesPrivate}
-              products={categoriesPrivate}
-            />
-          ) : (
-            <DailyCalorieIntake
-              calories={dailyNormCalories}
-              products={categories}
-            />
-          )
-        }
-      />
+      {loading ? (
+        <Loader />
+      ) : (
+        <Modal
+          isShowing={isShowing}
+          hide={toggle}
+          children={
+            isAuthenticated ? (
+              <DailyCalorieIntake
+                calories={dailyNormCaloriesPrivate}
+                products={categoriesPrivate}
+              />
+            ) : (
+              <DailyCalorieIntake
+                calories={dailyNormCalories}
+                products={categories}
+              />
+            )
+          }
+        />
+      )}
       <Title>
         Calculate your daily calorie
         <br /> intake right now
