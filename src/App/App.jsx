@@ -2,9 +2,7 @@ import { Suspense, useEffect, lazy } from 'react';
 import { useDispatch } from 'react-redux';
 import { Route, Navigate, Routes, Outlet } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
-
 import { getCurrentUser } from '../redux/auth/authOperation';
-
 import LoginPage from '../pages/LoginPage';
 import RegistrationPage from '../pages/RegistrationPage';
 import DiaryPage from '../pages/DiaryPage';
