@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { getIsAuthenticated } from '../../redux/auth/authSelector';
 import { useSelector } from 'react-redux';
+import { nanoid } from 'nanoid';
 import {
   ModalContent,
   Title,
@@ -23,12 +24,10 @@ const DailyCalorieIntake = ({ calories, products }) => {
       {products?.lenght !== 0 ? (
         <List>
           {products?.map(product => (
-            <Item>{product}</Item>
+            <Item key={nanoid()}>{product}</Item>
           ))}
         </List>
-      ) : (
-        <p>rerre</p>
-      )}
+      ) : null}
       {isAuthenticated ? (
         <Link to="/diary">
           <Button type="button" size="long">
