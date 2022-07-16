@@ -6,6 +6,7 @@ import {
 } from '../../services/apiService';
 import { useState, useEffect } from 'react';
 import { ProductsContainer } from './DiaryProductsList.styled';
+import PropTypes from 'prop-types';
 
 const DiaryProductsList = ({
   dateCalendar,
@@ -13,17 +14,17 @@ const DiaryProductsList = ({
   gramsOfProducts,
   persistToken,
   setSelectedProduct,
+  productsItem,
+  setProductsItem,
 }) => {
-  const [productsItem, setProductsItem] = useState(null);
+  // const [productsItem, setProductsItem] = useState(null);
   const [deletedProduct, setDeletedProduct] = useState(null);
 
   useEffect(() => {
-    console.log('Передається в юз ефект', deletedProduct);
     if (deletedProduct) {
-      deleteCalendarProducts(persistToken, deletedProduct).then(values => {
-        console.log(values);
-        setDeletedProduct(null);
-      });
+      deleteCalendarProducts(persistToken, deletedProduct).then(values =>
+        setDeletedProduct(null)
+      );
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [deletedProduct]);
@@ -39,6 +40,7 @@ const DiaryProductsList = ({
   useEffect(() => {
     if (selectedProduct) {
       const { title, calories } = selectedProduct;
+
       setCalendarProducts(
         title.ua,
         gramsOfProducts,
@@ -62,6 +64,7 @@ const DiaryProductsList = ({
         <DiaryProductsListitem
           productsItem={Object.values(productsItem)}
           setDeletedProduct={setDeletedProduct}
+          dateCalendar={dateCalendar}
         />
       )}
     </ProductsContainer>
@@ -69,3 +72,36 @@ const DiaryProductsList = ({
 };
 
 export default DiaryProductsList;
+
+DiaryProductsList.protoTypes = {
+  dateCalendar: PropTypes.string.isRequired,
+  selectedProduct: PropTypes.shape({
+    calories: PropTypes.string,
+    categories: PropTypes.arrayOf(PropTypes.string),
+    groupBloodNotAllowed: PropTypes.arrayOf(PropTypes.bool),
+    id: PropTypes.string,
+    title: PropTypes.shape({
+      ru: PropTypes.string,
+      en: PropTypes.string,
+      ua: PropTypes.string,
+    }),
+    weight: PropTypes.number,
+    __v: PropTypes.number,
+  }),
+  gramsOfProducts: PropTypes.number,
+  persistToken: PropTypes.string.isRequired,
+  setSelectedProduct: PropTypes.func.isRequired,
+  productsItem: PropTypes.arrayOf(
+    PropTypes.shape({
+      calories: PropTypes.number.isRequired,
+      createdAt: PropTypes.string.isRequired,
+      date: PropTypes.string.isRequired,
+      nameProduct: PropTypes.string.isRequired,
+      owner: PropTypes.string.isRequired,
+      updatedAt: PropTypes.string.isRequired,
+      weight: PropTypes.number.isRequired,
+      _id: PropTypes.string,
+    })
+  ),
+  setProductsItem: PropTypes.func.isRequired,
+};

@@ -85,4 +85,19 @@ const ButtonClose = styled.button`
   }
 `;
 
-export { ModalContainer, TurnBack, ModalOverlay, ModalWrapper, ButtonClose };
+const UserInfoWrapper = styled.div`
+  margin-left: auto;
+  margin-right: 10px;
+  @media screen and (min-width: 769px) {
+    display: none;
+  }
+`;
+
+export {
+  ModalContainer,
+  TurnBack,
+  ModalOverlay,
+  ModalWrapper,
+  ButtonClose,
+  UserInfoWrapper,
+};

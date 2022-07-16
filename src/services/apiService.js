@@ -116,7 +116,6 @@ export const setCalendarProducts = async (
 };
 
 export const deleteCalendarProducts = async (persistedToken, dayId) => {
-  console.log('Останній', dayId);
   if (!persistedToken) {
     throw Error('user');
   }

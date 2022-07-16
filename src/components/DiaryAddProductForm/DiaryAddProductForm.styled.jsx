@@ -7,7 +7,7 @@ export const MainContainer = styled.div`
 export const ModalSubmitButton = styled.div`
   display: flex;
   justify-content: center;
-  @media screen and (min-width: 660px) {
+  @media screen and (min-width: 768px) {
     display: none;
   }
 `;
@@ -15,12 +15,12 @@ export const ModalSubmitButton = styled.div`
 export const InputContainer = styled.div`
   display: flex;
 
-  @media screen and (max-width: 660px) {
+  @media screen and (max-width: 768px) {
     display: block;
   }
 
   button {
-    @media screen and (max-width: 660px) {
+    @media screen and (max-width: 768px) {
       display: none;
     }
   }
@@ -36,8 +36,8 @@ export const HelpingForm = styled.div`
   background-color: var(--page-secondary-color);
   z-index: 10;
 
-  @media screen and (max-width: 660px) {
-    top: 160px;
+  @media screen and (max-width: 768px) {
+    top: 200px;
     left: 50%;
     transform: translateX(-50%);
   }
@@ -83,7 +83,7 @@ export const ProductInput = styled.div`
   background-clip: padding-box;
   border-radius: 0.25rem;
 
-  @media screen and (max-width: 660px) {
+  @media screen and (max-width: 768px) {
     width: 80%;
     margin: 0 auto;
   }
@@ -94,9 +94,9 @@ export const ProductInput = styled.div`
   &:nth-of-type(2) {
     width: 170px;
 
-    @media screen and (max-width: 660px) {
+    @media screen and (max-width: 768px) {
       width: 80%;
-      margin-bottom: 60px;
+      margin: 32px auto 60px auto;
     }
     @media screen and (max-width: 400px) {
       width: 100%;
@@ -137,7 +137,7 @@ export const ProductInput = styled.div`
     color: var(--text-secondary-color);
     padding-bottom: 20px;
 
-    @media screen and (max-width: 660px) {
+    @media screen and (max-width: 768px) {
       padding-bottom: 0;
       width: 100%;
     }
@@ -157,7 +157,7 @@ export const ProductsInput = styled.input`
 export const GramsInput = styled.input`
   width: 107px;
   text-align: right;
-  @media screen and (max-width: 660px) {
+  @media screen and (max-width: 768px) {
     text-align: left;
   }
 `;

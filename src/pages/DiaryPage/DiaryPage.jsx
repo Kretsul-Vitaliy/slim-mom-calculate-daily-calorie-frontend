@@ -18,6 +18,9 @@ const DiaryPage = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [gramsOfProducts, setGramsOfProducts] = useState(null);
   const persistToken = useSelector(getIsUserAuthorizate);
+  const [productsItem, setProductsItem] = useState(null);
+  // eslint-disable-next-line no-unused-vars
+  const [dateNow, setDateNow] = useState(new Date());
   const { isShowing, toggle } = useModal();
 
   return (
@@ -32,26 +35,34 @@ const DiaryPage = () => {
           dateCalendar={startDate}
           setDateCalendar={setStartDate}
         />
-        <DesctopForm>
-          <DiaryAddProductForm
-            setSelectedProduct={setSelectedProduct}
-            setGramsOfProducts={setGramsOfProducts}
-            toggle={toggle}
-            isShowing={isShowing}
-          />
-        </DesctopForm>
+        {startDate.toLocaleDateString() === dateNow.toLocaleDateString() && (
+          <DesctopForm>
+            <DiaryAddProductForm
+              setSelectedProduct={setSelectedProduct}
+              setGramsOfProducts={setGramsOfProducts}
+              toggle={toggle}
+              isShowing={isShowing}
+            />
+          </DesctopForm>
+        )}
+
         <DiaryProductsList
           dateCalendar={startDate.toLocaleDateString()}
           selectedProduct={selectedProduct}
           setSelectedProduct={setSelectedProduct}
           gramsOfProducts={gramsOfProducts}
           persistToken={persistToken}
+          productsItem={productsItem}
+          setProductsItem={setProductsItem}
         />
-        <ButtonOpenModal>
-          <Button type="button" size="addRoundBtn" onClick={toggle}>
-            +
-          </Button>
-        </ButtonOpenModal>
+        {startDate.toLocaleDateString() === dateNow.toLocaleDateString() && (
+          <ButtonOpenModal>
+            <Button type="button" size="addRoundBtn" onClick={toggle}>
+              +
+            </Button>
+          </ButtonOpenModal>
+        )}
+
         <Modal isShowing={isShowing} hide={toggle}>
           <DiaryAddProductForm
             setSelectedProduct={setSelectedProduct}
