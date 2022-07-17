@@ -20,7 +20,7 @@ export const darkTheme = {
   headerBackgroundColor: '#ffffff85',
   headerElborderBottomColor: 'var(--text-secondary-color)',
 
-  // Colors for navigations
+  // Colors for Navigations
   navLinkColor: `${darckThemeTextColor}`, //Only for desktop
   navLinkHoverColor: 'var(--color-white)', //Only for desktop
 
@@ -33,6 +33,22 @@ export const darkTheme = {
   dailyCaloriFormRadioInputColor: `${darckThemeTextColor}`,
   dailyCaloriFormBackgroundAfterColor: `${darckThemeTextColor}`,
   dailyCaloriFormChekedColor: 'var(--color-white)',
+
+  // Colors for DiaryDateCalendar
+  calendarColor: `${darckThemeTextColor}`,
+
+  // Colors for DiaryAddProductForm
+  liHoverColor: `${darckThemeTextColor}`, //(line 66)
+  DivPColor: 'red', //(line 118)
+  inputColor: `${darckThemeTextColor}`, //(line 135)
+  inputFocusColor: `${darckThemeTextColor}`, //(line 147)
+
+  // Colors for DiaryProductListItem
+  IoMdCloseColor: `${darckThemeTextColor}`, //(line 18 not styles)
+
+  //Colors for LanguageSelector
+  LangButtonColor: `${darckThemeTextColor}`, //(Line 89)
+  LangButtonHoverColor: 'var(--color-white)', //(Line 101)
 
   // Colors for switcher button
   btnSwitcherBackgroundColor: 'linear-gradient(90deg, #1ee41e, #191970)',
@@ -70,6 +86,23 @@ export const lightTheme = {
   dailyCaloriFormRadioInputColor: '#9b9faa',
   dailyCaloriFormBackgroundAfterColor: 'var(--extra-color)',
   dailyCaloriFormChekedColor: 'var(--extra-color)',
+
+  // Colors for DiaryDateCalendar
+  calendarColor: 'var(--text-main-color)',
+
+  // Colors for DiaryAddProductForm
+  liHoverColor: 'var(--extra-color)', //(line 66)
+  DivPColor: 'var(--extra-color)', //(line 118)
+  inputColor: 'var(--text-secondary-color)', //(line 135)
+  inputFocusColor: 'var(--extra-color)', //(line 147)
+
+  // Colors for DiaryroductListItem
+  IoMdCloseColor: 'var(--text-main-color)', //(line 39)
+  IiPColor: '#9B9FAA', //(line 18 not styles)
+
+  //Colors for LanguageSelector
+  LangButtonColor: 'var(--text-main-color)', //(Line 89)
+  LangButtonHoverColor: 'var(--extra-color)', //(Line 101)
 
   // Colors for switcher button
   btnSwitcherBackgroundColor: 'linear-gradient(90deg, #e25c03, #ecf008)',

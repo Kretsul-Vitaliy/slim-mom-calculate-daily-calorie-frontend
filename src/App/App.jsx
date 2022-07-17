@@ -10,6 +10,7 @@ import DiaryPage from '../pages/DiaryPage';
 import CalculatorPage from '../pages/CalculatorPage';
 import GlobalStyle from '../theme/GlobalStyle.styled';
 
+// import { SwitcherButton } from '../theme/SwitcherButton.js';
 import React, { useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { darkTheme, lightTheme } from '../theme/theme';
@@ -60,6 +61,7 @@ const App = () => {
               <SpanImgDark></SpanImgDark>
             )}
           </SwitcherButtonStyles>
+          {/* <SwitcherButton /> */}
           <Header />
           <Routes>
             <Route
