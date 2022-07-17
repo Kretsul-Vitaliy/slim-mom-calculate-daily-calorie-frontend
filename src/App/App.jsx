@@ -21,7 +21,13 @@ import { darkTheme, lightTheme } from '../theme/theme';
 //   SpanImgDark,
 // } from '../theme/SwitcherButton.Styled';
 
-import { Header, Loader, AuthorizeGoogle } from '../components';
+import {
+  Header,
+  Loader,
+  AuthorizeGoogle,
+  BackgroundContainer,
+  Container,
+} from '../components';
 
 const MainPage = lazy(() =>
   import('../pages/MainPage' /* webpackChunkName: "Main_page" */)
@@ -40,7 +46,6 @@ const PrivateRoute = lazy(() =>
 const App = () => {
   const dispatch = useDispatch();
   const [theme, setTheme] = useState('light');
-
   useEffect(() => {
     dispatch(getCurrentUser());
   }, [dispatch]);
@@ -107,9 +112,10 @@ const App = () => {
           <Outlet />
         </Suspense>
 
-        <ToastContainer autoClose={2500} />
-      </ThemeProvider>
-    </>
+          <ToastContainer autoClose={2500} />
+        </ThemeProvider>
+      </BackgroundContainer>
+    </Container>
   );
 };
 
