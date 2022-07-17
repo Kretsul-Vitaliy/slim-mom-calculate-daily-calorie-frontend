@@ -28,8 +28,7 @@ export const validate = values => {
   } else if (values.desiredWeight > 500) {
     errors.desiredWeight = i18n.t('validate.weightMax');
   } else if (values.desiredWeight >= values.currentWeight) {
-    errors.desiredWeight =
-      'The desired weight must be more than current weight';
+    errors.desiredWeight = i18n.t('validate.similiarWeith');
   }
   return errors;
 };

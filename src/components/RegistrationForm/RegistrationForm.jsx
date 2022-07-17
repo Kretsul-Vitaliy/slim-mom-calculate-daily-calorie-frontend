@@ -121,13 +121,13 @@ const RegistrationForm = () => {
           </FormRegistrationListItem>
         </FormRegistrationList>
         <ButtonContainer>
-          <RegistrationEnterLink to="/login">Log in</RegistrationEnterLink>
+          <RegistrationEnterLink to="/login">{t?.('auth.login')}</RegistrationEnterLink>
           <RegistrationButton
             type="submit"
             disabled={!name || !email || !password}
             size="short"
           >
-            Register
+            {t?.('auth.register')}
           </RegistrationButton>
         </ButtonContainer>
       </form>

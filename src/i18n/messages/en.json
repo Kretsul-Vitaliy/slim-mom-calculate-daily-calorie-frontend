@@ -20,7 +20,7 @@
     "signInTitle": "Sign In",
     "register": "Register",
     "password": "Password",
-    "login": "Login",
+    "login": "Log in",
     "name": "Name",
     "invMail": "Invalid email",
     "verifyMail": "Please, check your email and confirm your account!",
@@ -66,7 +66,8 @@
     "ageHeight": "Enter correct age",
     "weightMin": "Enter a value from 50",
     "weightMax": "Enter a value to 500",
-    "weightVerySmall": "Enter a value from 30"
+    "weightVerySmall": "Enter a value from 30",
+    "similiarWeith": "The desired weight must be more than current weight"
   },
   "яйца": "eggs",
   "зерновые": "cereal",
