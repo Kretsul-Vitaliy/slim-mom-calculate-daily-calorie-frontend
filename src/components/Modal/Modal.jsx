@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { RiCloseFill } from 'react-icons/ri';
 import { IoMdReturnLeft } from 'react-icons/io';
-import UserInfo from '../UserInfo/UserInfo';
+import UserInfo from '../UserInfo';
 import {
   ModalOverlay,
   ModalWrapper,

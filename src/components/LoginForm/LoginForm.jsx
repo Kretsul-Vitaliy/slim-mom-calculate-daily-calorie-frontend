@@ -1,12 +1,9 @@
 import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next'
-import { login } from '../../redux/auth/authOperation';
-
+import { login } from '../../redux/auth';
 import * as yup from 'yup';
-
 import Button from '../Button';
-
 import {
   Labels,
   Input,
