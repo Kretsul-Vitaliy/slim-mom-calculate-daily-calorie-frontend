@@ -1,0 +1,1 @@
+export {getIsAuthenticated,getIsUserAuthorizate,getLoading,getUserName,getUser} from './authSelector';

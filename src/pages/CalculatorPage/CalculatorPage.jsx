@@ -1,10 +1,9 @@
 // import Header from '../../components/Header';
-import DailyCaloriesForm from '../../components/DailyCaloriesForm';
-import RightSideBar from '../../components/RightSideBar';
-import { Wrapper } from './CalculatorPage.styled';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { getUserInfoCurrent } from '../../redux/user/userOperation';
+import { getUserInfoCurrent } from '../../redux/user';
+import {DailyCaloriesForm, RightSideBar} from '../../components';
+import { Wrapper } from './CalculatorPage.styled';
 
 const CalculatorPage = () => {
   const dispatch = useDispatch();
