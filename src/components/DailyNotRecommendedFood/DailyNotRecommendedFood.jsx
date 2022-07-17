@@ -1,14 +1,17 @@
+import { useTranslation } from 'react-i18next';
 import { Wrapper, Title, Text } from './DailyNotRecommendedFood.styled.jsx';
 
 const DailyNotRecommendedFood = ({ diet }) => {
+  const { t } = useTranslation()
+
   return (
     <Wrapper style={{}}>
-      <Title>Food not recommended</Title>
+      <Title>{t?.('dnrf.title')}</Title>
       <Text>
         {diet ? (
           <Text>{diet}</Text>
         ) : (
-          <Text>Your diet will be displayed here</Text>
+          <Text>{t?.('dnrf.displayedDiet')}</Text>
         )}
       </Text>
     </Wrapper>
