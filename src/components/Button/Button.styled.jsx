@@ -19,13 +19,11 @@ export const ButtonStyled = styled.button`
   &:not([disabled]) {
     &:hover,
     :focus {
-
-        background: ${props=>props.theme.btnFocusHoverBackgroundColor};
-        color: ${props=>props.theme.btnFocusHoverTextColor};
-        box-shadow: 0px 4px 10px ${props=>props.theme.boxShadowColor};
-      }
+      background: ${props => props.theme.btnFocusHoverBackgroundColor};
+      color: ${props => props.theme.btnFocusHoverTextColor};
+      box-shadow: 0px 4px 10px ${props => props.theme.boxShadowColor};
     }
-
+  }
 
   cursor: pointer;
 

@@ -76,6 +76,10 @@ const FormRegistrationInput = styled.input`
   }
 `;
 
+const MessageError = styled.div`
+  color: ${props => props.theme.MessageErrorColor};
+`;
+
 const RegistrationEnterLink = styled(NavLink)`
   font-family: Verdana-Bold;
   display: flex;
@@ -93,7 +97,8 @@ const RegistrationEnterLink = styled(NavLink)`
   margin-bottom: 20px;
   margin-left: auto;
   margin-right: auto;
-  &:hover {
+  &:hover,
+  :focus {
     background: ${props => props.theme.btnFocusHoverBackgroundColor};
     color: ${props => props.theme.btnFocusHoverTextColor};
     box-shadow: 0px 4px 10px ${props => props.theme.boxShadowColor};
@@ -129,4 +134,5 @@ export {
   RegistrationEnterLink,
   ButtonContainer,
   RegistrationButton,
+  MessageError,
 };

@@ -7,9 +7,11 @@ const RegistrationPage = () => {
   return (
     // <BackgroundContainer>
     <Container>
+      {/* <BackgroundContainer> */}
       <RegistrationForm />
+      {/* </BackgroundContainer> */}
     </Container>
-    // </BackgroundContainer>
+    /* </BackgroundContainer> */
   );
 };
 
