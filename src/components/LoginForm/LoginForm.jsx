@@ -2,7 +2,7 @@ import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next'
 import { login } from '../../redux/auth';
-import * as yup from 'yup';
+import * as Yup from 'yup';
 import Button from '../Button';
 import {
   Labels,
@@ -12,25 +12,34 @@ import {
   ButtonsWrapper,
   StyledNavLink,
   ButtonText,
+  MessageError
 } from './LoginForm.styled';
 
 
 export default function LoginForm() {
   const { t } = useTranslation()
-
   const dispatch = useDispatch();
+  const loginSchema = Yup.object().shape({
+    email: Yup.string().email(t?.('auth.invMail'))
+    .min(3, t?.('auth.verMin'))
+    .max(35, t?.('auth.verMax'))
+    .required(t?.('auth.verReq')),
+    password: Yup.string()
+    .min(8, t?.('auth.verMin'))
+    .max(35, t?.('auth.verMax'))
+    .required(t?.('auth.verReq')),
+   
+  });
   const formik = useFormik({
     initialValues: {
       email: '',
       password: '',
     },
-    validationSchema: yup.object().shape({
-      email: yup.string().email().required(),
-      password: yup.string().min(6, t?.("auth.verMin")).required(),
-    }),
-    onSubmit: ({ email, password }) => {
-      dispatch(login({ email, password }));
-
+    validationSchema: loginSchema,
+   
+    onSubmit: async ({ email, password }) => {
+     dispatch(login({ email, password }))
+     
       formik.resetForm();
     },
   });
@@ -38,7 +47,7 @@ export default function LoginForm() {
   const { email, password } = formik.values;
 
   return (<Form onSubmit={formik.handleSubmit}>
-      <InputBox>
+      <InputBox name="email">
       <Labels htmlFor="email">Email *</Labels>
       <Input
         id="email"
@@ -49,9 +58,12 @@ export default function LoginForm() {
         autoComplete="off"
         required
       />
+       {formik.touched.email && formik.errors.email ? (
+              <MessageError>{formik.errors.email}</MessageError>
+            ) : null}
       </InputBox>
      
-    <InputBox>
+    <InputBox name="password">
       <Labels htmlFor="password">{t?.('auth.password')} *</Labels>
       <Input
         id="password"
@@ -62,6 +74,9 @@ export default function LoginForm() {
         autoComplete="off"
         required
       />
+       {formik.touched.password && formik.errors.password ? (
+              <MessageError>{formik.errors.password}</MessageError>
+            ) : null}
     </InputBox>
       
       <ButtonsWrapper>
