@@ -66,7 +66,7 @@ export const lightTheme = {
   // Colors for registration and login forms
   titleColor: 'var(--extra-color)',
   labelColor: 'var(--text-secondary-color)',
-  MessageErrorColor: 'var(--color-white)',
+  MessageErrorColor: 'var(--text-secondary-color)',
   inputTextColor: 'fieldtext',
   linkTextColor: 'var(--extra-color)',
   btnTextColor: 'var(--extra-color)',

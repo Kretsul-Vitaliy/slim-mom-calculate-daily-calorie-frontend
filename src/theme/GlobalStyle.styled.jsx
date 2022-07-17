@@ -27,7 +27,7 @@ const GlobalStyle = createGlobalStyle`
     transition: .3s ease;
 
     //bg-image
-  background-repeat: no-repeat;
+  /* background-repeat: no-repeat;
   background-attachment: scroll;
   @media screen and (min-width: 768px) {
     background-image: url(${bgDesktop1x});
@@ -48,7 +48,7 @@ const GlobalStyle = createGlobalStyle`
     (min-resolution: 2dppx) and (min-width: 1280px) {
     background-image: url(${bgTablet2x});
     background-position: top right;
-  }
+  } */
   }
   img {
     display: block;

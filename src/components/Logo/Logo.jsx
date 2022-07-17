@@ -8,7 +8,7 @@ import mobile from '../../images/logo/logo-mobile.svg';
 
 const Logo = () => {
   return (
-  <Link to="/diary">
+  <Link to="/calculator">
     <Picture>
       <source
         media="(max-width: 767px)"

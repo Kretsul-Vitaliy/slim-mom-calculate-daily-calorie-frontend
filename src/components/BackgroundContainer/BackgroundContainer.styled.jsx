@@ -30,7 +30,7 @@ import bgTabletWave2x from '../../images/background/tablet/tabletWave2x.png';
 const BackgroundWrapper = styled.body`
   background-repeat: no-repeat;
   background-attachment: scroll;
-  /* @media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     background-image: url(${bgTabletBananas1x}), url(${bgTabletLetters1x}),
       url(${bgTabletStrawberry1x}), url(${bgTabletWave1x});
     background-position: bottom right, bottom 279px center, bottom 279px right,
@@ -57,7 +57,7 @@ const BackgroundWrapper = styled.body`
       url(${bgDesktopStrawberry2x}), url(${bgDesktopWave2x});
     background-position: top right, top center, bottom 65px right 36px,
       bottom right;
-  } */
+  }
 
   @media screen and (min-width: 768px) {
     background-image: url(${bgDesktop1x});
