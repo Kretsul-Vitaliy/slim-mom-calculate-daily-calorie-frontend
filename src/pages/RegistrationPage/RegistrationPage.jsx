@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-import {Container, RegistrationForm, BackgroundContainer } from '../../components';
-=======
 
-import {Container, RegistrationForm,BackgroundContainer } from '../../components';
->>>>>>> 749843e3732e07b01f77a015a2a4a6d7fe17351a
+import {Container, RegistrationForm} from '../../components';
 
 
 
