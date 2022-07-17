@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next';
 import {useSelector} from "react-redux";
 import {Container,LoginForm,Section,Loader} from '../../components';
-
+import { getLoading } from '../../redux/auth';
 import { SignInHeader } from './LoginPage.styled';
-import { getLoading } from '../../redux/auth/authSelector';
+
 
 const LoginPage = () => {
   const { t } = useTranslation();
