@@ -10,6 +10,9 @@ import {
 } from '../../redux/dailyCalories/dailyCaloriesOperation';
 import {
   getDailyCaloriesPublic,
+  getDailyNormCaloriesPrivate,
+  getCategoriesPublic,
+  getCategoriesPrivate,
   getLoading,
 } from '../../redux/dailyCalories/dailyCaloriesSelector';
 import {
@@ -32,36 +35,31 @@ import { getIsAuthenticated } from '../../redux/auth/authSelector';
 import DailyCalorieIntake from '../DailyCalorieIntake/DailyCalorieIntake';
 import { useTranslation } from 'react-i18next';
 
+const initialValues = {
+  height: '',
+  age: '',
+  currentWeight: '',
+  desiredWeight: '',
+  bloodType: 1,
+};
+
 const DailyCaloriesForm = () => {
   const { isShowing, toggle } = useModal();
 
   const dispatch = useDispatch();
+
   const loading = useSelector(getLoading);
   const dailyNormCalories = useSelector(getDailyCaloriesPublic);
-
   const isAuthenticated = useSelector(getIsAuthenticated);
-  const dailyNormCaloriesPrivate = useSelector(
-    state => state?.dailyCalories?.dailyCalories?._doc?.calories
-  );
-  const categories = useSelector(
-    state => state?.dailyCalories?.dailyCalories?.categories
-  );
-  const categoriesPrivate = useSelector(
-    state => state?.dailyCalories?.dailyCalories?._doc?.categories
-  );
+  const dailyNormCaloriesPrivate = useSelector(getDailyNormCaloriesPrivate);
+  const categories = useSelector(getCategoriesPublic);
+  const categoriesPrivate = useSelector(getCategoriesPrivate);
 
   const formik = useFormik({
-    initialValues: {
-      height: '',
-      age: '',
-      currentWeight: '',
-      desiredWeight: '',
-      bloodType: 1,
-    },
+    initialValues: initialValues,
     validate: validate,
 
     onSubmit: values => {
-      console.log(isAuthenticated);
       if (isAuthenticated) {
         dispatch(dailyCaloriesAuth(values));
       } else {
@@ -72,34 +70,32 @@ const DailyCaloriesForm = () => {
     },
   });
 
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
   const { height, age, currentWeight, desiredWeight, bloodType } =
     formik.values;
 
   return (
     <Wrapper>
-      {loading ? (
-        <Loader />
-      ) : (
-        <Modal
-          isShowing={isShowing}
-          hide={toggle}
-          children={
-            isAuthenticated ? (
-              <DailyCalorieIntake
-                calories={dailyNormCaloriesPrivate}
-                products={categoriesPrivate}
-              />
-            ) : (
-              <DailyCalorieIntake
-                calories={dailyNormCalories}
-                products={categories}
-              />
-            )
-          }
-        />
-      )}
+      <Modal
+        isShowing={isShowing}
+        hide={toggle}
+        children={
+          loading ? (
+            <Loader />
+          ) : isAuthenticated ? (
+            <DailyCalorieIntake
+              calories={dailyNormCaloriesPrivate}
+              products={categoriesPrivate}
+            />
+          ) : (
+            <DailyCalorieIntake
+              calories={dailyNormCalories}
+              products={categories}
+            />
+          )
+        }
+      />
       <Title>
         {t?.('dcf.titleFir')}
         <br /> {t?.('dcf.titleSec')}
@@ -119,6 +115,7 @@ const DailyCaloriesForm = () => {
                 value={height}
                 required
               />
+
               <Label htmlFor="height">{t?.('dcf.height')} *</Label>
             </InputBox>
             <InputBox>
