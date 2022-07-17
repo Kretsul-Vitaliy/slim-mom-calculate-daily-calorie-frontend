@@ -7,6 +7,7 @@ import {
 import { useState, useEffect } from 'react';
 import { ProductsContainer } from './DiaryProductsList.styled';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 
 const DiaryProductsList = ({
   dateCalendar,
@@ -19,6 +20,8 @@ const DiaryProductsList = ({
 }) => {
   // const [productsItem, setProductsItem] = useState(null);
   const [deletedProduct, setDeletedProduct] = useState(null);
+
+  const { i18n } = useTranslation()
 
   useEffect(() => {
     if (deletedProduct) {
@@ -42,7 +45,7 @@ const DiaryProductsList = ({
       const { title, calories } = selectedProduct;
 
       setCalendarProducts(
-        title.ua,
+        title[i18n.language],
         gramsOfProducts,
         calories,
         dateCalendar,

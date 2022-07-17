@@ -2,6 +2,7 @@ import { Scrollbars } from 'react-custom-scrollbars-2';
 import { ProductsList, CloserMessage } from './DiaryProductsListItem.styled';
 import { IoMdClose } from 'react-icons/io';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 
 const DiaryProductsListItem = ({
@@ -11,6 +12,8 @@ const DiaryProductsListItem = ({
 }) => {
   // eslint-disable-next-line no-unused-vars
   const [dateNow, setDateNow] = useState(new Date());
+
+  const { t } = useTranslation()
 
   return (
     <ProductsList margin={productsItem.length !== 0 ? '' : 'empty'}>
@@ -33,8 +36,8 @@ const DiaryProductsListItem = ({
         ) : (
           <CloserMessage>
             {dateCalendar === dateNow.toLocaleDateString()
-              ? 'Add our products'
-              : 'You have not added products on this day'}
+              ? t?.('dpi.addProd')
+              : t?.('dpi.notAdd')}
           </CloserMessage>
         )}
       </Scrollbars>

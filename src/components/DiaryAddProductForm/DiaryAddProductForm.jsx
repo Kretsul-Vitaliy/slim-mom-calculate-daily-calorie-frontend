@@ -5,6 +5,7 @@ import { Scrollbars } from 'react-custom-scrollbars-2';
 import { getDataProducts } from '../../services/apiService';
 import { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
+import { useTranslation } from 'react-i18next';
 import 'react-toastify/dist/ReactToastify.css';
 import {
   ProductInput,
@@ -25,21 +26,23 @@ const DiaryAddProductForm = ({
   const [possibleProducts, setPossibleProducts] = useState(null);
   const [savedProduct, setSavedProduct] = useState(null);
 
+  const { t, i18n } = useTranslation()
+
   const formSchema = yup.object().shape({
     product: yup
       .string()
-      .typeError('Введіть назву продукту')
+      .typeError(t?.('dpf.productPlaceholder'))
       .matches(
         '^[A-Za-zА-Яа-яЁёІіЇїЄє%)(-. ]+$',
-        'The name must consist only of letters'
+        t?.('dpf.productContain')
       )
-      .required('Name of product is required'),
+      .required(t?.('auth.verReq')),
     grams: yup
       .number()
       .max(5000)
       .min(0)
-      .typeError('Enter the number of grams')
-      .required('Grams of product is required'),
+      .typeError(t?.('dpf.enterGram'))
+      .required(t?.('auth.verReq')),
   });
 
   const formik = useFormik({
@@ -63,7 +66,7 @@ const DiaryAddProductForm = ({
         .then(values => {
           if (values.data.total === 0) {
             toast.error(
-              'This product is not in the database, enter another one',
+              t?.('dpf.noInData'),
               {
                 position: 'top-right',
                 autoClose: 5000,
@@ -80,11 +83,11 @@ const DiaryAddProductForm = ({
         })
         .catch(error => console.log(error));
     }
-  }, [formik.values.product]);
+  }, [formik.values.product, t]);
 
   const searchAndSendProduct = id => {
     const product = possibleProducts.filter(product => product.id === id);
-    formik.values.product = product[0].title.ua;
+    formik.values.product = product[0].title[i18n.language];
     setSavedProduct(...product);
   };
 
@@ -118,7 +121,7 @@ const DiaryAddProductForm = ({
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.product}
-              placeholder="Enter product name"
+              placeholder={t?.('dpf.typeProduct')}
             />
             {formik.touched.product && formik.errors.product && (
               <div>
@@ -135,7 +138,7 @@ const DiaryAddProductForm = ({
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.grams}
-              placeholder="Grams"
+              placeholder={t?.('dpf.grams')}
             />
             {formik.touched.grams && formik.errors.grams && (
               <div>
@@ -154,7 +157,7 @@ const DiaryAddProductForm = ({
         </InputContainer>
         <ModalSubmitButton>
           <Button type="submit" size="addBtn">
-            Add
+            {t?.('dpf.addBtn')}
           </Button>
         </ModalSubmitButton>
       </form>
@@ -181,7 +184,7 @@ const DiaryAddProductForm = ({
                     }}
                     key={values.id}
                   >
-                    {values.title.ua} / {values.calories} ccal
+                    {values.title[i18n.language]} / {values.calories} ccal
                   </li>
                 );
               })}
