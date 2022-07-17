@@ -1,5 +1,6 @@
 export {default as AuthorizeGoogle} from './AuthorizeGoogle';
 export {default as Button} from './Button';
+export {default as BackgroundContainer} from './BackgroundContainer';
 export {default as CalculatorСalorieForm} from './CalculatorСalorieForm';
 export {default as Container} from './Container';
 export {default as DailyCalorieIntake} from './DailyCalorieIntake';
