@@ -29,6 +29,7 @@ export const ProductsList = styled.ul`
   li {
     display: flex;
     height: 45px;
+    color: ${props => props.theme.ioMdCloseColor};
 
     p {
       font-family: 'Verdana';
@@ -36,7 +37,7 @@ export const ProductsList = styled.ul`
       font-size: 14px;
       line-height: 22px;
       letter-spacing: 0.04em;
-      color: var(--text-main-color);
+      color: ${props => props.theme.liPCloseColor};
 
       @media screen and (max-width: 600px) {
         font-size: 12px;
