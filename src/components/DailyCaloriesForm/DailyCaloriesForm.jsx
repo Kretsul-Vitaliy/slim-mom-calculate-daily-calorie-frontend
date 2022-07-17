@@ -1,17 +1,15 @@
 import { useFormik } from 'formik';
 import useModal from '../../hooks/useModal';
-import Button from '../Button';
-import Loader from '../Loader';
+import {Button, Loader, Modal, DailyCalorieIntake} from '../../components';
 import { validate } from './validate';
 import { useSelector, useDispatch } from 'react-redux';
 import {
-  dailyCalories,
-  dailyCaloriesAuth,
-} from '../../redux/dailyCalories/dailyCaloriesOperation';
-import {
   getDailyCaloriesPublic,
   getLoading,
-} from '../../redux/dailyCalories/dailyCaloriesSelector';
+  dailyCalories,
+  dailyCaloriesAuth
+} from '../../redux/dailyCalories';
+import { getIsAuthenticated } from '../../redux/auth';
 import {
   Wrapper,
   Title,
@@ -27,9 +25,6 @@ import {
   Line,
   ErrorsInput,
 } from './DailyCaloriesForm.styled';
-import Modal from '../Modal/Modal';
-import { getIsAuthenticated } from '../../redux/auth/authSelector';
-import DailyCalorieIntake from '../DailyCalorieIntake/DailyCalorieIntake';
 import { useTranslation } from 'react-i18next';
 
 const DailyCaloriesForm = () => {

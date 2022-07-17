@@ -1,12 +1,7 @@
 import { useSelector } from 'react-redux';
-
-import { getIsAuthenticated } from '../../redux/auth/authSelector';
-
+import { getIsAuthenticated } from '../../redux/auth';
 import { NavWrapper, List } from './Navigation.styled'
-
-import LoggedNavItems from './LoggedNavItems'
-import UnloggedNavItems from './UnloggedNavItems'
-
+import {LoggedNavItems, UnloggedNavItems} from '../Navigation';
 
 const Navigation = ({isOpen}) => {
 

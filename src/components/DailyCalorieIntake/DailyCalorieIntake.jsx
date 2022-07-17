@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { getIsAuthenticated } from '../../redux/auth/authSelector';
+import { getIsAuthenticated } from '../../redux/auth';
 import { useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
 import {

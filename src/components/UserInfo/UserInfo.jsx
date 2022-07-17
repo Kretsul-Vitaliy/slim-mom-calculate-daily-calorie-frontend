@@ -2,9 +2,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { UserInfoBlock, Divider, ExitButton, UserName } from './UserInfo.styled'
 import UserAvatar from '../UserAvatar'
-
-import { getUser } from '../../redux/auth/authSelector'
-import { logOut } from '../../redux/auth/authOperation'
+import { getUser, logOut } from '../../redux/auth'
 import { useNavigate } from 'react-router-dom';
 
 

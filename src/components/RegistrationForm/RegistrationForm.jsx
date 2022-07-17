@@ -16,7 +16,8 @@ import {
   RegistrationButton,
 } from './RegistrationForm.styled.jsx';
 import { useDispatch } from 'react-redux';
-import { register } from '../../redux/auth/authOperation';
+import { register } from '../../redux/auth';
+
 const RegistrationForm = () => {
   const { t } = useTranslation()
 
