@@ -1,90 +1,90 @@
 {
-    "nav": {
-        "diary": "Diary",
-        "calculator": "Calculator",
-        "signIn": "Sign in",
-        "registration": "Registration",
-        "exit": "Exit"
-    },
-    "dcf": {
-        "titleFir": "Calculate your daily calorie",
-        "titleSec": "intake right now",
-        "height": "Height",
-        "age": "Age",
-        "curWeight": "Current weight",
-        "desWeight": "Desired weight",
-        "bloodType": "Blood type",
-        "btn": "Start losing weight"
-    },
-    "auth": {
-        "signInTitle": "Sign In",
-        "register": "Register",
-        "password": "Password",
-        "login": "Login",
-        "name": "Name",
-        "invMail": "Invalid email",
-        "verifyMail": "Please, check your email and confirm your account!",
-        "verMin": "Too Short!",
-        "verMax": "Too Long!",
-        "verReq": "Required"
-    },
-    "dci": {
-        "title": "Your recommended daily calorie intake is",
-        "noEat": "Foods you should not eat"
-    },
-    "dpf": {
-        "typeProduct": "Enter product name",
-        "productContain": "The name must consist only of letters",
-        "enterGram": "Enter the number of grams",
-        "isReq": "Is required",
-        "productPlaceholder": "Enter product name",
-        "grams": "Grams",
-        "noInData": "This product is not in the database, enter another one",
-        "addBtn": "Add"
-    },
-    "dpi": {
-        "addProd": "Add our products",
-        "notAdd": "You have not added products on this day",
-        "ccal": "kcal"
-    },
-    "dnrf": {
-        "title": "Food not recommended",
-        "displayedDiet": "Your diet will be displayed here"
-    },
-    "rightSideBar": {
-        "summary": "Summary for",
-        "left": "Left",
-        "consumed": "Consumed",
-        "dailyRate": "Daily rate",
-        "persent": "n% of normal"
-    },
-    "validate": {
-        "heigthMin": "Enter a value from 100",
-        "heigthMax": "Enter a value to 230",
-        "ageSmall": "Sorry, You are a minor",
-        "ageMiddle": "Sorry, You are not allowed to lose weight",
-        "ageHeight": "Enter correct age",
-        "weightMin": "Enter a value from 50",
-        "weightMax": "Enter a value to 500",
-        "weightVerySmall": "Enter a value from 30"
-    },
-    "яйца": "eggs",
-    "зерновые": "cereal",
-    "мучные": "flour",
-    "молочные": "milky",
-    "мясо": "meat",
-    "ягоды": "berries",
-    "колбаса": "sausage",
-    "рыба": "fish",
-    "фрукты": "fruit",
-    "грибы": "mushrooms",
-    "масла и жиры": "oils and fats",
-    "орехи": "nuts",
-    "сухофрукты": "dried fruits",
-    "овощи и зелень": "vegetables and herbs",
-    "алкогольные напитки": "alcoholic drinks",
-    "семена": "seeds",
-    "безалкогольные напитки": "soft drinks",
-    "кунжут": "sesame",
-    "мак": "poppy"
+  "nav": {
+    "diary": "Diary",
+    "calculator": "Calculator",
+    "signIn": "Sign in",
+    "registration": "Registration",
+    "exit": "Exit"
+  },
+  "dcf": {
+    "titleFir": "Calculate your daily calorie",
+    "titleSec": "intake right now",
+    "height": "Height",
+    "age": "Age",
+    "curWeight": "Current weight",
+    "desWeight": "Desired weight",
+    "bloodType": "Blood type",
+    "btn": "Start losing weight"
+  },
+  "auth": {
+    "signInTitle": "Sign In",
+    "register": "Register",
+    "password": "Password",
+    "login": "Login",
+    "name": "Name",
+    "invMail": "Invalid email",
+    "verifyMail": "Please, check your email and confirm your account!",
+    "verMin": "Too Short!",
+    "verMax": "Too Long!",
+    "verReq": "Required"
+  },
+  "dci": {
+    "title": "Your recommended daily calorie intake is",
+    "noEat": "Foods you should not eat"
+  },
+  "dpf": {
+    "typeProduct": "Enter product name",
+    "productContain": "The name must consist only of letters",
+    "enterGram": "Enter the number of grams",
+    "isReq": "Is required",
+    "productPlaceholder": "Enter product name",
+    "grams": "Grams",
+    "noInData": "This product is not in the database, enter another one",
+    "addBtn": "Add"
+  },
+  "dpi": {
+    "addProd": "Add our products",
+    "notAdd": "You have not added products on this day",
+    "ccal": "kcal"
+  },
+  "dnrf": {
+    "title": "Food not recommended",
+    "displayedDiet": "Your diet will be displayed here"
+  },
+  "rightSideBar": {
+    "summary": "Summary for",
+    "left": "Left",
+    "consumed": "Consumed",
+    "dailyRate": "Daily rate",
+    "persent": "n% of normal"
+  },
+  "validate": {
+    "heigthMin": "Enter a value from 100",
+    "heigthMax": "Enter a value to 230",
+    "ageSmall": "Sorry, You are a minor",
+    "ageMiddle": "Sorry, You are not allowed to lose weight",
+    "ageHeight": "Enter correct age",
+    "weightMin": "Enter a value from 50",
+    "weightMax": "Enter a value to 500",
+    "weightVerySmall": "Enter a value from 30"
+  },
+  "яйца": "eggs",
+  "зерновые": "cereal",
+  "мучные": "flour",
+  "молочные": "milky",
+  "мясо": "meat",
+  "ягоды": "berries",
+  "колбаса": "sausage",
+  "рыба": "fish",
+  "фрукты": "fruit",
+  "грибы": "mushrooms",
+  "масла и жиры": "oils and fats",
+  "орехи": "nuts",
+  "сухофрукты": "dried fruits",
+  "овощи и зелень": "vegetables and herbs",
+  "алкогольные напитки": "alcoholic drinks",
+  "семена": "seeds",
+  "безалкогольные напитки": "soft drinks",
+  "кунжут": "sesame",
+  "мак": "poppy"
 }

@@ -8,6 +8,7 @@ export const darkTheme = {
   // Colors for registration and login forms
   titleColor: `${darckThemeTextColor}`,
   labelColor: `${darckThemeTextColor}`,
+  MessageErrorColor: 'var(--color-white)',
   inputTextColor: `${darckThemeTextColor}`,
   btnTextColor: `${darckThemeTextColor}`,
   btnBorderColor: `${darckThemeTextColor}`,
@@ -39,16 +40,21 @@ export const darkTheme = {
 
   // Colors for DiaryAddProductForm
   liHoverColor: `${darckThemeTextColor}`, //(line 66)
-  DivPColor: 'red', //(line 118)
+  divPColor: 'red', //(line 118)
   inputColor: `${darckThemeTextColor}`, //(line 135)
   inputFocusColor: `${darckThemeTextColor}`, //(line 147)
 
   // Colors for DiaryProductListItem
-  IoMdCloseColor: `${darckThemeTextColor}`, //(line 18 not styles)
+  liPCloseColor: `${darckThemeTextColor}`, //(line 39)
+  ioMdCloseColor: `${darckThemeTextColor}`, //(line 31 not styles)
 
   //Colors for LanguageSelector
-  LangButtonColor: `${darckThemeTextColor}`, //(Line 89)
-  LangButtonHoverColor: 'var(--color-white)', //(Line 101)
+  langButtonColor: `${darckThemeTextColor}`, //(Line 89)
+  langButtonHoverColor: 'var(--color-white)', //(Line 101)
+
+  //Colors for UserInfo
+  exitButtonColor: `${darckThemeTextColor}`,
+  exitButtonHoverColor: 'var(--color-white)',
 
   // Colors for switcher button
   btnSwitcherBackgroundColor: 'linear-gradient(90deg, #1ee41e, #191970)',
@@ -60,6 +66,7 @@ export const lightTheme = {
   // Colors for registration and login forms
   titleColor: 'var(--extra-color)',
   labelColor: 'var(--text-secondary-color)',
+  MessageErrorColor: 'var(--color-white)',
   inputTextColor: 'fieldtext',
   linkTextColor: 'var(--extra-color)',
   btnTextColor: 'var(--extra-color)',
@@ -92,17 +99,21 @@ export const lightTheme = {
 
   // Colors for DiaryAddProductForm
   liHoverColor: 'var(--extra-color)', //(line 66)
-  DivPColor: 'var(--extra-color)', //(line 118)
+  divPColor: 'var(--extra-color)', //(line 118)
   inputColor: 'var(--text-secondary-color)', //(line 135)
   inputFocusColor: 'var(--extra-color)', //(line 147)
 
-  // Colors for DiaryroductListItem
-  IoMdCloseColor: 'var(--text-main-color)', //(line 39)
-  IiPColor: '#9B9FAA', //(line 18 not styles)
+  // Colors for DiaryProductListItem
+  liPCloseColor: 'var(--text-main-color)', //(line 39)
+  ioMdCloseColor: '#9B9FAA', //(line 31 not styles)
 
   //Colors for LanguageSelector
-  LangButtonColor: 'var(--text-main-color)', //(Line 89)
-  LangButtonHoverColor: 'var(--extra-color)', //(Line 101)
+  langButtonColor: 'var(--text-main-color)', //(Line 89)
+  langButtonHoverColor: 'var(--extra-color)', //(Line 101)
+
+  //Colors for UserInfo
+  exitButtonColor: 'var(--text-secondary-color);',
+  exitButtonHoverColor: 'var(--extra-color)',
 
   // Colors for switcher button
   btnSwitcherBackgroundColor: 'linear-gradient(90deg, #e25c03, #ecf008)',

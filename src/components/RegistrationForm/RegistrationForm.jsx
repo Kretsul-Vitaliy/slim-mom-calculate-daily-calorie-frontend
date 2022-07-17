@@ -1,6 +1,6 @@
 import React from 'react';
 import { toast } from 'react-toastify';
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'react-i18next';
 import 'react-toastify/dist/ReactToastify.css';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
@@ -14,14 +14,14 @@ import {
   RegistrationEnterLink,
   ButtonContainer,
   RegistrationButton,
+  MessageError,
 } from './RegistrationForm.styled.jsx';
 import { useDispatch } from 'react-redux';
 import { register } from '../../redux/auth/authOperation';
 const RegistrationForm = () => {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
-  const notify = () =>
-    toast(t?.("auth.verifyMail"));
+  const notify = () => toast(t?.('auth.verifyMail'));
 
   const dispatch = useDispatch();
   const formik = useFormik({
@@ -32,13 +32,17 @@ const RegistrationForm = () => {
     },
     validationSchema: Yup.object({
       name: Yup.string()
-        .min(2, t?.("auth.verMin"))
-        .max(15, t?.("auth.verMax"))
+        .min(3, t?.('auth.verMin'))
+        .max(35, t?.('auth.verMax'))
         .required(t?.('auth.verReq')),
-      email: Yup.string().email(t?.("auth.invMail")).required(t?.('auth.verReq')),
+      email: Yup.string()
+        .email(t?.('auth.invMail'))
+        .min(3, t?.('auth.verMin'))
+        .max(35, t?.('auth.verMax'))
+        .required(t?.('auth.verReq')),
       password: Yup.string()
-        .min(6, t?.("auth.verMin"))
-        .max(12, t?.("auth.verMax"))
+        .min(8, t?.('auth.verMin'))
+        .max(35, t?.('auth.verMax'))
         .required(t?.('auth.verReq')),
     }),
     onSubmit: values => {
@@ -61,7 +65,9 @@ const RegistrationForm = () => {
       <form onSubmit={formik.handleSubmit}>
         <FormRegistrationList>
           <FormRegistrationListItem>
-            <FormRegistrationLabel htmlFor="name">{t?.('auth.name')} *</FormRegistrationLabel>
+            <FormRegistrationLabel htmlFor="name">
+              {t?.('auth.name')} *
+            </FormRegistrationLabel>
             <FormRegistrationInput
               id="name"
               name="name"
@@ -72,7 +78,7 @@ const RegistrationForm = () => {
               required
             />
             {formik.touched.name && formik.errors.name ? (
-              <div>{formik.errors.name}</div>
+              <MessageError>{formik.errors.name}</MessageError>
             ) : null}
           </FormRegistrationListItem>
           <FormRegistrationListItem>
@@ -90,24 +96,26 @@ const RegistrationForm = () => {
               required
             />
             {formik.touched.email && formik.errors.email ? (
-              <div>{formik.errors.email}</div>
+              <MessageError>{formik.errors.email}</MessageError>
             ) : null}
           </FormRegistrationListItem>
           <FormRegistrationListItem>
             <FormRegistrationLabel htmlFor="password">
-            {t?.('auth.password')} *
+              {t?.('auth.password')} *
             </FormRegistrationLabel>
             <FormRegistrationInput
               id="password"
               name="password"
               type="password"
               onChange={formik.handleChange}
+              pattern="(?=.*[0-9])(?=.*[a-z])[0-9a-zA-Z]{8,}"
+              title="Password must be lowercase latin letters, numbers and without special characters. Minimum 8 characters."
               value={password}
               autocomplete="off"
               required
             />
             {formik.touched.password && formik.errors.password ? (
-              <div>{formik.errors.password}</div>
+              <MessageError>{formik.errors.password}</MessageError>
             ) : null}
           </FormRegistrationListItem>
         </FormRegistrationList>

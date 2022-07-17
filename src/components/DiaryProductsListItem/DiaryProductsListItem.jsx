@@ -13,7 +13,7 @@ const DiaryProductsListItem = ({
   // eslint-disable-next-line no-unused-vars
   const [dateNow, setDateNow] = useState(new Date());
 
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
   return (
     <ProductsList margin={productsItem.length !== 0 ? '' : 'empty'}>
