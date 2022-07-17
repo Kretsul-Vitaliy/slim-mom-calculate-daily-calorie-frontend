@@ -1,17 +1,12 @@
-
-import {Container, RegistrationForm} from '../../components';
-
-
+import { RegistrationForm } from '../../components';
 
 const RegistrationPage = () => {
   return (
-    // <BackgroundContainer>
-    <Container>
+    <>
       {/* <BackgroundContainer> */}
       <RegistrationForm />
       {/* </BackgroundContainer> */}
-    </Container>
-    /* </BackgroundContainer> */
+    </>
   );
 };
 
