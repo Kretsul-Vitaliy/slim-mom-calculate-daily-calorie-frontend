@@ -19,3 +19,7 @@ export const getCurrentUserError = createAction('auth/getCurrentUserError');
 export const updateUserRequest = createAction('auth/updateUserRequest');
 export const updateUserSuccess = createAction('auth/updateUserSuccess');
 export const updateUserError = createAction('auth/updateUserError');
+// refresh
+export const refreshAuthRequest = createAction('auth/refreshAuthRequest');
+export const refreshAuthSuccess = createAction('auth/refreshAuthSuccess');
+export const refreshAuthError = createAction('auth/refreshAuthError');

@@ -1,8 +1,15 @@
 import { useState } from 'react';
-import { useSelector } from 'react-redux/es/exports';
+import { useSelector } from 'react-redux';
 import { IoMdReturnLeft } from 'react-icons/io';
 import { Link } from 'react-router-dom';
-import {Container, DiaryDateСalendar, DiaryAddProductForm, DiaryProductsList, Button, Modal } from '../../components';
+import {
+  Container,
+  DiaryDateСalendar,
+  DiaryAddProductForm,
+  DiaryProductsList,
+  Button,
+  Modal,
+} from '../../components';
 import TurnBack from '../../components/Modal';
 import useModal from '../../hooks/useModal';
 import { getIsUserAuthorizate } from '../../redux/auth';

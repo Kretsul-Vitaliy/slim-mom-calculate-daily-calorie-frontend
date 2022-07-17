@@ -16,6 +16,9 @@ import {
   updateUserRequest,
   updateUserSuccess,
   updateUserError,
+  refreshAuthRequest,
+  refreshAuthSuccess,
+  refreshAuthError,
 } from './authAction';
 import {
   logInUser,
@@ -25,14 +28,35 @@ import {
   updateUser,
 } from '../../services/apiService';
 
+// test
+import axios from 'axios';
+import { getUserInfoCurrent } from '../user/userOperation';
+
+axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
+
+export const tokenKey = {
+  set(token) {
+    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  },
+  unset() {
+    axios.defaults.headers.common.Authorization = '';
+  },
+};
+// test
+
 export const register = newUser => async dispatch => {
   dispatch(registerRequest());
   try {
     const response = await signUpUser(newUser);
     dispatch(registerSuccess(response.data));
   } catch (err) {
+    if (err.response.status === 409) {
+      dispatch(loginError('Пользователь с такими данными уже существует'));
+      toast.error(err.message);
+      dispatch(loginRequest());
+      return;
+    }
     dispatch(registerError(err.message));
-    toast.error(err.message);
   }
 };
 
@@ -40,17 +64,28 @@ export const login = user => async dispatch => {
   dispatch(loginRequest());
   try {
     const response = await logInUser(user);
-    dispatch(loginSuccess(response.data));
+    dispatch(loginSuccess(response));
   } catch (error) {
+    if (error.response.status === 403) {
+      dispatch(loginError('Пользователь с такими данными не зарегистрирован'));
+      dispatch(loginRequest());
+      return;
+    }
     dispatch(loginError(error.message));
     toast.error(error.message);
   }
 };
 
-export const logOut = () => async dispatch => {
-  dispatch(logoutRequest());
+export const logOut = () => async (dispatch, getState) => {
+  const state = getState();
+  const persistedToken = state.auth.authData.token;
+  console.log(
+    '🚀 ~ file: authOperation.js ~ line 82 ~ logOut ~ persistedToken',
+    persistedToken
+  );
   try {
-    await logOutUser();
+    dispatch(logoutRequest());
+    await logOutUser(persistedToken);
     dispatch(logoutSuccess());
   } catch (error) {
     dispatch(logoutError(error.message));
@@ -63,7 +98,7 @@ export const getCurrentUser = () => async (dispatch, getState) => {
   //   auth: { token: persistedToken },
   // } = getState();
   const state = getState();
-  const persistedToken = state.auth.token;
+  const persistedToken = state.auth.authData.token;
   // console.log('persistedToken', persistedToken);
   if (!persistedToken) {
     return;
@@ -87,3 +122,33 @@ export const updateUserChange = user => async dispatch => {
     toast.error(error.message);
   }
 };
+// test
+export const authRefresh = (refreshToken, sid) => async dispatch => {
+  tokenKey.set(refreshToken);
+  const sidForRefresh = { sid };
+  try {
+    dispatch(refreshAuthRequest());
+    const { data } = await axios.post('auth/refresh', sidForRefresh);
+    const {
+      newAccessToken: accessToken,
+      newRefreshToken: refreshToken,
+      sid,
+    } = data;
+    tokenKey.set(accessToken);
+    await dispatch(
+      refreshAuthSuccess({
+        accessToken,
+        refreshToken,
+        sid,
+      })
+    );
+    await dispatch(getUserInfoCurrent());
+  } catch (error) {
+    if (error.response.status === 401) {
+      dispatch(logoutSuccess());
+      return;
+    }
+    dispatch(refreshAuthError(error.data.message));
+  }
+};
+// test

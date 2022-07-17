@@ -7,21 +7,21 @@ import {
   getUserInfoError,
 } from './userAction';
 
-const initialUserInfo = {
-  userData: {
-    currentWeight: null,
-    height: null,
-    age: null,
-    desiredWeight: null,
-    bloodType: null,
-    dailyRate: null,
-  },
-  days: [],
-  _id: '',
-};
+// const initialUserInfo = {
+//   userData: {
+//     currentWeight: null,
+//     height: null,
+//     age: null,
+//     desiredWeight: null,
+//     bloodType: null,
+//     dailyRate: null,
+//   },
+//   days: [],
+//   _id: '',
+// };
 
-const userInfo = createReducer(initialUserInfo, {
-  [getUserInfoSuccess]: (_, { payload }) => payload,
+const userInfo = createReducer([], {
+  [getUserInfoSuccess]: (_, { payload }) => payload.user,
 });
 
 const error = createReducer(null, {

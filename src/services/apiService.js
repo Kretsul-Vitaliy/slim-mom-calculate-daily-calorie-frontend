@@ -39,7 +39,11 @@ export const refreshUser = async body => {
   return data;
 };
 
-export const logOutUser = async () => {
+export const logOutUser = async persistedToken => {
+  if (!persistedToken) {
+    throw Error('user');
+  }
+  tokenKey.set(persistedToken);
   const { data } = await axios.post('auth/logout');
   tokenKey.unset();
   return data;

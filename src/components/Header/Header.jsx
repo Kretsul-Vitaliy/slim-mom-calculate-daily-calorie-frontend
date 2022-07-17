@@ -5,7 +5,13 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 import { GrClose } from 'react-icons/gr';
 
 import { getIsAuthenticated } from '../../redux/auth';
-import {Container,Logo, Navigation, UserInfo, LanguageSelector} from '../../components';
+import {
+  Container,
+  Logo,
+  Navigation,
+  UserInfo,
+  LanguageSelector,
+} from '../../components';
 import { UnloggedNavItems } from '../Navigation';
 import {
   HeaderEl,
@@ -38,11 +44,11 @@ const Header = () => {
             <Divider />
 
             <Menu>
-              {isLogged && 
-              <UserInfoWrapper>
-                <UserInfo />
-              </UserInfoWrapper>
-              }
+              {isLogged && (
+                <UserInfoWrapper>
+                  <UserInfo />
+                </UserInfoWrapper>
+              )}
               <Navigation isOpen={isOpen} isLogged />
 
               {isLogged ? (

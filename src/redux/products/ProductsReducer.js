@@ -31,12 +31,10 @@ const dayInfo = createReducer(initial, {
     weight: payload.weight,
     calories: payload.calories,
   }),
-  [deleteProductSuccess]: (state, { payload }) => ({
-    ...state,
-    nameProduct: payload.nameProduct,
-    weight: payload.weight,
-    calories: payload.calories,
-  }),
+  [deleteProductSuccess]: (state, { payload }) =>
+    state.filter(item => {
+      return item._id !== payload.data._id;
+    }),
   [reset]: () => initial,
 });
 
