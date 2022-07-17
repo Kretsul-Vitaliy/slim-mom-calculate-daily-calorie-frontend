@@ -6,13 +6,12 @@ import { Provider } from 'react-redux';
 import { store, persistor } from './redux/store';
 import './i18n';
 import App from './App';
-import Loader from './components/Loader';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <PersistGate loading={<Loader />} persistor={persistor}>
+      <PersistGate persistor={persistor}>
         <BrowserRouter basename="/">
           <App />
         </BrowserRouter>
