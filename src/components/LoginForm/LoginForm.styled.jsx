@@ -59,8 +59,13 @@ export const Input = styled.input`
    width: 240px;
   }
 
-  &:focus + ${Labels}{
-    color: red;
+  &:focus{
+    border-bottom: 2px solid ${props=>props.theme.titleColor};
+  }
+  &:focus ~ label{
+    position: absolute;
+    top: -15px;
+    left: 0;
   }
 `;
 

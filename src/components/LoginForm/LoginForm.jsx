@@ -48,7 +48,7 @@ export default function LoginForm() {
 
   return (<Form onSubmit={formik.handleSubmit}>
       <InputBox name="email">
-      <Labels htmlFor="email">Email *</Labels>
+     
       <Input
         id="email"
         name="email"
@@ -58,13 +58,14 @@ export default function LoginForm() {
         autoComplete="off"
         required
       />
+       <Labels htmlFor="email">Email *</Labels>
        {formik.touched.email && formik.errors.email ? (
               <MessageError>{formik.errors.email}</MessageError>
             ) : null}
       </InputBox>
      
     <InputBox name="password">
-      <Labels htmlFor="password">{t?.('auth.password')} *</Labels>
+      
       <Input
         id="password"
         name="password"
@@ -74,6 +75,7 @@ export default function LoginForm() {
         autoComplete="off"
         required
       />
+      <Labels htmlFor="password">{t?.('auth.password')} *</Labels>
        {formik.touched.password && formik.errors.password ? (
               <MessageError>{formik.errors.password}</MessageError>
             ) : null}
