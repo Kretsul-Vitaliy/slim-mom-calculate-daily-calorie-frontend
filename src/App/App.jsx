@@ -43,7 +43,7 @@ const App = () => {
   const switchTheme = () => {
     theme === 'light' ? setTheme('dark') : setTheme('light');
   };
-
+  
   useEffect(() => {
     dispatch(getCurrentUser());
   }, [dispatch]);
