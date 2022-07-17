@@ -1,6 +1,6 @@
-import Container from '../../components/Container';
+import {Container, DailyCaloriesForm} from '../../components';
 // import Header from '../../components/Header';
-import DailyCaloriesForm from '../../components/DailyCaloriesForm';
+
 // import LanguageSelector from '../../components/LanguageSelector';
 // import { useTranslation } from 'react-i18next';
 // import AuthorizeGoogle from '../../components/AuthorizeGoogle/AuthorizeGoogle';

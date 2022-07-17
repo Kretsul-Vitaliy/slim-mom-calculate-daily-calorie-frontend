@@ -1,16 +1,11 @@
-import Container from '../../components/Container';
-import DiaryDateCakendar from '../../components/DiaryDateСalendar';
-import DiaryAddProductForm from '../../components/DiaryAddProductForm';
-import DiaryProductsList from '../../components/DiaryProductsList';
 import { useState } from 'react';
-import useModal from '../../hooks/useModal';
-import { getIsUserAuthorizate } from '../../redux/auth/authSelector';
 import { useSelector } from 'react-redux/es/exports';
-import Button from '../../components/Button';
-import Modal from '../../components/Modal/Modal';
 import { IoMdReturnLeft } from 'react-icons/io';
 import { Link } from 'react-router-dom';
-import { TurnBack } from '../../components/Modal/Modal.styled';
+import {Container, DiaryDateСalendar, DiaryAddProductForm, DiaryProductsList, Button, Modal } from '../../components';
+import TurnBack from '../../components/Modal';
+import useModal from '../../hooks/useModal';
+import { getIsUserAuthorizate } from '../../redux/auth';
 import { DesctopForm, ButtonOpenModal } from './DiaryPage.styled';
 
 const DiaryPage = () => {
@@ -31,7 +26,7 @@ const DiaryPage = () => {
         </Link>
       </TurnBack>
       <Container>
-        <DiaryDateCakendar
+        <DiaryDateСalendar
           dateCalendar={startDate}
           setDateCalendar={setStartDate}
         />
