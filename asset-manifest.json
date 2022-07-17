@@ -1,28 +1,44 @@
 {
   "files": {
-    "main.css": "/static/css/main.378912c8.css",
-    "main.js": "/static/js/main.9945d16e.js",
+    "main.css": "/static/css/main.24988f97.css",
+    "main.js": "/static/js/main.a1d88944.js",
+    "static/media/descktopStrawberry2x.png": "/static/media/descktopStrawberry2x.2b83ae588a79c2b012fe.png",
+    "static/media/tabletStrawberry2x.png": "/static/media/tabletStrawberry2x.ebf438cb8cc8c8867188.png",
+    "static/media/descktopBananas2x.png": "/static/media/descktopBananas2x.3f10d9eab54182a49e61.png",
+    "static/media/tabletBananas2x.png": "/static/media/tabletBananas2x.7a65625090c98b531af0.png",
+    "static/media/descktopLetters2x.png": "/static/media/descktopLetters2x.ce4eb298a280eda22f75.png",
+    "static/media/tabletLetters2x.png": "/static/media/tabletLetters2x.4a2625aca80ce2f01cd4.png",
+    "static/media/descktopStrawberry1x.png": "/static/media/descktopStrawberry1x.a7b703aecbb3e366111c.png",
+    "static/media/tabletStrawberry1x.png": "/static/media/tabletStrawberry1x.7a2351fc6fcfa66b3667.png",
     "static/media/Verdana.woff": "/static/media/Verdana.48368d57cdc69cb65189.woff",
+    "static/media/descktopBananas1x.png": "/static/media/descktopBananas1x.8569be205d55d3f9d869.png",
     "static/media/Verdana-Bold.woff": "/static/media/Verdana-Bold.d0ff17c6434a41ffcbf0.woff",
+    "static/media/tabletBananas1x.png": "/static/media/tabletBananas1x.8603661ebdcbd738f252.png",
+    "static/media/descktopLetters1x.png": "/static/media/descktopLetters1x.df1295014757bbc42e59.png",
+    "static/media/tabletLetters1x.png": "/static/media/tabletLetters1x.dfee57925a0bfa779c9e.png",
     "static/media/deck-sidebar.png": "/static/media/deck-sidebar.fdef973962745c3e2988.png",
     "static/media/logo-desctop.svg": "/static/media/logo-desctop.31a0a9d04d24ed39dcfc749d4f9a5709.svg",
     "static/media/logo-tablet.svg": "/static/media/logo-tablet.d89e61ccaaf893be6eff49b7fb69b821.svg",
     "static/media/logo-mobile.svg": "/static/media/logo-mobile.48a9a1543f0b6b819971ab2969bcdde9.svg",
+    "static/media/descktopWave2x.png": "/static/media/descktopWave2x.cf3c90f39b9573f12585.png",
+    "static/media/tabletWave2x.png": "/static/media/tabletWave2x.5d6761b510564f7f1301.png",
     "static/media/GothamPro-Bold.woff": "/static/media/GothamPro-Bold.e8ddda7220a05cf00f1c.woff",
     "static/media/GothamPro.woff": "/static/media/GothamPro.9e3de47599b8a119a2b3.woff",
     "static/media/GothamPro-Light.woff": "/static/media/GothamPro-Light.1c262bae1f403fe781a2.woff",
+    "static/media/descktopWave1x.png": "/static/media/descktopWave1x.a02f6f3c1b71acf54197.png",
     "static/media/sideBarLeaves768_1x.png": "/static/media/sideBarLeaves768_1x.d47e11c7ecbda7cf9aa0.png",
+    "static/media/tabletWave1x.png": "/static/media/tabletWave1x.c2c5d6b212b5e2cbc585.png",
     "static/media/google.svg": "/static/media/google.cf3c7e5ea68a2c42829c694a69313578.svg",
     "static/media/sun.webp": "/static/media/sun.4b1dcc39d4e57ce9af9d.webp",
     "index.html": "/index.html",
     "static/media/moon.webp": "/static/media/moon.3c8162a29e3a866aa67a.webp",
     "static/media/calendar.svg": "/static/media/calendar.9200047ae8484f890ceaec6183b5632e.svg",
     "static/media/getFetch.cjs": "/static/media/getFetch.c780682470504fffbd04.cjs",
-    "main.378912c8.css.map": "/static/css/main.378912c8.css.map",
-    "main.9945d16e.js.map": "/static/js/main.9945d16e.js.map"
+    "main.24988f97.css.map": "/static/css/main.24988f97.css.map",
+    "main.a1d88944.js.map": "/static/js/main.a1d88944.js.map"
   },
   "entrypoints": [
-    "static/css/main.378912c8.css",
-    "static/js/main.9945d16e.js"
+    "static/css/main.24988f97.css",
+    "static/js/main.a1d88944.js"
   ]
 }
