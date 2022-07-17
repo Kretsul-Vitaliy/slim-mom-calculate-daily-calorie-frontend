@@ -25,10 +25,10 @@ const UserInfo = () => {
 
   return (
     <UserInfoBlock>
-      {userInfo.name && (
+      {userInfo?.name && (
         <>
-          <UserAvatar name={userInfo.name} />
-          <UserName>{userInfo.name}</UserName>
+          <UserAvatar name={userInfo?.name} />
+          <UserName>{userInfo?.name}</UserName>
           <Divider />
         </>
       )}
