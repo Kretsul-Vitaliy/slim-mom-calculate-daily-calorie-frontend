@@ -79,10 +79,10 @@ const Label = styled.label`
 `;
 const RadioTitle = styled.div`
   display: block;
+  margin-bottom: 5px;
   font-size: 14px;
   line-height: 1.2;
   font-family: Verdana-Bold;
-  margin-bottom: 5px;
   letter-spacing: 0.04em;
   color: ${props => props.theme.dailyCaloriFormRadioTitleColor};
 
@@ -99,6 +99,7 @@ const Line = styled.div`
 
 const RadioGroup = styled.div`
   margin-bottom: 40px;
+  margin-top: 8px;
 
   font-family: Verdana-Bold;
   font-size: 14px;
@@ -179,6 +180,13 @@ const RadioInput = styled.input`
 `;
 const ErrorsInput = styled.p`
   color: red;
+  + ${Input} {
+    border-bottom: 1px solid red;
+  }
+  ~ ${Label} {
+    top: -20px;
+    left: 0;
+  }
 `;
 
 export {
