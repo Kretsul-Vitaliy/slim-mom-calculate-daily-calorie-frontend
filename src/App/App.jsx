@@ -1,12 +1,18 @@
-import { Suspense, useEffect, useState,lazy } from 'react';
+import { Suspense, useEffect, useState, lazy } from 'react';
 import { useDispatch } from 'react-redux';
 import { Route, Navigate, Routes, Outlet } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import { getCurrentUser } from '../redux/auth/authOperation';
 
-import {LoginPage,RegistrationPage, DiaryPage, CalculatorPage} from '../pages';
+import {
+  LoginPage,
+  RegistrationPage,
+  DiaryPage,
+  CalculatorPage,
+} from '../pages';
 
 import GlobalStyle from '../theme/GlobalStyle.styled';
+// import { SwitcherButton } from '../theme/SwitcherButton.js';
 import { ThemeProvider } from 'styled-components';
 import { darkTheme, lightTheme } from '../theme/theme';
 import {
@@ -15,8 +21,7 @@ import {
   SpanImgDark,
 } from '../theme/SwitcherButton.Styled';
 
-import {Header, Loader, AuthorizeGoogle} from '../components';
-
+import { Header, Loader, AuthorizeGoogle } from '../components';
 
 const MainPage = lazy(() =>
   import('../pages/MainPage' /* webpackChunkName: "Main_page" */)
@@ -55,6 +60,7 @@ const App = () => {
               <SpanImgDark></SpanImgDark>
             )}
           </SwitcherButtonStyles>
+          {/* <SwitcherButton /> */}
           <Header />
           <Routes>
             <Route
