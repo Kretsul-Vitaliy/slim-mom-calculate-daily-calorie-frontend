@@ -63,7 +63,7 @@ export const HelpingForm = styled.div`
 
     &:hover {
       background-color: var(--header-divider-color);
-      color: var(--extra-color);
+      color: ${props => props.theme.liHoverColor};
       border-radius: 5px;
     }
   }
@@ -115,7 +115,7 @@ export const ProductInput = styled.div`
       font-size: 12px;
       line-height: 17px;
       letter-spacing: 0.04em;
-      color: var(--extra-color);
+      color: ${props => props.theme.inputFocusColor};
     }
   }
 
@@ -134,7 +134,7 @@ export const ProductInput = styled.div`
     font-size: 14px;
     line-height: 17px;
     letter-spacing: 0.04em;
-    color: var(--text-secondary-color);
+    color: ${props => props.theme.inputColor};
     padding-bottom: 20px;
 
     @media screen and (max-width: 768px) {
@@ -144,7 +144,8 @@ export const ProductInput = styled.div`
 
     &:focus {
       outline: 0;
-      border-bottom: 2px solid var(--extra-color);
+      border-bottom: 2px solid ${props => props.theme.inputFocusColor};
+
       box-shadow: none;
     }
   }

@@ -12,14 +12,14 @@ import {
 } from '../pages';
 
 import GlobalStyle from '../theme/GlobalStyle.styled';
-// import { SwitcherButton } from '../theme/SwitcherButton.js';
+import { SwitcherButton } from '../theme/SwitcherButton.js';
 import { ThemeProvider } from 'styled-components';
 import { darkTheme, lightTheme } from '../theme/theme';
-import {
-  SwitcherButtonStyles,
-  SpanImg,
-  SpanImgDark,
-} from '../theme/SwitcherButton.Styled';
+// import {
+//   SwitcherButtonStyles,
+//   SpanImg,
+//   SpanImgDark,
+// } from '../theme/SwitcherButton.Styled';
 
 import { Header, Loader, AuthorizeGoogle } from '../components';
 
@@ -40,9 +40,6 @@ const PrivateRoute = lazy(() =>
 const App = () => {
   const dispatch = useDispatch();
   const [theme, setTheme] = useState('light');
-  const switchTheme = () => {
-    theme === 'light' ? setTheme('dark') : setTheme('light');
-  };
 
   useEffect(() => {
     dispatch(getCurrentUser());
@@ -53,14 +50,7 @@ const App = () => {
       <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
         <GlobalStyle />
         <Suspense fallback={<Loader />}>
-          <SwitcherButtonStyles onClick={switchTheme} type="submit">
-            {theme === 'light' ? (
-              <SpanImg></SpanImg>
-            ) : (
-              <SpanImgDark></SpanImgDark>
-            )}
-          </SwitcherButtonStyles>
-          {/* <SwitcherButton /> */}
+          <SwitcherButton switchTheme={setTheme} />
           <Header />
           <Routes>
             <Route
