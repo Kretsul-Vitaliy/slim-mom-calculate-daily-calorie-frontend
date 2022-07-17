@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-// import { createGlobalStyle } from 'styled-components';
+// import styled from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 
 import bgDesktopBananas1x from '../../images/background/descktop/descktopBananas1x.png';
 import bgDesktopBananas2x from '../../images/background/descktop/descktopBananas2x.png';
@@ -19,13 +19,11 @@ import bgTabletStrawberry2x from '../../images/background/tablet/tabletStrawberr
 import bgTabletWave1x from '../../images/background/tablet/tabletWave1x.png';
 import bgTabletWave2x from '../../images/background/tablet/tabletWave2x.png';
 
-const BackgroundWrapper = styled.body`
-  /* position: absolute;
-  background-position: top right; */
-  background-repeat: no-repeat;
+const BackgroundWrapper = createGlobalStyle`
+body {
+   background-repeat: no-repeat;
   background-attachment: fixed;
-  /* border: 1px solid transparent; */
-  /* z-index: 40; */
+  
   @media screen and (min-width: 768px) {
     background-image: url(${bgTabletBananas1x}), url(${bgTabletLetters1x}),
       url(${bgTabletStrawberry1x}), url(${bgTabletWave1x});
@@ -54,5 +52,6 @@ const BackgroundWrapper = styled.body`
     background-position: top right, top center, bottom 65px right 36px,
       bottom right;
   }
+}
 `;
 export default BackgroundWrapper;
