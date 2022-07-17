@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 import { IoMdReturnLeft } from 'react-icons/io';
 import { Link } from 'react-router-dom';
 import {
-  Container,
   DiaryDateСalendar,
   DiaryAddProductForm,
   DiaryProductsList,
@@ -32,48 +31,46 @@ const DiaryPage = () => {
           <IoMdReturnLeft size={13} />
         </Link>
       </TurnBack>
-      <Container>
-        <DiaryDateСalendar
-          dateCalendar={startDate}
-          setDateCalendar={setStartDate}
-        />
-        {startDate.toLocaleDateString() === dateNow.toLocaleDateString() && (
-          <DesctopForm>
-            <DiaryAddProductForm
-              setSelectedProduct={setSelectedProduct}
-              setGramsOfProducts={setGramsOfProducts}
-              toggle={toggle}
-              isShowing={isShowing}
-            />
-          </DesctopForm>
-        )}
-
-        <DiaryProductsList
-          dateCalendar={startDate.toLocaleDateString()}
-          selectedProduct={selectedProduct}
-          setSelectedProduct={setSelectedProduct}
-          gramsOfProducts={gramsOfProducts}
-          persistToken={persistToken}
-          productsItem={productsItem}
-          setProductsItem={setProductsItem}
-        />
-        {startDate.toLocaleDateString() === dateNow.toLocaleDateString() && (
-          <ButtonOpenModal>
-            <Button type="button" size="addRoundBtn" onClick={toggle}>
-              +
-            </Button>
-          </ButtonOpenModal>
-        )}
-
-        <Modal isShowing={isShowing} hide={toggle}>
+      <DiaryDateСalendar
+        dateCalendar={startDate}
+        setDateCalendar={setStartDate}
+      />
+      {startDate.toLocaleDateString() === dateNow.toLocaleDateString() && (
+        <DesctopForm>
           <DiaryAddProductForm
             setSelectedProduct={setSelectedProduct}
             setGramsOfProducts={setGramsOfProducts}
             toggle={toggle}
             isShowing={isShowing}
           />
-        </Modal>
-      </Container>
+        </DesctopForm>
+      )}
+
+      <DiaryProductsList
+        dateCalendar={startDate.toLocaleDateString()}
+        selectedProduct={selectedProduct}
+        setSelectedProduct={setSelectedProduct}
+        gramsOfProducts={gramsOfProducts}
+        persistToken={persistToken}
+        productsItem={productsItem}
+        setProductsItem={setProductsItem}
+      />
+      {startDate.toLocaleDateString() === dateNow.toLocaleDateString() && (
+        <ButtonOpenModal>
+          <Button type="button" size="addRoundBtn" onClick={toggle}>
+            +
+          </Button>
+        </ButtonOpenModal>
+      )}
+
+      <Modal isShowing={isShowing} hide={toggle}>
+        <DiaryAddProductForm
+          setSelectedProduct={setSelectedProduct}
+          setGramsOfProducts={setGramsOfProducts}
+          toggle={toggle}
+          isShowing={isShowing}
+        />
+      </Modal>
     </>
   );
 };

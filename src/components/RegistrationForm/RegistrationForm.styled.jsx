@@ -3,18 +3,15 @@ import styled from 'styled-components';
 import Button from '../Button';
 const ContainerRegistration = styled.div`
   max-width: 285px;
-  padding: 40px 0 100px 0;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
   @media screen and (min-width: 768px) {
-    padding: 160px 0 140px 0;
     min-width: 768px;
     max-width: 1279px;
     text-align: start;
   }
   @media screen and (min-width: 1280px) {
-    padding: 160px 0 180px 0;
     min-width: 1280px;
     max-width: 100%;
   }
