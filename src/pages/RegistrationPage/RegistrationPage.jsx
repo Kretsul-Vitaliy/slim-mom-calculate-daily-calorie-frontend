@@ -1,4 +1,4 @@
-import {Container, RegistrationForm,BackgroundContainer } from '../../components';
+import {Container, RegistrationForm, BackgroundContainer } from '../../components';
 
 
 const RegistrationPage = () => {
