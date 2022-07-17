@@ -51,10 +51,6 @@ const PrivateRoute = lazy(() =>
 const App = () => {
   const dispatch = useDispatch();
   const [theme, setTheme] = useState('light');
-
-  const switchTheme = () => {
-    theme === 'light' ? setTheme('dark') : setTheme('light');
-  };
   const isAuth = useSelector(getIsAuthenticated);
   const refreshToken = useSelector(getIsUserRefreshToken);
   const sid = useSelector(getSid);
