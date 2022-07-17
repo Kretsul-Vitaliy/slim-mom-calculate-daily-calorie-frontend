@@ -12,16 +12,22 @@ import {
 } from '../pages';
 
 import GlobalStyle from '../theme/GlobalStyle.styled';
-// import { SwitcherButton } from '../theme/SwitcherButton.js';
+import { SwitcherButton } from '../theme/SwitcherButton.js';
 import { ThemeProvider } from 'styled-components';
 import { darkTheme, lightTheme } from '../theme/theme';
+// import { BackgroundContainer } from '../components/BackgroundContainer/BackgroundContainer';
 import {
   SwitcherButtonStyles,
   SpanImg,
   SpanImgDark,
 } from '../theme/SwitcherButton.Styled';
 
-import { Header, Loader, AuthorizeGoogle } from '../components';
+import {
+  Header,
+  Loader,
+  AuthorizeGoogle,
+  BackgroundContainer,
+} from '../components';
 
 const MainPage = lazy(() =>
   import('../pages/MainPage' /* webpackChunkName: "Main_page" */)
@@ -49,7 +55,7 @@ const App = () => {
   }, [dispatch]);
 
   return (
-    <>
+    <BackgroundContainer>
       <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
         <GlobalStyle />
         <Suspense fallback={<Loader />}>
@@ -119,7 +125,7 @@ const App = () => {
 
         <ToastContainer autoClose={2500} />
       </ThemeProvider>
-    </>
+    </BackgroundContainer>
   );
 };
 
