@@ -100,6 +100,7 @@ export const StyledNavLink = styled(NavLink)`
   
   display: flex;
   align-items: center;
+  justify-content: center;
   text-decoration: none;
   color: ${props => props.theme.btnTextColor};
   width: 182px;

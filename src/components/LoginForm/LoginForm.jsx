@@ -66,11 +66,11 @@ export default function LoginForm() {
       
       <ButtonsWrapper>
         <Button type="submit" disabled={!email || !password} size="short">
-          <ButtonText>Log in</ButtonText>
+          <ButtonText>{t?.('auth.login')}</ButtonText>
         </Button>
        
           <StyledNavLink to="/signup">
-            Register
+            {t?.('auth.register')}
           </StyledNavLink>
         
       </ButtonsWrapper>

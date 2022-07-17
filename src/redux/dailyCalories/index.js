@@ -1,2 +1,2 @@
-export {getDailyCaloriesPublic, getLoading} from './dailyCaloriesSelector';
+export {getDailyCaloriesPublic, getLoading, getDailyNormCaloriesPrivate, getCategoriesPublic, getCategoriesPrivate} from './dailyCaloriesSelector';
 export {dailyCalories, dailyCaloriesAuth} from './dailyCaloriesOperation';
