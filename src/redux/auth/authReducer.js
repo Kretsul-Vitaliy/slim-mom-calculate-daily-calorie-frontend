@@ -1,5 +1,6 @@
-import { combineReducers } from 'redux';
-import { createReducer } from '@reduxjs/toolkit';
+import { createReducer, combineReducers } from '@reduxjs/toolkit';
+import storage from 'redux-persist/lib/storage';
+import { persistReducer } from 'redux-persist';
 import {
   registerRequest,
   registerSuccess,
@@ -16,17 +17,31 @@ import {
   updateUserRequest,
   updateUserSuccess,
   updateUserError,
+  refreshAuthSuccess,
+  refreshAuthRequest,
+  refreshAuthError,
 } from '../auth/authAction';
 
-const initUserState = { name: null, email: null };
+// const initUserState = { name: null, email: null };
 
-const user = createReducer(initUserState, {
-  [registerSuccess]: (_, { payload }) => payload.user,
-  [loginSuccess]: (_, { payload }) => payload,
-  [logoutSuccess]: () => initUserState,
-  [getCurrentUserSuccess]: (_, { payload }) => payload.user,
-  [updateUserSuccess]: (_, { payload }) => payload,
-});
+const persistConfig = {
+  key: 'token',
+  version: 1,
+  storage,
+  whitelist: ['token', 'sid'],
+};
+
+const authDataReducer = createReducer(
+  {},
+  {
+    [registerSuccess]: (_, { payload }) => payload,
+    [loginSuccess]: (_, { payload }) => payload,
+    [logoutSuccess]: () => ({}),
+    [getCurrentUserSuccess]: (_, { payload }) => payload,
+    [updateUserSuccess]: (_, { payload }) => payload.user,
+    [refreshAuthSuccess]: (_, { payload }) => payload,
+  }
+);
 
 const token = createReducer(null, {
   [registerSuccess]: (_, { payload }) => payload.token,
@@ -40,32 +55,34 @@ const error = createReducer(null, {
   [registerError]: setError,
   [loginError]: setError,
   [logoutError]: setError,
+  [refreshAuthError]: setError,
   [getCurrentUserError]: setError,
   [updateUserError]: setError,
 
-  [registerRequest]: () => false,
+  [registerRequest]: () => '',
   [registerRequest]: () => false,
   [updateUserRequest]: () => false,
 
-  [loginRequest]: () => false,
-  [loginSuccess]: () => false,
+  [loginRequest]: () => '',
+  // [loginSuccess]: () => false,
 
-  [logoutRequest]: () => false,
-  [logoutSuccess]: () => false,
-
-  [getCurrentUserRequest]: () => false,
-  [getCurrentUserSuccess]: () => false,
+  [logoutRequest]: () => '',
+  // [logoutSuccess]: () => false,
+  [refreshAuthRequest]: () => '',
+  // [getCurrentUserRequest]: () => false,
+  // [getCurrentUserSuccess]: () => false,
 });
 
 const isLogged = createReducer(false, {
   [registerSuccess]: () => true,
   [loginSuccess]: () => true,
   [getCurrentUserSuccess]: () => true,
-  [getCurrentUserRequest]: () => true,
+  // [getCurrentUserRequest]: () => true,
   [logoutSuccess]: () => false,
-  [registerError]: () => false,
-  [loginError]: () => false,
-  [getCurrentUserError]: () => false,
+  [refreshAuthSuccess]: () => true,
+  // [registerError]: () => false,
+  // [loginError]: () => false,
+  // [getCurrentUserError]: () => false,
 });
 
 // get spinner
@@ -85,12 +102,18 @@ const isLoading = createReducer(false, {
   [getCurrentUserRequest]: () => true,
   [getCurrentUserRequest]: () => false,
   [getCurrentUserRequest]: () => false,
+
+  [refreshAuthRequest]: () => true,
+  [refreshAuthSuccess]: () => false,
+  [refreshAuthError]: () => false,
 });
 
+const persistedAuth = persistReducer(persistConfig, authDataReducer);
+
 export default combineReducers({
-  user,
-  token,
+  authData: persistedAuth,
+  isLoading,
   isLogged,
   error,
-  isLoading,
+  token,
 });

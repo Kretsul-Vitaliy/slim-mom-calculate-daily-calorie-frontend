@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useSelector } from 'react-redux/es/exports';
+import { useSelector } from 'react-redux';
 import { IoMdReturnLeft } from 'react-icons/io';
 import { Link } from 'react-router-dom';
 import {

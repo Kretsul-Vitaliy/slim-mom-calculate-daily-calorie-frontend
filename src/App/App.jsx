@@ -1,8 +1,8 @@
 import { Suspense, useEffect, useState, lazy } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Route, Navigate, Routes, Outlet } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
-import { getCurrentUser } from '../redux/auth/authOperation';
+// import { getCurrentUser } from '../redux/auth/authOperation';
 
 import {
   LoginPage,
@@ -28,7 +28,12 @@ import {
   BackgroundContainer,
   Container,
 } from '../components';
-
+import {
+  getIsAuthenticated,
+  getIsUserRefreshToken,
+  getSid,
+} from '../redux/auth/authSelector';
+import { authRefresh } from '../redux/auth/authOperation';
 const MainPage = lazy(() =>
   import('../pages/MainPage' /* webpackChunkName: "Main_page" */)
 );
@@ -46,9 +51,24 @@ const PrivateRoute = lazy(() =>
 const App = () => {
   const dispatch = useDispatch();
   const [theme, setTheme] = useState('light');
+  const isAuth = useSelector(getIsAuthenticated);
+  const refreshToken = useSelector(getIsUserRefreshToken);
+  const sid = useSelector(getSid);
+
+  // useEffect(() => {
+  //   dispatch(getCurrentUser());
+  // }, [dispatch]);
+
   useEffect(() => {
-    dispatch(getCurrentUser());
-  }, [dispatch]);
+    isAuth &&
+      setTimeout(() => {
+        dispatch(authRefresh(refreshToken, sid));
+      }, process.env.REACT_APP_TOKEN_LIFE);
+  }, [dispatch, isAuth, refreshToken, sid]);
+
+  useEffect(() => {
+    !isAuth && refreshToken && dispatch(authRefresh(refreshToken, sid));
+  }, [dispatch, isAuth, refreshToken, sid]);
 
   return (
     <Container>
