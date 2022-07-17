@@ -38,10 +38,13 @@
         "enterGram": "Enter the number of grams",
         "isReq": "Is required",
         "productPlaceholder": "Enter product name",
-        "grams": "Grams"
+        "grams": "Grams",
+        "noInData": "This product is not in the database, enter another one",
+        "addBtn": "Add"
     },
     "dpi": {
         "addProd": "Add our products",
+        "notAdd": "You have not added products on this day",
         "ccal": "kcal"
     },
     "dnrf": {
