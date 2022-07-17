@@ -19,7 +19,7 @@ export const Calendar = styled(DatePicker)`
   font-weight: 700;
   font-size: 34px;
   line-height: 41px;
-  color: #212121;
+  color: ${props => props.theme.calendarColor};
   cursor: pointer;
   background-color: inherit;
 
