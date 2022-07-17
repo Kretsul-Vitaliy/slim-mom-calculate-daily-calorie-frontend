@@ -19,6 +19,14 @@ position: relative;
 `;
 export const InputBox = styled.div`
   position: relative;
+
+  &[name="email"]{
+    margin-bottom: 40px;
+  }
+
+  &[name="password"]{
+    margin-bottom: 60px;
+  }
 `;
 
 export const Labels = styled.label`
@@ -40,32 +48,21 @@ export const Input = styled.input`
   color: ${props=>props.theme.inputTextColor};
   height: 20px;
   outline: none;
+  width: 280px;
   background: transparent;
   ::-webkit-outer-spin-button,
   ::-webkit-inner-spin-button {
     -webkit-appearance: none;
   }
-  &#email {
-    margin-bottom: 40px;
-  }
-
-  &#password {
-    margin-bottom: 60px;
-  }
 
   @media screen and (min-width: 768px) {
-    max-width: 240px;
+   width: 240px;
   }
 
   &:focus + ${Labels}{
     color: red;
   }
 `;
-
-
-
-
-
 
 export const ButtonsWrapper = styled.div`
   display: flex;
@@ -121,5 +118,15 @@ export const StyledNavLink = styled(NavLink)`
     color: ${props => props.theme.btnFocusHoverTextColor};
     box-shadow: 0px 4px 10px ${props => props.theme.boxShadowColor};
   }
+
+`;
+
+export const MessageError = styled.div`
+  font-family: Verdana-Light;
+  font-size: 14px;
+  line-height: 1.21;
+  letter-spacing: 0.04em;
+  color: ${props => props.theme.MessageErrorColor};
+
 
 `;
