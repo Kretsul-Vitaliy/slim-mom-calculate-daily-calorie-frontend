@@ -14,29 +14,45 @@ import {
   reset,
 } from './ProductsAction';
 
-const initial = {
-  nameProduct: '',
-  id: '',
-  date: '',
-  calories: null,
-  weight: null,
-  owner: '',
-};
+// const initial = {
+//   nameProduct: '',
+//   id: '',
+//   date: '',
+//   calories: null,
+//   weight: null,
+//   owner: '',
+// };
 
-const dayInfo = createReducer(initial, {
-  [ProductsDateInfoSuccess]: (_, { payload }) => payload,
-  [addProductSuccess]: (state, { payload }) => ({
-    ...state,
-    nameProduct: payload.nameProduct,
-    weight: payload.weight,
-    calories: payload.calories,
-  }),
-  [deleteProductSuccess]: (state, { payload }) =>
-    state.filter(item => {
-      return item._id !== payload.data._id;
+const dayInfo = createReducer(
+  {},
+  {
+    [ProductsDateInfoSuccess]: (_, { payload }) => payload,
+    [addProductSuccess]: (state, { payload }) => ({
+      ...state,
+      nameProduct: payload.nameProduct,
+      weight: payload.weight,
+      calories: payload.calories,
     }),
-  [reset]: () => initial,
-});
+    [deleteProductSuccess]: (state, { payload }) =>
+      state.filter(item => {
+        return item._id !== payload.data._id;
+      }),
+    [reset]: () => ({}),
+  }
+);
+
+// const statisticalByDay = createReducer(
+//   {},
+//   {
+//     [ProductsDateInfoSuccess]: (_, { payload }) => payload,
+//     [addProductSuccess]: (state, { payload }) => ({
+//       ...state.statisticalByDay,
+//       statisticalByDay: payload.statisticalByDay,
+//     }),
+//     [deleteProductSuccess]: (_, { payload }) => payload,
+//     [reset]: () => ({}),
+//   }
+// );
 
 const error = createReducer(null, {
   [ProductsDateInfoError]: (_, { payload }) => payload,
@@ -70,6 +86,7 @@ const isLoading = createReducer(false, {
 
 export default combineReducers({
   dayInfo,
+  // statisticalByDay,
   error,
   isLoading,
 });

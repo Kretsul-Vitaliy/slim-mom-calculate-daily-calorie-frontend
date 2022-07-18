@@ -19,10 +19,7 @@ import {
 } from './ProductsAction';
 
 // Операция получения информации по определённому дню
-export const getDay = () => async (dispatch, getState, date) => {
-  // const {
-  //   auth: { token: persistedToken },
-  // } = getState();
+export const getDay = date => async (dispatch, getState) => {
   const state = getState();
   const persistedToken = state.auth.token;
   if (!persistedToken) {
@@ -31,7 +28,10 @@ export const getDay = () => async (dispatch, getState, date) => {
   dispatch(ProductsDateInfoRequest());
   try {
     const response = await getCalendarProducts(persistedToken, date);
-    dispatch(ProductsDateInfoSuccess(response.data));
+    const { data, statisticalByDay } = response;
+    const result = { data, statisticalByDay };
+
+    dispatch(ProductsDateInfoSuccess(result));
   } catch (error) {
     dispatch(ProductsDateInfoError(error.message));
   }
@@ -39,9 +39,6 @@ export const getDay = () => async (dispatch, getState, date) => {
 
 export const addProduct =
   (name, weight, calories, date) => async (dispatch, getState) => {
-    // const {
-    //   auth: { token: persistedToken },
-    // } = getState();
     const state = getState();
     const persistedToken = state.auth.token;
     if (!persistedToken) {
@@ -60,9 +57,6 @@ export const addProduct =
   };
 
 export const deleteProduct = dayId => async (dispatch, getState) => {
-  // const {
-  //   auth: { token: persistedToken },
-  // } = getState();
   const state = getState();
   const persistedToken = state.auth.token;
   if (!persistedToken) {
