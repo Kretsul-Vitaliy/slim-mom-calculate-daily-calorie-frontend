@@ -5,3 +5,20 @@ export const calories = state => state.dayProducts.dayInfo.calories;
 export const weight = state => state.dayProducts.dayInfo.weight;
 export const owner = state => state.dayProducts.dayInfo.owner;
 export const getLoading = state => state.dayProducts.isLoading;
+
+// statisticalDay
+export const getDate = state =>
+  state?.auth?.dayProducts?.dayInfo?.statisticalByDay?.date;
+export const getkcalLeft = state =>
+  state?.auth?.dayProducts?.dayInfo?.statisticalByDay?.kcalLeft;
+export const kcalConsumed = state =>
+  state?.auth?.dayProducts?.dayInfo?.statisticalByDay?.kcalConsumed;
+export const percentsOfDailyRate = state =>
+  state?.auth?.dayProducts?.dayInfo?.statisticalByDay?.percentsOfDailyRate;
+export const dailyRate = state =>
+  state?.auth?.dayProducts?.dayInfo?.statisticalByDay?.dailyRate;
+export const getStatisticalDayLoading = state =>
+  state?.auth?.dayProducts?.isLoading;
+// ProductListDay
+export const getProductList = state =>
+  state?.auth?.dayProducts?.dayInfo?.statisticalByDay?.data;
