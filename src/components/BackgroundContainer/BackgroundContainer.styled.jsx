@@ -32,4 +32,6 @@ const BackgroundWrapper = styled.div`
     background-position: top right;
   }
 `;
-export default BackgroundWrapper;
+
+const BackgroundNoWrapper = styled.div``;
+export { BackgroundWrapper, BackgroundNoWrapper };
