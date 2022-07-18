@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 const Picture = styled.picture`
   img {
@@ -20,4 +21,12 @@ const Picture = styled.picture`
   }
 `;
 
-export { Picture };
+const LinkPicture = styled(NavLink)`
+  display: flex;
+  justify-content: center;
+  background-color: var(--color-white);
+  padding: 0 10px;
+  border-radius: 35px;
+`;
+
+export { Picture, LinkPicture };

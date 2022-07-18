@@ -12,7 +12,6 @@ import {
 } from '../pages';
 
 import GlobalStyle from '../theme/GlobalStyle.styled';
-import { SwitcherButton } from '../theme/SwitcherButton.js';
 import { ThemeProvider } from 'styled-components';
 import { darkTheme, lightTheme } from '../theme/theme';
 // import {
@@ -24,9 +23,9 @@ import { darkTheme, lightTheme } from '../theme/theme';
 import {
   Header,
   Loader,
-  AuthorizeGoogle,
   BackgroundContainer,
   Container,
+  Footer,
 } from '../components';
 import {
   getIsAuthenticated,
@@ -72,13 +71,13 @@ const App = () => {
 
   return (
     <>
-      <BackgroundContainer>
-        <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+      {/* <BackgroundContainer> */}
+      <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+        <BackgroundContainer>
           <GlobalStyle />
           <Header />
           <Container>
             <Suspense fallback={<Loader />}>
-              <SwitcherButton switchTheme={setTheme} />
               <Routes>
                 <Route
                   path="/"
@@ -130,14 +129,15 @@ const App = () => {
                 />
                 <Route path="*" element={<Navigate to="/login" />} />
               </Routes>
-              <AuthorizeGoogle />
               <Outlet />
             </Suspense>
 
             <ToastContainer autoClose={2500} />
           </Container>
-        </ThemeProvider>
-      </BackgroundContainer>
+          {/* </ThemeProvider> */}
+        </BackgroundContainer>
+        <Footer switchTheme={setTheme}></Footer>
+      </ThemeProvider>
     </>
   );
 };
