@@ -12,7 +12,6 @@ import {
 } from '../pages';
 
 import GlobalStyle from '../theme/GlobalStyle.styled';
-import { SwitcherButton } from '../theme/SwitcherButton.js';
 import { ThemeProvider } from 'styled-components';
 import { darkTheme, lightTheme } from '../theme/theme';
 // import {
@@ -79,7 +78,6 @@ const App = () => {
           <Header />
           <Container>
             <Suspense fallback={<Loader />}>
-              <SwitcherButton switchTheme={setTheme} />
               <Routes>
                 <Route
                   path="/"
@@ -138,7 +136,7 @@ const App = () => {
           </Container>
           {/* </ThemeProvider> */}
         </BackgroundContainer>
-        <Footer></Footer>
+        <Footer switchTheme={setTheme}></Footer>
       </ThemeProvider>
     </>
   );

@@ -24,10 +24,9 @@ const Picture = styled.picture`
 const LinkPicture = styled(NavLink)`
   display: flex;
   justify-content: center;
-  border: 2px solid ${props => props.theme.headerLogoBorderColor};
   background-color: var(--color-white);
   padding: 0 10px;
-  border-radius: 30px;
+  border-radius: 35px;
 `;
 
 export { Picture, LinkPicture };
