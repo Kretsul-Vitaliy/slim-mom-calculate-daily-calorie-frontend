@@ -60,14 +60,13 @@
   },
   "validate": {
     "heigthMin": "Enter a value from 100",
-    "heigthMax": "Enter a value to 230",
+    "heigthMax": "Enter a value to 250",
     "ageSmall": "Sorry, You are a minor",
     "ageMiddle": "Sorry, You are not allowed to lose weight",
-    "ageHeight": "Enter correct age",
-    "weightMin": "Enter a value from 50",
+    "weightMin": "Enter a value from 20",
     "weightMax": "Enter a value to 500",
-    "weightVerySmall": "Enter a value from 30",
-    "similiarWeith": "The desired weight must be more than current weight"
+    "weightVerySmall": "Enter a value from 20",
+    "similiarWeith": "The desired weight must be less than current weight"
   },
   "яйца": "eggs",
   "зерновые": "cereal",

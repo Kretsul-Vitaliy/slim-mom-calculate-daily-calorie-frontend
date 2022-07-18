@@ -6,15 +6,13 @@ export const validate = values => {
   if (values.height < 100) {
     errors.height = i18n.t('validate.heigthMin');
   } else if (values.height > 250) {
-    errors.height = i18n.t('validate.heigthMin');
+    errors.height = i18n.t('validate.heigthMax');
   }
 
   if (values.age < 18) {
     errors.age = i18n.t('validate.ageSmall');
-  } else if (values.age > 80) {
+  } else if (values.age > 100) {
     errors.age = i18n.t('validate.ageMiddle');
-  } else if (values.age > 120) {
-    errors.age = i18n.t('validate.ageHeight');
   }
 
   if (values.currentWeight < 20) {
