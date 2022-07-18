@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { IoMdReturnLeft } from 'react-icons/io';
 import { Link } from 'react-router-dom';
 import {
@@ -11,8 +11,9 @@ import {
 } from '../../components';
 import TurnBack from '../../components/Modal';
 import useModal from '../../hooks/useModal';
-import { getIsUserAuthorizate } from '../../redux/auth';
+import { getIsAuthenticated, getIsUserAuthorizate } from '../../redux/auth';
 import { DesctopForm, ButtonOpenModal } from './DiaryPage.styled';
+import { getDay } from '../../redux/products/ProductsOperation';
 
 const DiaryPage = () => {
   const [startDate, setStartDate] = useState(new Date());
@@ -23,6 +24,18 @@ const DiaryPage = () => {
   // eslint-disable-next-line no-unused-vars
   const [dateNow, setDateNow] = useState(new Date());
   const { isShowing, toggle } = useModal();
+  const isAuth = useSelector(getIsAuthenticated);
+  const dispatch = useDispatch();
+  const day = startDate.toLocaleDateString();
+
+  const handleOnChange = async () => {};
+
+  useEffect(() => {
+    isAuth &&
+      setTimeout(() => {
+        dispatch(getDay(day));
+      }, 500);
+  }, [day, dispatch, isAuth]);
 
   return (
     <>
@@ -34,6 +47,7 @@ const DiaryPage = () => {
       <DiaryDateСalendar
         dateCalendar={startDate}
         setDateCalendar={setStartDate}
+        onChange={handleOnChange}
       />
       {startDate.toLocaleDateString() === dateNow.toLocaleDateString() && (
         <DesctopForm>
