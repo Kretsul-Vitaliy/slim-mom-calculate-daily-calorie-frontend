@@ -20,7 +20,6 @@ export const NavlinkInfoStyled = styled(NavLink)`
 export const GoogleBtn = styled(Button)`
   margin-left: 32px;
 `;
-
 export const GoogleIcon = styled.img`
   background-size: contain;
   display: inline-block;
