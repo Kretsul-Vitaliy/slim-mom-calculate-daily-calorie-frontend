@@ -7,4 +7,5 @@ export const getNotAllowedProductsAll = state =>
 
 // statistical
 export const getUserCalories = state => state?.user?.userInfo?.calories;
-export const getUserCategories = state => state?.user?.userInfo?.categories;
+export const getUserCategories = state =>
+  state?.user?.userInfo?.userData?.categories;
