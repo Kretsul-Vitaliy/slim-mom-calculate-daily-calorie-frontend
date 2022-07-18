@@ -86,7 +86,7 @@ const SwitcherList = styled.div`
 const LangButton = styled.button`
   border: none;
   background: transparent;
-  color: var(--text-main-color);
+  color: ${props => props.theme.langButtonColor};
   text-transform: capitalize;
   position: relative;
   transition: all 0.3s ease;
@@ -98,7 +98,7 @@ const LangButton = styled.button`
   gap: 4px;
 
   &:hover {
-    color: var(--extra-color);
+    color: ${props => props.theme.langButtonHoverColor};
   }
 
   span {

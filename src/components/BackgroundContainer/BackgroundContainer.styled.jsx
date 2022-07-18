@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-// import { createGlobalStyle } from 'styled-components';
 
 import bgDesktop1x from '../../images/background/descktop/bg_descktop1x.png';
 import bgDesktop2x from '../../images/background/descktop/bg_descktop2x.png';
@@ -7,11 +6,11 @@ import bgDesktop2x from '../../images/background/descktop/bg_descktop2x.png';
 import bgTablet1x from '../../images/background/tablet/bg_tablet1x.png';
 import bgTablet2x from '../../images/background/tablet/bg_tablet2x.png';
 
-// const BackgroundWrapper = createGlobalStyle`
-// body {
 const BackgroundWrapper = styled.div`
   background-repeat: no-repeat;
   background-attachment: scroll;
+  background-size: contain;
+  height: 100vh;
   @media screen and (min-width: 768px) {
     background-image: url(${bgDesktop1x});
     background-position: top right;

@@ -16,7 +16,6 @@ const HeaderContainer = styled.div`
   display: flex;
   height: 80px;
   justify-content: space-between;
-
   @media screen and (min-width: 1280px) {
     justify-content: flex-start;
   }

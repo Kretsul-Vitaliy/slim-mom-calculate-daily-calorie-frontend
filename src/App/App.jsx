@@ -71,72 +71,74 @@ const App = () => {
   }, [dispatch, isAuth, refreshToken, sid]);
 
   return (
-    <Container>
+    <>
       <BackgroundContainer>
         <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
           <GlobalStyle />
-          <Suspense fallback={<Loader />}>
-            <SwitcherButton switchTheme={setTheme} />
-            <Header />
-            <Routes>
-              <Route
-                path="/"
-                element={
-                  <PublicRoute redirectTo="/calculator">
-                    <MainPage />
-                  </PublicRoute>
-                }
-              ></Route>
-              <Route
-                path="login"
-                element={
-                  <PublicRoute restricted redirectTo="/calculator">
-                    <LoginPage />
-                  </PublicRoute>
-                }
-              ></Route>
-              <Route
-                path="signup"
-                element={
-                  <PublicRoute restricted redirectTo="/login">
-                    <RegistrationPage />
-                  </PublicRoute>
-                }
-              />
-              <Route
-                path="diary"
-                element={
-                  <PrivateRoute redirectTo="/login">
-                    <DiaryPage />
-                  </PrivateRoute>
-                }
-              />
-              <Route
-                path="calculator"
-                element={
-                  <PublicRoute redirectTo="/login">
-                    <CalculatorPage />
-                  </PublicRoute>
-                }
-              />
-              <Route
-                path="google"
-                element={
-                  <PublicRoute restricted redirectTo="/login">
-                    <CalculatorPage />
-                  </PublicRoute>
-                }
-              />
-              <Route path="*" element={<Navigate to="/login" />} />
-            </Routes>
-            <AuthorizeGoogle />
-            <Outlet />
-          </Suspense>
+          <Header />
+          <Container>
+            <Suspense fallback={<Loader />}>
+              <SwitcherButton switchTheme={setTheme} />
+              <Routes>
+                <Route
+                  path="/"
+                  element={
+                    <PublicRoute redirectTo="/calculator">
+                      <MainPage />
+                    </PublicRoute>
+                  }
+                ></Route>
+                <Route
+                  path="login"
+                  element={
+                    <PublicRoute restricted redirectTo="/calculator">
+                      <LoginPage />
+                    </PublicRoute>
+                  }
+                ></Route>
+                <Route
+                  path="signup"
+                  element={
+                    <PublicRoute restricted redirectTo="/login">
+                      <RegistrationPage />
+                    </PublicRoute>
+                  }
+                />
+                <Route
+                  path="diary"
+                  element={
+                    <PrivateRoute redirectTo="/login">
+                      <DiaryPage />
+                    </PrivateRoute>
+                  }
+                />
+                <Route
+                  path="calculator"
+                  element={
+                    <PublicRoute redirectTo="/login">
+                      <CalculatorPage />
+                    </PublicRoute>
+                  }
+                />
+                <Route
+                  path="google"
+                  element={
+                    <PublicRoute restricted redirectTo="/login">
+                      <CalculatorPage />
+                    </PublicRoute>
+                  }
+                />
+                <Route path="*" element={<Navigate to="/login" />} />
+              </Routes>
+              <AuthorizeGoogle />
+              <Outlet />
+            </Suspense>
 
-          <ToastContainer autoClose={2500} />
+            <ToastContainer autoClose={2500} />
+          </Container>
         </ThemeProvider>
       </BackgroundContainer>
-    </Container>
+    </>
   );
 };
 
