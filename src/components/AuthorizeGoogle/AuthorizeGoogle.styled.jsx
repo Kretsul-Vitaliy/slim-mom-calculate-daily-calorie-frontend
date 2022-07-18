@@ -7,7 +7,6 @@ export const InfoText = styled.p`
   font-size: 1em;
   color: black;
 `;
-
 export const NavlinkInfoStyled = styled(NavLink)`
   font-size: 16px;
   color: black;
