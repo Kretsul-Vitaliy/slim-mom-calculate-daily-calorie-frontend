@@ -4,7 +4,7 @@ export const SwitcherButtonStyles = styled.form`
   /* position: relative; */
   z-index: 5;
   position: absolute;
-  top: 17px;
+  bottom: 20px;
   left: 75px;
   display: flex;
   align-items: stretch;
@@ -21,7 +21,7 @@ export const SwitcherButtonStyles = styled.form`
   @media screen and (min-width: 1280px) {
     font-family: 'Gotham Pro';
     font-size: 14px;
-    top: 115px;
+    /* top: 115px; */
   }
 
   label {
