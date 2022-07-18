@@ -19,6 +19,7 @@ import {
   Divider,
   NavList,
   Menu,
+  MenuIsLogged,
   BurgerButton,
   UserInfoWrapper,
 } from './Header.styled';
@@ -42,27 +43,49 @@ const Header = () => {
             <Logo />
 
             <Divider />
+            {!isLogged ? (
+              <Menu>
+                {isLogged && (
+                  <UserInfoWrapper>
+                    <UserInfo />
+                  </UserInfoWrapper>
+                )}
+                <Navigation isOpen={isOpen} isLogged />
 
-            <Menu>
-              {isLogged && (
-                <UserInfoWrapper>
-                  <UserInfo />
-                </UserInfoWrapper>
-              )}
-              <Navigation isOpen={isOpen} isLogged />
+                {isLogged ? (
+                  <BurgerButton onClick={() => setIsOpen(!isOpen)}>
+                    {isOpen ? <GrClose /> : <GiHamburgerMenu />}
+                  </BurgerButton>
+                ) : (
+                  <NavList>
+                    <UnloggedNavItems />
+                  </NavList>
+                )}
 
-              {isLogged ? (
-                <BurgerButton onClick={() => setIsOpen(!isOpen)}>
-                  {isOpen ? <GrClose /> : <GiHamburgerMenu />}
-                </BurgerButton>
-              ) : (
-                <NavList>
-                  <UnloggedNavItems />
-                </NavList>
-              )}
+                <LanguageSelector />
+              </Menu>
+            ) : (
+              <MenuIsLogged>
+                {isLogged && (
+                  <UserInfoWrapper>
+                    <UserInfo />
+                  </UserInfoWrapper>
+                )}
+                <Navigation isOpen={isOpen} isLogged />
 
-              <LanguageSelector />
-            </Menu>
+                {isLogged ? (
+                  <BurgerButton onClick={() => setIsOpen(!isOpen)}>
+                    {isOpen ? <GrClose /> : <GiHamburgerMenu />}
+                  </BurgerButton>
+                ) : (
+                  <NavList>
+                    <UnloggedNavItems />
+                  </NavList>
+                )}
+
+                <LanguageSelector />
+              </MenuIsLogged>
+            )}
           </HeaderContainer>
         </Container>
       </HeaderEl>

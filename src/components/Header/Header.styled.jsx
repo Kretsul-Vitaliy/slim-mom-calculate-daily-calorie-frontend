@@ -82,6 +82,16 @@ const Menu = styled.div`
   }
 `;
 
+const MenuIsLogged = styled.div`
+  display: flex;
+
+  @media screen and (min-width: 1280px) {
+    flex-direction: row-reverse;
+    gap: 16px;
+    flex: 1;
+  }
+`;
+
 const BurgerButton = styled.button`
   border: none;
   background: transparent;
@@ -123,6 +133,7 @@ export {
   Divider,
   NavList,
   Menu,
+  MenuIsLogged,
   BurgerButton,
   UserInfoWrapper,
 };
