@@ -77,7 +77,6 @@ const App = () => {
           <GlobalStyle />
           <Header />
           <Container>
-            {/* <Header /> */}
             <Suspense fallback={<Loader />}>
               <SwitcherButton switchTheme={setTheme} />
               <Routes>
