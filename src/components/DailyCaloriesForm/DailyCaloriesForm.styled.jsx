@@ -12,7 +12,8 @@ const Wrapper = styled.div`
     padding-bottom: 400px;
   }
   @media only screen and (min-width: 1280px) {
-    padding-top: 91px;
+    height: 850px;
+    padding-top: 290px;
     padding-left: 16px;
     padding-right: auto;
     padding-bottom: 214px;

@@ -17,7 +17,11 @@ const HeaderContainer = styled.div`
   height: 80px;
   justify-content: space-between;
   @media screen and (min-width: 1280px) {
-    justify-content: flex-start;
+    /* ATENTION */
+
+    /* justify-content: flex-end; */
+    position: absolute;
+    width: 1248px;
   }
 `;
 
@@ -88,6 +92,8 @@ const MenuIsLogged = styled.div`
   @media screen and (min-width: 1280px) {
     flex-direction: row-reverse;
     gap: 16px;
+    /* justify-content: flex-start; */
+    /* width: 100%; */
     flex: 1;
   }
 `;
@@ -123,6 +129,7 @@ const UserInfoWrapper = styled.div`
   @media screen and (min-width: 1280px) {
     transform: translate(0%, 50%);
     margin-left: auto;
+    margin-right: 16px; /* ATENTION */
   }
 `;
 

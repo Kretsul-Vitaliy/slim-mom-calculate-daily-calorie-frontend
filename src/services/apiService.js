@@ -23,27 +23,18 @@ export const resetToken = {
 // Authorization
 
 export const signUpUser = async body => {
-  const { data } = await axios.post(
-    'https://slimcalculatebackend.herokuapp.com/api/v1/auth/signup',
-    body
-  );
+  const { data } = await axios.post('auth/signup', body);
   tokenKey.set(data.token);
   return data;
 };
 
 export const logInUser = async body => {
-  const { data } = await axios.post(
-    'https://slimcalculatebackend.herokuapp.com/api/v1/auth/login',
-    body
-  );
+  const { data } = await axios.post('auth/login', body);
   tokenKey.set(data.token);
   return data;
 };
 export const refreshUser = async body => {
-  const { data } = await axios.post(
-    'https://slimcalculatebackend.herokuapp.com/api/v1/auth/refresh',
-    body
-  );
+  const { data } = await axios.post('auth/refresh', body);
   tokenKey.set(data.token);
   return data;
 };
@@ -53,9 +44,7 @@ export const logOutUser = async persistedToken => {
     throw Error('user');
   }
   tokenKey.set(persistedToken);
-  const { data } = await axios.post(
-    'https://slimcalculatebackend.herokuapp.com/api/v1/auth/logout'
-  );
+  const { data } = await axios.post('auth/logout');
   tokenKey.unset();
   return data;
 };
@@ -66,9 +55,7 @@ export const userInfoCurrent = async persistedToken => {
   }
   tokenKey.set(persistedToken);
   try {
-    const { data } = await axios.get(
-      'https://slimcalculatebackend.herokuapp.com/api/v1/users/current'
-    );
+    const { data } = await axios.get('users/current');
     return data;
   } catch (error) {
     tokenKey.unset();
@@ -77,10 +64,7 @@ export const userInfoCurrent = async persistedToken => {
 };
 
 export const updateUser = async user => {
-  const { data } = await axios.put(
-    'https://slimcalculatebackend.herokuapp.com/api/v1/users/update',
-    user
-  );
+  const { data } = await axios.put('users/update', user);
 
   return data.result;
 };
@@ -89,9 +73,7 @@ export const updateUser = async user => {
 
 export const getDataProducts = async query => {
   try {
-    const { data } = await axios.get(
-      `https://slimcalculatebackend.herokuapp.com/api/v1/products?search=${query}`
-    );
+    const { data } = await axios.get(`products?search=${query}`);
     return data;
   } catch (error) {
     return error;
@@ -104,9 +86,7 @@ export const getCalendarProducts = async (persistedToken, date) => {
   }
   tokenKey.set(persistedToken);
   try {
-    const { data } = await axios.get(
-      `https://slimcalculatebackend.herokuapp.com/api/v1/products/${date}`
-    );
+    const { data } = await axios.get(`products/${date}`);
     return data;
   } catch (error) {
     tokenKey.unset();
@@ -126,15 +106,12 @@ export const setCalendarProducts = async (
   }
   tokenKey.set(persistedToken);
   try {
-    const { data } = await axios.post(
-      'https://slimcalculatebackend.herokuapp.com/api/v1/products',
-      {
-        nameProduct: name,
-        weight: weight,
-        calories: calories,
-        date: date,
-      }
-    );
+    const { data } = await axios.post('products', {
+      nameProduct: name,
+      weight: weight,
+      calories: calories,
+      date: date,
+    });
     return data;
   } catch (error) {
     tokenKey.unset();
@@ -163,10 +140,7 @@ export const dailyCaloriesGuard = async (values, persistedToken) => {
   }
   tokenKey.set(persistedToken);
   try {
-    const { data } = await axios.post(
-      'https://slimcalculatebackend.herokuapp.com/api/v1/dailycalories',
-      values
-    );
+    const { data } = await axios.post('dailycalories', values);
     return data;
   } catch (error) {
     tokenKey.unset();
@@ -174,9 +148,6 @@ export const dailyCaloriesGuard = async (values, persistedToken) => {
 };
 // daily public
 export const dailyCaloriesPublic = async values => {
-  const { data } = await axios.post(
-    'https://slimcalculatebackend.herokuapp.com/api/v1/dailycalories/public',
-    values
-  );
+  const { data } = await axios.post('dailycalories/public', values);
   return data;
 };
