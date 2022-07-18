@@ -1,20 +1,17 @@
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  width: 320px;
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 32px;
   padding-bottom: 100px;
   @media only screen and (min-width: 769px) {
-    width: 768px;
     padding-top: 100px;
     padding-left: 32px;
     padding-right: 32px;
     padding-bottom: 400px;
   }
   @media only screen and (min-width: 1280px) {
-    width: 1280px;
     padding-top: 91px;
     padding-left: 16px;
     padding-right: auto;
