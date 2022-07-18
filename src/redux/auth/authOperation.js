@@ -72,7 +72,7 @@ export const login = user => async dispatch => {
       return;
     }
     dispatch(loginError(error.message));
-    toast.error(error.message);
+    toast.error('User with such data is not registered');
   }
 };
 
