@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+import Button from '../Button';
 
 export const InfoText = styled.p`
   font-weight: 500;
@@ -17,9 +18,9 @@ export const NavlinkInfoStyled = styled(NavLink)`
   }
 `;
 
-export const GoogleBtn = styled.button`
-  display: flex;
-  justify-content: space-between;
+export const GoogleBtn = styled(Button)`
+  /* display: flex; */
+  /* justify-content: space-between;
   width: 122px;
   margin-left: auto;
   margin-right: auto;
@@ -32,18 +33,18 @@ export const GoogleBtn = styled.button`
   color: #000000;
   background: #f6f7fb;
   border: none;
-  border-radius: 26px;
+  border-radius: 26px; */
 
-  cursor: pointer;
+  /* cursor: pointer; */
 
-  &:hover {
+  /* &:hover {
     background-color: #e7e8ec;
   }
   &:active {
     background-color: #e76615;
     box-shadow: 0 3px #d37134;
     transform: translateY(1px);
-  }
+  } */
 `;
 
 export const GoogleIcon = styled.img`

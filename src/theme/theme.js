@@ -18,8 +18,8 @@ export const darkTheme = {
   boxShadowColor: `${darckboxShadowColor}`,
 
   // Colors for header
-  headerBackgroundColor: '#ffffff85',
   headerElborderBottomColor: 'var(--text-secondary-color)',
+  headerLogoBorderColor: `${darckThemeTextColor}`,
 
   // Colors for Navigations
   navLinkColor: `${darckThemeTextColor}`, //Only for desktop
@@ -77,8 +77,8 @@ export const lightTheme = {
   boxShadowColor: 'var(--color-disabled)',
 
   // Colors for header
-  headerBackgroundColor: 'rgb(0, 0, 0, 0)',
   headerElborderBottomColor: '#e0e0e0',
+  headerLogoBorderColor: 'var(--color-white)',
 
   // Colors for navigations
   navLinkColor: 'var(--text-main-color)', //Only for desktop

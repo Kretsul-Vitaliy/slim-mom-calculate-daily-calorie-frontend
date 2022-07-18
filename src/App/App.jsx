@@ -24,9 +24,9 @@ import { darkTheme, lightTheme } from '../theme/theme';
 import {
   Header,
   Loader,
-  AuthorizeGoogle,
   BackgroundContainer,
   Container,
+  Footer,
 } from '../components';
 import {
   getIsAuthenticated,
@@ -72,8 +72,9 @@ const App = () => {
 
   return (
     <>
-      <BackgroundContainer>
-        <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+      {/* <BackgroundContainer> */}
+      <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+        <BackgroundContainer>
           <GlobalStyle />
           <Header />
           <Container>
@@ -130,14 +131,15 @@ const App = () => {
                 />
                 <Route path="*" element={<Navigate to="/login" />} />
               </Routes>
-              <AuthorizeGoogle />
               <Outlet />
             </Suspense>
 
             <ToastContainer autoClose={2500} />
           </Container>
-        </ThemeProvider>
-      </BackgroundContainer>
+          {/* </ThemeProvider> */}
+        </BackgroundContainer>
+        <Footer></Footer>
+      </ThemeProvider>
     </>
   );
 };
