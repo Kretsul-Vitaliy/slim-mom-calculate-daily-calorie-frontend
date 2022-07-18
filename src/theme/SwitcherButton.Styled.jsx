@@ -1,11 +1,28 @@
 import styled from 'styled-components';
 
 export const SwitcherButtonStyles = styled.form`
-  position: relative;
+  /* position: relative; */
+  z-index: 5;
+  position: absolute;
+  top: 17px;
+  left: 75px;
   display: flex;
   align-items: stretch;
   justify-content: stretch;
   width: 100px;
+  font-family: 'Verdana';
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  @media screen and (min-width: 768px) {
+    left: calc(100% / 3);
+  }
+  @media screen and (min-width: 1280px) {
+    font-family: 'Gotham Pro';
+    font-size: 14px;
+    top: 115px;
+  }
 
   label {
     user-select: none;
@@ -52,7 +69,7 @@ export const SwitcherButtonStyles = styled.form`
   div {
     top: 0;
     left: 0;
-    width: 50px;
+    width: 55px;
     height: 40px;
     position: absolute;
     z-index: -1;
