@@ -66,9 +66,6 @@ const RegistrationForm = () => {
       <form onSubmit={formik.handleSubmit}>
         <FormRegistrationList>
           <FormRegistrationListItem>
-            <FormRegistrationLabel htmlFor="name">
-              {t?.('auth.name')} *
-            </FormRegistrationLabel>
             <FormRegistrationInput
               id="name"
               name="name"
@@ -81,11 +78,11 @@ const RegistrationForm = () => {
             {formik.touched.name && formik.errors.name ? (
               <MessageError>{formik.errors.name}</MessageError>
             ) : null}
+            <FormRegistrationLabel htmlFor="name">
+              {t?.('auth.name')} *
+            </FormRegistrationLabel>
           </FormRegistrationListItem>
           <FormRegistrationListItem>
-            <FormRegistrationLabel htmlFor="email">
-              Email *
-            </FormRegistrationLabel>
             <FormRegistrationInput
               id="email"
               name="email"
@@ -99,11 +96,11 @@ const RegistrationForm = () => {
             {formik.touched.email && formik.errors.email ? (
               <MessageError>{formik.errors.email}</MessageError>
             ) : null}
+            <FormRegistrationLabel htmlFor="email">
+              Email *
+            </FormRegistrationLabel>
           </FormRegistrationListItem>
           <FormRegistrationListItem>
-            <FormRegistrationLabel htmlFor="password">
-              {t?.('auth.password')} *
-            </FormRegistrationLabel>
             <FormRegistrationInput
               id="password"
               name="password"
@@ -118,10 +115,15 @@ const RegistrationForm = () => {
             {formik.touched.password && formik.errors.password ? (
               <MessageError>{formik.errors.password}</MessageError>
             ) : null}
+            <FormRegistrationLabel htmlFor="password">
+              {t?.('auth.password')} *
+            </FormRegistrationLabel>
           </FormRegistrationListItem>
         </FormRegistrationList>
         <ButtonContainer>
-          <RegistrationEnterLink to="/login">{t?.('auth.login')}</RegistrationEnterLink>
+          <RegistrationEnterLink to="/login">
+            {t?.('auth.login')}
+          </RegistrationEnterLink>
           <RegistrationButton
             type="submit"
             disabled={!name || !email || !password}

@@ -36,6 +36,7 @@ const FormRegistrationList = styled.ul`
   padding: 0;
 `;
 const FormRegistrationListItem = styled.li`
+  position: relative;
   margin-bottom: 0;
   &:not(:last-child) {
     margin-bottom: 40px;
@@ -43,6 +44,9 @@ const FormRegistrationListItem = styled.li`
 `;
 const FormRegistrationLabel = styled.label`
   display: flex;
+  position: absolute;
+  top: -15px;
+  left: 0;
   height: 15px;
   font-family: Verdana-Bold;
   font-style: normal;
@@ -70,6 +74,15 @@ const FormRegistrationInput = styled.input`
   }
   @media screen and (min-width: 768px) {
     width: 240px;
+  }
+
+  &:focus {
+    border-bottom: 2px solid ${props => props.theme.titleColor};
+  }
+  &:focus ~ label {
+    position: absolute;
+    top: -20px;
+    left: 0;
   }
 `;
 
@@ -121,6 +134,7 @@ const RegistrationButton = styled(Button)`
     justify-content: start;
   }
 `;
+
 export {
   ContainerRegistration,
   TitleRegistration,
