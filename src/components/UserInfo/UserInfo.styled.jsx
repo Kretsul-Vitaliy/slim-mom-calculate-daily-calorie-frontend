@@ -47,5 +47,4 @@ const Divider = styled.div`
   height: 32px;
   background-color: var(--header-divider-color);
 `;
-
 export { UserInfoBlock, Divider, UserName, ExitButton };
