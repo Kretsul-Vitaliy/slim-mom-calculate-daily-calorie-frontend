@@ -18,6 +18,7 @@ import {
 } from './RegistrationForm.styled.jsx';
 import { useDispatch } from 'react-redux';
 import { register } from '../../redux/auth';
+import { AuthorizeGoogle } from '../../components';
 
 const RegistrationForm = () => {
   const { t } = useTranslation();
@@ -34,7 +35,7 @@ const RegistrationForm = () => {
     validationSchema: Yup.object({
       name: Yup.string()
         .min(3, t?.('auth.verMin'))
-        .max(35, t?.('auth.verMax'))
+        .max(254, t?.('auth.verMax'))
         .required(t?.('auth.verReq')),
       email: Yup.string()
         .email(t?.('auth.invMail'))
@@ -43,7 +44,7 @@ const RegistrationForm = () => {
         .required(t?.('auth.verReq')),
       password: Yup.string()
         .min(8, t?.('auth.verMin'))
-        .max(35, t?.('auth.verMax'))
+        .max(100, t?.('auth.verMax'))
         .required(t?.('auth.verReq')),
     }),
     onSubmit: values => {
@@ -71,6 +72,7 @@ const RegistrationForm = () => {
               name="name"
               type="text"
               onChange={formik.handleChange}
+              pattern="[a-zA-Z]+"
               value={name}
               autocomplete="off"
               required
@@ -88,6 +90,7 @@ const RegistrationForm = () => {
               name="email"
               type="email"
               onChange={formik.handleChange}
+              pattern="((?=.*[a-z])[a-zA-Z]"
               password
               value={email}
               autocomplete="off"
@@ -131,6 +134,7 @@ const RegistrationForm = () => {
           >
             {t?.('auth.register')}
           </RegistrationButton>
+          <AuthorizeGoogle />
         </ButtonContainer>
       </form>
     </ContainerRegistration>

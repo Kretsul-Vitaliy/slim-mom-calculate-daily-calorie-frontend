@@ -25,8 +25,16 @@ const LinkPicture = styled(NavLink)`
   display: flex;
   justify-content: center;
   background-color: var(--color-white);
-  padding: 0 10px;
+  padding: 0;
   border-radius: 35px;
+  @media screen and (min-width: 768px) {
+    padding: 0 10px;
+    border-radius: 35px;
+  }
+  @media screen and (min-width: 1280px) {
+    padding: 0 10px;
+    border-radius: 35px;
+  }
 `;
 
 export { Picture, LinkPicture };

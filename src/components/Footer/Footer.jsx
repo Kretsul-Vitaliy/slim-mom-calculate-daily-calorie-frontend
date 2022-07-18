@@ -10,7 +10,7 @@ const Footer = ({ switchTheme }) => {
             Our team
           </FormButton>
           <SwitcherButton switchTheme={switchTheme} />
-          <AuthorizeGoogle />
+          {/* <AuthorizeGoogle /> */}
         </StyledElement>
       </Container>
     </WrapperFooter>
