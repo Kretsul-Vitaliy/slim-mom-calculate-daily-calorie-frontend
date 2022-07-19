@@ -49,7 +49,9 @@ const PrivateRoute = lazy(() =>
 
 const App = () => {
   const dispatch = useDispatch();
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState(
+    localStorage.getItem('app-theme') || 'light'
+  );
   const isAuth = useSelector(getIsAuthenticated);
   const refreshToken = useSelector(getIsUserRefreshToken);
   const sid = useSelector(getSid);
@@ -57,6 +59,10 @@ const App = () => {
   // useEffect(() => {
   //   dispatch(getCurrentUser());
   // }, [dispatch]);
+
+  useEffect(() => {
+    localStorage.setItem('app-theme', theme);
+  }, [theme]);
 
   useEffect(() => {
     isAuth &&
