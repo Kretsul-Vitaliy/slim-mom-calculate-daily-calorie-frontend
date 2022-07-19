@@ -6,34 +6,47 @@ import {
   ListItem,
   ListItemData,
 } from './DailyCalorieIntake.slyled.jsx';
+import { useSelector } from 'react-redux';
 
-import { useSelector } from 'react-redux/es/exports.js';
+import {
+  // dailyRate,
+  getDate,
+  getkcalLeft,
+  kcalConsumed,
+  percentsOfDailyRate,
+} from '../../../redux/products/ProductsSelector.js';
+import { getUserCalories } from '../../../redux/user/userSelector.js';
 
 const DailyCalorieIntake = () => {
-  const { t } = useTranslation();
-  let daily = useSelector(
-    state => state?.dayProducts?.dayInfo?.statisticalByDay?.dailyRate
-  );
-  let date = useSelector(
-    state => state?.dayProducts?.dayInfo?.statisticalByDay?.date
-  );
-  let consumed = useSelector(
-    state => state?.dayProducts?.dayInfo?.statisticalByDay?.kcalConsumed
-  );
-  let percent = useSelector(
-    state => state?.dayProducts?.dayInfo?.statisticalByDay?.percentsOfDailyRate
-  );
-  let left = useSelector(
-    state => state?.dayProducts?.dayInfo?.statisticalByDay?.kcalLeft
-  );
-  console.log('date', date);
+  let { t } = useTranslation();
+  let daily = useSelector(getUserCalories);
+  let date = useSelector(getDate);
+  let consumed = useSelector(kcalConsumed);
+  let percent = useSelector(percentsOfDailyRate);
+  let left = useSelector(getkcalLeft);
+  // let daily = useSelector(
+  //   state => state?.dayProducts?.dayInfo?.statisticalByDay?.dailyRate
+  // );
+  // let date = useSelector(
+  //   state => state?.dayProducts?.dayInfo?.statisticalByDay?.date
+  // );
+  // let consumed = useSelector(
+  //   state => state?.dayProducts?.dayInfo?.statisticalByDay?.kcalConsumed
+  // );
+  // let percent = useSelector(
+  //   state => state?.dayProducts?.dayInfo?.statisticalByDay?.percentsOfDailyRate
+  // );
+  // let left = useSelector(
+  //   state => state?.dayProducts?.dayInfo?.statisticalByDay?.kcalLeft
+  // );
+  // console.log('date', date);
 
   const stok = '000';
 
   return (
     <Wrapper>
       <Title>
-        {t?.('rightSideBar.summary')} {date ? date : (date = '06/06/2022')}
+        {t?.('rightSideBar.summary')} {date ? date : (date = '')}
       </Title>
       <List>
         <ListItem>

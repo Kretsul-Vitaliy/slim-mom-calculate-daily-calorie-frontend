@@ -8,17 +8,16 @@ export const getLoading = state => state.dayProducts.isLoading;
 
 // statisticalDay
 export const getDate = state =>
-  state?.auth?.dayProducts?.dayInfo?.statisticalByDay?.date;
+  state?.dayProducts?.dayInfo?.statisticalByDay?.date;
 export const getkcalLeft = state =>
-  state?.auth?.dayProducts?.dayInfo?.statisticalByDay?.kcalLeft;
+  state?.dayProducts?.dayInfo?.statisticalByDay?.kcalLeft;
 export const kcalConsumed = state =>
-  state?.auth?.dayProducts?.dayInfo?.statisticalByDay?.kcalConsumed;
+  state?.dayProducts?.dayInfo?.statisticalByDay?.kcalConsumed;
 export const percentsOfDailyRate = state =>
-  state?.auth?.dayProducts?.dayInfo?.statisticalByDay?.percentsOfDailyRate;
+  state?.dayProducts?.dayInfo?.statisticalByDay?.percentsOfDailyRate;
 export const dailyRate = state =>
-  state?.auth?.dayProducts?.dayInfo?.statisticalByDay?.dailyRate;
-export const getStatisticalDayLoading = state =>
-  state?.auth?.dayProducts?.isLoading;
+  state?.dayProducts?.dayInfo?.statisticalByDay?.dailyRate;
+export const getStatisticalDayLoading = state => state?.dayProducts?.isLoading;
 // ProductListDay
 export const getProductList = state =>
-  state?.auth?.dayProducts?.dayInfo?.statisticalByDay?.data;
+  state?.dayProducts?.dayInfo?.statisticalByDay?.data;

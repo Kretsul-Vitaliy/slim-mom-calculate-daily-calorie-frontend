@@ -21,7 +21,7 @@ const DiaryProductsList = ({
   // const [productsItem, setProductsItem] = useState(null);
   const [deletedProduct, setDeletedProduct] = useState(null);
 
-  const { i18n } = useTranslation()
+  const { i18n } = useTranslation();
 
   useEffect(() => {
     if (deletedProduct) {
@@ -33,7 +33,7 @@ const DiaryProductsList = ({
   }, [deletedProduct]);
 
   useEffect(() => {
-    console.log('Worked');
+    // console.log('Worked');
     getCalendarProducts(persistToken, dateCalendar).then(values =>
       setProductsItem(values.data)
     );
