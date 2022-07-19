@@ -1,4 +1,4 @@
-import { Container, AuthorizeGoogle } from '../../components';
+import { Container } from '../../components';
 import { WrapperFooter, FormButton, StyledElement } from './Footer.styles';
 import { SwitcherButton } from '../../theme/SwitcherButton.js';
 const Footer = ({ switchTheme }) => {
@@ -10,11 +10,10 @@ const Footer = ({ switchTheme }) => {
             Our team
           </FormButton>
           <SwitcherButton switchTheme={switchTheme} />
-          <AuthorizeGoogle />
+          {/* <AuthorizeGoogle /> */}
         </StyledElement>
       </Container>
     </WrapperFooter>
   );
 };
-
 export default Footer;

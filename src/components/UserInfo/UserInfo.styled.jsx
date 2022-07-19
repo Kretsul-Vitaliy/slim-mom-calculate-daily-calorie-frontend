@@ -16,7 +16,7 @@ const UserName = styled.p`
 
   font-family: 'GothamPro';
 
-  color: var(--text-main-color);
+  color: ${props => props.theme.exitButtonColor};
 `;
 
 const ExitButton = styled.button`
@@ -47,5 +47,4 @@ const Divider = styled.div`
   height: 32px;
   background-color: var(--header-divider-color);
 `;
-
 export { UserInfoBlock, Divider, UserName, ExitButton };
