@@ -57,12 +57,13 @@ const RegistrationForm = () => {
         email: values.email,
         password: values.password,
       };
-      dispatch(register(payload));
-      if (!payload.values.email) {
+
+      const isRegister = dispatch(register(payload));
+      if (isRegister === 200) {
         formik.resetForm();
         return notify();
       } else {
-        return;
+        return toast('Email is exist');
       }
     },
   });

@@ -52,7 +52,7 @@ export const register = newUser => async dispatch => {
   } catch (err) {
     if (err.response.status === 409) {
       dispatch(loginError('Пользователь с такими данными уже существует'));
-      toast.error(err.message);
+      // toast.error(err.message);
       dispatch(loginRequest());
       return;
     }
