@@ -20,9 +20,9 @@ import { useDispatch } from 'react-redux';
 import { register } from '../../redux/auth';
 import { AuthorizeGoogle } from '../../components';
 
-const WrapperButtonRegister = () => {
-  return {};
-};
+// const WrapperButtonRegister = () => {
+//   return {};
+// };
 
 const RegistrationForm = () => {
   const { t } = useTranslation();
