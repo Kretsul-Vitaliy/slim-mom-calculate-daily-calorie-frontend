@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/static/css/main.c527451e.css",
-    "main.js": "/static/js/main.024ba781.js",
+    "main.js": "/static/js/main.cc5e96ce.js",
     "static/media/bg_descktop2x.png": "/static/media/bg_descktop2x.17660870316578c2d702.png",
     "static/media/bg_tablet2x.png": "/static/media/bg_tablet2x.1516c215353718615494.png",
-    "static/media/Elena_Stepanchuk.jpeg": "/static/media/Elena_Stepanchuk.32fb5fd16f571fdf4124.jpeg",
     "static/media/Tetiana_Horban.jpg": "/static/media/Tetiana_Horban.e8dcea74823d456c60d7.jpg",
     "static/media/bg_descktop1x.png": "/static/media/bg_descktop1x.183a5e1ddadcd0b46606.png",
     "static/media/bg_tablet1x.png": "/static/media/bg_tablet1x.54a9ed222fb34fa4b897.png",
+    "static/media/Elena_Stepanchuk.jpeg": "/static/media/Elena_Stepanchuk.b4ef4a0f2ed9462bd17a.jpeg",
     "static/media/Maksym_Stelmakh.jpeg": "/static/media/Maksym_Stelmakh.20b00ec1de1bed551eca.jpeg",
     "static/media/Melnyk_Serhii.jpg": "/static/media/Melnyk_Serhii.70ff036b594f5aac0fd3.jpg",
     "static/media/Verdana.woff": "/static/media/Verdana.48368d57cdc69cb65189.woff",
@@ -28,10 +28,10 @@
     "static/media/calendar.svg": "/static/media/calendar.9200047ae8484f890ceaec6183b5632e.svg",
     "static/media/getFetch.cjs": "/static/media/getFetch.c780682470504fffbd04.cjs",
     "main.c527451e.css.map": "/static/css/main.c527451e.css.map",
-    "main.024ba781.js.map": "/static/js/main.024ba781.js.map"
+    "main.cc5e96ce.js.map": "/static/js/main.cc5e96ce.js.map"
   },
   "entrypoints": [
     "static/css/main.c527451e.css",
-    "static/js/main.024ba781.js"
+    "static/js/main.cc5e96ce.js"
   ]
 }
