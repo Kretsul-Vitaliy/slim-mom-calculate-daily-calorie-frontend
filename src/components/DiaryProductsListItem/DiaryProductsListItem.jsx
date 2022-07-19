@@ -14,16 +14,16 @@ const DiaryProductsListItem = ({
   const [dateNow, setDateNow] = useState(new Date());
 
   const { t } = useTranslation();
-
+  console.log(productsItem);
   return (
     <ProductsList margin={productsItem.length !== 0 ? '' : 'empty'}>
       <Scrollbars autoHeight>
         {productsItem.length !== 0 ? (
-          productsItem.map((product, i) => (
+          productsItem.map(product => (
             <li key={product.id || product._id}>
               <p>{product.nameProduct}</p>
               <p>{product.weight} g</p>
-              <p>{Math.round(product.calories * 0.01 * product.weight)} ccal</p>
+              <p>{product.calories} ccal</p>
               {dateCalendar === dateNow.toLocaleDateString() && (
                 <button
                   onClick={() => setDeletedProduct(product.id || product._id)}

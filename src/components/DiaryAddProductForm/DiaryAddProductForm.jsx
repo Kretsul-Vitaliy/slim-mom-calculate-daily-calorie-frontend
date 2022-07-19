@@ -59,7 +59,7 @@ const DiaryAddProductForm = ({
 
   useEffect(() => {
     if (formik.values.product.length === 3) {
-      getDataProducts(formik.values.product)
+      getDataProducts(formik.values.product.toLowerCase())
         .then(values => {
           if (values.data.total === 0) {
             toast.error(t?.('dpf.noInData'), {
