@@ -20,7 +20,7 @@ const team = [
     fullName: 'Alina Vikulova',
     position: 'Scrum master',
     photo: `.${AlinaVikulova}`,
-    linkedIn: '#',
+    linkedIn: 'https://www.linkedin.com/in/alina-vikulova',
     gitHub: 'https://github.com/AliVik',
   },
   {
@@ -52,7 +52,7 @@ const team = [
     fullName: 'Elena Stepanchuk',
     position: 'Front-end',
     photo: `.${ElenaStepanchuk}`,
-    linkedIn: '#',
+    linkedIn: 'https://www.linkedin.com/in/elena-stepanchuk/',
     gitHub: 'https://github.com/ElenaStepanchuk',
   },
   {
