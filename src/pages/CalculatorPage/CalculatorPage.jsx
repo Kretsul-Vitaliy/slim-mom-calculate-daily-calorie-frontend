@@ -5,7 +5,7 @@ import { getUserInfoCurrent } from '../../redux/user';
 import { DailyCaloriesForm, RightSideBar } from '../../components';
 import { Wrapper } from './CalculatorPage.styled';
 import { useSelector } from 'react-redux';
-import { getIsUserAuthorizate } from '../../redux/auth';
+import { getIsAuthenticated, getIsUserAuthorizate } from '../../redux/auth';
 const CalculatorPage = () => {
   const dispatch = useDispatch();
   const persistToken = useSelector(getIsUserAuthorizate);
@@ -13,12 +13,12 @@ const CalculatorPage = () => {
   useEffect(() => {
     dispatch(getUserInfoCurrent(persistToken));
   }, [dispatch, persistToken]);
-
+  const isAuth = useSelector(getIsAuthenticated);
   return (
     <>
       <Wrapper>
         <DailyCaloriesForm />
-        <RightSideBar />
+        {isAuth && <RightSideBar />}
       </Wrapper>
     </>
   );
