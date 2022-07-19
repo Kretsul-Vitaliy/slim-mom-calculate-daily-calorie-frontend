@@ -72,7 +72,7 @@ const RegistrationForm = () => {
               name="name"
               type="text"
               onChange={formik.handleChange}
-              pattern="[a-zA-Z]+"
+              pattern="^[A-Za-zА-Яа-яЁёІіЇїЄє' ]+$"
               value={name}
               autocomplete="off"
               required
@@ -90,7 +90,7 @@ const RegistrationForm = () => {
               name="email"
               type="email"
               onChange={formik.handleChange}
-              pattern="((?=.*[a-z])[a-zA-Z]"
+              pattern="^[-!#$%&'*+/=?^_`{|}~A-Za-z0-9]+(?:\.[-!#$%&'*+/=?^_`{|}~A-Za-z0-9]+)*@([A-Za-z0-9]([A-Za-z0-9-]*[A-Za-z0-9])?\.)+[A-Za-z0-9][A-Za-z0-9-]*[A-Za-z0-9]"
               password
               value={email}
               autocomplete="off"
