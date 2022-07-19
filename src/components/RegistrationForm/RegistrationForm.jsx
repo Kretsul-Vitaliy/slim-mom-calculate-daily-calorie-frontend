@@ -19,14 +19,14 @@ import {
 import { useDispatch } from 'react-redux';
 import { register } from '../../redux/auth';
 import { AuthorizeGoogle } from '../../components';
-
+import { useNavigate } from 'react-router-dom';
 // const WrapperButtonRegister = () => {
 //   return {};
 // };
 
 const RegistrationForm = () => {
   const { t } = useTranslation();
-
+  const navigate = useNavigate();
   const notify = () => toast(t?.('auth.verifyMail'));
 
   const dispatch = useDispatch();
@@ -67,6 +67,7 @@ const RegistrationForm = () => {
       } else if (isRegister === 429) {
         return toast('Too many requests, please try again 15 minutes');
       } else {
+        navigate('/login');
         return notify();
       }
     },
