@@ -13,6 +13,7 @@ const CalculatorPage = () => {
   useEffect(() => {
     dispatch(getUserInfoCurrent(persistToken));
   }, [dispatch, persistToken]);
+
   return (
     <>
       <Wrapper>

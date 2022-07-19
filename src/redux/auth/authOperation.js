@@ -52,7 +52,7 @@ export const register = newUser => async dispatch => {
   } catch (err) {
     if (err.response.status === 409) {
       dispatch(loginError('Пользователь с такими данными уже существует'));
-      toast.error(err.message);
+      // toast.error(err.message);
       dispatch(loginRequest());
       return;
     }
@@ -79,10 +79,6 @@ export const login = user => async dispatch => {
 export const logOut = () => async (dispatch, getState) => {
   const state = getState();
   const persistedToken = state.auth.authData.token;
-  console.log(
-    '🚀 ~ file: authOperation.js ~ line 82 ~ logOut ~ persistedToken',
-    persistedToken
-  );
   try {
     dispatch(logoutRequest());
     await logOutUser(persistedToken);

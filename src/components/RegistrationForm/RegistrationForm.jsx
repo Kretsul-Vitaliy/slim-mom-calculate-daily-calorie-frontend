@@ -20,6 +20,10 @@ import { useDispatch } from 'react-redux';
 import { register } from '../../redux/auth';
 import { AuthorizeGoogle } from '../../components';
 
+// const WrapperButtonRegister = () => {
+//   return {};
+// };
+
 const RegistrationForm = () => {
   const { t } = useTranslation();
 
@@ -53,9 +57,14 @@ const RegistrationForm = () => {
         email: values.email,
         password: values.password,
       };
-      dispatch(register(payload));
-      notify();
-      formik.resetForm();
+
+      const isRegister = dispatch(register(payload));
+      if (isRegister === 200) {
+        formik.resetForm();
+        return notify();
+      } else {
+        return toast('Email is exist');
+      }
     },
   });
 
