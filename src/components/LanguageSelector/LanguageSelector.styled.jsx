@@ -14,6 +14,7 @@ const SwitcherWrapper = styled.div`
   @media screen and (min-width: 1280px) {
     align-self: flex-end;
     transform: translate(0, -20%);
+    margin-right: auto;
   }
   @media screen and (max-width: 767px) {
     transform: translate(0, -5%);

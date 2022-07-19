@@ -76,6 +76,16 @@ const Menu = styled.div`
   display: flex;
 
   @media screen and (min-width: 1280px) {
+    /* flex-direction: row-reverse; */
+    gap: 16px;
+    flex: 1;
+  }
+`;
+
+const MenuIsLogged = styled.div`
+  display: flex;
+
+  @media screen and (min-width: 1280px) {
     flex-direction: row-reverse;
     gap: 16px;
     flex: 1;
@@ -123,6 +133,7 @@ export {
   Divider,
   NavList,
   Menu,
+  MenuIsLogged,
   BurgerButton,
   UserInfoWrapper,
 };
