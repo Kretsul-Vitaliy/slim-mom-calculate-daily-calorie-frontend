@@ -1,5 +1,5 @@
 import { toast } from 'react-toastify';
-
+import i18n from '../../i18n'
 import {
   registerRequest,
   registerSuccess,
@@ -51,14 +51,14 @@ export const register = newUser => async dispatch => {
     if (response.status === 201) {
       dispatch(registerSuccess(response.data));
       toast(
-        'Вам на пошту відправлено лист з підтверженням, будь ласка перевірте пошту та підтвердіть свій email'
+        i18n?.t?.('auth.verifyMail')
       );
     }
   } catch (err) {
     if (err.response.status === 409) {
-      dispatch(loginError('Пользователь с такими данными уже существует'));
+      dispatch(loginError(i18n?.t?.('auth.userInBase')));
       // toast.error(err.message);
-      toast('Email is exist');
+      toast(i18n?.t?.('auth.exEmail'));
       dispatch(loginRequest());
       return;
     }
@@ -73,12 +73,12 @@ export const login = user => async dispatch => {
     dispatch(loginSuccess(response));
   } catch (error) {
     if (error.response.status === 403) {
-      dispatch(loginError('Пользователь с такими данными не зарегистрирован'));
+      dispatch(loginError(i18n?.t?.("auth.userNotFound")));
       dispatch(loginRequest());
       return;
     }
     dispatch(loginError(error.message));
-    toast.error('User with such data is not registered');
+    toast.error(i18n?.t?.("auth.userNotFound"));
   }
 };
 
