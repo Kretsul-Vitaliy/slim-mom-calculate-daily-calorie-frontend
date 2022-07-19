@@ -1,10 +1,16 @@
 import { ThreeDots } from 'react-loader-spinner';
 import { LoaderWrapper } from './Loader.styled';
 
-const Loader = () => {
+const Loader = props => {
+  const color = props.theme.linkTextColor;
   return (
     <LoaderWrapper>
-      <ThreeDots height="100" width="100" color="#19cf2b" ariaLabel="loading" />
+      <ThreeDots
+        height="100"
+        width="100"
+        color={`${color}`}
+        ariaLabel="loading"
+      />
     </LoaderWrapper>
   );
 };
