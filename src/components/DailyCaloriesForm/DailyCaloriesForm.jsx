@@ -1,6 +1,6 @@
 import { useFormik } from 'formik';
 import useModal from '../../hooks/useModal';
-import {Button, Loader, Modal, DailyCalorieIntake} from '../../components';
+import { Button, Loader, Modal, DailyCalorieIntake } from '../../components';
 import { validate } from './validate';
 import { useSelector, useDispatch } from 'react-redux';
 import {
@@ -10,7 +10,7 @@ import {
   getCategoriesPrivate,
   getLoading,
   dailyCalories,
-  dailyCaloriesAuth
+  dailyCaloriesAuth,
 } from '../../redux/dailyCalories';
 import { getIsAuthenticated } from '../../redux/auth';
 import {

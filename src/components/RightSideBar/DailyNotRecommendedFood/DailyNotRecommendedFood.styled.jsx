@@ -37,7 +37,7 @@ export const Title = styled.h2`
   margin-bottom: 20px;
 `;
 
-export const Text = styled.p`
+export const Text = styled.div`
   font-family: 'Verdana';
   font-style: normal;
   font-weight: 400;

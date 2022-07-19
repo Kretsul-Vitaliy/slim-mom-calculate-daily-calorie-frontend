@@ -4,3 +4,8 @@ export const getUserBlood = state => state.user.userInfo.userData.bloodType; // 
 export const getDays = state => state.user.userInfo.days; // Дни юзера
 export const getNotAllowedProductsAll = state =>
   state.user.userInfo.userData.notAllowedProductsAll; //
+
+// statistical
+export const getUserCalories = state => state?.user?.userInfo?.calories;
+export const getUserCategories = state =>
+  state?.user?.userInfo?.userData?.categories;

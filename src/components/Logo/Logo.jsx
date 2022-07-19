@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
-import { Picture } from './Logo.styled';
+import { Picture, LinkPicture } from './Logo.styled';
 
 import desctop from '../../images/logo/logo-desctop.svg';
 import tablet from '../../images/logo/logo-tablet.svg';
@@ -8,7 +8,7 @@ import mobile from '../../images/logo/logo-mobile.svg';
 
 const Logo = () => {
   return (
-    <Link to="/calculator">
+    <LinkPicture to="/calculator">
       <Picture>
         <source
           media="(max-width: 767px)"
@@ -28,7 +28,7 @@ const Logo = () => {
         />
         <img src={mobile} alt="Логотип" />
       </Picture>
-    </Link>
+    </LinkPicture>
   );
 };
 

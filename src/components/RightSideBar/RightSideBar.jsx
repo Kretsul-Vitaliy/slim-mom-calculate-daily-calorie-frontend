@@ -1,9 +1,8 @@
-// import Container from '../Container';
 import DailyCalorieIntake from './DailyCalorieIntake';
 import DailyNotRecommendedFood from './DailyNotRecommendedFood';
 import { BoxBg, PositionConteiner } from './RacionSideBar.styled.jsx';
 
-const RightSideBar = ({ name = 'riko' }) => {
+const RightSideBar = () => {
   return (
     <BoxBg>
       <PositionConteiner>

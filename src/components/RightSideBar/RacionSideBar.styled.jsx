@@ -18,6 +18,7 @@ export const BoxBg = styled.div`
   }
 
   @media screen and (min-width: 1280px) {
+    /* position: absolute right top; */
     /* width: 517px;
     height: 850px; */
   }
