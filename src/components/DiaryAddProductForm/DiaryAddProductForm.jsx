@@ -26,16 +26,13 @@ const DiaryAddProductForm = ({
   const [possibleProducts, setPossibleProducts] = useState(null);
   const [savedProduct, setSavedProduct] = useState(null);
 
-  const { t, i18n } = useTranslation()
+  const { t, i18n } = useTranslation();
 
   const formSchema = yup.object().shape({
     product: yup
       .string()
       .typeError(t?.('dpf.productPlaceholder'))
-      .matches(
-        '^[A-Za-zА-Яа-яЁёІіЇїЄє%)(-. ]+$',
-        t?.('dpf.productContain')
-      )
+      .matches('^[A-Za-zА-Яа-яЁёІіЇїЄє%)(-. ]+$', t?.('dpf.productContain'))
       .required(t?.('auth.verReq')),
     grams: yup
       .number()
@@ -65,18 +62,15 @@ const DiaryAddProductForm = ({
       getDataProducts(formik.values.product)
         .then(values => {
           if (values.data.total === 0) {
-            toast.error(
-              t?.('dpf.noInData'),
-              {
-                position: 'top-right',
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-              }
-            );
+            toast.error(t?.('dpf.noInData'), {
+              position: 'top-right',
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+            });
           }
           console.log(values);
           setPossibleProducts(values.data.products);

@@ -18,7 +18,7 @@ const useModal = () => {
   const handleBackdropClick = event => {
     if (event.currentTarget === event.target) {
       setIsShowing(false);
-      console.log(`handleBackdropClick`);
+      // console.log(`handleBackdropClick`);
     }
   };
 

@@ -63,8 +63,8 @@
   },
   "rightSideBar": {
     "summary": "Звіт за",
-    "left": "Витрачено",
-    "consumed": "Споживається",
+    "left": "Споживається",
+    "consumed": "Витрачено",
     "dailyRate": "Добова норма",
     "persent": "n% вiд норми"
   },

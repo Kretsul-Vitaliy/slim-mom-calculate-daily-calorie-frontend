@@ -79,10 +79,6 @@ export const login = user => async dispatch => {
 export const logOut = () => async (dispatch, getState) => {
   const state = getState();
   const persistedToken = state.auth.authData.token;
-  console.log(
-    '🚀 ~ file: authOperation.js ~ line 82 ~ logOut ~ persistedToken',
-    persistedToken
-  );
   try {
     dispatch(logoutRequest());
     await logOutUser(persistedToken);

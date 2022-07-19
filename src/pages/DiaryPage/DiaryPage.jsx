@@ -8,6 +8,7 @@ import {
   DiaryProductsList,
   Button,
   Modal,
+  RightSideBar,
 } from '../../components';
 import TurnBack from '../../components/Modal';
 import useModal from '../../hooks/useModal';
@@ -31,11 +32,21 @@ const DiaryPage = () => {
   const handleOnChange = async () => {};
 
   useEffect(() => {
-    isAuth &&
-      setTimeout(() => {
-        dispatch(getDay(day));
-      }, 500);
-  }, [day, dispatch, isAuth]);
+    if (selectedProduct || gramsOfProducts || startDate || productsItem) {
+      isAuth &&
+        setTimeout(() => {
+          dispatch(getDay(day));
+        }, 500);
+    }
+  }, [
+    day,
+    dispatch,
+    gramsOfProducts,
+    isAuth,
+    selectedProduct,
+    startDate,
+    productsItem,
+  ]);
 
   return (
     <>
@@ -56,6 +67,7 @@ const DiaryPage = () => {
             setGramsOfProducts={setGramsOfProducts}
             toggle={toggle}
             isShowing={isShowing}
+            day={day}
           />
         </DesctopForm>
       )}
@@ -85,6 +97,7 @@ const DiaryPage = () => {
           isShowing={isShowing}
         />
       </Modal>
+      <RightSideBar />
     </>
   );
 };
