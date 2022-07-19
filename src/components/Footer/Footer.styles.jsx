@@ -9,6 +9,7 @@ const WrapperFooter = styled.div`
   }
   @media screen and (min-width: 1280px) {
     padding-top: 40px;
+    padding-bottom: 40px;
     z-index: 3;
   }
 `;

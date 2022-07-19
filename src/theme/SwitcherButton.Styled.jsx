@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const SwitcherButtonStyles = styled.form`
   /* position: relative; */
   z-index: 5;
-  margin: auto;
+  margin-left: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
