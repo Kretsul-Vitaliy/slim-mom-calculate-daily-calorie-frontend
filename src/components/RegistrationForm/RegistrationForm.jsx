@@ -59,11 +59,15 @@ const RegistrationForm = () => {
       };
 
       const isRegister = dispatch(register(payload));
-      if (isRegister === 200) {
+      if (isRegister === 201) {
         formik.resetForm();
         return notify();
-      } else {
+      }
+      if (isRegister === 409) {
         return toast('Email is exist');
+      }
+      if (isRegister === 429) {
+        return toast('Too many requests, please try again 15 minutes');
       }
     },
   });
