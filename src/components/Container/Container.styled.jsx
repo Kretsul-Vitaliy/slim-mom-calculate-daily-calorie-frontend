@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 
 export const ContainerWrapper = styled.div`
-  margin: auto;
+  margin: 0 auto;
+  position: relative;
   @media screen and (max-width: 767px) {
-    min-width: 320px;
+    min-width: 280px;
     padding: 0 20px;
   }
   @media screen and (min-width: 768px) {

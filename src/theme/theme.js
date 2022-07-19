@@ -58,6 +58,9 @@ export const darkTheme = {
 
   // Colors for switcher button
   btnSwitcherBackgroundColor: 'linear-gradient(90deg, #1ee41e, #191970)',
+
+  // Colors for footer
+  footerBorderdColor: 'var(--page-secondary-color)',
 };
 
 export const lightTheme = {
@@ -117,4 +120,7 @@ export const lightTheme = {
 
   // Colors for switcher button
   btnSwitcherBackgroundColor: 'linear-gradient(90deg, #e25c03, #ecf008)',
+
+  // Colors for footer
+  footerBorderdColor: 'var(--page-secondary-color)',
 };

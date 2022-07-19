@@ -3,7 +3,7 @@ import Button from '../Button';
 
 const WrapperFooter = styled.div`
   position: relative;
-  border-top: 2px solid ${props => props.theme.headerElborderBottomColor};
+  border-top: 2px solid ${props => props.theme.footerBorderdColor};
   @media screen and (max-width: 1279px) {
     padding: 20px 30px;
   }
