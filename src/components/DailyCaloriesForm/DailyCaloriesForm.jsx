@@ -15,6 +15,7 @@ import {
 import { getIsAuthenticated } from '../../redux/auth';
 import {
   Wrapper,
+  ButtonContainer,
   Title,
   Input,
   RadioTitle,
@@ -200,9 +201,12 @@ const DailyCaloriesForm = () => {
             </RadioGroup>
           </Box>
         </Container>
-        <Button size="long" type="submit">
-          {t?.('dcf.btn')}
-        </Button>
+        <ButtonContainer>
+          {' '}
+          <Button size="long" type="submit">
+            {t?.('dcf.btn')}
+          </Button>
+        </ButtonContainer>
       </form>
     </Wrapper>
   );
