@@ -21,7 +21,7 @@ const DiaryProductsList = ({
   // const [productsItem, setProductsItem] = useState(null);
   const [deletedProduct, setDeletedProduct] = useState(null);
 
-  const { i18n } = useTranslation()
+  const { i18n } = useTranslation();
 
   useEffect(() => {
     if (deletedProduct) {
@@ -43,11 +43,11 @@ const DiaryProductsList = ({
   useEffect(() => {
     if (selectedProduct) {
       const { title, calories } = selectedProduct;
-
+      const consumedCalories = Math.round(calories * 0.01 * gramsOfProducts);
       setCalendarProducts(
         title[i18n.language],
         gramsOfProducts,
-        calories,
+        consumedCalories,
         dateCalendar,
         persistToken
       )
