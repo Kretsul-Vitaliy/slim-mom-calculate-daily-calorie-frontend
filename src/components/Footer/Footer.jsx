@@ -16,5 +16,4 @@ const Footer = ({ switchTheme }) => {
     </WrapperFooter>
   );
 };
-
 export default Footer;
