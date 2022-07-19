@@ -57,7 +57,7 @@ const DailyCalorieIntake = () => {
         <ListItem>
           <ListItemData>{t?.('rightSideBar.persent')}</ListItemData>
           <ListItemData>
-            {percent ? percent : (percent = stok)} {t?.('dpi.ccal')}
+            {percent ? `${percent} %` : (percent = stok)} {t?.('dpi.ccal')}
           </ListItemData>
         </ListItem>
       </List>
