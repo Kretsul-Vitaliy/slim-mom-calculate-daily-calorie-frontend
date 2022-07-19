@@ -40,7 +40,7 @@ export const ButtonStyled = styled.button`
                 display: block;
                 padding:13px 25px;
                 width:210px;
-                margin: auto;
+                // margin: auto;
                 
             `;
       case 'addBtn':

@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  flex-wrap: wrap;
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 32px;
@@ -8,6 +12,7 @@ const Wrapper = styled.div`
     padding-top: 100px;
   }
   @media only screen and (min-width: 1280px) {
+    display: block;
     height: 850px;
     padding-top: 147px;
   }
@@ -30,7 +35,7 @@ const Title = styled.h2`
 const Input = styled.input`
   display: block;
   font-family: Verdana-Bold;
-  width: 100%;
+  width: 240px;
   /* padding-bottom: 8px; */
   font-size: 16px;
   color: ${props => props.theme.dailyCaloriFormInputColor};
@@ -89,6 +94,7 @@ const Line = styled.div`
 `;
 
 const RadioGroup = styled.div`
+  display: flex;
   margin-bottom: 40px;
   margin-top: 8px;
 
@@ -179,6 +185,11 @@ const ErrorsInput = styled.p`
     left: 0;
   }
 `;
+const ButtonContainer = styled.div`
+  @media only screen and (min-width: 1280px) {
+    padding-left: 315px;
+  }
+`;
 
 export {
   Wrapper,
@@ -194,4 +205,5 @@ export {
   Label,
   Line,
   ErrorsInput,
+  ButtonContainer,
 };
