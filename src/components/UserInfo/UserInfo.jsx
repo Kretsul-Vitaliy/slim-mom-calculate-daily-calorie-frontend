@@ -19,8 +19,13 @@ const UserInfo = () => {
   const navigate = useNavigate();
 
   const onExitClick = async () => {
-    dispatch(logOut());
-    navigate('/login');
+    try {
+      await dispatch(logOut());
+    } catch (error) {
+      console.log(error);
+    } finally {
+      navigate('/login');
+    }
   };
 
   return (

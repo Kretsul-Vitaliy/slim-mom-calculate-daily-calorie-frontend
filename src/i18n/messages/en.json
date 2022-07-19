@@ -26,7 +26,10 @@
     "verifyMail": "Please, check your email and confirm your account!",
     "verMin": "Too Short!",
     "verMax": "Too Long!",
-    "verReq": "Required"
+    "verReq": "Required",
+    "userInBase": "User with such data already exists",
+    "exEmail": "Email is exist",
+    "userNotFound": "User with such data is not registered"
   },
   "dci": {
     "title": "Your recommended daily calorie intake is",
