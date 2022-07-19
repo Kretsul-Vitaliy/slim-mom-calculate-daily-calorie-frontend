@@ -25,6 +25,8 @@ export const SwitcherButtonStyles = styled.form`
   @media screen and (min-width: 1280px) {
     font-family: 'Gotham Pro';
     font-size: 14px;
+    margin-left: 0;
+    margin-right: 500px;
     /* top: 115px; */
   }
 

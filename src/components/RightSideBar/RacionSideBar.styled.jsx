@@ -18,12 +18,12 @@ export const BoxBg = styled.div`
   }
 
   @media screen and (min-width: 1280px) {
-  
     height: 100%;
-    position: absolute;
+    /* position: absolute; */
     top: 0;
     bottom: 0;
-    right: 0;
+    /* right: 0; */
+    /* z-index: 10; */
   }
 `;
 
@@ -69,7 +69,11 @@ export const PositionConteiner = styled.div`
     /* margin-right: 0px; */
 
     width: 517px;
-    height: 850px;
+    /* height: 1056px; */
+    margin-top: -80px;
+    height: calc(100vh + 126px);
+    /* padding-top: 80px;
+    padding-bottom: 40px; */
 
     background-image: url(${backGroundDes});
     /* background-attachment: scroll; */
