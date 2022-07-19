@@ -42,7 +42,7 @@ export default function LoginForm() {
 
     onSubmit: async ({ email, password }) => {
       dispatch(login({ email, password }));
-      isLogged ? formik.resetForm() : formik.isSubmitting(false);
+      isLogged ? formik.resetForm() : formik.setValues({ email, password });
     },
   });
 
