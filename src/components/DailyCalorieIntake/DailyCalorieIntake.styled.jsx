@@ -64,5 +64,18 @@ const Item = styled.li`
   margin-top: 20px;
   color: var(--text-secondary-color);
 `;
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 
-export { ModalContent, Title, List, Text, TitleList, Item, Line };
+export {
+  ModalContent,
+  ButtonContainer,
+  Title,
+  List,
+  Text,
+  TitleList,
+  Item,
+  Line,
+};
