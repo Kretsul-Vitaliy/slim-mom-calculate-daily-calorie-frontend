@@ -54,18 +54,13 @@ const RegistrationForm = () => {
         email: values.email,
         password: values.password,
       };
-
       const isRegister = dispatch(register(payload));
-
-      formik.resetForm();
-
-      if (isRegister === 409) {
-        return toast('Email is exist');
-      } else if (isRegister === 429) {
-        return toast('Too many requests, please try again 15 minutes');
-      } else {
+      if (isRegister) {
+        formik.resetForm();
         navigate('/login');
-        return notify();
+      } else {
+        notify();
+        return;
       }
     },
   });
