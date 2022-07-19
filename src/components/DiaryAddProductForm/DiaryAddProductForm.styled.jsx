@@ -7,7 +7,7 @@ export const MainContainer = styled.div`
 export const ModalSubmitButton = styled.div`
   display: flex;
   justify-content: center;
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 769px) {
     display: none;
   }
 `;
