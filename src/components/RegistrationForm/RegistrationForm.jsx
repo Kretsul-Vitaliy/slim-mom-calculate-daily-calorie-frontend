@@ -54,14 +54,10 @@ const RegistrationForm = () => {
         email: values.email,
         password: values.password,
       };
-      const isRegister = dispatch(register(payload));
-      if (isRegister) {
-        formik.resetForm();
-        navigate('/login');
-      } else {
-        notify();
-        return;
-      }
+      dispatch(register(payload));
+      notify();
+      formik.resetForm();
+      navigate('/login');
     },
   });
 

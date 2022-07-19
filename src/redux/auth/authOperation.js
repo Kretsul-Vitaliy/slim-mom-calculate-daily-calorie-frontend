@@ -48,10 +48,12 @@ export const register = newUser => async dispatch => {
   dispatch(registerRequest());
   try {
     const response = await signUpUser(newUser);
-    dispatch(registerSuccess(response.data));
-    toast(
-      'Вам на пошту відправлено лист з підтверженням, будь ласка перевірте пошту та підтвердіть свій email'
-    );
+    if (response.status === 201) {
+      dispatch(registerSuccess(response.data));
+      toast(
+        'Вам на пошту відправлено лист з підтверженням, будь ласка перевірте пошту та підтвердіть свій email'
+      );
+    }
   } catch (err) {
     if (err.response.status === 409) {
       dispatch(loginError('Пользователь с такими данными уже существует'));
