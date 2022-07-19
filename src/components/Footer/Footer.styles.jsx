@@ -5,8 +5,7 @@ const WrapperFooter = styled.div`
   position: relative;
   border-top: 2px solid ${props => props.theme.headerElborderBottomColor};
   @media screen and (max-width: 1279px) {
-    border-bottom: 2px solid ${props => props.theme.headerElborderBottomColor};
-    padding: 20px 20px 30px 20px;
+    padding: 20px 30px;
   }
   @media screen and (min-width: 1280px) {
     padding-top: 40px;
@@ -16,13 +15,22 @@ const WrapperFooter = styled.div`
 
 const FormButton = styled(Button)`
   z-index: 5;
-  margin-bottom: 30px;
+  margin-right: 5px;
+
+  @media screen and (max-width: 500px) {
+    margin-bottom: 30px;
+  }
 `;
 
 const StyledElement = styled.div`
-  display: flex;
-  justify-content: space-between;
+  margin: auto;
   position: relative;
+  text-align: center;
+
+  @media screen and (min-width: 500px) {
+    display: flex;
+    justify-content: space-between;
+  }
 `;
 
 export { WrapperFooter, FormButton, StyledElement };

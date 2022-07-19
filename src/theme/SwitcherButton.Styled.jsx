@@ -3,18 +3,17 @@ import styled from 'styled-components';
 export const SwitcherButtonStyles = styled.form`
   /* position: relative; */
   z-index: 5;
-  position: absolute;
-  top: 5px;
+  margin: auto;
   display: flex;
-  align-items: stretch;
-  justify-content: stretch;
+  align-items: center;
+  justify-content: center;
   width: 120px;
   font-family: 'Verdana';
   font-weight: 700;
   font-size: 14px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  left: 50%;
+
   transform: translateX(-50%);
   @media screen and (max-width: 768px) {
     top: 60px;
