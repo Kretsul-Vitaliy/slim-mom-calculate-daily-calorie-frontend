@@ -10,11 +10,7 @@ export const BoxBg = styled.div`
   background-color: var(--page-secondary-color);
 
   @media screen and (min-width: 768px) {
-    max-width: 1279px;
-    /* max-width: 1279px; */
     height: 326px;
-
-    max-width: 1280px;
   }
 
   @media screen and (min-width: 1280px) {
