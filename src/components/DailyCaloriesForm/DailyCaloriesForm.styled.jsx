@@ -4,12 +4,14 @@ const Wrapper = styled.div`
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 32px;
-  @media only screen and (min-width: 769px) {
-    padding-top: 100px;
+  padding-bottom: 41px;
+  @media only screen and (min-width: 768px) {
+    padding-bottom: 48px;
   }
   @media only screen and (min-width: 1280px) {
     height: 850px;
     padding-top: 147px;
+    padding-bottom: 0;
   }
 `;
 
