@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { login } from '../../redux/auth';
 import * as Yup from 'yup';
-import Button from '../Button';
+import { Button, AuthorizeGoogle } from '../../components';
 import {
   Labels,
   Input,
@@ -88,6 +88,7 @@ export default function LoginForm() {
         </Button>
 
         <StyledNavLink to="/signup">{t?.('auth.register')}</StyledNavLink>
+        <AuthorizeGoogle />
       </ButtonsWrapper>
     </Form>
   );

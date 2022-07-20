@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 export const Form = styled.form`
-position: relative;
+  position: relative;
   display: flex;
   flex-direction: column;
   margin-top: 60px;
@@ -20,19 +20,19 @@ position: relative;
 export const InputBox = styled.div`
   position: relative;
 
-  &[name="email"]{
+  &[name='email'] {
     margin-bottom: 40px;
   }
 
-  &[name="password"]{
+  &[name='password'] {
     margin-bottom: 60px;
   }
 `;
 
 export const Labels = styled.label`
-position: absolute;
-top: -10px;
-left: 0;
+  position: absolute;
+  top: -10px;
+  left: 0;
 
   font-family: Verdana-Bold;
   font-size: 14px;
@@ -45,7 +45,7 @@ left: 0;
 export const Input = styled.input`
   border: none;
   border-bottom: 1px solid var(--header-divider-color);
-  color: ${props=>props.theme.inputTextColor};
+  color: ${props => props.theme.inputTextColor};
   height: 20px;
   outline: none;
   width: 280px;
@@ -56,13 +56,13 @@ export const Input = styled.input`
   }
 
   @media screen and (min-width: 768px) {
-   width: 240px;
+    width: 240px;
   }
 
-  &:focus{
-    border-bottom: 2px solid ${props=>props.theme.titleColor};
+  &:focus {
+    border-bottom: 2px solid ${props => props.theme.titleColor};
   }
-  &:focus ~ label{
+  &:focus ~ label {
     position: absolute;
     top: -15px;
     left: 0;
@@ -84,7 +84,7 @@ export const ButtonsWrapper = styled.div`
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
-    max-width: 396px;
+    width: 700px;
 
     & button:first-child {
       margin-right: 32px;
@@ -99,7 +99,6 @@ export const ButtonText = styled.span`
   letter-spacing: 0.04em;
 `;
 export const StyledNavLink = styled(NavLink)`
-  
   display: flex;
   align-items: center;
   justify-content: center;
@@ -123,7 +122,6 @@ export const StyledNavLink = styled(NavLink)`
     color: ${props => props.theme.btnFocusHoverTextColor};
     box-shadow: 0px 4px 10px ${props => props.theme.boxShadowColor};
   }
-
 `;
 
 export const MessageError = styled.div`
@@ -132,6 +130,4 @@ export const MessageError = styled.div`
   line-height: 1.21;
   letter-spacing: 0.04em;
   color: ${props => props.theme.MessageErrorColor};
-
-
 `;
