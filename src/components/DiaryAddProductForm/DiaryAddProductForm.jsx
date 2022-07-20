@@ -35,7 +35,7 @@ const DiaryAddProductForm = ({
       .required(t?.('auth.verReq')),
     grams: yup
       .number()
-      .max(5000)
+      .max(2924)
       .min(1)
       .integer()
       .typeError(t?.('dpf.enterGram'))
