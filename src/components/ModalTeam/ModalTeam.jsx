@@ -21,14 +21,14 @@ const ModalTeam = ({ isShowing, hide, children }) => {
                 e.stopPropagation();
               }}
             >
-              <ButtonClose
+              {/* <ButtonClose
                 type="button"
                 data-dismiss="modal"
                 aria-label="Close"
                 onClick={hide}
               >
                 <RiCloseFill size={23} />
-              </ButtonClose>
+              </ButtonClose> */}
               {children}
             </ModalContainer>
           </ModalWrapper>

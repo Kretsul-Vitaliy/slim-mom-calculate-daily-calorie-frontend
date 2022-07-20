@@ -19,8 +19,8 @@ const ModalWrapper = styled.div`
   z-index: 1050;
   width: 100%;
   height: 100%;
-  overflow-x: hidden;
-  overflow-y: auto;
+  /* overflow-x: hidden;
+  overflow-y: auto; */
   outline: 0;
 `;
 
@@ -35,10 +35,10 @@ const ModalContainer = styled.div`
   padding-left: 20px;
   padding-right: 20px;
   @media only screen and (min-width: 769px) {
-    position: absolute;
+    /* position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); */
     /* width: 672px; */
     padding-top: 64px;
     padding-bottom: 81px;
