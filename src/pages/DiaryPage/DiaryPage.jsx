@@ -16,6 +16,7 @@ import useModal from '../../hooks/useModal';
 import { getIsAuthenticated, getIsUserAuthorizate } from '../../redux/auth';
 import { DesctopForm, ButtonOpenModal } from './DiaryPage.styled';
 import { getDay } from '../../redux/products/ProductsOperation';
+import { getUserInfoCurrent } from '../../redux/user/userOperation';
 
 const DiaryPage = () => {
   const [startDate, setStartDate] = useState(new Date());
@@ -32,6 +33,9 @@ const DiaryPage = () => {
 
   const handleOnChange = async () => {};
 
+  useEffect(() => {
+    dispatch(getUserInfoCurrent(persistToken));
+  }, [dispatch, persistToken]);
   useEffect(() => {
     if (selectedProduct || gramsOfProducts || startDate || productsItem) {
       isAuth &&

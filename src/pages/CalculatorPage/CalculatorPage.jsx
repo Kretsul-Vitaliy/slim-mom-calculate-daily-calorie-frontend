@@ -9,11 +9,11 @@ import { getIsAuthenticated, getIsUserAuthorizate } from '../../redux/auth';
 const CalculatorPage = () => {
   const dispatch = useDispatch();
   const persistToken = useSelector(getIsUserAuthorizate);
+  const isAuth = useSelector(getIsAuthenticated);
 
   useEffect(() => {
-    dispatch(getUserInfoCurrent(persistToken));
-  }, [dispatch, persistToken]);
-  const isAuth = useSelector(getIsAuthenticated);
+    isAuth && dispatch(getUserInfoCurrent(persistToken));
+  }, [dispatch, isAuth, persistToken]);
   return (
     <>
       <Wrapper>

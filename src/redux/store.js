@@ -51,7 +51,7 @@ const store = configureStore({
       },
     }).concat(logger),
 
-  // devTools: process.env.NODE_ENV === 'development',
+  devTools: process.env.NODE_ENV === 'development',
 });
 
 const persistor = persistStore(store);
