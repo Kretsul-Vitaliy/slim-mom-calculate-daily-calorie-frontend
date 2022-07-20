@@ -21,7 +21,7 @@ import {
 // Операция получения информации по определённому дню
 export const getDay = date => async (dispatch, getState) => {
   const state = getState();
-  const persistedToken = state.auth.token;
+  const persistedToken = state.auth.authData.token;
   if (!persistedToken) {
     return;
   }
@@ -40,7 +40,7 @@ export const getDay = date => async (dispatch, getState) => {
 export const addProduct =
   (name, weight, calories, date) => async (dispatch, getState) => {
     const state = getState();
-    const persistedToken = state.auth.token;
+    const persistedToken = state.auth.authData.token;
     if (!persistedToken) {
       return;
     }
@@ -58,7 +58,7 @@ export const addProduct =
 
 export const deleteProduct = dayId => async (dispatch, getState) => {
   const state = getState();
-  const persistedToken = state.auth.token;
+  const persistedToken = state.auth.authData.token;
   if (!persistedToken) {
     return;
   }

@@ -22,6 +22,7 @@ export const GoogleBtn = styled(Button)`
   align-items: center;
   justify-content: center;
   margin-top: 20px;
+
   @media screen and (min-width: 768px) {
     margin-top: 0;
   }

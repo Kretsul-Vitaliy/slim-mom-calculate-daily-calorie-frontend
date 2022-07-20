@@ -1,5 +1,5 @@
-export const getIsAuthenticated = state => state?.auth?.isLogged;
-export const getIsUserAuthorizate = state => state?.auth?.token;
+export const getIsAuthenticated = state => state?.auth?.authData?.token;
+export const getIsUserAuthorizate = state => state?.auth?.authData?.token;
 export const getIsUserRefreshToken = state =>
   state?.auth?.authData?.refreshToken;
 export const getSid = state => state?.auth?.authData?.sid;

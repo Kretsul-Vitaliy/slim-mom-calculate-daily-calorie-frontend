@@ -14,7 +14,11 @@ import {
 import TurnBack from '../../components/Modal';
 import useModal from '../../hooks/useModal';
 import { getIsAuthenticated, getIsUserAuthorizate } from '../../redux/auth';
-import { DesctopForm, ButtonOpenModal } from './DiaryPage.styled';
+import {
+  DesctopForm,
+  ButtonOpenModal,
+  DiaryPageContainer,
+} from './DiaryPage.styled';
 import { getDay } from '../../redux/products/ProductsOperation';
 import { getUserInfoCurrent } from '../../redux/user/userOperation';
 
@@ -34,10 +38,20 @@ const DiaryPage = () => {
   const handleOnChange = async () => {};
 
   useEffect(() => {
-    dispatch(getUserInfoCurrent(persistToken));
-  }, [dispatch, persistToken]);
+    isAuth &&
+      setTimeout(() => {
+        dispatch(getUserInfoCurrent(persistToken));
+      }, 500);
+  }, [dispatch, isAuth, persistToken]);
+
   useEffect(() => {
-    if (selectedProduct || gramsOfProducts || startDate || productsItem) {
+    if (
+      selectedProduct ||
+      gramsOfProducts ||
+      startDate ||
+      productsItem ||
+      dateNow.toLocaleDateString()
+    ) {
       isAuth &&
         setTimeout(() => {
           dispatch(getDay(day));
@@ -51,6 +65,7 @@ const DiaryPage = () => {
     selectedProduct,
     startDate,
     productsItem,
+    dateNow,
   ]);
 
   return (
@@ -76,24 +91,24 @@ const DiaryPage = () => {
           />
         </DesctopForm>
       )}
-
-      <DiaryProductsList
-        dateCalendar={startDate.toLocaleDateString()}
-        selectedProduct={selectedProduct}
-        setSelectedProduct={setSelectedProduct}
-        gramsOfProducts={gramsOfProducts}
-        persistToken={persistToken}
-        productsItem={productsItem}
-        setProductsItem={setProductsItem}
-      />
-      {startDate.toLocaleDateString() === dateNow.toLocaleDateString() && (
-        <ButtonOpenModal>
-          <Button type="button" size="addRoundBtn" onClick={toggle}>
-            +
-          </Button>
-        </ButtonOpenModal>
-      )}
-
+      <DiaryPageContainer>
+        <DiaryProductsList
+          dateCalendar={startDate.toLocaleDateString()}
+          selectedProduct={selectedProduct}
+          setSelectedProduct={setSelectedProduct}
+          gramsOfProducts={gramsOfProducts}
+          persistToken={persistToken}
+          productsItem={productsItem}
+          setProductsItem={setProductsItem}
+        />
+        {startDate.toLocaleDateString() === dateNow.toLocaleDateString() && (
+          <ButtonOpenModal>
+            <Button type="button" size="addRoundBtn" onClick={toggle}>
+              +
+            </Button>
+          </ButtonOpenModal>
+        )}
+      </DiaryPageContainer>
       <Modal isShowing={isShowing} hide={toggle}>
         <DiaryAddProductForm
           setSelectedProduct={setSelectedProduct}

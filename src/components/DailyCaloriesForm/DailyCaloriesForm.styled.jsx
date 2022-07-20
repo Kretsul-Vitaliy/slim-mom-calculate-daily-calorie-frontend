@@ -25,12 +25,16 @@ const Title = styled.h2`
   font-size: 18px;
   line-height: 1.4;
   color: ${props => props.theme.dailyCaloriFormTittleColor};
-
   margin-bottom: 32px;
+
   @media only screen and (min-width: 769px) {
     font-size: 34px;
     line-height: 1.2;
     margin-bottom: 68px;
+    margin-top: 68px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-top: 108px;
   }
 `;
 

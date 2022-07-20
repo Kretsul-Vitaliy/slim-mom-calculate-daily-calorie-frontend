@@ -5,6 +5,11 @@ import AlinaVikulova from '../../images/team/Alina_Vikulova.jpg';
 import YakovHomylev from '../../images/team/Yakov_Homylev.jpg';
 import ElenaStepanchuk from '../../images/team/Elena_Stepanchuk.jpeg';
 import TetianaHorban from '../../images/team/Tetiana_Horban.jpg';
+import DmitrySolyanik from '../../images/team/Dmitry_Solyanik.jpg';
+import NataliiaTrushevska from '../../images/team/Nataliia_Trushevska.jpg';
+import OlhaKukailo from '../../images/team/Olha_Kukailo.jpg';
+import NataliaGalitskaya from '../../images/team/Natalia_Galitskaya.jpg';
+import OlhaSuprun from '../../images/team/Olha_Suprun.jpg';
 const team = [
   {
     id: 1,
@@ -78,6 +83,46 @@ const team = [
     photo: `.${YakovHomylev}`,
     linkedIn: '#',
     gitHub: 'https://github.com/DramonBuster',
+  },
+  {
+    id: 10,
+    fullName: 'Dmitry Solyanik',
+    position: 'QA engineer Team Leader ',
+    photo: `.${DmitrySolyanik}`,
+    linkedIn: 'https://www.linkedin.com/in/dmitry-solyanik/',
+    gitHub: '#',
+  },
+  {
+    id: 11,
+    fullName: 'Nataliia Trushevska',
+    position: 'QA engineer',
+    photo: `.${NataliiaTrushevska}`,
+    linkedIn: '#',
+    gitHub: '#',
+  },
+  {
+    id: 12,
+    fullName: 'Olha Kukailo',
+    position: 'QA engineer',
+    photo: `.${OlhaKukailo}`,
+    linkedIn: 'https://www.linkedin.com/in/olha-kukailo-403460138/',
+    gitHub: '#',
+  },
+  {
+    id: 13,
+    fullName: 'Natalia Galitskaya',
+    position: 'QA engineer',
+    photo: `.${NataliaGalitskaya}`,
+    linkedIn: 'https://www.linkedin.com/in/natali-galitskaya-suhova-74564684/',
+    gitHub: 'https://github.com/Natali-Gal',
+  },
+  {
+    id: 14,
+    fullName: 'Olha Suprun',
+    position: 'QA engineer',
+    photo: `.${OlhaSuprun}`,
+    linkedIn: 'https://www.linkedin.com/in/olhasuprun/',
+    gitHub: '',
   },
 ];
 export default team;

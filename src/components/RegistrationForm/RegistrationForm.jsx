@@ -136,9 +136,9 @@ const RegistrationForm = () => {
           >
             {t?.('auth.register')}
           </RegistrationButton>
-          <AuthorizeGoogle />
         </ButtonContainer>
       </form>
+      <AuthorizeGoogle />
     </ContainerRegistration>
   );
 };
