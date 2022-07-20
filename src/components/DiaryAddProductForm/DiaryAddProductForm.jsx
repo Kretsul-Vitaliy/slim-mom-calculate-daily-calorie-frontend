@@ -35,7 +35,7 @@ const DiaryAddProductForm = ({
       .required(t?.('auth.verReq')),
     grams: yup
       .number()
-      .max(5000)
+      .max(2924)
       .min(1)
       .integer()
       .typeError(t?.('dpf.enterGram'))
@@ -58,7 +58,7 @@ const DiaryAddProductForm = ({
   });
 
   useEffect(() => {
-    if (formik.values.product.length === 3) {
+    if (formik.values.product.length > 2) {
       getDataProducts(formik.values.product.toLowerCase())
         .then(values => {
           if (values.data.total === 0) {
