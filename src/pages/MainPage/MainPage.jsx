@@ -1,4 +1,4 @@
-import { DailyCaloriesForm } from '../../components';
+import { DailyCaloriesForm, Container } from '../../components';
 // import Header from '../../components/Header';
 
 // import LanguageSelector from '../../components/LanguageSelector';
@@ -14,7 +14,7 @@ const MainPage = () => {
 
   return (
     <>
-      <div>
+      <Container>
         {/* <h3>MainPage</h3>
         <p>{t('test')}</p>
         <button onClick={() => changeLanguage('ru')}>ru</button>
@@ -27,7 +27,7 @@ const MainPage = () => {
         <DailyCaloriesForm />
         {/* <AuthorizeGoogle /> */}
         {/* </Container> */}
-      </div>
+      </Container>
     </>
   );
 };

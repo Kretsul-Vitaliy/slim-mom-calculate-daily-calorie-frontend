@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { LoginForm, Section } from '../../components';
+import { LoginForm, Section, Container } from '../../components';
 import { SignInHeader } from './LoginPage.styled';
 
 const LoginPage = () => {
@@ -7,8 +7,10 @@ const LoginPage = () => {
 
   return (
     <Section>
-      <SignInHeader>{t?.('auth.signInTitle')}</SignInHeader>
-      <LoginForm />
+      <Container>
+        <SignInHeader>{t?.('auth.signInTitle')}</SignInHeader>
+        <LoginForm />
+      </Container>
     </Section>
   );
 };

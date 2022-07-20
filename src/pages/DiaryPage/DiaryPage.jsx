@@ -9,6 +9,7 @@ import {
   Button,
   Modal,
   RightSideBar,
+  Container,
 } from '../../components';
 import TurnBack from '../../components/Modal';
 import useModal from '../../hooks/useModal';
@@ -49,7 +50,7 @@ const DiaryPage = () => {
   ]);
 
   return (
-    <>
+    <Container>
       <TurnBack>
         <Link to="/">
           <IoMdReturnLeft size={13} />
@@ -98,7 +99,7 @@ const DiaryPage = () => {
         />
       </Modal>
       <RightSideBar />
-    </>
+    </Container>
   );
 };
 

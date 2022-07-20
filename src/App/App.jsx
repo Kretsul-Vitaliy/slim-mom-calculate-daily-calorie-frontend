@@ -82,64 +82,64 @@ const App = () => {
         <BackgroundContainer>
           <GlobalStyle />
           <Header />
-          <Container>
-            <Suspense fallback={<Loader />}>
-              <Routes>
-                <Route
-                  path="/"
-                  element={
-                    <PublicRoute redirectTo="/calculator">
-                      <MainPage />
-                    </PublicRoute>
-                  }
-                ></Route>
-                <Route
-                  path="login"
-                  element={
-                    <PublicRoute restricted redirectTo="/calculator">
-                      <LoginPage />
-                    </PublicRoute>
-                  }
-                ></Route>
-                <Route
-                  path="signup"
-                  element={
-                    <PublicRoute restricted redirectTo="/login">
-                      <RegistrationPage />
-                    </PublicRoute>
-                  }
-                />
-                <Route
-                  path="diary"
-                  element={
-                    <PrivateRoute redirectTo="/login">
-                      <DiaryPage />
-                    </PrivateRoute>
-                  }
-                />
-                <Route
-                  path="calculator"
-                  element={
-                    <PublicRoute redirectTo="/login">
-                      <CalculatorPage />
-                    </PublicRoute>
-                  }
-                />
-                <Route
-                  path="google"
-                  element={
-                    <PublicRoute restricted redirectTo="/login">
-                      <CalculatorPage />
-                    </PublicRoute>
-                  }
-                />
-                <Route path="*" element={<Navigate to="/login" />} />
-              </Routes>
-              <Outlet />
-            </Suspense>
+          {/* <Container> */}
+          <Suspense fallback={<Loader />}>
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <PublicRoute redirectTo="/calculator">
+                    <MainPage />
+                  </PublicRoute>
+                }
+              ></Route>
+              <Route
+                path="login"
+                element={
+                  <PublicRoute restricted redirectTo="/calculator">
+                    <LoginPage />
+                  </PublicRoute>
+                }
+              ></Route>
+              <Route
+                path="signup"
+                element={
+                  <PublicRoute restricted redirectTo="/login">
+                    <RegistrationPage />
+                  </PublicRoute>
+                }
+              />
+              <Route
+                path="diary"
+                element={
+                  <PrivateRoute redirectTo="/login">
+                    <DiaryPage />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="calculator"
+                element={
+                  <PublicRoute redirectTo="/login">
+                    <CalculatorPage />
+                  </PublicRoute>
+                }
+              />
+              <Route
+                path="google"
+                element={
+                  <PublicRoute restricted redirectTo="/login">
+                    <CalculatorPage />
+                  </PublicRoute>
+                }
+              />
+              <Route path="*" element={<Navigate to="/login" />} />
+            </Routes>
+            <Outlet />
+          </Suspense>
 
-            <ToastContainer autoClose={2500} />
-          </Container>
+          <ToastContainer autoClose={2500} />
+          {/* </Container> */}
           {/* </ThemeProvider> */}
         </BackgroundContainer>
         <Footer switchTheme={setTheme}></Footer>
