@@ -25,7 +25,7 @@ import {
 // const initUserState = { name: null, email: null };
 
 const persistConfig = {
-  key: 'token',
+  key: 'slimMom',
   version: 1,
   storage,
   whitelist: ['token', 'sid', 'auth', 'user'],
