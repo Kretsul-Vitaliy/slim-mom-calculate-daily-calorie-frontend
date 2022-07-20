@@ -25,7 +25,7 @@ const Title = styled.h2`
     margin-bottom: 20px;
   }
   @media screen and (min-width: 1280px) {
-    margin-top: 140px;
+    /* margin-top: 140px; */
   }
 `;
 const Text = styled.p`
