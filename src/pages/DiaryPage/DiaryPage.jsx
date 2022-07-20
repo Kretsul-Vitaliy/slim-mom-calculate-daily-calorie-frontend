@@ -14,7 +14,11 @@ import {
 import TurnBack from '../../components/Modal';
 import useModal from '../../hooks/useModal';
 import { getIsAuthenticated, getIsUserAuthorizate } from '../../redux/auth';
-import { DesctopForm, ButtonOpenModal } from './DiaryPage.styled';
+import {
+  DesctopForm,
+  ButtonOpenModal,
+  DiaryPageContainer,
+} from './DiaryPage.styled';
 import { getDay } from '../../redux/products/ProductsOperation';
 import { getUserInfoCurrent } from '../../redux/user/userOperation';
 
@@ -76,24 +80,24 @@ const DiaryPage = () => {
           />
         </DesctopForm>
       )}
-
-      <DiaryProductsList
-        dateCalendar={startDate.toLocaleDateString()}
-        selectedProduct={selectedProduct}
-        setSelectedProduct={setSelectedProduct}
-        gramsOfProducts={gramsOfProducts}
-        persistToken={persistToken}
-        productsItem={productsItem}
-        setProductsItem={setProductsItem}
-      />
-      {startDate.toLocaleDateString() === dateNow.toLocaleDateString() && (
-        <ButtonOpenModal>
-          <Button type="button" size="addRoundBtn" onClick={toggle}>
-            +
-          </Button>
-        </ButtonOpenModal>
-      )}
-
+      <DiaryPageContainer>
+        <DiaryProductsList
+          dateCalendar={startDate.toLocaleDateString()}
+          selectedProduct={selectedProduct}
+          setSelectedProduct={setSelectedProduct}
+          gramsOfProducts={gramsOfProducts}
+          persistToken={persistToken}
+          productsItem={productsItem}
+          setProductsItem={setProductsItem}
+        />
+        {startDate.toLocaleDateString() === dateNow.toLocaleDateString() && (
+          <ButtonOpenModal>
+            <Button type="button" size="addRoundBtn" onClick={toggle}>
+              +
+            </Button>
+          </ButtonOpenModal>
+        )}
+      </DiaryPageContainer>
       <Modal isShowing={isShowing} hide={toggle}>
         <DiaryAddProductForm
           setSelectedProduct={setSelectedProduct}

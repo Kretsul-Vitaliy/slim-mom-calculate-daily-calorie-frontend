@@ -14,3 +14,10 @@ export const ButtonOpenModal = styled.div`
     display: none;
   }
 `;
+
+export const DiaryPageContainer = styled.div`
+  height: 600px;
+  @media screen and (max-width: 768px) {
+    height: 300px;
+  }
+`;
