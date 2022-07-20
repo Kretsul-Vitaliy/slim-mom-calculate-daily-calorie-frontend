@@ -135,6 +135,17 @@ const RegistrationButton = styled(Button)`
   }
 `;
 
+const GoogleButton = styled.div`
+  /* margin-top: 20px; */
+  margin-left: 50px;
+  position: absolute;
+
+  @media screen and (min-width: 768px) {
+    margin-top: -44px;
+    margin-left: 398px;
+  }
+`;
+
 export {
   ContainerRegistration,
   TitleRegistration,
@@ -146,4 +157,5 @@ export {
   ButtonContainer,
   RegistrationButton,
   MessageError,
+  GoogleButton,
 };

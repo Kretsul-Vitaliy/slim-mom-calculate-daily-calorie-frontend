@@ -15,6 +15,7 @@ import {
   ButtonContainer,
   RegistrationButton,
   MessageError,
+  GoogleButton,
 } from './RegistrationForm.styled.jsx';
 import { useDispatch } from 'react-redux';
 import { register } from '../../redux/auth';
@@ -138,7 +139,9 @@ const RegistrationForm = () => {
           </RegistrationButton>
         </ButtonContainer>
       </form>
-      <AuthorizeGoogle />
+      <GoogleButton>
+        <AuthorizeGoogle />
+      </GoogleButton>
     </ContainerRegistration>
   );
 };
