@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.e4f45cbe.css",
-    "main.js": "/static/js/main.8cd1d0dc.js",
+    "main.js": "/static/js/main.10b4bbb1.js",
     "static/media/bg_descktop2x.png": "/static/media/bg_descktop2x.17660870316578c2d702.png",
     "static/media/bg_tablet2x.png": "/static/media/bg_tablet2x.1516c215353718615494.png",
     "static/media/Tetiana_Horban.jpg": "/static/media/Tetiana_Horban.e8dcea74823d456c60d7.jpg",
@@ -28,10 +28,10 @@
     "static/media/calendar.svg": "/static/media/calendar.9200047ae8484f890ceaec6183b5632e.svg",
     "static/media/getFetch.cjs": "/static/media/getFetch.c780682470504fffbd04.cjs",
     "main.e4f45cbe.css.map": "/static/css/main.e4f45cbe.css.map",
-    "main.8cd1d0dc.js.map": "/static/js/main.8cd1d0dc.js.map"
+    "main.10b4bbb1.js.map": "/static/js/main.10b4bbb1.js.map"
   },
   "entrypoints": [
     "static/css/main.e4f45cbe.css",
-    "static/js/main.8cd1d0dc.js"
+    "static/js/main.10b4bbb1.js"
   ]
 }
