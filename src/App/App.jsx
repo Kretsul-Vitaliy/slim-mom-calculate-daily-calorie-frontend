@@ -90,7 +90,7 @@ const App = () => {
               <Route
                 path="login"
                 element={
-                  <PublicRoute restricted redirectTo="/calculator">
+                  <PublicRoute restricted redirectTo="/diary">
                     <LoginPage />
                   </PublicRoute>
                 }
