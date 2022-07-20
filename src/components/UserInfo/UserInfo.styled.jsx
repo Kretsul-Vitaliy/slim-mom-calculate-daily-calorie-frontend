@@ -8,34 +8,34 @@ const UserInfoBlock = styled.div`
 `;
 
 const UserName = styled.p`
+  font-family: 'Gotham Pro';
   font-weight: 700;
   font-size: 14px;
-  line-height: 13px;
-  text-align: right;
+  line-height: 1;
   letter-spacing: 0.04em;
-
-  font-family: 'GothamPro';
-
+  text-transform: uppercase;
   color: ${props => props.theme.exitButtonColor};
+  @media screen and (min-width: 768px) {
+    line-height: 0.9;
+  }
 `;
 
 const ExitButton = styled.button`
   background-color: transparent;
   border: none;
-
   cursor: pointer;
-
-  font-family: 'GothamPro';
-
+  font-family: 'Gotham Pro';
   font-weight: 700;
   font-size: 14px;
-  line-height: 13px;
+  line-height: 1;
   letter-spacing: 0.04em;
-
+  text-transform: uppercase;
   color: ${props => props.theme.exitButtonColor};
-
+  @media screen and (min-width: 768px) {
+    line-height: 0.9;
+  }
+  color: ${props => props.theme.exitButtonColor};
   transition: var(--transition);
-
   &:hover {
     color: ${props => props.theme.exitButtonHoverColor};
   }

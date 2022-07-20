@@ -88,7 +88,14 @@ const LangButton = styled.button`
   border: none;
   background: transparent;
   color: ${props => props.theme.langButtonColor};
-  text-transform: capitalize;
+  font-family: 'Gotham Pro';
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: ${props => props.theme.langButtonColor};
+
   position: relative;
   transition: all 0.3s ease;
   width: 100%;
@@ -123,6 +130,9 @@ const LangButton = styled.button`
     width: 0%;
     pointer-events: none;
     opacity: 0;
+  }
+  @media screen and (min-width: 768px) {
+    line-height: 0.9;
   }
 `;
 
