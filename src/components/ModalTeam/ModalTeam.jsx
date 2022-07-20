@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { RiCloseFill } from 'react-icons/ri';
+// import { RiCloseFill } from 'react-icons/ri';
 import {
   ModalOverlay,
   ModalWrapper,
   ModalContainer,
-  ButtonClose,
+  // ButtonClose,
 } from './ModalTeam.styled';
 
 const modalRoot = document.querySelector('#modal');
