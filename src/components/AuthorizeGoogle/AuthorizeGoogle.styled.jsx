@@ -24,7 +24,6 @@ export const GoogleBtn = styled(Button)`
   margin-top: 20px;
   @media screen and (min-width: 768px) {
     margin-top: 0;
-    margin-left: 32px;
   }
 `;
 export const GoogleIcon = styled.img`
@@ -33,4 +32,11 @@ export const GoogleIcon = styled.img`
   height: 18px;
   width: 18px;
   margin-right: 2px;
+`;
+
+export const ButtonWrapper = styled.div`
+  max-width: 182px;
+  @media screen and (min-width: 768px) {
+    margin-left: 32px;
+  }
 `;
