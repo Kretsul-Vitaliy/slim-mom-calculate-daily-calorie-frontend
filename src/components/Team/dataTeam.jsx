@@ -70,7 +70,7 @@ const team = [
   },
   {
     id: 8,
-    fullName: 'Vlad Zamder',
+    fullName: 'Vladyslav Koval',
     position: 'Front-end',
     photo: `.${YakovHomylev}`,
     linkedIn: '#',
