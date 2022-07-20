@@ -32,7 +32,6 @@ const DiaryAddProductForm = ({
     product: yup
       .string()
       .typeError(t?.('dpf.productPlaceholder'))
-      .matches('^[A-Za-zА-Яа-яЁёІіЇїЄє%)(-. ]+$', t?.('dpf.productContain'))
       .required(t?.('auth.verReq')),
     grams: yup
       .number()
