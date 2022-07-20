@@ -38,10 +38,20 @@ const DiaryPage = () => {
   const handleOnChange = async () => {};
 
   useEffect(() => {
-    dispatch(getUserInfoCurrent(persistToken));
-  }, [dispatch, persistToken]);
+    isAuth &&
+      setTimeout(() => {
+        dispatch(getUserInfoCurrent(persistToken));
+      }, 500);
+  }, [dispatch, isAuth, persistToken]);
+
   useEffect(() => {
-    if (selectedProduct || gramsOfProducts || startDate || productsItem) {
+    if (
+      selectedProduct ||
+      gramsOfProducts ||
+      startDate ||
+      productsItem ||
+      dateNow.toLocaleDateString()
+    ) {
       isAuth &&
         setTimeout(() => {
           dispatch(getDay(day));
@@ -55,6 +65,7 @@ const DiaryPage = () => {
     selectedProduct,
     startDate,
     productsItem,
+    dateNow,
   ]);
 
   return (

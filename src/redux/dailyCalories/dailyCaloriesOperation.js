@@ -25,7 +25,7 @@ export const dailyCalories = values => async dispatch => {
 
 export const dailyCaloriesAuth = values => async (dispatch, getState) => {
   const state = getState();
-  const persistedToken = state.auth.token;
+  const persistedToken = state.auth.authData.token;
   if (!persistedToken) {
     return;
   }
