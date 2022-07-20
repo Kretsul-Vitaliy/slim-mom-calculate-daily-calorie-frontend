@@ -54,13 +54,13 @@ const SwitcherList = styled.div`
   }
   &.open {
     box-shadow: 0 4px 12px 0 rgb(0 0 0 / 10%);
-    background-color: #fff;
+    background-color: ${props => props.theme.langMenuColor};
     max-height: unset;
 
     &::before {
       height: 100%;
       box-shadow: 0 4px 12px 0 rgb(0 0 0 / 10%);
-      background-color: #fff;
+      background-color: ${props => props.theme.langMenuColor};
     }
 
     button {
