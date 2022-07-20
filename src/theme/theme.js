@@ -51,6 +51,7 @@ export const darkTheme = {
   //Colors for LanguageSelector
   langButtonColor: `${darckThemeTextColor}`, //(Line 89)
   langButtonHoverColor: 'var(--color-white)', //(Line 101)
+  langMenuColor: 'var(--text-secondary-color)',
 
   //Colors for UserInfo
   exitButtonColor: `${darckThemeTextColor}`,
@@ -113,6 +114,7 @@ export const lightTheme = {
   //Colors for LanguageSelector
   langButtonColor: 'var(--text-main-color)', //(Line 89)
   langButtonHoverColor: 'var(--extra-color)', //(Line 101)
+  langMenuColor: '#fff',
 
   //Colors for UserInfo
   exitButtonColor: 'var(--text-secondary-color);',
