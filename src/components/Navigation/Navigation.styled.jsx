@@ -38,10 +38,10 @@ const List = styled.ul`
 `;
 
 const Item = styled.li`
-  font-family: 'Verdana';
+  font-family: 'Gotham Pro';
   font-weight: 700;
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 14px;
+  line-height: 1;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--text-secondary-color);
@@ -49,13 +49,9 @@ const Item = styled.li`
     margin-bottom: 16px;
   }
   @media screen and (min-width: 768px) {
-    font-size: 24px;
-    line-height: 29px;
+    line-height: 0.9;
   }
   @media screen and (min-width: 1280px) {
-    font-family: 'Gotham Pro';
-    font-size: 14px;
-    line-height: 13px;
     &:not(:last-child) {
       margin-right: 16px;
     }
