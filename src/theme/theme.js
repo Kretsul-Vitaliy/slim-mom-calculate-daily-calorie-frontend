@@ -62,6 +62,10 @@ export const darkTheme = {
 
   // Colors for footer
   footerBorderdColor: 'var(--page-secondary-color)',
+
+  //Colors for RacionSideBar
+  // exitButtonColor: `${darckThemeTextColor}`,
+  // exitButtonHoverColor: 'var(--color-white)',
 };
 
 export const lightTheme = {
