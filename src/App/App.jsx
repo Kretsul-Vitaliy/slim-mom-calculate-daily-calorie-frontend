@@ -20,13 +20,7 @@ import { darkTheme, lightTheme } from '../theme/theme';
 //   SpanImgDark,
 // } from '../theme/SwitcherButton.Styled';
 
-import {
-  Header,
-  Loader,
-  BackgroundContainer,
-  Container,
-  Footer,
-} from '../components';
+import { Header, Loader, BackgroundContainer, Footer } from '../components';
 import {
   getIsAuthenticated,
   getIsUserRefreshToken,
