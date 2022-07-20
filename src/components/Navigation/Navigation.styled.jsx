@@ -52,6 +52,7 @@ const Item = styled.li`
     line-height: 0.9;
   }
   @media screen and (min-width: 1280px) {
+    margin-right: 100px;
     &:not(:last-child) {
       margin-right: 16px;
     }

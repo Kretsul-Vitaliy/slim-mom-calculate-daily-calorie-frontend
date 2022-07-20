@@ -19,13 +19,10 @@ export const NavlinkInfoStyled = styled(NavLink)`
 
 export const GoogleBtn = styled(Button)`
   margin-top: 20px;
-  margin-left: -90px;
-  position: absolute;
 
   @media screen and (min-width: 768px) {
-    margin-top: -44px;
-    /* margin-top: 0; */
-    margin-left: 428px;
+    margin-top: 0;
+    margin-left: 32px;
   }
 `;
 export const GoogleIcon = styled.img`
