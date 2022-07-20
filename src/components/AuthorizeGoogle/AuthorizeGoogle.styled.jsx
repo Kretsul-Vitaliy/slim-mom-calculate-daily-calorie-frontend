@@ -18,6 +18,9 @@ export const NavlinkInfoStyled = styled(NavLink)`
 `;
 
 export const GoogleBtn = styled(Button)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-top: 20px;
   @media screen and (min-width: 768px) {
     margin-top: 0;
@@ -29,4 +32,5 @@ export const GoogleIcon = styled.img`
   display: inline-block;
   height: 18px;
   width: 18px;
+  margin-right: 2px;
 `;

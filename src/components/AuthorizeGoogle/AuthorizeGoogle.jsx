@@ -9,7 +9,7 @@ const AuthorizeGoogle = () => {
         <a href="https://slimcalculatebackend.herokuapp.com/api/v1/auth/google">
           <GoogleBtn size="short">
             <GoogleIcon src={logo} alt="google" />
-            Google
+            <span>Google</span>
           </GoogleBtn>
         </a>
       </div>
