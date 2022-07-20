@@ -52,7 +52,7 @@ export const ButtonStyled = styled.button`
                 width:48px;
                 height:48px;
                 font-size: 30px;
-    line-height: 22px;`;
+                line-height: 22px;`;
       default:
         return `
             padding:13px 51px;

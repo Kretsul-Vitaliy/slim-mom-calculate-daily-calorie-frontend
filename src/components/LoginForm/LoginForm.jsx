@@ -13,6 +13,7 @@ import {
   StyledNavLink,
   ButtonText,
   MessageError,
+  Wrapper,
 } from './LoginForm.styled';
 
 export default function LoginForm() {
@@ -49,47 +50,49 @@ export default function LoginForm() {
   const { email, password } = formik.values;
 
   return (
-    <Form onSubmit={formik.handleSubmit}>
-      <InputBox name="email">
-        <Input
-          id="email"
-          name="email"
-          type="email"
-          onChange={formik.handleChange}
-          value={email}
-          autoComplete="off"
-          required
-        />
-        <Labels htmlFor="email">Email *</Labels>
-        {formik.touched.email && formik.errors.email ? (
-          <MessageError>{formik.errors.email}</MessageError>
-        ) : null}
-      </InputBox>
+    <Wrapper>
+      <Form onSubmit={formik.handleSubmit}>
+        <InputBox name="email">
+          <Input
+            id="email"
+            name="email"
+            type="email"
+            onChange={formik.handleChange}
+            value={email}
+            autoComplete="off"
+            required
+          />
+          <Labels htmlFor="email">Email *</Labels>
+          {formik.touched.email && formik.errors.email ? (
+            <MessageError>{formik.errors.email}</MessageError>
+          ) : null}
+        </InputBox>
 
-      <InputBox name="password">
-        <Input
-          id="password"
-          name="password"
-          type="password"
-          onChange={formik.handleChange}
-          value={password}
-          autoComplete="off"
-          required
-        />
-        <Labels htmlFor="password">{t?.('auth.password')} *</Labels>
-        {formik.touched.password && formik.errors.password ? (
-          <MessageError>{formik.errors.password}</MessageError>
-        ) : null}
-      </InputBox>
+        <InputBox name="password">
+          <Input
+            id="password"
+            name="password"
+            type="password"
+            onChange={formik.handleChange}
+            value={password}
+            autoComplete="off"
+            required
+          />
+          <Labels htmlFor="password">{t?.('auth.password')} *</Labels>
+          {formik.touched.password && formik.errors.password ? (
+            <MessageError>{formik.errors.password}</MessageError>
+          ) : null}
+        </InputBox>
 
-      <ButtonsWrapper>
-        <Button type="submit" disabled={!email || !password} size="short">
-          <ButtonText>{t?.('auth.login')}</ButtonText>
-        </Button>
+        <ButtonsWrapper>
+          <Button type="submit" disabled={!email || !password} size="short">
+            <ButtonText>{t?.('auth.login')}</ButtonText>
+          </Button>
 
-        <StyledNavLink to="/signup">{t?.('auth.register')}</StyledNavLink>
-        <AuthorizeGoogle />
-      </ButtonsWrapper>
-    </Form>
+          <StyledNavLink to="/signup">{t?.('auth.register')}</StyledNavLink>
+        </ButtonsWrapper>
+      </Form>
+      <AuthorizeGoogle />
+    </Wrapper>
   );
 }

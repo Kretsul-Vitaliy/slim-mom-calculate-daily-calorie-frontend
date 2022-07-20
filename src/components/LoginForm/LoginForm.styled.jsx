@@ -72,22 +72,23 @@ export const Input = styled.input`
 export const ButtonsWrapper = styled.div`
   display: flex;
   align-items: center;
+  flex-direction: column;
+  & button:first-child {
+    margin-bottom: 20px;
+  }
 
   @media screen and (max-width: 767px) {
-    flex-direction: column;
     max-width: 280px;
     margin: auto;
-    & button:first-child {
-      margin-bottom: 20px;
-    }
   }
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
-    width: 700px;
+    max-width: 396px;
 
     & button:first-child {
       margin-right: 32px;
+      margin-bottom: 0;
     }
   }
 `;
@@ -130,4 +131,14 @@ export const MessageError = styled.div`
   line-height: 1.21;
   letter-spacing: 0.04em;
   color: ${props => props.theme.MessageErrorColor};
+`;
+
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    align-items: flex-end;
+  }
 `;
