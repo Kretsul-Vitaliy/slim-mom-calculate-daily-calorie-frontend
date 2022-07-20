@@ -61,19 +61,21 @@ const DiaryAddProductForm = ({
     if (formik.values.product.length > 2) {
       getDataProducts(formik.values.product.toLowerCase())
         .then(values => {
-          if (values.data.total === 0) {
-            toast.error(t?.('dpf.noInData'), {
-              position: 'top-right',
-              autoClose: 5000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-            });
+          if (formik.values.product.length < 10) {
+            if (values.data.total === 0) {
+              toast.error(t?.('dpf.noInData'), {
+                position: 'top-right',
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+              });
+            }
+            console.log(values);
+            setPossibleProducts(values.data.products);
           }
-          console.log(values);
-          setPossibleProducts(values.data.products);
         })
         .catch(error => console.log(error));
     }
