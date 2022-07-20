@@ -13,16 +13,19 @@ const Title = styled.h2`
   font-size: 18px;
   line-height: 1.4;
   color: var(--text-main-color);
-  margin-top: 0;
   margin-bottom: 40px;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
+  margin-top: 32px;
   @media only screen and (min-width: 769px) {
     font-size: 26px;
     line-height: 1.2;
     text-align: center;
     margin-bottom: 20px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-top: 140px;
   }
 `;
 const Text = styled.p`
